@@ -3,6 +3,21 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+    <style>
+        table {
+            font-family: arial, sans-serif;
+            border-collapse:collapse;
+            width: 100%;
+        }
+        td, th {
+            border: 1px solid #dddddd;
+            text-align: center;
+            padding: 8px;
+        }
+        tr:nth-child(odd) {
+            background-color: #cccccc;
+        }
+    </style>
 </head>
 <body>
      <div>
@@ -64,7 +79,37 @@
              </div><br>
              <div>
                  Please rate your level of agreement with the following statement.<br>
-
+                 <table>
+                     <tr>
+                         <th></th>
+                         <th>Strongly Disagree</th>
+                         <th>Disagree</th>
+                         <th>Agree</th>
+                         <th>Strongly Agree</th>
+                     </tr>
+                     <tr>
+                         <th>Our products are piced fairly</th>
+                         <th><input name="agreement1" type="radio"></th>
+                         <th><input name="agreement1" type="radio"></th>
+                         <th><input name="agreement1" type="radio"></th>
+                         <th><input name="agreement1" type="radio"></th>
+                     </tr>
+                     <tr>
+                         <th>Our products are high quality</th>
+                         <th><input name="agreement2" type="radio"></th>
+                         <th><input name="agreement2" type="radio"></th>
+                         <th><input name="agreement2" type="radio"></th>
+                         <th><input name="agreement2" type="radio"></th>
+                     </tr>
+                     <tr>
+                         <th>You would recommend our product to a friend or coworker </th>
+                         <th><input name="agreement" type="radio"></th>
+                         <th><input name="agreement" type="radio"></th>
+                         <th><input name="agreement" type="radio"></th>
+                         <th><input name="agreement" type="radio"></th>
+                     </tr>
+                 </table>
+                 <div><input type="submit" style="f" value="submit"></div>
              </div>
          </form>
      </div>
