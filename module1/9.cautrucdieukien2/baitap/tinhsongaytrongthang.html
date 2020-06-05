@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div onclick="songay()">
+    <input id="tienhai"  type="number" >
+    <input type="button" value="tính số ngày" >
+</div>
+<p id="ketqua"></p>
+<p id="ketqua1"></p>
+<p id="ketqua2"></p>
+    <script>
+        function songay() {
+            let thang=parseInt(document.getElementById("tienhai").value);
+            switch (thang) {
+              case 1:
+              case 3:
+              case 5:
+              case 7:
+              case 8:
+              case 10:
+              case 12:
+                 document.getElementById("ketqua").innerText="Tháng có 31 ngày";
+               break;
+               case 2:
+
+                   document.getElementById("ketqua1").innerText=  "Tháng 2 có 28 hoặc 29 ngày";
+                  break;
+               case 4:
+               case 6:
+               case 9:
+               case 11:
+                   document.getElementById("ketqua2").innerText="tháng có 30 ngày";
+
+            }
+        }
+
+    </script>
+</body>
+</html>
