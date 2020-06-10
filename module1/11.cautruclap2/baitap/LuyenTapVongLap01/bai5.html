@@ -2,9 +2,20 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>$Title$</title>
+    <title>Title</title>
 </head>
 <body>
-$END$
+<script>
+    let f0=0;
+    let f1=1;
+    let f2;
+    for (let i=1;i<19;i++){
+        f2=f1+f0;
+        ketQua=f2++;
+        f0=f1;
+        f1=f2;
+    }
+    alert("tổng các số :"+(0+1+ketQua));
+</script>
 </body>
 </html>

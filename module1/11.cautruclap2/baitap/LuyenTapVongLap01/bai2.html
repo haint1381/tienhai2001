@@ -2,9 +2,25 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>$Title$</title>
+    <title>Title</title>
 </head>
 <body>
-$END$
+<script>
+    while (true) {
+        let nhietDo = parseFloat(prompt("nhiệt độ hiện tại :"));
+        if (nhietDo > 100) {
+            alert("giảm nhiệt độ");
+
+        } else if (nhietDo < 20) {
+            alert("tăng nhiệt độ");
+
+        } else if (20 <= nhietDo <= 100) {
+            alert("ok rồi");
+            break;
+        }
+    }
+
+
+</script>
 </body>
 </html>
