@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h3>các phần tử lúc đầu:1, 4, 7, 3, 9, 8, 6, 5, 2</h3>
+<input type="button" value="Xếp Hộ" onclick="xep()">
+<h3 id="giamDan"></h3>
+<script>
+    function xep() {
+
+        let mang = [1, 4, 7, 3, 9, 8, 6, 5, 2];
+           document.getElementById("giamDan").innerHTML=mang.sort(function(a, b){return b - a});
+    }
+</script>
+</body>
+</html>
