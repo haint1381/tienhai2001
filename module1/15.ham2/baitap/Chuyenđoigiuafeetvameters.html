@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h3>Chuyển đổi từ feet sang meters:<input type="number" id="feet"><input type="button" onclick="chuyenmeters()" value="CHUYỂN HỘ"><p id="chuyen1"></p></h3>
+<h3>Chuyển đổi từ meters sang feet:<input type="number" id="meter"><input type="button" onclick="chuyenfeet()" value="CHUYỂN HỘ"><p id="chuyen2"></p></h3>
+<script>
+function chuyenmeters() {
+     feet=document.getElementById("feet").value;
+document.getElementById("chuyen1").innerHTML=0.305 * feet;
+}
+function chuyenfeet() {
+     meter=document.getElementById("meter").value;
+document.getElementById("chuyen2").innerHTML=3.279 * meter;
+}
+</script>
+</body>
+</html>

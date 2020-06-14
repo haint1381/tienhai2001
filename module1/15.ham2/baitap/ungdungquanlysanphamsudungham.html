@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form>
+    <div>
+        <h3>Add New Product</h3>
+        <input type="text" id="sanpham"><input style="background-color: chartreuse" type="button"
+                                               onclick="themSanPham()" value="Add">
+    </div>
+    <div>
+        <h3>Display All Product</h3>
+        <h4>Product Name</h4>
+    </div>
+    <div onclick="sanpham1">
+        <h4>Sony Xperia</h4>
+        <input type="button" value="Edit" style="background-color: chartreuse">
+        <input type="button" value="Delete" style="background-color: chartreuse">
+        <h5 id="sanphammoi1"></h5>
+    </div>
+    <div>
+        <h4>Samsung Galaxy</h4>
+        <input type="button" value="Edit" style="background-color: chartreuse">
+        <input type="button" value="Delete" style="background-color: chartreuse">
+        <h5 id="sanphammoi2"></h5>
+    </div>
+    <div>
+        <h4>Nokia 6</h4>
+        <input type="button" value="Edit" style="background-color: chartreuse">
+        <input type="button" value="Delete" style="background-color: chartreuse">
+        <h5 id="sanphammoi3"></h5>
+    </div>
+        <div id="sanphammoi">
+        </div>
+</form>
+<script>
+    function themSanPham() {
+        let mangSanPham = ["Sony Xperia", "Samsung Galaxy", "Nokia 6"];
+        let a = document.getElementById("sanpham").value;
+        let b=document
+        mangSanPham.push("" + a);
+        document.getElementById("sanphammoi").innerHTML = (mangSanPham);
+    }
+    function sanpham1() {
+
+    }
+</script>
+</body>
+</html>

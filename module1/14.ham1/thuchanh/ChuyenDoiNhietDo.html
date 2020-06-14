@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form>
+    <p>
+        <label>Đổi Nhiệt Độ:</label>
+        <input  type="number" id="hoangcute" >
+        <input type="button" id="haidaptroai" value="ĐỔI HỘ" onclick="chuyenNhietDo()">
+    </p>
+    <p>Đáp án: <span id="nhietdo"></span></p>
+</form>
+<script>
+
+    function chuyenNhietDo() {
+        nhietDo= document.getElementById("hoangcute").value;
+        document.getElementById("nhietdo").innerHTML = ((nhietDo-32) / 1.8);
+    }
+
+</script>
+</body>
+</html>
