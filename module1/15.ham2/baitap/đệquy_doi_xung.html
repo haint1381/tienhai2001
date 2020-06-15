@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+
+    let chuoi=prompt("nhập vào 1 chuỗi:");
+    function kiemTraDoiXung(str) {
+        let dau=0;
+        let cuoi=str.length-1;
+        if (str[0]!=str[cuoi]){
+            return false
+        }else if (dau>=cuoi){
+           return true
+        } else
+           return  kiemTraDoiXung(str.slice(1,str.length-1))
+    }
+    if (kiemTraDoiXung(chuoi)){
+        alert(chuoi+"đối xứng")
+    }else alert(chuoi+"không đối xứng")
+</script>
+</body>
+</html>

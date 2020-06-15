@@ -5,47 +5,55 @@
     <title>Title</title>
 </head>
 <body>
-<form>
-    <div>
-        <h3>Add New Product</h3>
-        <input type="text" id="sanpham"><input style="background-color: chartreuse" type="button"
-                                               onclick="themSanPham()" value="Add">
-    </div>
-    <div>
-        <h3>Display All Product</h3>
-        <h4>Product Name</h4>
-    </div>
-    <div onclick="sanpham1">
-        <h4>Sony Xperia</h4>
-        <input type="button" value="Edit" style="background-color: chartreuse">
-        <input type="button" value="Delete" style="background-color: chartreuse">
-        <h5 id="sanphammoi1"></h5>
-    </div>
-    <div>
-        <h4>Samsung Galaxy</h4>
-        <input type="button" value="Edit" style="background-color: chartreuse">
-        <input type="button" value="Delete" style="background-color: chartreuse">
-        <h5 id="sanphammoi2"></h5>
-    </div>
-    <div>
-        <h4>Nokia 6</h4>
-        <input type="button" value="Edit" style="background-color: chartreuse">
-        <input type="button" value="Delete" style="background-color: chartreuse">
-        <h5 id="sanphammoi3"></h5>
-    </div>
-        <div id="sanphammoi">
-        </div>
-</form>
+<input type="text" id="them"><input type="button" value="thêm" id="themSanPham" onclick="them1SanPham()">
+<p id="hienthi"></p>
 <script>
-    function themSanPham() {
-        let mangSanPham = ["Sony Xperia", "Samsung Galaxy", "Nokia 6"];
-        let a = document.getElementById("sanpham").value;
-        let b=document
-        mangSanPham.push("" + a);
-        document.getElementById("sanphammoi").innerHTML = (mangSanPham);
-    }
-    function sanpham1() {
+    let cacSanPham = ["nokia", "xiaomi", "samsung"];
+    hienThiSanPham()
 
+    function hienThiSanPham() {
+        let mucSanPham = "<table border=\"1\">\n" +
+            "    <tr>\n" +
+            "        <th>số thứ tự</th>\n" +
+            "        <th>tên sản phẩm</th>\n" +
+            "        <th>sửa</th>\n" +
+            "        <th>xóa</th>\n" +
+            "    </tr>\n"
+        for (let i = 0; i < cacSanPham.length; i++) {
+            mucSanPham += "  <tr>\n" +
+                "        <td>" + (i + 1) + "</td>\n" +
+                "        <td>" + cacSanPham[i] + "</td>\n" +
+                "        <td><input type='button' value='sửa' onclick='suaSanPham(" + i + ")' id='xoa'></td>\n" +
+                "        <td><input type='button' value='xóa' onclick='xoaSanPham(" + i + ")'></td>\n" +
+                "    </tr>"
+        }
+        mucSanPham += "</table>\n"
+        document.getElementById("hienthi").innerHTML = mucSanPham
+    }
+
+    function suaSanPham(i) {
+        let tenSanPhamMoi = prompt("nhập tên sản phẩm mới vào:")
+        if (tenSanPhamMoi == "" || tenSanPhamMoi == null) {
+            alert("Tên sản phẩm bạn nhập không hợp lệ")
+        } else {
+            cacSanPham[i] = tenSanPhamMoi;
+        }
+        hienThiSanPham()
+    }
+
+    function xoaSanPham(i) {
+        cacSanPham.splice(i, 1)
+        hienThiSanPham()
+    }
+    function them1SanPham() {
+        let sanPhamMoi = document.getElementById("them").value;
+        if(sanPhamMoi=== ""){
+            alert("tên không hợp lệ")
+        }else {
+            cacSanPham.push(sanPhamMoi);
+            document.getElementById("them").value = "";
+        }
+    hienThiSanPham()
     }
 </script>
 </body>

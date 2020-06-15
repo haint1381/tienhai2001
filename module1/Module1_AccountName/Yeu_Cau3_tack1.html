@@ -6,17 +6,17 @@
 </head>
 <body>
 <script>
-    let tenname="";
+    let tenname = "";
     let tenKhachHang = prompt("họ và tên");
-    tenKhachHang=tenKhachHang.trim().toLowerCase();
-    for (let i=0;i<tenKhachHang.length;i++){
-        if(tenKhachHang.charAt(i)===" "&& tenKhachHang.charAt(i)===" "){
+    tenKhachHang = tenKhachHang.trim().toLowerCase();
+    for (let i = 0; i < tenKhachHang.length; i++) {
+        if (tenKhachHang.charAt(i) === " " && tenKhachHang.charAt(i) === " ") {
             continue;
         }
-        if (i===0 && tenKhachHang.charAt(i-1)===" "){
-            tenname+=tenKhachHang.toUpperCase()
+        if (i === 0 && tenKhachHang.charAt(i - 1) === " ") {
+            tenname += tenKhachHang.toUpperCase()
         }
-        tenname+=tenKhachHang.charAt(i)
+        tenname += tenKhachHang.charAt(i)
     }
     let check1 = false;
     do {
@@ -34,29 +34,25 @@
     let check2 = false;
     do {
         let ngaySinh = prompt("ngày tháng năm sinh");
-        let dem = 0;
-        let namHienTai = new Date().getFullYear();
-        let namSinh =new Date(ngaySinh).getFullYear().value;
-        let thangSinh =new Date(ngaySinh).getMonth().value;
-        let sinhNgay =new Date(ngaySinh).getDate().value;
-        if (namSinh > namHienTai && ) {
-            alert("ngày sinh không hợp lệ");
-            continue;
-        }
-
-        if (ngaySinh.length !== 10) {
-            alert("ngày sinh không hợp lệ");
-            continue;
-        }
-        for (let k = 0; k <= ngaySinh.length; k++) {
-            if (ngaySinh.charAt(k) === "/") {
-                dem = k;
+        if (ngaySinh.charAt(3)==="/"&& ngaySinh.charAt(5)==="/") {
+            let namHienTai = new Date().getFullYear();
+            let namSinh = parseInt(new Date(ngaySinh).getFullYear().value);
+            let nam = ngaySinh.substring(6,10);
+            let thang = ngaySinh.substring(3,5);
+            let ngay = ngaySinh.substring(0,2);
+            if (!isNaN(nam) && !isNaN(thang) && !isNaN(ngay)) {
+                ngay = Number.parseFloat(ngay);
+                thang = Number.parseFloat(thang);
+                nam = Number.parseFloat(nam);
+                if (Number.isInteger(nam) && Number.isInteger(thang) && Number.isInteger(ngay)) {
+                    if (thang < 13 && ngay < 32 && namSinh<namHienTai) {
+                        check2 = true;
+                    }
+                }
             }
+        } if (!check2){
+            alert("ngày sinh không hợp lệ")
         }
-        if (dem != 3 && dem != 5) {
-            alert("ngày sinh không hợp lệ");
-            continue;
-        } else check2 = true;
     } while (!check2);
     check2 = false;
     let check = false;
@@ -81,48 +77,48 @@
     check = false;
     let diaChi = prompt("địa chỉ");
     let loaiCustomer = prompt("loại customer");
-    let check3=false;
+    let check3 = false;
     do {
         let giamGia = prompt("giảm giá");
-        if (giamGia!=parseInt(giamGia)){
+        if (giamGia != parseInt(giamGia)) {
             alert("giảm giá nhập không hợp lệ");
             continue
         }
-        if (giamGia<0){
+        if (giamGia < 0) {
             alert("giảm giá nhập không hợp lệ");
             continue
-        }else check3=true
+        } else check3 = true
 
-    }while (!check3);
-    check3=false;
-    let check4=false;
+    } while (!check3);
+    check3 = false;
+    let check4 = false;
     do {
         let soLuongDiKem = prompt("số lượng đi kèm");
-        if (soLuongDiKem!=parseInt(soLuongDiKem)){
+        if (soLuongDiKem != parseInt(soLuongDiKem)) {
             alert("số lượng đi kèm nhập không hợp lệ");
             continue
         }
-        if (soLuongDiKem<0){
+        if (soLuongDiKem < 0) {
             alert("số lượng đi kèm nhập không hợp lệ");
             continue
-        }else check4=true
+        } else check4 = true
 
-    }while (!check4);
-    check4=false;
-    let check5=false;
+    } while (!check4);
+    check4 = false;
+    let check5 = false;
     do {
-        let soNgayThue =prompt("Số ngày thuê");
-        if (soNgayThue!=parseInt(soNgayThue)){
+        let soNgayThue = prompt("Số ngày thuê");
+        if (soNgayThue != parseInt(soNgayThue)) {
             alert("Số ngày thuê nhập không hợp lệ");
             continue
         }
-        if (soNgayThue<0){
+        if (soNgayThue < 0) {
             alert("Số ngày thuê nhập không hợp lệ");
             continue
-        }else check5=true
+        } else check5 = true
 
-    }while (!check5);
-    check5=false;
+    } while (!check5);
+    check5 = false;
     let loaiDichVu = prompt("loại dịch vụ", "");
     let loaiPhongThue = prompt("loại phòng thuê");
 
