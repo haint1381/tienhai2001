@@ -14,13 +14,16 @@
         for (let i = 0; i < mangKyTu.length; i++) {
             if (kyTuCanTim === mangKyTu[i]) {
                 dem++;
-                check=true
-            }
+                check=true;
+                continue;
+            } else check=false;
         }
-        if (check){
-            return "ký tự này có   "+"số ký tự đó lặp lại là  "+dem
-        } return "không có ký tự này"
+        if (check) {
+            return "ký tự này có   " + "số ký tự đó lặp lại là  " + dem;
+        }
+        return "không có ký tự này"
     }
+
     alert(timKyTu())
 </script>
 </body>

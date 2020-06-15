@@ -37,7 +37,9 @@
         let dem = 0;
         let namHienTai = new Date().getFullYear();
         let namSinh =new Date(ngaySinh).getFullYear().value;
-        if (namSinh > namHienTai) {
+        let thangSinh =new Date(ngaySinh).getMonth().value;
+        let sinhNgay =new Date(ngaySinh).getDate().value;
+        if (namSinh > namHienTai && ) {
             alert("ngày sinh không hợp lệ");
             continue;
         }
