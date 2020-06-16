@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let tenCustomer = [];
+    while (true) {
+        let choose = parseInt(prompt("1.Thêm mới Customer " + "\n" + "2.Xóa Customer"));
+        switch (choose) {
+            case 1: {
+                let soLuongCustomer = parseInt(prompt("Số lượng customer bạn muốn thêm vào:")).value;
+                for (let i = 0; i < soLuongCustomer; i++) {
+                    let them = prompt("nhập tên customer:" + (i + 1));
+                    tenCustomer.push(them);
+                }
+                tenCustomer.sort();
+                let them = "";
+                for (let j = 0; j < tenCustomer.length; j++) {
+                    them += (j + 1) + "." + tenCustomer[j] + "\n"
+                }
+                alert(them);
+                break;
+            }
+            case 2: {
+                let nameCustomer = prompt("loại customer bạn cần xóa ");
+                for (let i = 0; i < tenCustomer.length; i++) {
+                    if (nameCustomer == tenCustomer[i]) {
+                        tenCustomer.splice(i, 1)
+                        check = true;
+                    }else check=false;
+                }
+                if (!check) {
+                    alert("không có trong mục");
+                }
+                let them = "";
+                for (let j = 0; j < tenCustomer.length; j++) {
+                    them += (j + 1) + "." + tenCustomer[j] + "\n"
+                }
+                alert(them);
+                break;
+            }
+            default: {
+                alert('nhập kg hợp lệ')
+            }
+        }
+    }
+
+</script>
+</body>
+</html>
