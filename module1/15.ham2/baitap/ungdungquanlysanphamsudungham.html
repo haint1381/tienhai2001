@@ -9,7 +9,7 @@
 <p id="hienthi"></p>
 <script>
     let cacSanPham = ["nokia", "xiaomi", "samsung"];
-    hienThiSanPham()
+    hienThiSanPham();
 
     function hienThiSanPham() {
         let mucSanPham = "<table border=\"1\">\n" +
@@ -18,7 +18,7 @@
             "        <th>tên sản phẩm</th>\n" +
             "        <th>sửa</th>\n" +
             "        <th>xóa</th>\n" +
-            "    </tr>\n"
+            "    </tr>\n";
         for (let i = 0; i < cacSanPham.length; i++) {
             mucSanPham += "  <tr>\n" +
                 "        <td>" + (i + 1) + "</td>\n" +
@@ -27,7 +27,7 @@
                 "        <td><input type='button' value='xóa' onclick='xoaSanPham(" + i + ")'></td>\n" +
                 "    </tr>"
         }
-        mucSanPham += "</table>\n"
+        mucSanPham += "</table>\n";
         document.getElementById("hienthi").innerHTML = mucSanPham
     }
 
@@ -42,7 +42,7 @@
     }
 
     function xoaSanPham(i) {
-        cacSanPham.splice(i, 1)
+        cacSanPham.splice(i, 1);
         hienThiSanPham()
     }
     function them1SanPham() {

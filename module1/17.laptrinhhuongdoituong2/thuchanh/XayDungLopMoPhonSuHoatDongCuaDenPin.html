@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    class PinDen {
+        constructor(nangluongpin) {
+            this.nangluongpin = nangluongpin;
+        }
+
+        setNangLuongPin(nangluongpin) {
+            this.nangluongpin = nangluongpin;
+        }
+
+        getNangLuongPin() {
+            return this.nangluongpin
+        }
+    }
+
+    class DenPin extends PinDen {
+        constructor(pinden, nangluongpin) {
+            super(nangluongpin);
+            this.pinden = pinden;
+        }
+
+        setPinDen(pinden) {
+            this.pinden = pinden;
+        }
+
+        getThongTinPin() {
+            return this.pinden.getNangLuongPin()
+        }
+
+        getThapSang() {
+            if (this.trangthaipin) {
+                alert("đèn bật")
+            } else {
+               alert("đèn tắt")
+            }
+
+        }
+
+        getBatDen() {
+            this.trangthaipin = true;
+        }
+
+        getTatDen() {
+            this.trangthaipin = false;
+        }
+    }
+
+    let pinDen = new PinDen();
+    pinDen.setNangLuongPin(parseInt(prompt("nhập năng lượng pin")));
+    nangLuong = pinDen.getNangLuongPin();
+
+    let denPin = new DenPin();
+    denPin.setPinDen(pinDen);
+
+    document.write("Thông Tin Pin:" + denPin.getThongTinPin() + "<br/>");
+    denPin.getThapSang()
+
+    document.write("Bật đèn:<br/>");
+    denPin.getBatDen();
+    denPin.getThapSang();
+
+   pinDen.setNangLuongPin(parseInt(prompt("nhập năng lượng pin")));
+    nangLuong = pinDen.getNangLuongPin();
+    document.write("Thông Tin pin:" + denPin.getThongTinPin() + "<br/>");
+    denPin.getThapSang()
+
+    document.write("Đèn Tắt;<br/>");
+    denPin.getTatDen();
+    denPin.getThapSang()
+
+</script>
+</body>
+</html>
