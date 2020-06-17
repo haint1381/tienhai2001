@@ -6,35 +6,34 @@
 </head>
 <body>
 <script>
-    class PinDen {
-        constructor(nangluongpin) {
-            this.nangluongpin = nangluongpin;
+    class Battery {
+        constructor(energy) {
+            this.energy = energy;
         }
 
-        setNangLuongPin(nangluongpin) {
-            this.nangluongpin = nangluongpin;
+        setEnergy(energy) {
+            this.energy= energy;
         }
 
-        getNangLuongPin() {
-            return this.nangluongpin
+        getEnergy() {
+            return this.energy
         }
     }
 
-    class DenPin extends PinDen {
-        constructor(pinden, nangluongpin) {
-            super(nangluongpin);
-            this.pinden = pinden;
+    class FlashLamp {
+        constructor(Battery) {
+            this.Battery = Battery;
         }
 
-        setPinDen(pinden) {
-            this.pinden = pinden;
+        setBattery(Battery) {
+            this.Battery=Battery;
         }
 
-        getThongTinPin() {
-            return this.pinden.getNangLuongPin()
+        getBatteryInfo() {
+            return this.Battery.getEnergy();
         }
 
-        getThapSang() {
+        light() {
             if (this.trangthaipin) {
                 alert("đèn bật")
             } else {
@@ -43,37 +42,29 @@
 
         }
 
-        getBatDen() {
-            this.trangthaipin = true;
+        turnOn() {
+         this.trangthaipin = true;
         }
 
-        getTatDen() {
+        turnOff() {
             this.trangthaipin = false;
         }
     }
 
-    let pinDen = new PinDen();
-    pinDen.setNangLuongPin(parseInt(prompt("nhập năng lượng pin")));
-    nangLuong = pinDen.getNangLuongPin();
+    let battery1= new Battery();
+    battery1. setEnergy(parseInt(prompt("nhập năng lượng pin")));
 
-    let denPin = new DenPin();
-    denPin.setPinDen(pinDen);
+    energy =  battery1.getEnergy();
+    let flashLamp1 = new FlashLamp;
+    flashLamp1. setBattery(battery1);
 
-    document.write("Thông Tin Pin:" + denPin.getThongTinPin() + "<br/>");
-    denPin.getThapSang()
-
-    document.write("Bật đèn:<br/>");
-    denPin.getBatDen();
-    denPin.getThapSang();
-
-   pinDen.setNangLuongPin(parseInt(prompt("nhập năng lượng pin")));
-    nangLuong = pinDen.getNangLuongPin();
-    document.write("Thông Tin pin:" + denPin.getThongTinPin() + "<br/>");
-    denPin.getThapSang()
-
-    document.write("Đèn Tắt;<br/>");
-    denPin.getTatDen();
-    denPin.getThapSang()
+    alert("Thông Tin Pin:" + flashLamp1.getBatteryInfo());
+    if (energy>0){
+        flashLamp1.turnOn()
+        flashLamp1.light()
+    }else
+    flashLamp1.turnOff()
+    flashLamp1.light();
 
 </script>
 </body>
