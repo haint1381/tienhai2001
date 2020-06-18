@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let arrListCustomers = ["Diamond", "Platinum", "Gold", "Silver", "Member"];
+    let soLuong;
+
+    let tenKhachHang = "hai";
+    let soCMND = "123456";
+    let ngaySinh = "22/09/2001";
+    let email = 'acdjnsab@gmail.com';
+    let diaChi = "Đà Nẵng";
+    let loaiCustomer = "Gold";
+    let giamGia = 10;
+    let soLuongDiKem = 3;
+    let soNgayThue = 3;
+    let loaiDichVu = "Villa";
+    let loaiPhongThue = "vip";
+
+    let chonMucEidt;
+
+    let nameCustumer;
+
+    displayMainMenu();
+
+    function displayMainMenu() {
+        while (true) {
+            choose = parseInt(prompt("1.Add New Customer" + "\n" +
+                "2.Display Information Customer" + "\n" +
+                "3.Edit Information Customer" + "\n" +
+                "4.Delete Customer" + "\n" +
+                "5.Exit."));
+            switch (choose) {
+                case 1: {
+                    addNewCustomer()
+
+                    function addNewCustomer() {
+                        do {
+                            soLuong = parseInt(prompt("Số lượng customer bạn muốn thêm vào:"));
+                        } while (isNaN(soLuong) || soLuong < 0);
+
+                        for (let i = 0; i < soLuong; i++) {
+                            them = prompt("nhập tên customer:" + (i + 1));
+                            arrListCustomers.push(them);
+                        }
+                        alert(arrListCustomers)
+                    }
+                }
+                    break;
+                case 2: {
+                    displayCustomers();
+
+                    function displayCustomers() {
+
+                        num = parseInt(prompt("1.Add New Customer" + "\n" +
+                            "2.Black"))
+                        switch (num) {
+                            case 1: {
+                                displayInfomationCustomer();
+
+                                function displayInfomationCustomer() {
+                                    alert("1.họ và tên:  " + tenKhachHang
+                                        + "\n2.số cmnd:  " + soCMND
+                                        + "\n3.ngày tháng năm sinh:  " + ngaySinh
+                                        + "\n4.email:  " + email
+                                        + "\n5.địa chỉ:  " + diaChi
+                                        + "\n6.loại customer:  " + loaiCustomer
+                                        + "\n7.giảm giá:  " + giamGia
+                                        + "\n8.số lượng đi kèm:  " + soLuongDiKem
+                                        + "\n9.số ngày thuê:  " + soNgayThue
+                                        + "\n10.loại dịch vụ:  " + loaiDichVu
+                                        + "\n11.loại phòng thuê:  " + loaiPhongThue);
+                                }
+                            }
+                                break;
+                            case 2: {
+                                alert("Trở lại");
+                                break;
+                            }
+                            default: {
+                                alert("lựa chọn không hợp lệ")
+                            }
+                        }
+
+
+                    }
+                }
+                    break;
+                case 3: {
+                    chonMucEidt = parseInt(prompt("1.Họ và tên:" + tenKhachHang
+                        + "\n 2.Số cmnd:" + soCMND
+                        + "\n 3.Ngày tháng năm sinh:" + ngaySinh
+                        + "\n 3.Email:" + email
+                        + "\n 4.Địa chỉ:" + diaChi
+                        + "\n 5.Loại customer:" + loaiCustomer
+                        + "\n 6.Giảm giá:" + giamGia
+                        + "\n 7.Số lượng đi kèm:" + soLuongDiKem
+                        + "\n 8.Số ngày thuê:" + soNgayThue
+                        + "\n 9.Loại dịch vụ:" + loaiDichVu
+                        + "\n 10.Loại phòng thuê:" + loaiPhongThue));
+                    switch (chonMucEidt) {
+                        case 1:
+                            tenKhachHang = prompt("Nhập tên mới:");
+                            break;
+                        case 2:
+                            soCMND = prompt("Nhập số cmnd");
+                            break;
+                        case 3:
+                            ngaySinh = prompt("Nhập ngày sinh mới:");
+                            break;
+                        case 4:
+                            email = prompt("Nhập email mới:");
+                            break;
+                        case 5:
+                            diaChi = prompt("Nhập địa chỉ mới:");
+                            break;
+                        case 6:
+                            loaiCustomer = prompt("loại customer:");
+                            break;
+                        case 7:
+                            giamGia = prompt("giảm giá:");
+                            break;
+                        case 8:
+                            soLuongDiKem = prompt("số lượng đi kèm:");
+                            break;
+                        case 9:
+                            soNgayThue = prompt("số ngày thuê:");
+                            break;
+                        case 10:
+                            loaiDichVu = prompt("loại dịch vụ:");
+                            break;
+                        case 11:
+                            loaiPhongThue = prompt("loại phòng thuê:");
+                            break;
+                        default: {
+                            alert("Failed");
+                        }
+                    }
+                    alert("1.họ và tên:  " + tenKhachHang
+                        + "\n 2.số cmnd:  " + soCMND
+                        + "\n 3.ngày tháng năm sinh:  " + ngaySinh
+                        + "\n 4.email:  " + email
+                        + "\n 5.địa chỉ:  " + diaChi
+                        + "\n 6.loại customer:  " + loaiCustomer
+                        + "\n 7.giảm giá:  " + giamGia
+                        + "\n 8.số lượng đi kèm:  " + soLuongDiKem
+                        + "\n 9.số ngày thuê:  " + soNgayThue
+                        + "\n 10.loại dịch vụ:  " + loaiDichVu
+                        + "\n 11.loại phòng thuê:  " + loaiPhongThue);
+                    break;
+                }
+                default: {
+                    alert("lựa chọn không hợp lệ ")
+                }
+                    break;
+                case 4: {
+                        do {
+                            nameCustumer = prompt("Loại customer bạn cần xóa: ");
+                        } while (!isNaN(nameCustumer));
+
+                        for (let i = 0; i < arrListCustomers.length; i++) {
+                            if (arrListCustomers[i] === nameCustumer) {
+                                arrListCustomers.splice(i, 1)
+                                check=true;
+                            } 
+                        }
+                        if(check===true){
+                            alert(arrListCustomers)
+                        }else alert("loại customer không có trong danh sách")
+                }
+                    break;
+                case 5: {
+                    alert("Exit")
+
+                }
+            }
+
+        }
+    }
+</script>
+</body>
+</html>

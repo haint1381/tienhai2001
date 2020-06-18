@@ -27,22 +27,17 @@
             return this.doC + 273.15
         }
     }
+    let temperature = new Temperature();
+    let doC;
+    do {
+      doC=parseFloat(prompt("nhập độ C"))
+    } while (doC< (-273) || isNaN(doC));
+    temperature.setDoC(doC);
+    doC = temperature.getDoC();
+    let doF = temperature.getDoCSangDoF();
+    let doK = temperature.getDoCSangDoK();
+    alert("đồ--->" + doF + "độ k---->" + doK);
 
-    while (true) {
-        let doC = parseFloat(prompt('nhap nhiet do C:'));
-        if (doC < -273) {
-            alert("nhap lai nhiet do");
-        } else {
-            let temperature = new Temperature();
-            temperature.setDoC(parseFloat(prompt("nhập giá trị độ C---->")));
-            doC = temperature.getDoC();
-            let doF = temperature.getDoCSangDoF();
-            let doK = temperature.getDoCSangDoK();
-            alert("đồ--->" + doF + "độ k---->" + doK);
-            break;
-        }
-
-    }
 </script>
 </body>
 </html>
