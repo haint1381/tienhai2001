@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    class Customer {
+        constructor(name, CMND, Birthday, Email, Address, TypeCustomer,
+                    Discount, QuantityIncluded, Typeroom, RentDay, TypeService) {
+        }
+
+        getName() {
+            return this.name;
+        }
+
+        setName(name) {
+            this.name = name;
+        }
+
+        getCMND() {
+            return this.cmnd;
+        }
+
+        setCMND(cmnd) {
+            this.cmnd = cmnd;
+        }
+
+        getBirthday() {
+            return this.birthday;
+        }
+
+        setBirthday(birthday) {
+            this.birthday = birthday;
+        }
+
+        getEmail() {
+            return this.email;
+        }
+
+        setEmail(email) {
+            this.email = email;
+        }
+
+        getAddress() {
+            return this.address;
+        }
+
+        setAddress(address) {
+            this.address = address;
+        }
+
+        getTypeCustomer() {
+            return this.typeCustomer;
+        }
+
+        setTypeCustomer(typeCustomer) {
+            this.typeCustomer = typeCustomer;
+        }
+
+        getDiscount() {
+            return this.discount;
+        }
+
+        setDiscount(discount) {
+            this.discount = discount;
+        }
+
+        getQuantityIncluded() {
+            return this.quantityIncluded;
+        }
+
+        setQuantityIncluded(quantityIncluded) {
+            this.quantityIncluded = quantityIncluded;
+        }
+
+        getTyperoom() {
+            return this.typeroom;
+        }
+
+        setTyperoom(typeroom) {
+            this.typeroom = typeroom;
+        }
+
+        getRentDay() {
+            return this.rentDay;
+        }
+
+        setRentDay(rentDay) {
+            this.rentDay = rentDay;
+        }
+
+        getTypeService() {
+            return this.typeService;
+        }
+
+        setTypeService(typeService) {
+            this.typeService = typeService;
+        }
+        TotalPays(){
+            let money=0;
+            if(this.typeService==="Villa"){
+                money=500;
+            }else if(this.typeService==="House"){
+                money=300;
+            }else if(this.typeService==="Room"){
+                money=100;
+            }
+            return this.rentDay*money*(1-this.discount/100)
+        }
+    }
+</script>
+
+</body>
+</html>
