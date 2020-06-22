@@ -31,17 +31,25 @@
                 deleteCustomer()
             }
                 break;
-            case 5: {
-            }
-                break;
             default: {
                 alert("lựa chọn không hợp lệ")
             }
         }
     }
-
     function deleteCustomer() {
-
+        let temp = "";
+        for (let j = 0; j < arrListCustomers.length; j++) {
+            temp += (j + 1) + ". tenKhachHang:   " + arrListCustomers[j][0] + "\n";
+        }
+        let chosseDelete = parseInt(prompt(temp));
+        let check = confirm("bạn có thực sự muốn xóa không")
+        if (check === true) {
+            arrListCustomers.splice(chosseDelete, 1)
+            alert("xóa thành công")
+        } else {
+            alert("bạn đã hủy")
+        }
+        displayMainMenu()
     }
 
     function editCustomer() {
@@ -100,16 +108,16 @@
             }
         }
         alert("1.họ và tên:  " + arrListCustomers[chosseDisplay][0]
-            + "\n 2.số cmnd:  " + arrListCustomers[chosseDisplay][2]
-            + "\n 3.ngày tháng năm sinh:  " + arrListCustomers[chosseDisplay][3]
-            + "\n 4.email:  " + arrListCustomers[chosseDisplay][4]
-            + "\n 5.địa chỉ:  " + arrListCustomers[chosseDisplay][5]
-            + "\n 6.loại customer:  " + arrListCustomers[chosseDisplay][6]
-            + "\n 7.giảm giá:  " + arrListCustomers[chosseDisplay][7]
-            + "\n 8.số lượng đi kèm:  " + arrListCustomers[chosseDisplay][8]
-            + "\n 9.số ngày thuê:  " + arrListCustomers[chosseDisplay][9]
-            + "\n 10.loại dịch vụ:  " + arrListCustomers[chosseDisplay][10]
-            + "\n 11.loại phòng thuê:  " + arrListCustomers[chosseDisplay][11]);
+            + "\n 2.số cmnd:  " + arrListCustomers[chosseDisplay][1]
+            + "\n 3.ngày tháng năm sinh:  " + arrListCustomers[chosseDisplay][2]
+            + "\n 4.email:  " + arrListCustomers[chosseDisplay][3]
+            + "\n 5.địa chỉ:  " + arrListCustomers[chosseDisplay][4]
+            + "\n 6.loại customer:  " + arrListCustomers[chosseDisplay][5]
+            + "\n 7.giảm giá:  " + arrListCustomers[chosseDisplay][6]
+            + "\n 8.số lượng đi kèm:  " + arrListCustomers[chosseDisplay][7]
+            + "\n 9.số ngày thuê:  " + arrListCustomers[chosseDisplay][8]
+            + "\n 10.loại dịch vụ:  " + arrListCustomers[chosseDisplay][9]
+            + "\n 11.loại phòng thuê:  " + arrListCustomers[chosseDisplay][10]);
         displayMainMenu()
 
 
