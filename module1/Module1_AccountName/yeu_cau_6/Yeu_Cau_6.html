@@ -20,6 +20,8 @@
             "5.Delete Customer"));
         switch (choose) {
             case 1: {
+
+
                 addNewCustomer();
                 break;
             }
@@ -51,7 +53,7 @@
             temp += (j + 1) + ". tenKhachHang:   " + listCustomers[j].getName() + "\n";
         }
         let chosseDelete = parseInt(prompt(temp));
-        let check = confirm("bạn có thực sự muốn xóa không")
+        let check = confirm("bạn có thực sự muốn xóa không");
         if (check === true) {
             listCustomers.splice(chosseDelete, 1)
             alert("xóa thành công")

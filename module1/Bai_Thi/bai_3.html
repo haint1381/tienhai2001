@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let regexDate = /^\d{2}[./-]\d{4}$/;
+    let date;
+    do {
+        date = prompt("Nhập Tháng Năm Có Dạng MM/YYYY");
+        if (!regexDate.test(date)) {
+            alert("nhập chưa đúng định dạng")
+        }
+    } while (!regexDate.test(date));
+    let year = parseInt(date.substring(3, 7));
+    let month = parseInt(date.substring(0, 2));
+
+    switch (month) {
+        case 1:
+        case 5:
+        case 3:
+        case 7:
+        case 8:
+        case 10:
+        case 12:
+            alert(date + "  Có số ngày là:  " + 31);
+            break;
+        case 4:
+        case 6:
+        case 9:
+        case 11:
+            alert(date +  "  Có số ngày là:  " + 30);
+            break;
+        case 2:
+            let isLeapYear = false;
+            if (year % 4 === 0) {
+                if (year % 100 === 0) {
+                    if (year % 400 === 0) {
+                        isLeapYear = true;
+                    }
+                } else {
+                    isLeapYear = true;
+                }
+            }
+            if (isLeapYear) {
+                alert(date + "  Có số ngày là:  " + 29);
+            } else {
+                alert(date + "  Có số ngày là:  " + 28);
+            }
+    }
+</script>
+</body>
+</html>

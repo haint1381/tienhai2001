@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let number;
+    let regexNumber = /^[\d]{4}$/;
+    let check = false;
+    do {
+        number =prompt("nhập");
+        check = regexNumber.test(number);
+        if (!check) {
+            alert("nhập số có bốn chữ số")
+        }
+
+    } while (!check);
+    if (kiemTra(number)) {
+        alert("đúng")
+    }else {
+        alert("sai");
+    }
+
+    function kiemTra(number) {
+        let arrNumber = number.split("");
+        let number1 = parseInt(arrNumber[0]);
+        let number2 = parseInt(arrNumber[1]);
+        let number3 = parseInt(arrNumber[2]);
+        let number4 = parseInt(arrNumber[3]);
+        if ((number1 + number2) === (number3 + number4)) {
+            return true
+        } else {
+            return false
+        }
+    }
+</script>
+</body>
+</html>

@@ -58,10 +58,9 @@
             "Phone:  " + listEmployees[chosseDisplay].getPhone() + "\n" +
             "CMND:  " + listEmployees[chosseDisplay].getCMND() + "\n" +
             "Vị trí:  " + listEmployees[chosseDisplay].getLocation() + "\n" +
-            "Trình độ:  " + listEmployees[chosseDisplay].getLevel())
+            "Trình độ:  " + listEmployees[chosseDisplay].getLevel());
         displayMainMenu();
     }
-
 
     function addNewEmployee() {
         let employee = new Employee();
@@ -73,7 +72,7 @@
         employee.setLevel(prompt("Nhập trình độ"));
         employee.setLocation(prompt("Nhập vị trí"));
         listEmployees.push(employee);
-        alert("bạn đã thêm thành công")
+        alert("bạn đã thêm thành công");
         displayMainMenu()
     }
 </script>

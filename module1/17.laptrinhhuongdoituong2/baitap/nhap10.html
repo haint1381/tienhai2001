@@ -6,13 +6,19 @@
 </head>
 <body>
 <script>
+    let regexDate = /^\d{2}[./-]\d{4}$/;
     let date;
     do {
-        date = prompt("nhap ngay dd/MM/yyyy");
-        let patDate = /^(([0][1-9]|[1-2]\d|[3][0-1])\/(0[1-9]|1[0-2])\/(19\d{2}|(20[0-2]\d)))$/;
-        check = patDate.test(date);
-    } while (!check);
-    alert(date + " Là ngày thứ: " + ngayTrongNam(date)+ " trong năm");
+        date = prompt("Nhập Tháng Năm Có Dạng MM/YYYY");
+        if (!regexDate.test(date)) {
+            alert("nhập chưa đúng định dạng")
+        }
+    } while (!regexDate.test(date));
+    alert(date + " có số ngày là: " + ngayTrongNam(date));
+    let year = parseInt(date.substring(3, 7));
+    let month = parseInt(date.substring(0, 2));
+    namNhuan(year);
+    ngayTrongThang(month)
     function namNhuan(year) {
         let isLeapYear = false;
         if (year % 4 == 0) {
@@ -52,19 +58,14 @@
         }
     }
     function ngayTrongNam(date) {
-        date = new Date(date);
-        let day = date.getDate();
-        let month = date.getMonth() + 1;
-        let year = date.getFullYear();
-        let days = day;
-        for (let i = 1; i < month; i++) {
-            days = ngayTrongThang(i)
-        }
-        if (namNhuan(year) && month > 2) {
-            return days + 1;
-        } else
-            return days
-    }
+        let year = parseInt(date.substring(3, 7));
+        let month = parseInt(date.substring(0, 2));
+          let  day = ngayTrongThang(month);
+        if (namNhuan(year) && month === 2) {
+            return day +1 ;
+        } else{
+            return day
+    }}
 </script>
 </body>
 </html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let nam;
+    let regexnam = /^[\d]{4}$/;
+    let namHienTai;
+    let namSinh;
+    do {
+        nam =prompt("nhập");
+        if (!regexnam.test(nam)) {
+            alert("năm sinh không đúng định dạng")
+        }
+        namHienTai = new Date().getFullYear();
+        namSinh = new Date(nam).getFullYear();
+        if(namHienTai<namSinh){
+            alert("nhập năm sinh không hợp lệ")
+        }
+    } while (!regexnam.test(nam) || namHienTai<namSinh);
+
+</script>
+</body>
+</html>
