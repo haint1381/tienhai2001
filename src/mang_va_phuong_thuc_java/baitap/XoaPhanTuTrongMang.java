@@ -36,7 +36,8 @@ public class XoaPhanTuTrongMang {
         for (int h=index ; h<array.length-1; h++){
             array[h]=array[(h+1)];
         }
-        int []array1=new int[array.length-1];
+        int []array1=
+                new int[array.length-1];
         for(int z=0;z<array.length-1;z++){
             array1[z]=array[z];
         }

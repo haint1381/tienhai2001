@@ -5,7 +5,7 @@ import java.util.Scanner;
 public class PhanTuLonNhatTrongMangHaiChieu {
     public static void main(String[] args) {
         //Scanner scanner =new Scanner(System.in);
-        int[][] diem = {{1, 2}, {3, 4}, {5, 6}};
+        int[][] diem = {{1, 2}, {3, 4,6}, {5, 6,9}};
 //        int[][] diem = new int[2][2];
 //        for(int i =0; i < diem.length; i++){
 //            for(int j =0; j< diem[i].length; j++){
