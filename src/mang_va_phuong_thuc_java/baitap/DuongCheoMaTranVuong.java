@@ -30,11 +30,7 @@ public class DuongCheoMaTranVuong {
         }
         int tong=0;
         for (int i = 0; i < array.length; i++) {
-            for (int j = 0; j < array[i].length; j++) {
-                if (i==j){
-                   tong+= array[i][j];
-                }
-            }
+            tong+=array[i][i];
         }
         System.out.println("tổng của các phần tử đường chéo:  " +tong);
     }
