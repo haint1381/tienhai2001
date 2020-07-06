@@ -1,6 +1,4 @@
-package ke_thua.bai_tap.lop_point2d_va_lop_point3d;
-
-import ke_thua.bai_tap.lop_point2d_va_lop_point3d.Cylinder;
+package ke_thua.circle_va_cylinder;
 
 import java.util.Scanner;
 

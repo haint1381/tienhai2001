@@ -1,4 +1,4 @@
-package ke_thua.bai_tap.lop_point2d_va_lop_point3d;
+package ke_thua.circle_va_cylinder;
 
 public class Circle {
     private double radius;
