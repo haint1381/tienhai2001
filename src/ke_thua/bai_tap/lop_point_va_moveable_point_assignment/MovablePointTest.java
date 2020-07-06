@@ -1,4 +1,4 @@
-package ke_thua.lop_point_va_moveable_point_assignment;
+package ke_thua.bai_tap.lop_point_va_moveable_point_assignment;
 
 import java.util.Scanner;
 
