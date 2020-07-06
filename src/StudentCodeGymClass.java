@@ -53,7 +53,7 @@ public class StudentCodeGymClass {
                             dateOfBirthday = scanner.nextLine();
                             if (dateOfBirthday == null || !dateOfBirthday.matches("^([0-2][0-9]||3[0-1])/(0[0-9]||1[0-2])/([0-9][0-9])?[0-9][0-9]$")) {
                                 check1 = false;
-                                System.out.println("nhập ngày sinh không đúng định dạng");
+                                System.out.println("nhập ngày sinh không đúng dạng");
                             } else {
                                 check1 = true;
                             }
@@ -127,7 +127,6 @@ class StudentCodeGym {
     public int id;
     public String name;
     public String dateOfBirth;
-
     public StudentCodeGym(int id, String name, String dateOfBirth) {
         this.id = id;
         this.name = name;
