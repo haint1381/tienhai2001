@@ -13,6 +13,6 @@ public class CircleTest {
         System.out.println("Enter circle color:");
         String color=scanner.nextLine();
         Circle circle =new Circle(radius,color);
-        System.out.println((circle.toString()));
+        System.out.println(circle.toString());
     }
 }

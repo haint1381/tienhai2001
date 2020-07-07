@@ -3,7 +3,6 @@ package ke_thua.bai_tap.circle_va_cylinder;
 public class Circle {
     private double radius;
     private String color;
-
     public Circle(double radius,String color) {
         this.radius = radius;
         this.color = color;
@@ -26,6 +25,7 @@ public class Circle {
     public double perimeter() {
         return 2 * radius * Math.PI;
     }
+
     @Override
     public String toString(){
         return "radius: "+this.radius+"\n"+
@@ -33,4 +33,5 @@ public class Circle {
                 "acreage: "+acreage()+"\n"+
                 "perimeter: "+perimeter();
     }
+
 }

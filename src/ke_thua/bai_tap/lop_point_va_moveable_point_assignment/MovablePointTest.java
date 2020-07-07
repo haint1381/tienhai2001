@@ -14,8 +14,7 @@ public class MovablePointTest {
         System.out.println("Enter YSpeed");
         float ySpeed = scanner.nextFloat();
         MoveablePoint moveablePoint= new MoveablePoint(x,y,xSpeed,ySpeed);
+         moveablePoint.move();
         System.out.println(moveablePoint.toString());
-        float[] array = {x,y};
-        System.out.println(moveablePoint.movablePointMove(array));
     }
 }
