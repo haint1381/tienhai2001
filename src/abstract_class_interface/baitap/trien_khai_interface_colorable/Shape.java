@@ -1,6 +1,6 @@
 package abstract_class_interface.baitap.trien_khai_interface_colorable;
 
-public class Shape implements Colorable {
+public class Shape {
     private String color = "green";
     private boolean filled = true;
 
@@ -36,8 +36,4 @@ public class Shape implements Colorable {
                 + (isFilled() ? "filled" : "not filled");
     }
 
-    @Override
-    public void howToColor() {
-
-    }
 }

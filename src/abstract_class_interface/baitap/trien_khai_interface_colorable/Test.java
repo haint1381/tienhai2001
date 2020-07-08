@@ -18,9 +18,9 @@ public class Test {
         System.out.println();
         for (Shape a : shapes) {
             if (a instanceof Square) {
-                Square abc = (Square) a;
-                System.out.println(abc);
-               abc.howToColor();
+                Square square = (Square) a;
+                System.out.println(square);
+              square.howToColor();
             }
         }
     }
