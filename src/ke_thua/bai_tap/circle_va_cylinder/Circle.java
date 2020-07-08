@@ -3,10 +3,18 @@ package ke_thua.bai_tap.circle_va_cylinder;
 public class Circle {
     private double radius;
     private String color;
-    public Circle(double radius,String color) {
+    private Boolean filled;
+    public Circle(double radius,String color,Boolean filled) {
         this.radius = radius;
         this.color = color;
+        this.filled = filled;
     }
+    public Circle(){}
+    public Circle(double radius){}
+
+    public Circle(double radius, String color, double height) {
+    }
+    public Circle(double radius, String color){};
     public double getRadius() {
         return radius;
     }

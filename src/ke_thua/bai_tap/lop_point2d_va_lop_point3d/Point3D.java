@@ -24,9 +24,8 @@ public class Point3D extends Point2D {
         float[] array={super.getX(),super.getY(),z};
         return array;
     }
-
     @Override
     public String toString() {
-        return "Point3D( { x=" + super.getX() + ", y=" + super.getY() +",z= "+z+" }";
+        return "Point3D( { x=" + getXYZ()[0] + ", y=" + getXYZ()[1] +",z= "+getXYZ()[2]+" }";
     }
 }
