@@ -1,6 +1,6 @@
 package abstract_class_interface.baitap.trien_khai_interface_resizeable;
 
-public class Shape implements Resizeable {
+public class Shape  {
     private String color = "green";
     private boolean filled = true;
 
@@ -36,7 +36,4 @@ public class Shape implements Resizeable {
                 + (isFilled() ? "filled" : "not filled");
     }
 
-    @Override
-    public void resize(double percent) {
-    }
 }

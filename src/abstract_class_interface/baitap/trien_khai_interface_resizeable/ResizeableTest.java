@@ -13,7 +13,18 @@ public class ResizeableTest {
         }
 
         for (Shape a : shapes) {
-            a.resize(Math.random()*100);
+            if(a instanceof Circle){
+                Circle circle=(Circle)a;
+                circle.resize(Math.random()*100);
+            }
+            if(a instanceof Square){
+                Square square=(Square)a;
+                square.resize(Math.random()*100);
+            }
+            if(a instanceof Rectangle){
+                Rectangle rectangle=(Rectangle) a;
+                rectangle.resize(Math.random()*100);
+            }
         }
         System.out.println();
         System.out.println("After-sorted:");

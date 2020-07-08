@@ -1,6 +1,6 @@
 package abstract_class_interface.baitap.trien_khai_interface_resizeable;
 import abstract_class_interface.baitap.trien_khai_interface_resizeable.Resizeable;
-public class Square extends Shape {
+public class Square extends Shape implements Resizeable{
     private double side;
 
     public Square() {
