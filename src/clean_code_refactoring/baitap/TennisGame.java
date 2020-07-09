@@ -21,18 +21,18 @@ public class TennisGame {
         String score = "";
         int tempScore = 0;
         if (play1_score == play2_score) {
-            score = getString(play1_score);
+            score = getStartGame(play1_score);
         } else if (play1_score >= 4 || play2_score >= 4) {
 
-            score = getString(play1_score, play2_score);
+            score = getBetweenGames(play1_score, play2_score);
         } else {
-            score = getString(play1_score, play2_score, score);
+            score = getEndGame(play1_score, play2_score, score);
         }
 
         return score;
     }
 
-    private static String getString(int play1_score, int play2_score, String score) {
+    private static String getEndGame(int play1_score, int play2_score, String score) {
         int tempScore;
         for (int i = 1; i < 3; i++) {
             if (i == 1) tempScore = play1_score;
@@ -58,7 +58,7 @@ public class TennisGame {
         return score;
     }
 
-    private static String getString(int play1_score, int play2_score) {
+    private static String getBetweenGames(int play1_score, int play2_score) {
         String score;
         int minusResult = play1_score - play2_score;
         if (minusResult == 1) score = ADVANTAGE_PLAYER_1;
@@ -68,7 +68,7 @@ public class TennisGame {
         return score;
     }
 
-    private static String getString(int play1_score) {
+    private static String getStartGame(int play1_score) {
         String score;
         switch (play1_score) {
             case 0:
