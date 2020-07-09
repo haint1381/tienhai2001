@@ -1,4 +1,4 @@
-package clean_code_refactoring;
+package clean_code_refactoring.thuc_hanh.refactoring_tach_phuong_thuc.doi_ten_bien_va_tach_hang;
 
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -6,8 +6,7 @@ import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
 class CalculatorTest {
-
-    @Test
+       @Test
     @DisplayName("Testing addition")
     void testCalculateAdd() {
         int  firstOperand = 1;
@@ -36,44 +35,44 @@ class CalculatorTest {
     void testCalculateMul() {
         int firstOperand = 2;
         int secondOperand = 2;
-        char o = '*';
+        char operator = '*';
         int expected = 4;
 
-        int result = Calculator.calculate(firstOperand, secondOperand, o);
+        int result = Calculator.calculate(firstOperand, secondOperand, operator);
         assertEquals(expected, result);
     }
 
     @Test
     @DisplayName("Testing division")
     void testCalculateDiv() {
-        int a = 6;
-        int b = 3;
-        char o = '/';
+        int firstOperand = 6;
+        int secondOperand = 3;
+        char operator = '/';
         int expected = 2;
 
-        int result = Calculator.calculate(a, b, o);
+        int result = Calculator.calculate(firstOperand, secondOperand, operator);
         assertEquals(expected, result);
     }
 
     @Test
     @DisplayName("Testing division by zero")
     void testCalculateDivByZero() {
-        int a = 2;
-        int b = 0;
-        char o = '/';
+        int firstOperand = 2;
+        int secondOperand = 0;
+        char operator = '/';
 
         assertThrows(RuntimeException.class,
-                ()-> {Calculator.calculate(a, b, o);});
+                ()-> {Calculator.calculate(firstOperand, secondOperand, operator);});
     }
 
     @Test
     @DisplayName("Testing wrong operator")
     void testCalculateWrongOperator() {
-        int a = 2;
-        int b = 0;
-        char o = '=';
+        int firstOperand = 2;
+        int secondOperand = 0;
+        char operator = '=';
 
         assertThrows(RuntimeException.class,
-                ()-> {Calculator.calculate(a, b, o);});
+                ()-> {Calculator.calculate(firstOperand, secondOperand, operator);});
     }
 }
