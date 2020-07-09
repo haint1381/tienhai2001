@@ -2,59 +2,79 @@ package clean_code_refactoring.baitap;
 
 public class TennisGame {
 
-    public static String getScore(String player1Name, String player2Name, int m_score1, int m_score2) {
+    public static final String LOVE = "Love";
+    public static final String FIFTEEN = "Fifteen";
+    public static final String THIRTY = "Thirty";
+    public static final String FORTY = "Forty";
+    public static final String WIN_FOR_PLAYER_2 = "Win for player2";
+    public static final String WIN_FOR_PLAYER_1 = "Win for player1";
+    public static final String ADVANTAGE_PLAYER_2 = "Advantage player2";
+    public static final String ADVANTAGE_PLAYER_1 = "Advantage player1";
+    public static final String SCORE = "-";
+    public static final String LOVE_ALL = "Love-All";
+    public static final String FIFTEEN_ALL = "Fifteen-All";
+    public static final String THIRTY_ALL = "Thirty-All";
+    public static final String FORTY_ALL = "Forty-All";
+    public static final String DEUCE = "Deuce";
+
+    public static String getScore(String playerName1, String playerName2, int play1_score, int play2_score) {
         String score = "";
         int tempScore=0;
-        if (m_score1==m_score2)
+        if (play1_score==play2_score)
         {
-            switch (m_score1)
+            switch (play1_score)
             {
                 case 0:
-                    score = "Love-All";
+                    score = LOVE_ALL;
                     break;
                 case 1:
-                    score = "Fifteen-All";
+                    score = FIFTEEN_ALL;
                     break;
                 case 2:
-                    score = "Thirty-All";
+                    score = THIRTY_ALL;
                     break;
                 case 3:
-                    score = "Forty-All";
+                    score = FORTY_ALL;
                     break;
                 default:
-                    score = "Deuce";
+                    score = DEUCE;
                     break;
 
             }
         }
-        else if (m_score1>=4 || m_score2>=4)
-        {
-            int minusResult = m_score1-m_score2;
-            if (minusResult==1) score ="Advantage player1";
-            else if (minusResult ==-1) score ="Advantage player2";
-            else if (minusResult>=2) score = "Win for player1";
-            else score ="Win for player2";
-        }
-        else
-        {
-            for (int i=1; i<3; i++)
+        else {
+            boolean player1_score = play1_score >= 4;
+            boolean player2_score = play2_score >= 4;
+            boolean player = player1_score || player2_score;
+            if (player)
             {
-                if (i==1) tempScore = m_score1;
-                else { score+="-"; tempScore = m_score2;}
-                switch(tempScore)
+                int minusResult = play1_score-play2_score;
+                if (minusResult==1) score = ADVANTAGE_PLAYER_1;
+                else if (minusResult ==-1) score = ADVANTAGE_PLAYER_2;
+                else if (minusResult>=2) score = WIN_FOR_PLAYER_1;
+                else score = WIN_FOR_PLAYER_2;
+            }
+            else
+            {
+                for (int i=1; i<3; i++)
                 {
-                    case 0:
-                        score+="Love";
-                        break;
-                    case 1:
-                        score+="Fifteen";
-                        break;
-                    case 2:
-                        score+="Thirty";
-                        break;
-                    case 3:
-                        score+="Forty";
-                        break;
+                    if (i==1) tempScore = play1_score;
+                    else { score+= SCORE; tempScore = play2_score;}
+                    switch(tempScore)
+                    {
+                        case 0:
+                            score+= LOVE;
+                            break;
+                        case 1:
+                            score+= FIFTEEN;
+                            break;
+                        case 2:
+                            score+= THIRTY;
+                            break;
+                        case 3:
+                            score+= FORTY;
+                            break;
+                    }
                 }
             }
         }
