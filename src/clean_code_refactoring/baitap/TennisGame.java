@@ -19,64 +19,74 @@ public class TennisGame {
 
     public static String getScore(String playerName1, String playerName2, int play1_score, int play2_score) {
         String score = "";
-        int tempScore=0;
-        if (play1_score==play2_score)
-        {
-            switch (play1_score)
-            {
+        int tempScore = 0;
+        if (play1_score == play2_score) {
+            score = getString(play1_score);
+        } else if (play1_score >= 4 || play2_score >= 4) {
+
+            score = getString(play1_score, play2_score);
+        } else {
+            score = getString(play1_score, play2_score, score);
+        }
+
+        return score;
+    }
+
+    private static String getString(int play1_score, int play2_score, String score) {
+        int tempScore;
+        for (int i = 1; i < 3; i++) {
+            if (i == 1) tempScore = play1_score;
+            else {
+                score += SCORE;
+                tempScore = play2_score;
+            }
+            switch (tempScore) {
                 case 0:
-                    score = LOVE_ALL;
+                    score += LOVE;
                     break;
                 case 1:
-                    score = FIFTEEN_ALL;
+                    score += FIFTEEN;
                     break;
                 case 2:
-                    score = THIRTY_ALL;
+                    score += THIRTY;
                     break;
                 case 3:
-                    score = FORTY_ALL;
+                    score += FORTY;
                     break;
-                default:
-                    score = DEUCE;
-                    break;
-
             }
         }
-        else {
-            boolean player1_score = play1_score >= 4;
-            boolean player2_score = play2_score >= 4;
-            boolean player = player1_score || player2_score;
-            if (player)
-            {
-                int minusResult = play1_score-play2_score;
-                if (minusResult==1) score = ADVANTAGE_PLAYER_1;
-                else if (minusResult ==-1) score = ADVANTAGE_PLAYER_2;
-                else if (minusResult>=2) score = WIN_FOR_PLAYER_1;
-                else score = WIN_FOR_PLAYER_2;
-            }
-            else
-            {
-                for (int i=1; i<3; i++)
-                {
-                    if (i==1) tempScore = play1_score;
-                    else { score+= SCORE; tempScore = play2_score;}
-                    switch(tempScore)
-                    {
-                        case 0:
-                            score+= LOVE;
-                            break;
-                        case 1:
-                            score+= FIFTEEN;
-                            break;
-                        case 2:
-                            score+= THIRTY;
-                            break;
-                        case 3:
-                            score+= FORTY;
-                            break;
-                    }
-                }
-            }
+        return score;
+    }
+
+    private static String getString(int play1_score, int play2_score) {
+        String score;
+        int minusResult = play1_score - play2_score;
+        if (minusResult == 1) score = ADVANTAGE_PLAYER_1;
+        else if (minusResult == -1) score = ADVANTAGE_PLAYER_2;
+        else if (minusResult >= 2) score = WIN_FOR_PLAYER_1;
+        else score = WIN_FOR_PLAYER_2;
+        return score;
+    }
+
+    private static String getString(int play1_score) {
+        String score;
+        switch (play1_score) {
+            case 0:
+                score = LOVE_ALL;
+                break;
+            case 1:
+                score = FIFTEEN_ALL;
+                break;
+            case 2:
+                score = THIRTY_ALL;
+                break;
+            case 3:
+                score = FORTY_ALL;
+                break;
+            default:
+                score = DEUCE;
+                break;
+
         }
         return score;
     }
