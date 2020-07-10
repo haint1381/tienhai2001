@@ -50,8 +50,12 @@ public class MyLinkedListTest {
 //            System.out.println(((Student) clone.get(i)).getName());
 //        }
 //        System.out.println(myLinkedList.indexOf(student2));
-        System.out.println(myLinkedList.getFirst());
+//        System.out.println(myLinkedList.getFirst());
 //        System.out.println(myLinkedList.getLast());
+        myLinkedList.clear();
+        for (int i=0;i<myLinkedList.size();i++){
+           System.out.println(((Student) myLinkedList.get(i)).getName());
+      }
 //        System.out.println(myLinkedList.constrains(student3));
 //        myLinkedList.remove(2);
 //

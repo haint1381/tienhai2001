@@ -142,11 +142,7 @@ public class MyLinkedList<S> {
         return null;
     }
     public void clear(){
-        Node temp=head;
-        for (int i=0;i<numNodes;i++){
-            temp.next=null;
-            temp=temp.next;
-        }
+        head=null;
         numNodes=0;
     }
 }
