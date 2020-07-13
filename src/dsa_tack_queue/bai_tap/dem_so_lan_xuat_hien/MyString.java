@@ -16,7 +16,7 @@ public class MyString {
             if(key ==null){
                 countMap.put(string.charAt(i),1);
             }else {
-                countMap.put(string.charAt(i),++key);
+                countMap.put(string.charAt(i), ++key);
             }
         }
 
