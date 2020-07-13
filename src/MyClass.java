@@ -1,23 +1,20 @@
+import java.util.ArrayList;
+import java.util.Iterator;
+
 public  class MyClass {
-    static public int X = 2;
-
-    static {
-        X = 1;
-    }
-
-    static public void method() {
-        X = 5;
-    }
-    public static int name(){
-        return X=11;
-    }
-
     public static void main(String[] args) {
-        MyClass o = new MyClass();
-        MyClass.method();
 
-        System.out.println(MyClass.name());
-        MyClass.X = 10;
-        System.out.println(MyClass.X);
+        // Make a collection
+        ArrayList<String> cars = new ArrayList<String>();
+        cars.add("Volvo");
+        cars.add("BMW");
+        cars.add("Ford");
+        cars.add("Mazda");
+
+        // Get the iterator
+        Iterator<String> it = cars.iterator();
+
+        // Print the first item
+        System.out.println(it.next());
     }
 }

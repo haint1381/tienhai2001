@@ -43,7 +43,7 @@ public class MyLinkedListTest {
         myLinkedList.addFirst(student1);
         myLinkedList.addFirst(student2);
         myLinkedList.addLast(student3);
-        myLinkedList.add(2,student4);
+        myLinkedList.add(0,student4);
 
 //        MyLinkedList<Student> clone = myLinkedList.clone();
 //        for (int i=0;i<clone.size();i++){
@@ -52,7 +52,10 @@ public class MyLinkedListTest {
 //        System.out.println(myLinkedList.indexOf(student2));
 //        System.out.println(myLinkedList.getFirst());
 //        System.out.println(myLinkedList.getLast());
-        myLinkedList.clear();
+
+
+
+//        myLinkedList.clear();
         for (int i=0;i<myLinkedList.size();i++){
            System.out.println(((Student) myLinkedList.get(i)).getName());
       }

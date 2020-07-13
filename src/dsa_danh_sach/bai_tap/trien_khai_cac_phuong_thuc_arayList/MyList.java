@@ -101,4 +101,7 @@ public class MyList {
     public int size() {
         return size;
     }
+    public void set(int index){
+
+    }
 }
