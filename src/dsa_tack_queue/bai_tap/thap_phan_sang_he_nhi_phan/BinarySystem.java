@@ -10,7 +10,7 @@ public class BinarySystem {
         Scanner scanner=new Scanner(System.in);
         System.out.println("enter number:");
         int number=scanner.nextInt();
-        while ( number!=0 ){
+        while ( number>=1 ){
             stack.push((number%2));
            number=number/2;
         }
