@@ -1,6 +1,4 @@
-package java_collection_framework.bai_tap.cai_dat_tim_kiem;
-
-import com.sun.source.tree.Tree;
+package java_collection_framework.bai_tap.cai_dat_tim_kiem_va_xoas;
 
 public class BST<E extends Comparable<E>> {
     TreeNode<E> root;

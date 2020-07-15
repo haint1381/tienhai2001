@@ -1,4 +1,4 @@
-package java_collection_framework.bai_tap.cai_dat_tim_kiem;
+package java_collection_framework.bai_tap.cai_dat_tim_kiem_va_xoas;
 
 public class TreeNode<E> {
     E e;
