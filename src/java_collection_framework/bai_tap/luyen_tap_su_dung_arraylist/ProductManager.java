@@ -5,7 +5,6 @@ import java.util.Collections;
 import java.util.Scanner;
 
 public class ProductManager {
-    static int count;
 
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
@@ -15,8 +14,32 @@ public class ProductManager {
             int chosse = scanner.nextInt();
             switch (chosse) {
                 case 1: {
-                    addProduct(scanner, arrayList);
-                    count++;
+
+                        System.out.println("1.nhập tên");
+                        scanner.nextLine();
+                        String name = scanner.nextLine();
+                        boolean check = true;
+                        int id;
+                        if (arrayList.size() >= 1) {
+                            do {
+                                System.out.println("2.nhập id");
+                                id = scanner.nextInt();
+                                for (int i = 0; i < arrayList.size(); i++) {
+                                    if (id == arrayList.get(i).getId()) {
+                                        System.out.println("id đã trùng");
+                                        check = false;
+                                        break;
+                                    }check=true;
+                                }
+                            } while ( check==false );
+                        }else {
+                            System  .out.println("2.nhập id");
+                            id = scanner.nextInt();
+                        }
+                        System.out.println("3.nhập giá");
+                        double price = scanner.nextDouble();
+                        arrayList.add(new TelephoneProduct(name, id, price));
+
                 }
                 break;
                 case 2: {
@@ -35,24 +58,35 @@ public class ProductManager {
                 break;
                 case 5: {
                     seachProduct(scanner, arrayList);
+
                 }
                 break;
                 case 6: {
                     Collections.sort(arrayList, new SortPriceIncrease());
                     System.out.println("sắp xếp giảm theo giá ok rồi");
+                    for (TelephoneProduct a : arrayList) {
+                        System.out.println(a);
+                    }
                 }
                 break;
                 case 7: {
                     Collections.sort(arrayList, new SortPriceIncrease());
                     System.out.println("sắp xếp tăng theo giá ok rồi");
+                    for (TelephoneProduct a : arrayList) {
+                        System.out.println(a);
+                    }
                 }
                 break;
+                case 8:
+                    System.exit(0);
                 default: {
                     System.out.println("lựa chọn không hợp lệ");
                 }
             }
         }
     }
+
+
 
     private static void seachProduct(Scanner scanner, ArrayList<TelephoneProduct> arrayList) {
         scanner.nextLine();
@@ -95,32 +129,6 @@ public class ProductManager {
         }
     }
 
-    private static void addProduct(Scanner scanner, ArrayList<TelephoneProduct> arrayList) {
-        System.out.println("1.nhập tên");
-        scanner.nextLine();
-        String name = scanner.nextLine();
-        boolean check = true;
-        int id;
-        if (count >= 1) {
-            do {
-                System.out.println("2.nhập id");
-                id = scanner.nextInt();
-                for (int i = 0; i < arrayList.size(); i++) {
-                    if (id == arrayList.get(i).getId()) {
-                        System.out.println("id đã trùng");
-                        check = false;
-                        break;
-                    }check=true;
-                }
-            } while ( check==false );
-        }else {
-            System.out.println("2.nhập id");
-            id = scanner.nextInt();
-        }
-        System.out.println("3.nhập giá");
-        double price = scanner.nextDouble();
-        arrayList.add(new TelephoneProduct(name, id, price));
-    }
 
     private static void display() {
         System.out.println("1.thêm sản phẩm");
@@ -130,5 +138,6 @@ public class ProductManager {
         System.out.println("5.tìm kiếm sản phẩm theo tên");
         System.out.println("6.sắp xếp giảm dần theo giá");
         System.out.println("7.sắp xếp tăng dần theo giá");
+        System.out.println("8.EXIT");
     }
 }
