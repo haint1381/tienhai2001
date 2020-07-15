@@ -1,4 +1,7 @@
-package java_collection_framework.bai_tap.cai_dat_tim_kiem_va_xoas;
+package java_collection_framework.bai_tap.cai_dat_tim_kiem_va_xoa_va_duyet_level;
+
+import java.util.LinkedList;
+import java.util.Queue;
 
 public class BST<E extends Comparable<E>> {
     TreeNode<E> root;
@@ -82,5 +85,23 @@ public class BST<E extends Comparable<E>> {
             root = root.left;
         }
         return root.e;
+    }
+    public void printlLevelOrder(TreeNode<E> root){
+        if(root==null){
+            return;
+        }
+        Queue<TreeNode<E>> queue=new LinkedList<>();
+        queue.add(root);
+        while ( !queue.isEmpty() ){
+            TreeNode<E> current =queue.peek();
+            queue.poll();
+            System.out.println(current.e+",");
+            if(current.left!=null){
+                queue.add(current.left);
+            }
+            if(current.right!=null){
+                queue.add(current.right);
+            }
+        }
     }
 }
