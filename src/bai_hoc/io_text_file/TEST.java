@@ -1,19 +1,45 @@
 package bai_hoc.io_text_file;
 
+import java.io.BufferedReader;
 import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.util.Scanner;
 
 public class TEST {
-//    public static void main(String[] args) {
-//        File f = new File("hello.txt");
-//        File dir = new File("hole.txt");
-//        dir.mkdir();  
-//        if (dir.isDirectory()) { 
-//            String[] dirContents = dir.list();
-//            for (int i = 0; dirContents < i; i++)  {
-//                System.out.println(dirContents[i]);
-//            }
-//        }
-//        System.out.println(dir.getAbsolutePath());
-//        boolean isDeleted = f.delete();
-//    }
+    public void readFileText(String filePath) {
+        try {
+            // Đọc file theo đường dẫn
+            File file = new File(filePath);
+
+            // Kiểm tra nếu file không tồn tại thì ném ra ngoại lệ.
+            if (!file.exists()) {
+                throw new FileNotFoundException();
+            }
+
+            // Đọc từng dòng của file và tiến hành cộng tổng lại
+            BufferedReader br = new BufferedReader(new FileReader(file));
+            String line = "";
+            int sum = 0;
+            while ((line = br.readLine()) != null) {
+                System.out.println(line);
+                sum += Integer.parseInt(line);
+            }
+            br.close();
+
+            // Hiển thị ra màn hình tổng các số nguyên trong file
+            System.out.println("Tổng = " + sum);
+        } catch (Exception e) {
+            // TH file không tồn tại hoặc nội dung file có lỗi thì sẽ hiển thị thông báo lỗi.
+            System.err.println("Fie không tồn tại or nội dung có lỗi!");
+        }
+    }
+    public static void main(String[] args) {
+        System.out.println("Nhập đường dẫn file: ");
+        Scanner scanner = new Scanner(System.in);
+        String path = scanner.nextLine();
+
+       TEST readfileEx = new TEST();
+        readfileEx.readFileText(path);
+    }
 }
