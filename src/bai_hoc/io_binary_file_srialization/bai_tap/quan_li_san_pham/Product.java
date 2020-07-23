@@ -1,5 +1,8 @@
 package bai_hoc.io_binary_file_srialization.bai_tap.quan_li_san_pham;
 
+import org.junit.runner.Describable;
+import org.junit.runner.Description;
+
 import java.io.Serializable;
 
 public class Product implements Serializable {
@@ -58,4 +61,5 @@ public class Product implements Serializable {
                 " price=" + price +
                 " ]";
     }
+
 }

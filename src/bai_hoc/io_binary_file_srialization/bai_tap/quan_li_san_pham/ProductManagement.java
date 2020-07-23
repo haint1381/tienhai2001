@@ -25,9 +25,9 @@ public class ProductManagement {
         try {
             FileInputStream fileInputStream = new FileInputStream(filePath);
             ObjectInputStream objectInputStream = new ObjectInputStream(fileInputStream);
-            objectInputStream.readObject();
-            for (Product product : productList) {
-                System.out.println("Produc:[ Id:" + product.getId() + " Name: " + product.getName() + " Brand: " + product.getBrand() + " Price: " + product.getPrice() + " ]");
+           List<Product> product=(List<Product>)objectInputStream.readObject();
+            for (Product product1 : product) {
+                System.out.println("Produc:[ Id:" + product1.getId() + " Name: " + product1.getName() + " Brand: " + product1.getBrand() + " Price: " + product1.getPrice() + " ]");
             }
         } catch (FileNotFoundException e) {
             System.err.println("file not found");
@@ -100,11 +100,7 @@ public class ProductManagement {
                 }
                 break;
                 case 3: {
-                    if(productList.size()==0){
-                        System.err.println("No products");
-                    }else {
                         readerFile(FILE_PATH);
-                    }
                 }
                 break;
                 case 4: {
