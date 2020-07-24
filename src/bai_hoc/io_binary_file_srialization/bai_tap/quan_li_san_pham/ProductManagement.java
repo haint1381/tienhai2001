@@ -59,8 +59,8 @@ public class ProductManagement {
                         do {
                             System.out.println("2.input id");
                             id = scanner.nextInt();
-                            for (int i = 0; i < productList.size(); i++) {
-                                if (id == productList.get(i).getId()) {
+                            for (Product product : productList) {
+                                if (id == product.getId()) {
                                     System.err.println("Duplicate code");
                                     check = false;
                                     break;
