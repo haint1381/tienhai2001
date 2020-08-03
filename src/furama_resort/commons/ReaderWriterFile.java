@@ -2,6 +2,7 @@ package furama_resort.commons;
 
 import bai_hoc.java_collection_framework.thuc_hanh.hashmap_va_hashset.Main;
 import furama_resort.controllers.MainController;
+import furama_resort.libs.AccompaniedService;
 import furama_resort.libs.Customer;
 import furama_resort.libs.Employee;
 import furama_resort.models.House;
@@ -58,8 +59,11 @@ public class ReaderWriterFile {
                     String price = ReaderWriterFile.arrayTemp[3];
                     String numPeople = ReaderWriterFile.arrayTemp[4];
                     String typeOfRent = ReaderWriterFile.arrayTemp[5];
-                    String freeService = ReaderWriterFile.arrayTemp[6];
-                    MainController.roomsList.add(new Room(id, name, area, price, numPeople, typeOfRent, freeService,"3"));
+                    String name1 = ReaderWriterFile.arrayTemp[6];
+                    int unit = Integer.parseInt(ReaderWriterFile.arrayTemp[7]);
+                    int price1 = Integer.parseInt(ReaderWriterFile.arrayTemp[8]);
+
+                    MainController.roomsList.add(new Room(id, name, area, price, numPeople, typeOfRent, new AccompaniedService(name1,unit,price1),"3"));
                 } else if (filePath.equals(MainController.FILE_CUS)) {
                     String name = ReaderWriterFile.arrayTemp[0];
                     String birthday = ReaderWriterFile.arrayTemp[1];

@@ -20,8 +20,12 @@ public class FilingCabinets {
         String name=scanner.nextLine();
         String name1=name.toLowerCase();
         while ( !employeeStack.isEmpty() ){
-            if(name1.equals(employeeStack.pop().getName())){
-                System.out.println(employeeStack.peek().toString());
+            if(name1.equals(employeeStack.peek().getName())){
+                System.out.println((employeeStack.peek()).toString());
+                System.out.println("------------");
+                break;
+            }else {
+                employeeStack.pop();
             }
         }
     }

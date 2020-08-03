@@ -1,10 +1,13 @@
 package furama_resort.models;
 
+import furama_resort.libs.AccompaniedService;
+
 public class Villa extends Services{
     private String kindOfRoom;
     private String description;
     private String poolArea;
     private String numberOfFloors;
+
     private String flag="1";
 
     public Villa(String id, String name, String area, String price, String peopleMax, String typeOfRent, String kindOfRoom, String description, String poolArea, String numberOfFloors,String flag) {
@@ -13,6 +16,7 @@ public class Villa extends Services{
         this.description = description;
         this.poolArea = poolArea;
         this.numberOfFloors = numberOfFloors;
+
     }
     public Villa(){
     }

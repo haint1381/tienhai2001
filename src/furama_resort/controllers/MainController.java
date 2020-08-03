@@ -2,10 +2,7 @@ package furama_resort.controllers;
 
 import bai_hoc.abstract_class_interface.baitap.trien_khai_interface_resizeable.Circle;
 import furama_resort.commons.ReaderWriterFile;
-import furama_resort.libs.Customer;
-import furama_resort.libs.Employee;
-import furama_resort.libs.FilingCabinets;
-import furama_resort.libs.SortCustomer;
+import furama_resort.libs.*;
 import furama_resort.models.House;
 import furama_resort.models.Room;
 import furama_resort.models.Services;
@@ -98,7 +95,7 @@ public class MainController {
                 displayMainMenu();
             }
             break;
-            case 8:{
+            case 8: {
                 FilingCabinets.filingCabinets();
                 FilingCabinets.searchEmployee();
                 displayMainMenu();
@@ -126,17 +123,17 @@ public class MainController {
             for (int i = 0; i < customersList.size(); i++) {
                 if (id.equalsIgnoreCase(customersList.get(i).getId())) {
                     cinema.add(customersList.get(i));
-                }else {
+                } else {
                     System.out.println("No customer id found");
                     ticketBooking();
                 }
             }
             System.out.println("Book successfully");
             customersList.clear();
-        }else{
+        } else {
             System.out.println("Movie tickets have run out");
             System.out.println("Customer list for tickets booked today");
-            while ( !cinema.isEmpty() ){
+            while ( !cinema.isEmpty() ) {
                 System.out.println(cinema.poll().getName());
             }
         }
@@ -248,7 +245,9 @@ public class MainController {
                             ReaderWriterFile.WriterFile(roomsList.get(h).getPrice() + ",", FILE_BOOK);
                             ReaderWriterFile.WriterFile(roomsList.get(h).getPeopleMax() + ",", FILE_BOOK);
                             ReaderWriterFile.WriterFile(roomsList.get(h).getTypeOfRent() + ",", FILE_BOOK);
-                            ReaderWriterFile.WriterFile(roomsList.get(h).getFreeService(), FILE_BOOK);
+                            ReaderWriterFile.WriterFile(roomsList.get(h).getFreeService().getName() + ",", FILE_BOOK);
+                            ReaderWriterFile.WriterFile(roomsList.get(h).getFreeService().getUnit() + ",", FILE_BOOK);
+                            ReaderWriterFile.WriterFile(String.valueOf(roomsList.get(h).getFreeService().getPrice()), FILE_BOOK);
                             ReaderWriterFile.WriterFile("\n", FILE_BOOK);
                         }
                     }
@@ -329,16 +328,29 @@ public class MainController {
 
 
         String id;
+        boolean check1=true;
         do {
             System.out.print("Input id customer: ");
             id = scanner.nextLine();
+
+            ReaderWriterFile.readerFile(FILE_CUS);
+            for (int i=0;i<customersList.size();i++){
+                if(id.equals(customersList.get(i).getId())){
+                    check1=false;
+                }else {
+                    check1=true;
+                }
+            }
+            if(!check1){
+                System.err.println("duplicate id!");
+            }
             if (id == null || !id.matches("^([1-9])(\\d{8})$")) {
                 check = false;
                 System.err.println("Invalid id!");
             } else {
                 check = true;
             }
-        } while ( !check );
+        } while ( !check ||!check1);
         String telephone;
         do {
             System.out.print("Input telephone customer: ");
@@ -491,6 +503,7 @@ public class MainController {
                     ReaderWriterFile.WriterFile("1", FILE_VILLA);
                     ReaderWriterFile.WriterFile("\n", FILE_VILLA);
                 }
+                villaList.clear();
                 addNewServies();
             }
             break;
@@ -509,7 +522,7 @@ public class MainController {
                     ReaderWriterFile.WriterFile("2", FILE_HOUSE);
                     ReaderWriterFile.WriterFile("\n", FILE_HOUSE);
                 }
-
+                housesList.clear();
                 addNewServies();
             }
             case 3: {
@@ -521,10 +534,13 @@ public class MainController {
                     ReaderWriterFile.WriterFile(roomsList.get(i).getPrice() + ",", FILE_ROOM);
                     ReaderWriterFile.WriterFile(roomsList.get(i).getPeopleMax() + ",", FILE_ROOM);
                     ReaderWriterFile.WriterFile(roomsList.get(i).getTypeOfRent() + ",", FILE_ROOM);
-                    ReaderWriterFile.WriterFile(roomsList.get(i).getFreeService(), FILE_ROOM);
+                    ReaderWriterFile.WriterFile(roomsList.get(i).getFreeService().getName() + ",", FILE_ROOM);
+                    ReaderWriterFile.WriterFile(roomsList.get(i).getFreeService().getUnit() + ",", FILE_ROOM);
+                    ReaderWriterFile.WriterFile(String.valueOf(roomsList.get(i).getFreeService().getPrice()), FILE_ROOM);
                     ReaderWriterFile.WriterFile("3", FILE_ROOM);
                     ReaderWriterFile.WriterFile("\n", FILE_ROOM);
                 }
+                roomsList.clear();
                 addNewServies();
             }
             break;
@@ -540,20 +556,36 @@ public class MainController {
         }
     }
 
-    public static Villa addNewVilla() {
+    public static void addNewVilla() {
         scanner.nextLine();
+
+        ReaderWriterFile.readerFile(FILE_VILLA);
         String id;
         boolean check;
+        boolean check1 = true;
         do {
             System.out.print("1.ID Services(Villa): ");
             id = scanner.nextLine();
+
+            for (int i = 0; i < villaList.size(); i++) {
+                if (id.equals(villaList.get(i).getId())) {
+                    check1 = false;
+                    break;
+                } else {
+                    check1 = true;
+                }
+            }
+            if(!check1){
+                System.err.println("duplicate id!");
+            }
             if (id == null || !id.matches("^SVVL-\\d{4}$")) {
                 check = false;
                 System.err.println("Invalid id!");
             } else {
                 check = true;
             }
-        } while ( !check );
+        } while ( !check || !check1 );
+
         String name;
         do {
             System.out.print("2.Name Services(Villa): ");
@@ -658,24 +690,44 @@ public class MainController {
             }
         } while ( !check );
 
+        System.out.print("11.input name accompanied Service");
+        String name1=scanner.nextLine();
+        System.out.print("12.input Unit");
+        int unit=scanner.nextInt();
+        System.out.print("12.input price");
+        double price1 =scanner.nextDouble();
+
         villaList.add(new Villa(id, name, area, price, numPeople, typeOfRent, kindOfRoom, description, poolArea, numberOfFloors, "3"));
-        return new Villa(id, name, area, price, numPeople, typeOfRent, kindOfRoom, description, poolArea, numberOfFloors, "3");
     }
 
-    public static House addNewHouse() {
+    public static void addNewHouse() {
         scanner.nextLine();
+        ReaderWriterFile.readerFile(FILE_HOUSE);
         String id;
         boolean check;
+        boolean check1 = true;
         do {
-            System.out.print("1.ID Services(Villa): ");
+            System.out.print("1.ID Services(house): ");
             id = scanner.nextLine();
+
+            for (int i = 0; i < housesList.size(); i++) {
+                if (id.equals(housesList.get(i).getId())) {
+                    check1 = false;
+                    break;
+                } else {
+                    check1 = true;
+                }
+            }
+            if(!check1){
+                System.err.println("duplicate id!");
+            }
             if (id == null || !id.matches("^SVVL-\\d{4}$")) {
                 check = false;
                 System.err.println("Invalid id!");
             } else {
                 check = true;
             }
-        } while ( !check );
+        } while ( !check || !check1 );
         String name;
         do {
             System.out.print("2.Name Services(Villa): ");
@@ -768,23 +820,36 @@ public class MainController {
             }
         } while ( !check );
         housesList.add(new House(id, name, area, price, numPeople, typeOfRent, kindOfRoom, description, numberOfFloors, "2"));
-        return new House(id, name, area, price, numPeople, typeOfRent, kindOfRoom, description, numberOfFloors, "2");
     }
 
-    public static Room addNewRoom() {
+    public static void addNewRoom() {
         scanner.nextLine();
+        ReaderWriterFile.readerFile(FILE_ROOM);
         String id;
         boolean check;
+        boolean check1 = true;
         do {
-            System.out.print("1.ID Services(Villa): ");
+            System.out.print("1.ID Services(room): ");
             id = scanner.nextLine();
+
+            for (int i = 0; i < roomsList.size(); i++) {
+                if (id.equals(roomsList.get(i).getId())) {
+                    check1 = false;
+                    break;
+                } else {
+                    check1 = true;
+                }
+            }
+            if(!check1){
+                System.err.println("duplicate id!");
+            }
             if (id == null || !id.matches("^SVVL-\\d{4}$")) {
                 check = false;
                 System.err.println("Invalid id!");
             } else {
                 check = true;
             }
-        } while ( !check );
+        } while ( !check || !check1 );
         String name;
         do {
             System.out.print("2.Name Services(Villa): ");
@@ -843,20 +908,29 @@ public class MainController {
             }
         } while ( !check );
 
-        String freeService;
-        do {
+        AccompaniedService freeService;
+
             System.out.print("7.Includes free service(Room): ");
-            freeService = scanner.nextLine();
-            if (freeService == null || !freeService.matches("^([A-Z][a-z]*((\\s)))+[A-Z][a-z]*$")) {
+
+        String name1;
+        String name2;
+        do {
+            System.out.println("a.input name: ");
+            name2=scanner.nextLine();
+            name1=name2.toLowerCase();
+            if (name1 == null || !name1.matches("^(massage)|(karaoke)|(food)|(drink)|(car)$")) {
                 check = false;
-                System.err.println("Invalid Includes free service!");
+                System.err.println("Invalid name!");
             } else {
                 check = true;
             }
         } while ( !check );
 
-
+            System.out.println("b.input Unit: ");
+            int unit=scanner.nextInt();
+            System.out.println("b.input price: ");
+            double price1=scanner.nextDouble();
+            freeService=new AccompaniedService(name1,unit,price1);
         roomsList.add(new Room(id, name, area, price, numPeople, typeOfRent, freeService, "1"));
-        return new Room(id, name, area, price, numPeople, typeOfRent, freeService, "1");
     }
 }
