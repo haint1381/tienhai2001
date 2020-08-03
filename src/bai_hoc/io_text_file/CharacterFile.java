@@ -5,7 +5,7 @@ import java.util.Arrays;
 
 public class CharacterFile {
     public static void readFile() throws IOException {
-        File file = new File("hello.txt");
+        File file = new File("hello.csv");
 
             FileReader fileReader = new FileReader(file);
             BufferedReader bufferedReader = new BufferedReader(fileReader);
@@ -21,7 +21,7 @@ public class CharacterFile {
     }
 
     public static void writeFile() {
-        File file = new File("hello.txt");
+        File file = new File("hello.csv");
         try {
             FileWriter fileWriter = new FileWriter(file, false);
             BufferedWriter bufferedWriter = new BufferedWriter(fileWriter);
@@ -35,7 +35,7 @@ public class CharacterFile {
     }
 
     public static void writeFile2(Student student) {
-        File file = new File("hello.txt");
+        File file = new File("hello.csv");
         try {
             FileWriter fileWriter = new FileWriter(file, true);
             BufferedWriter bufferedWriter = new BufferedWriter(fileWriter);
