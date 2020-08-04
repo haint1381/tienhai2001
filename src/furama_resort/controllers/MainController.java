@@ -71,6 +71,7 @@ public class MainController {
             break;
             case 4: {
                 showInformationCustomers();
+                customersList.clear();
             }
             break;
             case 5: {
@@ -590,7 +591,7 @@ public class MainController {
         do {
             System.out.print("2.Name Services(Villa): ");
             name = scanner.nextLine();
-            if (name == null || !name.matches("^([A-Z][a-z]*((\\s)))+[A-Z][a-z]*$")) {
+            if (name == null || !name.matches("^([A-Z][a-z]*(\\s))+[A-Z][a-z]*$")) {
                 check = false;
                 System.err.println("Invalid name!");
             } else {
