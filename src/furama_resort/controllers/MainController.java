@@ -1,11 +1,9 @@
 package furama_resort.controllers;
 
-import bai_hoc.abstract_class_interface.baitap.trien_khai_interface_resizeable.Circle;
 import furama_resort.commons.ReaderWriterFile;
 import furama_resort.libs.*;
 import furama_resort.models.House;
 import furama_resort.models.Room;
-import furama_resort.models.Services;
 import furama_resort.models.Villa;
 
 import java.util.*;
@@ -56,15 +54,15 @@ public class MainController {
             case 3: {
                 addNewCustomer();
                 for (int i = customersList.size() - 1; i < customersList.size(); i++) {
-                    ReaderWriterFile.WriterFile(customersList.get(i).getName() + ",", FILE_CUS);
-                    ReaderWriterFile.WriterFile(customersList.get(i).getBirthday() + ",", FILE_CUS);
-                    ReaderWriterFile.WriterFile(customersList.get(i).getGender() + ",", FILE_CUS);
-                    ReaderWriterFile.WriterFile(customersList.get(i).getId() + ",", FILE_CUS);
-                    ReaderWriterFile.WriterFile(customersList.get(i).getTelephone() + ",", FILE_CUS);
-                    ReaderWriterFile.WriterFile(customersList.get(i).getEmail() + ",", FILE_CUS);
-                    ReaderWriterFile.WriterFile(customersList.get(i).getKindOfGuests() + ",", FILE_CUS);
-                    ReaderWriterFile.WriterFile(customersList.get(i).getAddress(), FILE_CUS);
-                    ReaderWriterFile.WriterFile("\n", FILE_CUS);
+                    ReaderWriterFile.writerFile(customersList.get(i).getName() + ",", FILE_CUS);
+                    ReaderWriterFile.writerFile(customersList.get(i).getBirthday() + ",", FILE_CUS);
+                    ReaderWriterFile.writerFile(customersList.get(i).getGender() + ",", FILE_CUS);
+                    ReaderWriterFile.writerFile(customersList.get(i).getId() + ",", FILE_CUS);
+                    ReaderWriterFile.writerFile(customersList.get(i).getTelephone() + ",", FILE_CUS);
+                    ReaderWriterFile.writerFile(customersList.get(i).getEmail() + ",", FILE_CUS);
+                    ReaderWriterFile.writerFile(customersList.get(i).getKindOfGuests() + ",", FILE_CUS);
+                    ReaderWriterFile.writerFile(customersList.get(i).getAddress(), FILE_CUS);
+                    ReaderWriterFile.writerFile("\n", FILE_CUS);
                 }
                 displayMainMenu();
             }
@@ -110,7 +108,6 @@ public class MainController {
             }
         }
     }
-
 
     private static void ticketBooking() {
         if (count < 5) {
@@ -162,26 +159,26 @@ public class MainController {
                     for (int h = 0; h < villaList.size(); h++) {
                         if (h == (choose1 - 1)) {
                             customersList.get(choice - 1).setServices(villaList.get(h));
-                            ReaderWriterFile.WriterFile(customersList.get(choice - 1).getName() + ",", FILE_BOOK);
-                            ReaderWriterFile.WriterFile(customersList.get(choice - 1).getBirthday() + ",", FILE_BOOK);
-                            ReaderWriterFile.WriterFile(customersList.get(choice - 1).getGender() + ",", FILE_BOOK);
-                            ReaderWriterFile.WriterFile(customersList.get(choice - 1).getId() + ",", FILE_BOOK);
-                            ReaderWriterFile.WriterFile(customersList.get(choice - 1).getTelephone() + ",", FILE_BOOK);
-                            ReaderWriterFile.WriterFile(customersList.get(choice - 1).getEmail() + ",", FILE_BOOK);
-                            ReaderWriterFile.WriterFile(customersList.get(choice - 1).getKindOfGuests() + ",", FILE_BOOK);
-                            ReaderWriterFile.WriterFile(customersList.get(choice - 1).getAddress() + ",", FILE_BOOK);
+                            ReaderWriterFile.writerFile(customersList.get(choice - 1).getName() + ",", FILE_BOOK);
+                            ReaderWriterFile.writerFile(customersList.get(choice - 1).getBirthday() + ",", FILE_BOOK);
+                            ReaderWriterFile.writerFile(customersList.get(choice - 1).getGender() + ",", FILE_BOOK);
+                            ReaderWriterFile.writerFile(customersList.get(choice - 1).getId() + ",", FILE_BOOK);
+                            ReaderWriterFile.writerFile(customersList.get(choice - 1).getTelephone() + ",", FILE_BOOK);
+                            ReaderWriterFile.writerFile(customersList.get(choice - 1).getEmail() + ",", FILE_BOOK);
+                            ReaderWriterFile.writerFile(customersList.get(choice - 1).getKindOfGuests() + ",", FILE_BOOK);
+                            ReaderWriterFile.writerFile(customersList.get(choice - 1).getAddress() + ",", FILE_BOOK);
                             /**thuộc tính service**/
-                            ReaderWriterFile.WriterFile(villaList.get(h).getId() + ",", FILE_BOOK);
-                            ReaderWriterFile.WriterFile(villaList.get(h).getName() + ",", FILE_BOOK);
-                            ReaderWriterFile.WriterFile(villaList.get(h).getArea() + ",", FILE_BOOK);
-                            ReaderWriterFile.WriterFile(villaList.get(h).getPrice() + ",", FILE_BOOK);
-                            ReaderWriterFile.WriterFile(villaList.get(h).getPeopleMax() + ",", FILE_BOOK);
-                            ReaderWriterFile.WriterFile(villaList.get(h).getTypeOfRent() + ",", FILE_BOOK);
-                            ReaderWriterFile.WriterFile(villaList.get(h).getKindOfRoom() + ",", FILE_BOOK);
-                            ReaderWriterFile.WriterFile(villaList.get(h).getDescription() + ",", FILE_BOOK);
-                            ReaderWriterFile.WriterFile(villaList.get(h).getPoolArea() + ",", FILE_BOOK);
-                            ReaderWriterFile.WriterFile(villaList.get(h).getNumberOfFloors(), FILE_BOOK);
-                            ReaderWriterFile.WriterFile("\n", FILE_BOOK);
+                            ReaderWriterFile.writerFile(villaList.get(h).getId() + ",", FILE_BOOK);
+                            ReaderWriterFile.writerFile(villaList.get(h).getName() + ",", FILE_BOOK);
+                            ReaderWriterFile.writerFile(villaList.get(h).getArea() + ",", FILE_BOOK);
+                            ReaderWriterFile.writerFile(villaList.get(h).getPrice() + ",", FILE_BOOK);
+                            ReaderWriterFile.writerFile(villaList.get(h).getPeopleMax() + ",", FILE_BOOK);
+                            ReaderWriterFile.writerFile(villaList.get(h).getTypeOfRent() + ",", FILE_BOOK);
+                            ReaderWriterFile.writerFile(villaList.get(h).getKindOfRoom() + ",", FILE_BOOK);
+                            ReaderWriterFile.writerFile(villaList.get(h).getDescription() + ",", FILE_BOOK);
+                            ReaderWriterFile.writerFile(villaList.get(h).getPoolArea() + ",", FILE_BOOK);
+                            ReaderWriterFile.writerFile(villaList.get(h).getNumberOfFloors(), FILE_BOOK);
+                            ReaderWriterFile.writerFile("\n", FILE_BOOK);
                         }
                     }
                 }
@@ -197,25 +194,25 @@ public class MainController {
                     for (int h = 0; h < housesList.size(); h++) {
                         if ((choose1 - 1) == h) {
                             customersList.get(choice - 1).setServices(housesList.get(h));
-                            ReaderWriterFile.WriterFile(customersList.get(choice - 1).getName() + ",", FILE_BOOK);
-                            ReaderWriterFile.WriterFile(customersList.get(choice - 1).getBirthday() + ",", FILE_BOOK);
-                            ReaderWriterFile.WriterFile(customersList.get(choice - 1).getGender() + ",", FILE_BOOK);
-                            ReaderWriterFile.WriterFile(customersList.get(choice - 1).getId() + ",", FILE_BOOK);
-                            ReaderWriterFile.WriterFile(customersList.get(choice - 1).getTelephone() + ",", FILE_BOOK);
-                            ReaderWriterFile.WriterFile(customersList.get(choice - 1).getEmail() + ",", FILE_BOOK);
-                            ReaderWriterFile.WriterFile(customersList.get(choice - 1).getKindOfGuests() + ",", FILE_BOOK);
-                            ReaderWriterFile.WriterFile(customersList.get(choice - 1).getAddress() + ",", FILE_BOOK);
+                            ReaderWriterFile.writerFile(customersList.get(choice - 1).getName() + ",", FILE_BOOK);
+                            ReaderWriterFile.writerFile(customersList.get(choice - 1).getBirthday() + ",", FILE_BOOK);
+                            ReaderWriterFile.writerFile(customersList.get(choice - 1).getGender() + ",", FILE_BOOK);
+                            ReaderWriterFile.writerFile(customersList.get(choice - 1).getId() + ",", FILE_BOOK);
+                            ReaderWriterFile.writerFile(customersList.get(choice - 1).getTelephone() + ",", FILE_BOOK);
+                            ReaderWriterFile.writerFile(customersList.get(choice - 1).getEmail() + ",", FILE_BOOK);
+                            ReaderWriterFile.writerFile(customersList.get(choice - 1).getKindOfGuests() + ",", FILE_BOOK);
+                            ReaderWriterFile.writerFile(customersList.get(choice - 1).getAddress() + ",", FILE_BOOK);
                             /**thuộc tính service**/
-                            ReaderWriterFile.WriterFile(housesList.get(h).getId() + ",", FILE_BOOK);
-                            ReaderWriterFile.WriterFile(housesList.get(h).getName() + ",", FILE_BOOK);
-                            ReaderWriterFile.WriterFile(housesList.get(h).getArea() + ",", FILE_BOOK);
-                            ReaderWriterFile.WriterFile(housesList.get(h).getPrice() + ",", FILE_BOOK);
-                            ReaderWriterFile.WriterFile(housesList.get(h).getPeopleMax() + ",", FILE_BOOK);
-                            ReaderWriterFile.WriterFile(housesList.get(h).getTypeOfRent() + ",", FILE_BOOK);
-                            ReaderWriterFile.WriterFile(housesList.get(h).getKindOfRoom() + ",", FILE_BOOK);
-                            ReaderWriterFile.WriterFile(housesList.get(h).getDescription() + ",", FILE_BOOK);
-                            ReaderWriterFile.WriterFile(housesList.get(h).getNumberOfFloors(), FILE_BOOK);
-                            ReaderWriterFile.WriterFile("\n", FILE_BOOK);
+                            ReaderWriterFile.writerFile(housesList.get(h).getId() + ",", FILE_BOOK);
+                            ReaderWriterFile.writerFile(housesList.get(h).getName() + ",", FILE_BOOK);
+                            ReaderWriterFile.writerFile(housesList.get(h).getArea() + ",", FILE_BOOK);
+                            ReaderWriterFile.writerFile(housesList.get(h).getPrice() + ",", FILE_BOOK);
+                            ReaderWriterFile.writerFile(housesList.get(h).getPeopleMax() + ",", FILE_BOOK);
+                            ReaderWriterFile.writerFile(housesList.get(h).getTypeOfRent() + ",", FILE_BOOK);
+                            ReaderWriterFile.writerFile(housesList.get(h).getKindOfRoom() + ",", FILE_BOOK);
+                            ReaderWriterFile.writerFile(housesList.get(h).getDescription() + ",", FILE_BOOK);
+                            ReaderWriterFile.writerFile(housesList.get(h).getNumberOfFloors(), FILE_BOOK);
+                            ReaderWriterFile.writerFile("\n", FILE_BOOK);
                         }
                     }
                 }
@@ -231,25 +228,25 @@ public class MainController {
                     for (int h = 0; h < roomsList.size(); h++) {
                         if ((choose1 - 1) == h) {
                             customersList.get(choice - 1).setServices(roomsList.get(h));
-                            ReaderWriterFile.WriterFile(customersList.get(choice - 1).getName() + ",", FILE_BOOK);
-                            ReaderWriterFile.WriterFile(customersList.get(choice - 1).getBirthday() + ",", FILE_BOOK);
-                            ReaderWriterFile.WriterFile(customersList.get(choice - 1).getGender() + ",", FILE_BOOK);
-                            ReaderWriterFile.WriterFile(customersList.get(choice - 1).getId() + ",", FILE_BOOK);
-                            ReaderWriterFile.WriterFile(customersList.get(choice - 1).getTelephone() + ",", FILE_BOOK);
-                            ReaderWriterFile.WriterFile(customersList.get(choice - 1).getEmail() + ",", FILE_BOOK);
-                            ReaderWriterFile.WriterFile(customersList.get(choice - 1).getKindOfGuests() + ",", FILE_BOOK);
-                            ReaderWriterFile.WriterFile(customersList.get(choice - 1).getAddress() + ",", FILE_BOOK);
+                            ReaderWriterFile.writerFile(customersList.get(choice - 1).getName() + ",", FILE_BOOK);
+                            ReaderWriterFile.writerFile(customersList.get(choice - 1).getBirthday() + ",", FILE_BOOK);
+                            ReaderWriterFile.writerFile(customersList.get(choice - 1).getGender() + ",", FILE_BOOK);
+                            ReaderWriterFile.writerFile(customersList.get(choice - 1).getId() + ",", FILE_BOOK);
+                            ReaderWriterFile.writerFile(customersList.get(choice - 1).getTelephone() + ",", FILE_BOOK);
+                            ReaderWriterFile.writerFile(customersList.get(choice - 1).getEmail() + ",", FILE_BOOK);
+                            ReaderWriterFile.writerFile(customersList.get(choice - 1).getKindOfGuests() + ",", FILE_BOOK);
+                            ReaderWriterFile.writerFile(customersList.get(choice - 1).getAddress() + ",", FILE_BOOK);
                             /**thuộc tính service**/
-                            ReaderWriterFile.WriterFile(roomsList.get(h).getId() + ",", FILE_BOOK);
-                            ReaderWriterFile.WriterFile(roomsList.get(h).getName() + ",", FILE_BOOK);
-                            ReaderWriterFile.WriterFile(roomsList.get(h).getArea() + ",", FILE_BOOK);
-                            ReaderWriterFile.WriterFile(roomsList.get(h).getPrice() + ",", FILE_BOOK);
-                            ReaderWriterFile.WriterFile(roomsList.get(h).getPeopleMax() + ",", FILE_BOOK);
-                            ReaderWriterFile.WriterFile(roomsList.get(h).getTypeOfRent() + ",", FILE_BOOK);
-                            ReaderWriterFile.WriterFile(roomsList.get(h).getFreeService().getName() + ",", FILE_BOOK);
-                            ReaderWriterFile.WriterFile(roomsList.get(h).getFreeService().getUnit() + ",", FILE_BOOK);
-                            ReaderWriterFile.WriterFile(String.valueOf(roomsList.get(h).getFreeService().getPrice()), FILE_BOOK);
-                            ReaderWriterFile.WriterFile("\n", FILE_BOOK);
+                            ReaderWriterFile.writerFile(roomsList.get(h).getId() + ",", FILE_BOOK);
+                            ReaderWriterFile.writerFile(roomsList.get(h).getName() + ",", FILE_BOOK);
+                            ReaderWriterFile.writerFile(roomsList.get(h).getArea() + ",", FILE_BOOK);
+                            ReaderWriterFile.writerFile(roomsList.get(h).getPrice() + ",", FILE_BOOK);
+                            ReaderWriterFile.writerFile(roomsList.get(h).getPeopleMax() + ",", FILE_BOOK);
+                            ReaderWriterFile.writerFile(roomsList.get(h).getTypeOfRent() + ",", FILE_BOOK);
+                            ReaderWriterFile.writerFile(roomsList.get(h).getFreeService().getName() + ",", FILE_BOOK);
+                            ReaderWriterFile.writerFile(roomsList.get(h).getFreeService().getUnit() + ",", FILE_BOOK);
+                            ReaderWriterFile.writerFile(String.valueOf(roomsList.get(h).getFreeService().getPrice()), FILE_BOOK);
+                            ReaderWriterFile.writerFile("\n", FILE_BOOK);
                         }
                     }
                 }
@@ -278,31 +275,31 @@ public class MainController {
     private static void addNewCustomer() {
         scanner.nextLine();
         boolean check;
-        String name;
-        do {
-            System.out.print("Name Customer: ");
-            name = scanner.nextLine();
-            if (name == null || !name.matches("^([A-Z][a-z]*((\\s)))+[A-Z][a-z]*$")) {
-                check = false;
-                System.err.println("Invalid name!");
-            } else {
-                check = true;
-            }
-        } while ( !check );
+        String name = "1";
+//        do {
+//            System.out.print("Name Customer: ");
+//            name = scanner.nextLine();
+//            if (name == null || !name.matches("^([A-Z][a-z]*((\\s)))+[A-Z][a-z]*$")) {
+//                check = false;
+//                System.err.println("Invalid name!");
+//            } else {
+//                check = true;
+//            }
+//        } while ( !check );
 
 
-        String birthday;
-        do {
-            System.out.print("Input birthday customer: ");
-            birthday = scanner.nextLine();
-            if (birthday == null || !birthday.matches("^(0[1-9]|[12][0-9]|3[01])[- /.](0[1-9]|1[012])[- /.]((19\\d{2})|(200[12]))$")) {
-                check = false;
-
-                System.err.println("Invalid birthday!");
-            } else {
-                check = true;
-            }
-        } while ( !check );
+        String birthday = "1";
+//        do {
+//            System.out.print("Input birthday customer: ");
+//            birthday = scanner.nextLine();
+//            if (birthday == null || !birthday.matches("^(0[1-9]|[12][0-9]|3[01])[- /.](0[1-9]|1[012])[- /.]((19\\d{2})|(200[12]))$")) {
+//                check = false;
+//
+//                System.err.println("Invalid birthday!");
+//            } else {
+//                check = true;
+//            }
+//        } while ( !check );
 
         String gender;
         String str;
@@ -329,29 +326,29 @@ public class MainController {
 
 
         String id;
-        boolean check1=true;
+        boolean check1 = true;
         do {
             System.out.print("Input id customer: ");
             id = scanner.nextLine();
 
             ReaderWriterFile.readerFile(FILE_CUS);
-            for (int i=0;i<customersList.size();i++){
-                if(id.equals(customersList.get(i).getId())){
-                    check1=false;
-                }else {
-                    check1=true;
+            for (int i = 0; i < customersList.size(); i++) {
+                if (id.equals(customersList.get(i).getId())) {
+                    check1 = false;
+                } else {
+                    check1 = true;
                 }
             }
-            if(!check1){
+            if (!check1) {
                 System.err.println("duplicate id!");
             }
-            if (id == null || !id.matches("^([1-9])(\\d{8})$")) {
+            if (id == null || !id.matches("^(0[1-9])(\\d{8})$")) {
                 check = false;
                 System.err.println("Invalid id!");
             } else {
                 check = true;
             }
-        } while ( !check ||!check1);
+        } while ( !check || !check1 );
         String telephone;
         do {
             System.out.print("Input telephone customer: ");
@@ -491,18 +488,18 @@ public class MainController {
             case 1: {
                 addNewVilla();
                 for (int i = villaList.size() - 1; i < villaList.size(); i++) {
-                    ReaderWriterFile.WriterFile(villaList.get(i).getId() + ",", FILE_VILLA);
-                    ReaderWriterFile.WriterFile(villaList.get(i).getName() + ",", FILE_VILLA);
-                    ReaderWriterFile.WriterFile(villaList.get(i).getArea() + ",", FILE_VILLA);
-                    ReaderWriterFile.WriterFile(villaList.get(i).getPrice() + ",", FILE_VILLA);
-                    ReaderWriterFile.WriterFile(villaList.get(i).getPeopleMax() + ",", FILE_VILLA);
-                    ReaderWriterFile.WriterFile(villaList.get(i).getTypeOfRent() + ",", FILE_VILLA);
-                    ReaderWriterFile.WriterFile(villaList.get(i).getKindOfRoom() + ",", FILE_VILLA);
-                    ReaderWriterFile.WriterFile(villaList.get(i).getDescription() + ",", FILE_VILLA);
-                    ReaderWriterFile.WriterFile(villaList.get(i).getPoolArea() + ",", FILE_VILLA);
-                    ReaderWriterFile.WriterFile(villaList.get(i).getNumberOfFloors() + ",", FILE_VILLA);
-                    ReaderWriterFile.WriterFile("1", FILE_VILLA);
-                    ReaderWriterFile.WriterFile("\n", FILE_VILLA);
+                    ReaderWriterFile.writerFile(villaList.get(i).getId() + ",", FILE_VILLA);
+                    ReaderWriterFile.writerFile(villaList.get(i).getName() + ",", FILE_VILLA);
+                    ReaderWriterFile.writerFile(villaList.get(i).getArea() + ",", FILE_VILLA);
+                    ReaderWriterFile.writerFile(villaList.get(i).getPrice() + ",", FILE_VILLA);
+                    ReaderWriterFile.writerFile(villaList.get(i).getPeopleMax() + ",", FILE_VILLA);
+                    ReaderWriterFile.writerFile(villaList.get(i).getTypeOfRent() + ",", FILE_VILLA);
+                    ReaderWriterFile.writerFile(villaList.get(i).getKindOfRoom() + ",", FILE_VILLA);
+                    ReaderWriterFile.writerFile(villaList.get(i).getDescription() + ",", FILE_VILLA);
+                    ReaderWriterFile.writerFile(villaList.get(i).getPoolArea() + ",", FILE_VILLA);
+                    ReaderWriterFile.writerFile(villaList.get(i).getNumberOfFloors() + ",", FILE_VILLA);
+                    ReaderWriterFile.writerFile("1", FILE_VILLA);
+                    ReaderWriterFile.writerFile("\n", FILE_VILLA);
                 }
                 villaList.clear();
                 addNewServies();
@@ -510,36 +507,36 @@ public class MainController {
             break;
             case 2: {
                 addNewHouse();
-                for (int i = 0; i < housesList.size(); i++) {
-                    ReaderWriterFile.WriterFile(housesList.get(i).getId() + ",", FILE_HOUSE);
-                    ReaderWriterFile.WriterFile(housesList.get(i).getName() + ",", FILE_HOUSE);
-                    ReaderWriterFile.WriterFile(housesList.get(i).getArea() + ",", FILE_HOUSE);
-                    ReaderWriterFile.WriterFile(housesList.get(i).getPrice() + ",", FILE_HOUSE);
-                    ReaderWriterFile.WriterFile(housesList.get(i).getPeopleMax() + ",", FILE_HOUSE);
-                    ReaderWriterFile.WriterFile(housesList.get(i).getTypeOfRent() + ",", FILE_HOUSE);
-                    ReaderWriterFile.WriterFile(housesList.get(i).getKindOfRoom() + ",", FILE_HOUSE);
-                    ReaderWriterFile.WriterFile(housesList.get(i).getDescription() + ",", FILE_HOUSE);
-                    ReaderWriterFile.WriterFile(housesList.get(i).getNumberOfFloors(), FILE_HOUSE);
-                    ReaderWriterFile.WriterFile("2", FILE_HOUSE);
-                    ReaderWriterFile.WriterFile("\n", FILE_HOUSE);
+                for (int i =villaList.size() - 1; i < housesList.size(); i++) {
+                    ReaderWriterFile.writerFile(housesList.get(i).getId() + ",", FILE_HOUSE);
+                    ReaderWriterFile.writerFile(housesList.get(i).getName() + ",", FILE_HOUSE);
+                    ReaderWriterFile.writerFile(housesList.get(i).getArea() + ",", FILE_HOUSE);
+                    ReaderWriterFile.writerFile(housesList.get(i).getPrice() + ",", FILE_HOUSE);
+                    ReaderWriterFile.writerFile(housesList.get(i).getPeopleMax() + ",", FILE_HOUSE);
+                    ReaderWriterFile.writerFile(housesList.get(i).getTypeOfRent() + ",", FILE_HOUSE);
+                    ReaderWriterFile.writerFile(housesList.get(i).getKindOfRoom() + ",", FILE_HOUSE);
+                    ReaderWriterFile.writerFile(housesList.get(i).getDescription() + ",", FILE_HOUSE);
+                    ReaderWriterFile.writerFile(housesList.get(i).getNumberOfFloors(), FILE_HOUSE);
+                    ReaderWriterFile.writerFile("2", FILE_HOUSE);
+                    ReaderWriterFile.writerFile("\n", FILE_HOUSE);
                 }
                 housesList.clear();
                 addNewServies();
             }
             case 3: {
                 addNewRoom();
-                for (int i = 0; i < roomsList.size(); i++) {
-                    ReaderWriterFile.WriterFile(roomsList.get(i).getId() + ",", FILE_ROOM);
-                    ReaderWriterFile.WriterFile(roomsList.get(i).getName() + ",", FILE_ROOM);
-                    ReaderWriterFile.WriterFile(roomsList.get(i).getArea() + ",", FILE_ROOM);
-                    ReaderWriterFile.WriterFile(roomsList.get(i).getPrice() + ",", FILE_ROOM);
-                    ReaderWriterFile.WriterFile(roomsList.get(i).getPeopleMax() + ",", FILE_ROOM);
-                    ReaderWriterFile.WriterFile(roomsList.get(i).getTypeOfRent() + ",", FILE_ROOM);
-                    ReaderWriterFile.WriterFile(roomsList.get(i).getFreeService().getName() + ",", FILE_ROOM);
-                    ReaderWriterFile.WriterFile(roomsList.get(i).getFreeService().getUnit() + ",", FILE_ROOM);
-                    ReaderWriterFile.WriterFile(String.valueOf(roomsList.get(i).getFreeService().getPrice()), FILE_ROOM);
-                    ReaderWriterFile.WriterFile("3", FILE_ROOM);
-                    ReaderWriterFile.WriterFile("\n", FILE_ROOM);
+                for (int i =villaList.size() - 1; i < roomsList.size(); i++) {
+                    ReaderWriterFile.writerFile(roomsList.get(i).getId() + ",", FILE_ROOM);
+                    ReaderWriterFile.writerFile(roomsList.get(i).getName() + ",", FILE_ROOM);
+                    ReaderWriterFile.writerFile(roomsList.get(i).getArea() + ",", FILE_ROOM);
+                    ReaderWriterFile.writerFile(roomsList.get(i).getPrice() + ",", FILE_ROOM);
+                    ReaderWriterFile.writerFile(roomsList.get(i).getPeopleMax() + ",", FILE_ROOM);
+                    ReaderWriterFile.writerFile(roomsList.get(i).getTypeOfRent() + ",", FILE_ROOM);
+                    ReaderWriterFile.writerFile(roomsList.get(i).getFreeService().getName() + ",", FILE_ROOM);
+                    ReaderWriterFile.writerFile(roomsList.get(i).getFreeService().getUnit() + ",", FILE_ROOM);
+                    ReaderWriterFile.writerFile(String.valueOf(roomsList.get(i).getFreeService().getPrice()), FILE_ROOM);
+                    ReaderWriterFile.writerFile("3", FILE_ROOM);
+                    ReaderWriterFile.writerFile("\n", FILE_ROOM);
                 }
                 roomsList.clear();
                 addNewServies();
@@ -567,17 +564,18 @@ public class MainController {
         do {
             System.out.print("1.ID Services(Villa): ");
             id = scanner.nextLine();
-
-            for (int i = 0; i < villaList.size(); i++) {
-                if (id.equals(villaList.get(i).getId())) {
-                    check1 = false;
-                    break;
-                } else {
-                    check1 = true;
+            if (villaList.size() > 0) {
+                for (int i = 0; i < villaList.size(); i++) {
+                    if (id.equals(villaList.get(i).getId())) {
+                        check1 = false;
+                        break;
+                    } else {
+                        check1 = true;
+                    }
                 }
-            }
-            if(!check1){
-                System.err.println("duplicate id!");
+                if (!check1) {
+                    System.err.println("duplicate id!");
+                }
             }
             if (id == null || !id.matches("^SVVL-\\d{4}$")) {
                 check = false;
@@ -691,13 +689,6 @@ public class MainController {
             }
         } while ( !check );
 
-        System.out.print("11.input name accompanied Service");
-        String name1=scanner.nextLine();
-        System.out.print("12.input Unit");
-        int unit=scanner.nextInt();
-        System.out.print("12.input price");
-        double price1 =scanner.nextDouble();
-
         villaList.add(new Villa(id, name, area, price, numPeople, typeOfRent, kindOfRoom, description, poolArea, numberOfFloors, "3"));
     }
 
@@ -719,7 +710,7 @@ public class MainController {
                     check1 = true;
                 }
             }
-            if(!check1){
+            if (!check1) {
                 System.err.println("duplicate id!");
             }
             if (id == null || !id.matches("^SVVL-\\d{4}$")) {
@@ -731,7 +722,7 @@ public class MainController {
         } while ( !check || !check1 );
         String name;
         do {
-            System.out.print("2.Name Services(Villa): ");
+            System.out.print("2.Name Services(house): ");
             name = scanner.nextLine();
             if (name == null || !name.matches("^([A-Z][a-z]*((\\s)))+[A-Z][a-z]*$")) {
                 check = false;
@@ -742,7 +733,7 @@ public class MainController {
         } while ( !check );
         String area;
         do {
-            System.out.print("3.Area Used(Villa): ");
+            System.out.print("3.Area Used(house): ");
             area = scanner.nextLine();
             if (area == null || !area.matches("^([3-9])(\\.|[0-9]){1,9}$")) {
                 check = false;
@@ -754,7 +745,7 @@ public class MainController {
 
         String price;
         do {
-            System.out.print("4.Rental Costs(Villa): ");
+            System.out.print("4.Rental Costs(house): ");
             price = scanner.nextLine();
             if (price == null || !price.matches("^([1-9]{1,9})?((\\.|[0-9]){1,9})$")) {
                 check = false;
@@ -766,7 +757,7 @@ public class MainController {
 
         String numPeople;
         do {
-            System.out.print("5.Maximum number of people(Villa): ");
+            System.out.print("5.Maximum number of people(house): ");
             numPeople = scanner.nextLine();
             if (numPeople == null || !numPeople.matches("^([1-9])|(1([0-9]))|(20)$")) {
                 check = false;
@@ -777,7 +768,7 @@ public class MainController {
         } while ( !check );
         String typeOfRent;
         do {
-            System.out.print("6.Rental services(Villa): ");
+            System.out.print("6.Rental services(house): ");
             typeOfRent = scanner.nextLine();
             if (typeOfRent == null || !typeOfRent.matches("^([A-Z][a-z]*((\\s)))+[A-Z][a-z]*$")) {
                 check = false;
@@ -788,7 +779,7 @@ public class MainController {
         } while ( !check );
         String kindOfRoom;
         do {
-            System.out.print("7.Kind of room(Villa): ");
+            System.out.print("7.Kind of room(house): ");
             kindOfRoom = scanner.nextLine();
             if (kindOfRoom == null || !kindOfRoom.matches("^([A-Z][a-z]*((\\s)))+[A-Z][a-z]*$")) {
                 check = false;
@@ -799,7 +790,7 @@ public class MainController {
         } while ( !check );
         String description;
         do {
-            System.out.print("8.Description(Villa): ");
+            System.out.print("8.Description(house): ");
             description = scanner.nextLine();
             if (description == null || !description.matches("^([A-Z][a-z]*((\\s)))+[A-Z][a-z]*$")) {
                 check = false;
@@ -811,7 +802,7 @@ public class MainController {
 
         String numberOfFloors;
         do {
-            System.out.print("10.Number of floors(Villa): ");
+            System.out.print("10.Number of floors(house): ");
             numberOfFloors = scanner.nextLine();
             if (numberOfFloors == null || !numberOfFloors.matches("^[1-9]{1,9}$")) {
                 check = false;
@@ -841,7 +832,7 @@ public class MainController {
                     check1 = true;
                 }
             }
-            if(!check1){
+            if (!check1) {
                 System.err.println("duplicate id!");
             }
             if (id == null || !id.matches("^SVVL-\\d{4}$")) {
@@ -911,14 +902,14 @@ public class MainController {
 
         AccompaniedService freeService;
 
-            System.out.print("7.Includes free service(Room): ");
+        System.out.print("7.Includes free service(Room): ");
 
         String name1;
         String name2;
         do {
             System.out.println("a.input name: ");
-            name2=scanner.nextLine();
-            name1=name2.toLowerCase();
+            name2 = scanner.nextLine();
+            name1 = name2.toLowerCase();
             if (name1 == null || !name1.matches("^(massage)|(karaoke)|(food)|(drink)|(car)$")) {
                 check = false;
                 System.err.println("Invalid name!");
@@ -926,12 +917,11 @@ public class MainController {
                 check = true;
             }
         } while ( !check );
-
-            System.out.println("b.input Unit: ");
-            int unit=scanner.nextInt();
-            System.out.println("b.input price: ");
-            double price1=scanner.nextDouble();
-            freeService=new AccompaniedService(name1,unit,price1);
+        System.out.println("b.input Unit: ");
+        int unit = scanner.nextInt();
+        System.out.println("b.input price: ");
+        double price1 = scanner.nextDouble();
+        freeService = new AccompaniedService(name1, unit, price1);
         roomsList.add(new Room(id, name, area, price, numPeople, typeOfRent, freeService, "1"));
     }
 }

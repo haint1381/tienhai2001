@@ -90,7 +90,7 @@ public class ReaderWriterFile {
         }
     }
 
-    public static void WriterFile(String str, String filePath) {
+    public static void writerFile(String str, String filePath) {
         File file = new File(filePath);
         try {
             if (!file.exists()) {
