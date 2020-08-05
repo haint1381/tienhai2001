@@ -290,7 +290,7 @@ public class MainController {
                 try {
                     throw new NameException("Invalid name!");
                 } catch (NameException e) {
-                    System.err.println(e);
+                    System.out.println(e);
                 }
             }
         } while ( !check );
@@ -309,7 +309,7 @@ public class MainController {
                 try {
                     throw new NameException("Invalid birthday!");
                 } catch (NameException e) {
-                    System.err.println(e);
+                    System.out.println(e);
                 }
             }
         } while ( !check );
@@ -323,7 +323,7 @@ public class MainController {
             gender = scanner.nextLine();
             if (gender == null) {
                 check = false;
-                System.err.println("Null");
+                System.out.println("Null");
             } else {
                 str1 = gender.trim();
                 str = str1.toLowerCase();
@@ -338,7 +338,7 @@ public class MainController {
                 try {
                     throw new GenderException("Invalid gender!");
                 } catch (GenderException e) {
-                    System.err.println(e);
+                    System.out.println(e);
                 }
             }
         } while ( !check );
@@ -367,14 +367,14 @@ public class MainController {
                 try {
                     throw new GenderException("Invalid id!");
                 } catch (GenderException e) {
-                    System.err.println(e);
+                    System.out.println(e);
                 }
             }
             if(!check1){
                 try {
                     throw new GenderException("duplicate id!");
                 } catch (GenderException e) {
-                    System.err.println(e);
+                    System.out.println(e);
                 }
             }
         } while ( !check || !check1 );
@@ -384,7 +384,7 @@ public class MainController {
             telephone = scanner.nextLine();
             if (telephone == null || !telephone.matches("^ (0[1-9]\\d{8})$")) {
                 check = false;
-                System.err.println("Invalid telephone!");
+                System.out.println("Invalid telephone!");
             } else {
                 check = true;
             }
@@ -403,7 +403,7 @@ public class MainController {
                 try {
                     throw new GenderException("Invalid email!");
                 } catch (GenderException e) {
-                    System.err.println(e);
+                    System.out.println(e);
                 }
             }
         } while ( !check );
