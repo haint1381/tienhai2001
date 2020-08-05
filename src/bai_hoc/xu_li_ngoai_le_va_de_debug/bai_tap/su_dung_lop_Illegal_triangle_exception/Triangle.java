@@ -20,9 +20,9 @@ public class Triangle {
             Triangle.rightTriangle(a,b,c);
 
         }catch (IllegalRightTriangleException e){
-            System.out.println(e);
+            System.err.println(e);
         }catch (Exception e){
-            System.out.println("enter is not number");
+            System.err.println("enter is not number");
         }
         System.out.println("ok");
     }

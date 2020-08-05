@@ -1,6 +1,8 @@
 package furama_resort.controllers;
 
 import furama_resort.commons.ReaderWriterFile;
+import furama_resort.exception.GenderException;
+import furama_resort.exception.NameException;
 import furama_resort.libs.*;
 import furama_resort.models.House;
 import furama_resort.models.Room;
@@ -275,31 +277,42 @@ public class MainController {
     private static void addNewCustomer() {
         scanner.nextLine();
         boolean check;
-        String name = "1";
-//        do {
-//            System.out.print("Name Customer: ");
-//            name = scanner.nextLine();
-//            if (name == null || !name.matches("^([A-Z][a-z]*((\\s)))+[A-Z][a-z]*$")) {
-//                check = false;
-//                System.err.println("Invalid name!");
-//            } else {
-//                check = true;
-//            }
-//        } while ( !check );
+        String name;
+        do {
+            System.out.print("Name Customer: ");
+            name = scanner.nextLine();
+            if (name == null || !name.matches("^([A-Z][a-z]*((\\s)))+[A-Z][a-z]*$")) {
+                check = false;
+            } else {
+                check = true;
+            }
+            if(!check){
+                try {
+                    throw new NameException("Invalid name!");
+                } catch (NameException e) {
+                    System.err.println(e);
+                }
+            }
+        } while ( !check );
 
 
-        String birthday = "1";
-//        do {
-//            System.out.print("Input birthday customer: ");
-//            birthday = scanner.nextLine();
-//            if (birthday == null || !birthday.matches("^(0[1-9]|[12][0-9]|3[01])[- /.](0[1-9]|1[012])[- /.]((19\\d{2})|(200[12]))$")) {
-//                check = false;
-//
-//                System.err.println("Invalid birthday!");
-//            } else {
-//                check = true;
-//            }
-//        } while ( !check );
+        String birthday;
+        do {
+            System.out.print("Input birthday customer: ");
+            birthday = scanner.nextLine();
+            if (birthday == null || !birthday.matches("^(0[1-9]|[12][0-9]|3[01])[- /.](0[1-9]|1[012])[- /.]((19\\d{2})|(200[12]))$")) {
+                check = false;
+            } else {
+                check = true;
+            }
+            if(!check){
+                try {
+                    throw new NameException("Invalid birthday!");
+                } catch (NameException e) {
+                    System.err.println(e);
+                }
+            }
+        } while ( !check );
 
         String gender;
         String str;
@@ -317,9 +330,15 @@ public class MainController {
                 gender = (String.valueOf(str.charAt(0)).toUpperCase() + str.substring(1));
                 if (!gender.matches("^((Fem|M)ale)|(Unknow)$")) {
                     check = false;
-                    System.err.println("Invalid gender!");
                 } else {
                     check = true;
+                }
+            }
+            if(!check){
+                try {
+                    throw new GenderException("Invalid gender!");
+                } catch (GenderException e) {
+                    System.err.println(e);
                 }
             }
         } while ( !check );
@@ -339,14 +358,24 @@ public class MainController {
                     check1 = true;
                 }
             }
-            if (!check1) {
-                System.err.println("duplicate id!");
-            }
             if (id == null || !id.matches("^(0[1-9])(\\d{8})$")) {
                 check = false;
-                System.err.println("Invalid id!");
             } else {
                 check = true;
+            }
+            if(!check){
+                try {
+                    throw new GenderException("Invalid id!");
+                } catch (GenderException e) {
+                    System.err.println(e);
+                }
+            }
+            if(!check1){
+                try {
+                    throw new GenderException("duplicate id!");
+                } catch (GenderException e) {
+                    System.err.println(e);
+                }
             }
         } while ( !check || !check1 );
         String telephone;
@@ -367,9 +396,15 @@ public class MainController {
             email = scanner.nextLine();
             if (email == null || !email.matches("^([\\w-\\.]+){1,64}@([\\w&&[^_]]+){2,255}.[a-z]{2,}$")) {
                 check = false;
-                System.err.println("Invalid email!");
             } else {
                 check = true;
+            }
+            if(!check){
+                try {
+                    throw new GenderException("Invalid email!");
+                } catch (GenderException e) {
+                    System.err.println(e);
+                }
             }
         } while ( !check );
 
@@ -713,7 +748,7 @@ public class MainController {
             if (!check1) {
                 System.err.println("duplicate id!");
             }
-            if (id == null || !id.matches("^SVVL-\\d{4}$")) {
+            if (id == null || !id.matches("^SVHO-\\d{4}$")) {
                 check = false;
                 System.err.println("Invalid id!");
             } else {
@@ -835,7 +870,7 @@ public class MainController {
             if (!check1) {
                 System.err.println("duplicate id!");
             }
-            if (id == null || !id.matches("^SVVL-\\d{4}$")) {
+            if (id == null || !id.matches("^SVRO-\\d{4}$")) {
                 check = false;
                 System.err.println("Invalid id!");
             } else {
@@ -848,7 +883,6 @@ public class MainController {
             name = scanner.nextLine();
             if (name == null || !name.matches("^([A-Z][a-z]*((\\s)))+[A-Z][a-z]*$")) {
                 check = false;
-                System.err.println("Invalid name!");
             } else {
                 check = true;
             }
