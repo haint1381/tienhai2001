@@ -20,13 +20,33 @@ public class Controller {
         choice=scanner.nextInt();
         switch (choice){
             case 1:{
-                ReaderWriterFile.readerFile(FILE_DICTIONARY);
-
+                scanner.nextLine();
+                System.out.println("Enter the word to search");
+                String work=scanner.nextLine();
+                Comons.lookup(work);
             }
             break;
-            case 2:
-            case 3:
-            case 4:
+            case 2:{
+                scanner.nextLine();
+                System.out.println("enter the word");
+                String work=scanner.nextLine();
+                System.out.println("enter the mean");
+                String mean=scanner.nextLine();
+                Comons.additionalDictionary(work,mean);
+            }break;
+            case 3:{
+                scanner.nextLine();
+                System.out.println("enter the word");
+                String work=scanner.nextLine();
+                Comons.delete(work);
+            }break;
+            case 4:{
+                Comons.dictionaryList.clear();
+                Comons.exportDictionaryDatabase();
+                for (int i = 0; i < Comons.dictionaryList.size(); i++) {
+                        System.out.println( Comons.dictionaryList.get(i).getWork()+" does that mean: "+Comons.dictionaryList.get(i).getMean());
+                }
+            }break;
             case 5:
             default:{
                 System.err.println("invalidate selection");

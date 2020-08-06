@@ -24,8 +24,8 @@ public class MainController {
     public static List<Customer> customersList = new ArrayList<>();
     public static List<Employee> employeeList = new ArrayList<>();
     public static Queue<Customer> cinema = new LinkedList<>();
+   public static Map<String, Employee> employeeMap = new TreeMap<>();
     static int choose;
-    static int count;
 
     public static void main(String[] args) {
         while ( choose < 1 || choose > 7 ) {
@@ -80,7 +80,6 @@ public class MainController {
             break;
             case 6: {
                 ReaderWriterFile.readerFile(FILE_EMPLOYEE);
-                Map<String, Employee> employeeMap = new TreeMap<>();
                 for (int i = 0; i < employeeList.size(); i++) {
                     employeeMap.put("00" + (i + 1), employeeList.get(i));
                 }
@@ -92,7 +91,6 @@ public class MainController {
             break;
             case 7: {
                 ticketBooking();
-                count++;
                 displayMainMenu();
             }
             break;
@@ -112,24 +110,17 @@ public class MainController {
     }
 
     private static void ticketBooking() {
-        if (count < 5) {
+        if (cinema.size()<5) {
+            customersList.clear();
             ReaderWriterFile.readerFile(FILE_CUS);
             for (int i = 0; i < customersList.size(); i++) {
                 System.out.println((i + 1) + ". " + customersList.get(i).getName());
             }
             System.out.println("Enter the customer id to book a ticket:");
-            scanner.nextLine();
-            String id = scanner.nextLine();
-            for (int i = 0; i < customersList.size(); i++) {
-                if (id.equalsIgnoreCase(customersList.get(i).getId())) {
-                    cinema.add(customersList.get(i));
-                } else {
-                    System.out.println("No customer id found");
-                    ticketBooking();
-                }
-            }
+            int id = scanner.nextInt();
+            cinema.add(customersList.get(id-1));
             System.out.println("Book successfully");
-            customersList.clear();
+            ticketBooking();
         } else {
             System.out.println("Movie tickets have run out");
             System.out.println("Customer list for tickets booked today");
@@ -137,8 +128,8 @@ public class MainController {
                 System.out.println(cinema.poll().getName());
             }
         }
-    }
 
+    }
     private static void addNewBooking() {
         ReaderWriterFile.readerFile(FILE_CUS);
         System.out.println("list of customers");
@@ -321,10 +312,7 @@ public class MainController {
         do {
             System.out.print("Input gender customer: ");
             gender = scanner.nextLine();
-            if (gender == null) {
-                check = false;
-                System.out.println("Null");
-            } else {
+
                 str1 = gender.trim();
                 str = str1.toLowerCase();
                 gender = (String.valueOf(str.charAt(0)).toUpperCase() + str.substring(1));
@@ -333,7 +321,7 @@ public class MainController {
                 } else {
                     check = true;
                 }
-            }
+
             if(!check){
                 try {
                     throw new GenderException("Invalid gender!");
