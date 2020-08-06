@@ -20,7 +20,7 @@ public class Comons {
             String line;
             while ( (line = bufferedReader.readLine()) != null ) {
                 arrayTemp = line.split(",");
-                dictionaryList.add(new Dictionary(arrayTemp[0], arrayTemp[1]));
+                dictionaryList.add(new Dictionary(arrayTemp[0], arrayTemp[1],arrayTemp[2],arrayTemp[3]));
             }
             bufferedReader.close();
             fileReader.close();
@@ -31,7 +31,7 @@ public class Comons {
         }
     }
 
-    public static void additionalDictionary(String word, String mean) {
+    public static void additionalDictionary(String word, String mean,String wordType,String synonym) {
         File file = new File(FILE_PATH);
         try {
             if (!file.exists()) {
@@ -42,6 +42,10 @@ public class Comons {
             bufferedWriter.append(word);
             bufferedWriter.append(",");
             bufferedWriter.append(mean);
+            bufferedWriter.append(",");
+            bufferedWriter.append(wordType);
+            bufferedWriter.append(",");
+            bufferedWriter.append(synonym);
             bufferedWriter.close();
             fileWriter.close();
         } catch (FileNotFoundException e) {
@@ -56,7 +60,7 @@ public class Comons {
         Comons.exportDictionaryDatabase();
         for (int i = 0; i < dictionaryList.size(); i++) {
             if (word.equals(dictionaryList.get(i).getWork())) {
-                System.out.println("does that mean: " + dictionaryList.get(i).getMean());
+                System.out.println("does that mean: " + dictionaryList.get(i).getMean()+" Word Type: "+dictionaryList.get(i).getWordType()+" Synonym: "+dictionaryList.get(i).getSynonym());
             }
         }
     }
@@ -70,11 +74,11 @@ public class Comons {
             }
         }
         for (int i = 0; i < dictionaryList.size(); i++) {
-            Comons.save(dictionaryList.get(i).getWork(), dictionaryList.get(i).getMean());
+            Comons.save(dictionaryList.get(i).getWork(), dictionaryList.get(i).getMean(),dictionaryList.get(i).getWordType(),dictionaryList.get(i).getSynonym());
         }
     }
 
-    public static void save(String word, String mean) {
+    public static void save(String word, String mean,String wordType,String synonym) {
         File file = new File(FILE_PATH);
         try {
             if (!file.exists()) {
@@ -85,6 +89,10 @@ public class Comons {
             bufferedWriter.append(word);
             bufferedWriter.append(",");
             bufferedWriter.append(mean);
+            bufferedWriter.append(",");
+            bufferedWriter.append(wordType);
+            bufferedWriter.append(",");
+            bufferedWriter.append(synonym);
             bufferedWriter.close();
             fileWriter.close();
         } catch (FileNotFoundException e) {

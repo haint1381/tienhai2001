@@ -32,7 +32,11 @@ public class Controller {
                 String work=scanner.nextLine();
                 System.out.println("enter the mean");
                 String mean=scanner.nextLine();
-                Comons.additionalDictionary(work,mean);
+                System.out.println("enter the mean");
+                String wordType=scanner.nextLine();
+                System.out.println("enter the mean");
+                String synonym=scanner.nextLine();
+                Comons.additionalDictionary(work,mean,wordType,synonym);
             }break;
             case 3:{
                 scanner.nextLine();
