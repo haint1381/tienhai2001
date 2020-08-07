@@ -1,13 +1,13 @@
 package bai_hoc.case_study_james;
 
 import java.io.*;
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
 
 public class Comons {
     public static String FILE_PATH = "D:\\Codegym\\src\\bai_hoc\\case_study_james\\dictionary.csv";
     public static String[] arrayTemp;
-    public static List<Dictionary> dictionaryList = new ArrayList<>();
+    public static List<Dictionary> dictionaryList = new LinkedList<>();
+    public static Map<String,Dictionary> dictionaryMap=new TreeMap<>();
 
     public static void exportDictionaryDatabase() {
         File file = new File(FILE_PATH);
@@ -21,6 +21,7 @@ public class Comons {
             while ( (line = bufferedReader.readLine()) != null ) {
                 arrayTemp = line.split(",");
                 dictionaryList.add(new Dictionary(arrayTemp[0], arrayTemp[1],arrayTemp[2],arrayTemp[3]));
+                dictionaryMap.put(arrayTemp[0],new Dictionary(arrayTemp[0], arrayTemp[1],arrayTemp[2],arrayTemp[3]));
             }
             bufferedReader.close();
             fileReader.close();
@@ -37,7 +38,7 @@ public class Comons {
             if (!file.exists()) {
                 throw new FileNotFoundException();
             }
-            FileWriter fileWriter = new FileWriter(file, true);
+            FileWriter fileWriter = new FileWriter(file,true);
             BufferedWriter bufferedWriter = new BufferedWriter(fileWriter);
             bufferedWriter.append(word);
             bufferedWriter.append(",");
@@ -46,6 +47,7 @@ public class Comons {
             bufferedWriter.append(wordType);
             bufferedWriter.append(",");
             bufferedWriter.append(synonym);
+            bufferedWriter.append("\n");
             bufferedWriter.close();
             fileWriter.close();
         } catch (FileNotFoundException e) {
@@ -56,11 +58,11 @@ public class Comons {
     }
 
     public static void lookup(String word) {
-        dictionaryList.clear();
+        dictionaryMap.clear();
         Comons.exportDictionaryDatabase();
-        for (int i = 0; i < dictionaryList.size(); i++) {
-            if (word.equals(dictionaryList.get(i).getWork())) {
-                System.out.println("does that mean: " + dictionaryList.get(i).getMean()+" Word Type: "+dictionaryList.get(i).getWordType()+" Synonym: "+dictionaryList.get(i).getSynonym());
+        for (String key: dictionaryMap.keySet()){
+            if(key.equals(word)){
+                System.out.println("word: "+dictionaryMap.get(key).getWork()+" mean: "+dictionaryMap.get(key).getMean()+" Word Type: "+dictionaryMap.get(key).getWordType()+" Synonym: "+dictionaryMap.get(key).getSynonym());
             }
         }
     }
@@ -73,8 +75,9 @@ public class Comons {
                 dictionaryList.remove(dictionaryList.get(i));
             }
         }
-        for (int i = 0; i < dictionaryList.size(); i++) {
-            Comons.save(dictionaryList.get(i).getWork(), dictionaryList.get(i).getMean(),dictionaryList.get(i).getWordType(),dictionaryList.get(i).getSynonym());
+        Comons.save(dictionaryList.get(0).getWork(),dictionaryList.get(0).getMean(),dictionaryList.get(0).getWordType(),dictionaryList.get(0).getSynonym());
+        for (int i = 1; i < dictionaryList.size(); i++) {
+            Comons.additionalDictionary(dictionaryList.get(i).getWork(),dictionaryList.get(i).getMean(),dictionaryList.get(i).getWordType(),dictionaryList.get(i).getSynonym());
         }
     }
 
@@ -93,6 +96,7 @@ public class Comons {
             bufferedWriter.append(wordType);
             bufferedWriter.append(",");
             bufferedWriter.append(synonym);
+            bufferedWriter.append("\n");
             bufferedWriter.close();
             fileWriter.close();
         } catch (FileNotFoundException e) {

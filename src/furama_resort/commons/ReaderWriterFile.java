@@ -16,7 +16,7 @@ import java.util.Arrays;
 
 
 public class ReaderWriterFile {
-    public static String[] arrayTemp;
+    public static String[] arrayTemp=null;
     public static Services services=null;
     public static void readerFile(String filePath) {
         File file = new File(filePath);

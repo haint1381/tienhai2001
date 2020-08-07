@@ -4,7 +4,6 @@ import java.util.Scanner;
 
 public class Controller {
     public static Scanner scanner=new Scanner(System.in);
-    public static String FILE_DICTIONARY="D:\\Codegym\\src\\bai_hoc\\case_study_james\\dictionary.csv";
     static int choice;
     public static void main(String[] args) {
         while ( choice<1 || choice>5 ){

@@ -488,6 +488,7 @@ public class MainController {
 
     private static void showAllHouse() {
         ReaderWriterFile.readerFile(FILE_HOUSE);
+        System.out.println(housesList.size());
         for (House house : housesList) {
             System.out.println(house.showInfor());
         }
@@ -579,7 +580,6 @@ public class MainController {
 
     public static void addNewVilla() {
         scanner.nextLine();
-
         ReaderWriterFile.readerFile(FILE_VILLA);
         String id;
         boolean check;
