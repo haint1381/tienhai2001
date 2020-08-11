@@ -3,7 +3,7 @@ package bai_hoc.case_study_james;
 import java.io.*;
 import java.util.*;
 
-public class Comons {
+public  class Comons {
     public static String FILE_PATH = "D:\\Codegym\\src\\bai_hoc\\case_study_james\\dictionary.csv";
     public static String[] arrayTemp;
     public static List<Dictionary> dictionaryList = new LinkedList<>();

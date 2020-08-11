@@ -291,7 +291,7 @@ public class MainController {
         do {
             System.out.print("Input birthday customer: ");
             birthday = scanner.nextLine();
-            if (birthday == null || !birthday.matches("^(0[1-9]|[12][0-9]|3[01])[- /.](0[1-9]|1[012])[- /.]((19\\d{2})|(200[12]))$")) {
+            if (birthday == null || !birthday.matches("^(0[1-9]|[12][0-9]|3[01])[- /.](0[1-9]|1[012])[- /.](((190[1-9])|(19[1-9]\\d))|(200[12]))$")) {
                 check = false;
             } else {
                 check = true;
@@ -511,20 +511,18 @@ public class MainController {
         switch (choose) {
             case 1: {
                 addNewVilla();
-                for (int i = villaList.size() - 1; i < villaList.size(); i++) {
-                    ReaderWriterFile.writerFile(villaList.get(i).getId() + ",", FILE_VILLA);
-                    ReaderWriterFile.writerFile(villaList.get(i).getName() + ",", FILE_VILLA);
-                    ReaderWriterFile.writerFile(villaList.get(i).getArea() + ",", FILE_VILLA);
-                    ReaderWriterFile.writerFile(villaList.get(i).getPrice() + ",", FILE_VILLA);
-                    ReaderWriterFile.writerFile(villaList.get(i).getPeopleMax() + ",", FILE_VILLA);
-                    ReaderWriterFile.writerFile(villaList.get(i).getTypeOfRent() + ",", FILE_VILLA);
-                    ReaderWriterFile.writerFile(villaList.get(i).getKindOfRoom() + ",", FILE_VILLA);
-                    ReaderWriterFile.writerFile(villaList.get(i).getDescription() + ",", FILE_VILLA);
-                    ReaderWriterFile.writerFile(villaList.get(i).getPoolArea() + ",", FILE_VILLA);
-                    ReaderWriterFile.writerFile(villaList.get(i).getNumberOfFloors() + ",", FILE_VILLA);
+                    ReaderWriterFile.writerFile(villaList.get(0).getId() + ",", FILE_VILLA);
+                    ReaderWriterFile.writerFile(villaList.get(0).getName() + ",", FILE_VILLA);
+                    ReaderWriterFile.writerFile(villaList.get(0).getArea() + ",", FILE_VILLA);
+                    ReaderWriterFile.writerFile(villaList.get(0).getPrice() + ",", FILE_VILLA);
+                    ReaderWriterFile.writerFile(villaList.get(0).getPeopleMax() + ",", FILE_VILLA);
+                    ReaderWriterFile.writerFile(villaList.get(0).getTypeOfRent() + ",", FILE_VILLA);
+                    ReaderWriterFile.writerFile(villaList.get(0).getKindOfRoom() + ",", FILE_VILLA);
+                    ReaderWriterFile.writerFile(villaList.get(0).getDescription() + ",", FILE_VILLA);
+                    ReaderWriterFile.writerFile(villaList.get(0).getPoolArea() + ",", FILE_VILLA);
+                    ReaderWriterFile.writerFile(villaList.get(0).getNumberOfFloors() + ",", FILE_VILLA);
                     ReaderWriterFile.writerFile("1", FILE_VILLA);
                     ReaderWriterFile.writerFile("\n", FILE_VILLA);
-                }
                 villaList.clear();
                 addNewServies();
             }
