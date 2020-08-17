@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form>
+    <div>
+        <h3>Caculator</h3>
+        <input id="num1" type="number">
+        <input id="num2" type="number">
+    </div>
+    <div>
+        <button onclick="phepcong()">addition(+)</button>
+        <button onclick="pheptru()">subtraction(-)</button>
+        <button onclick="phepnhan()">multiplication(x)</button>
+        <button onclick="phepchia()">division(/)</button>
+    </div>
+</form>
+<script>
+    function phepcong() {
+        let A = parseFloat(document.getElementById("num1").value);
+        let B = parseFloat(document.getElementById("num2").value);
+        let C = A + B;
+        document.write("Đáp án:" + C)
+    }
+
+    function pheptru() {
+        let A = parseFloat(document.getElementById("num1").value);
+        let B = parseFloat(document.getElementById("num2").value);
+        let C = A - B;
+        document.write("Đáp án:" + C)
+    }
+
+    function phepnhan() {
+        let A = parseFloat(document.getElementById("num1").value);
+        let B = parseFloat(document.getElementById("num2").value);
+        let C = A * B;
+        document.write("Đáp án:" + C)
+    }
+
+    function phepchia() {
+        let A = parseFloat(document.getElementById("num1").value);
+        let B = parseFloat(document.getElementById("num2").value);
+        let C = A / B;
+        document.write("Đáp án:" + C)
+    }
+</script>
+</body>
+</html>

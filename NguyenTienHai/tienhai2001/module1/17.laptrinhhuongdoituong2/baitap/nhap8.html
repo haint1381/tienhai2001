@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    // function swap(obj) {
+    //     let tam= obj.a;
+    //     obj.a=obj.b;
+    //     obj.b=tam;
+    //     document.write("gia trị trong ham "+obj.a+" "+obj.b+"<br>")
+    // }
+    // let number1={a:1,b:2}
+    // document.writeln("trước khi swap "+number1.a+" "+number1.b);
+    // swap(number1);
+    // document.write("<br>Sau khi  "+number1.a+" "+number1.b);
+    // function swap(array) {
+    //     let tam= array[0];
+    //     array[0]=array[1];
+    //     array[1]=tam;
+    //     document.write("gia trị trong ham "+array[0]+" "+array[1]+"<br>")
+    // }
+    // let number1=[1,2]
+    // document.writeln("trước khi swap "+number1[0]+" "+number1[1]);
+    // swap(number1);
+    // document.write("<br>Sau khi  "+number1[0]+" "+number1[1]);
+
+    function swap(a,b) {
+        let tam= a;
+
+        a=b;
+        b=tam;
+        document.write("gia trị trong ham "+a+" "+b+"<br>")
+    }
+    let a=1;
+    let b=2;
+    document.writeln("trước khi swap "+a+" "+b);
+    swap(a,b);
+    document.write("<br>Sau khi  "+a+" "+b);
+
+    function swap(array) {
+        let tam= array[0];
+        array[0]=array[1];
+        array[1]=tam;
+        document.write("gia trị trong ham "+array[0]+" "+array[1]+"<br>")
+    }
+    let number1=[1,2]
+    document.writeln("trước khi swap "+number1[0]+" "+number1[1]);
+    swap(number1);
+    document.write("<br>Sau khi  "+number1[0]+" "+number1[1]);
+</script>
+</body>
+</html>

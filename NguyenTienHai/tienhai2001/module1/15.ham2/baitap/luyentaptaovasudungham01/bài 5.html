@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+   let cacNgoiSao= ["Polaris","Aldebaran","Deneb","Vega","Altair","Dubhe","Regulus"];
+   let choSaoTuongUng=[ "Ursa Minor", "Tarurus", "Cygnus", "Lyra", "Aquila", "Ursa Major" , "Leo" ];
+   let timNgoiSao=prompt("tìm ngôi sao");
+   alert(timTenNgoiSao());
+
+   function timTenNgoiSao() {
+       for (let i=0;i<cacNgoiSao.length;i++){
+           if(timNgoiSao===cacNgoiSao[i]){
+               return choSaoTuongUng[i]
+           }
+       }
+
+   }
+</script>
+</body>
+</html>

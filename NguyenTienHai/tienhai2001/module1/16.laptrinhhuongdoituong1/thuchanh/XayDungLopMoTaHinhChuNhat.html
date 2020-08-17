@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<canvas id="myCanvas" width="1368px" height="768px"
+        style="border:1px solid #d61b06; background-color: palegreen">
+</canvas>
+<script>
+
+    class HinhChuNhat {
+        constructor(chieudai, chieurong) {
+            this.chieudai = chieudai;
+            this.chieurong = chieurong;
+        }
+
+        getDienTich() {
+            return (this.chieudai * this.chieurong)
+        }
+
+        getChuVi() {
+            return ((this.chieurong + this.chieudai) * 2)
+        }
+    }
+
+    let dai = parseInt(prompt("nhập chiều dài"));
+    let rong = parseInt(prompt("nhập chiều rộng"));
+    let HinhChuNHat = new HinhChuNhat(dai, rong);
+    let DienTich = HinhChuNHat.getDienTich();
+    let ChuVi = HinhChuNHat.getChuVi();
+    alert("diện tích--->" + DienTich + "   chu vi----->" + ChuVi);
+
+    let canvas=document.getElementById("myCanvas");
+    let cxt= canvas.getContext("2d");
+    cxt.fillStyle="red";
+    cxt.fillRect(100,100,dai , rong)
+</script>
+</body>
+</html>

@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let tempName = "";
+    let tenKhachHang = prompt("họ và tên");
+    tenKhachHang = tenKhachHang.trim().toLowerCase();
+    for (let i = 0; i < tenKhachHang.length; i++) {
+        if (tenKhachHang.charAt(i) === " " && tenKhachHang.charAt(i) === " ") {
+            continue;
+        }
+        if (i === 0 && tenKhachHang.charAt(i - 1) === " ") {
+            tempName += tenKhachHang.toUpperCase()
+        }
+        tempName += tenKhachHang.charAt(i)
+    }
+    let check1 = false;
+    do {
+        let soCMND = prompt("nhập số cmnd:");
+        if (soCMND < 9999999 || soCMND > 100000000) {
+            alert("số cmnd không hợp lệ:");
+            continue;
+        }
+        if (soCMND != parseInt(soCMND)) {
+            alert("số cmnd không hợp lệ:");
+            continue;
+        } else check1 = true;
+    } while (!check1);
+    check1 = false;
+    let check2 = false;
+    do {
+        let ngaySinh = prompt("ngày tháng năm sinh");
+        if (ngaySinh.charAt(3)==="/"&& ngaySinh.charAt(5)==="/") {
+            let namHienTai = new Date().getFullYear();
+            let namSinh = parseInt(new Date(ngaySinh).getFullYear().value);
+            let nam = ngaySinh.substring(6,10);
+            let thang = ngaySinh.substring(3,5);
+            let ngay = ngaySinh.substring(0,2);
+            if (!isNaN(nam) && !isNaN(thang) && !isNaN(ngay)) {
+                ngay = Number.parseFloat(ngay);
+                thang = Number.parseFloat(thang);
+                nam = Number.parseFloat(nam);
+                if (Number.isInteger(nam) && Number.isInteger(thang) && Number.isInteger(ngay)) {
+                    if (thang < 13 && ngay < 32 && namSinh<namHienTai) {
+                        check2 = true;
+                    }
+                }
+            }
+        } if (!check2){
+            alert("ngày sinh không hợp lệ")
+        }
+    } while (!check2);
+    check2 = false;
+    let check = false;
+    do {
+        let countAt = 0;
+        let coutDoc = 0;
+        let email = prompt("email");
+        for (let i = 0; i < email.length; i++) {
+            if (email.charAt(i) === "@") {
+                countAt++;
+                for (let j = i + 1; j < email.length; j++) {
+                    if (email.charAt(j) === ".") {
+                        coutDoc++;
+                    }
+                }
+            }
+        }
+        if (countAt != 1 || coutDoc < 1) {
+            alert("email bạn nhập không đúng")
+        } else check = true;
+    } while (!check);
+    check = false;
+    let diaChi = prompt("địa chỉ");
+    let loaiCustomer = prompt("loại customer");
+    let check3 = false;
+    do {
+        let giamGia = prompt("giảm giá");
+        if (giamGia != parseInt(giamGia)) {
+            alert("giảm giá nhập không hợp lệ");
+            continue
+        }
+        if (giamGia < 0) {
+            alert("giảm giá nhập không hợp lệ");
+            continue
+        } else check3 = true
+
+    } while (!check3);
+    check3 = false;
+    let check4 = false;
+    do {
+        let soLuongDiKem = prompt("số lượng đi kèm");
+        if (soLuongDiKem != parseInt(soLuongDiKem)) {
+            alert("số lượng đi kèm nhập không hợp lệ");
+            continue
+        }
+        if (soLuongDiKem < 0) {
+            alert("số lượng đi kèm nhập không hợp lệ");
+            continue
+        } else check4 = true
+
+    } while (!check4);
+    check4 = false;
+    let check5 = false;
+    do {
+        let soNgayThue = prompt("Số ngày thuê");
+        if (soNgayThue != parseInt(soNgayThue)) {
+            alert("Số ngày thuê nhập không hợp lệ");
+            continue
+        }
+        if (soNgayThue < 0) {
+            alert("Số ngày thuê nhập không hợp lệ");
+            continue
+        } else check5 = true
+
+    } while (!check5);
+    check5 = false;
+    let loaiDichVu = prompt("loại dịch vụ", "");
+    let loaiPhongThue = prompt("loại phòng thuê");
+
+    alert("1.họ và tên" + tenKhachHang
+        + "\n2.số cmnd" + soCMND
+        + "\n3.ngày tháng năm sinh" + ngaySinh
+        + "\n4.email" + email
+        + "\n5.địa chỉ" + diaChi
+        + "\n6.loại customer" + loaiCustomer
+        + "\n7.giảm giá" + giamGia
+        + "\n8.số lượng đi kèm" + soLuongDiKem
+        + "\n9.số ngày thuê" + soNgayThue
+        + "\n10.loại dịch vụ" + loaiDichVu
+        + "\n11.loại phòng thuê" + loaiPhongThue);
+</script>
+</body>
+</html>

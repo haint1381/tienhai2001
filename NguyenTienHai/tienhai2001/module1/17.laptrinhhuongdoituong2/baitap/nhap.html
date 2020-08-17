@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let date;
+    do {
+        date = prompt("nhap ngay dd/MM/yyyy");
+        let patDate = /^(([0][1-9]|[1-2]\d|[3][0-1])\/(0[1-9]|1[0-2])\/(19\d{2}|(20[0-2]\d)))$/;
+        check = patDate.test(date);
+    } while (!check);
+    alert(date + " Là ngày thứ: " + ngayTrongNam(date)+ " trong năm");
+    function namNhuan(year) {
+        let isLeapYear = false;
+        if (year % 4 == 0) {
+            if (year % 100 == 0) {
+                if (year % 400 == 0) {
+                    isLeapYear = true;
+                }
+            } else {
+                isLeapYear = true;
+            }
+        }
+        if (isLeapYear) {
+            return year + " is a leap year";
+        } else {
+            return year + " is NOT a leap year";
+        }
+    }
+    function ngayTrongThang(month) {
+        switch (month) {
+            case 1:
+            case 3:
+            case 5:
+            case 7:
+            case 8:
+            case 10:
+            case 12:
+                return 31;
+                break;
+            case 4:
+            case 6:
+            case 9:
+            case 11:
+                return 30;
+                break;
+            case 2:
+                return 28
+        }
+    }
+    function ngayTrongNam(date) {
+        date = new Date(date);
+        let day = date.getDate();
+        let month = date.getMonth() + 1;
+        let year = date.getFullYear();
+        let days = day;
+        for (let i = 1; i < month; i++) {
+            days = ngayTrongThang(i)
+        }
+        if (namNhuan(year) && month > 2) {
+            return days + 1;
+        } else
+            return days
+    }
+</script>
+</body>
+</html>

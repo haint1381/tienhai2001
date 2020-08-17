@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let diemKiemTra = parseFloat(prompt("điểmkiểm tra của bạn bao nhiêu "));
+    let diemGiuaKy = parseFloat(prompt("điểm giữa kỳ của bạn bao nhiêu "));
+    let diemCuoiKy = parseFloat(prompt("điểm cuối kỳ của bạn bao nhiêu "));
+    let diemTrungBinh = ((diemCuoiKy + diemGiuaKy + diemKiemTra) / 3);
+    if (diemTrungBinh >= 8) {
+        alert("bạn đạt loại giỏi")
+    } else if (diemTrungBinh >= 6.5) {
+        alert("bạn đạt loại khá")
+    } else if (diemTrungBinh >= 5) {
+        alert("bạn đạt loại trung bình")
+    } else alert("Bạn đạt loại yếu ")
+</script>
+</body>
+</html>

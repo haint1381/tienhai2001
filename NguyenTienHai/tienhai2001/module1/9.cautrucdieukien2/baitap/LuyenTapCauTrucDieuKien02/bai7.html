@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h3>Pt có dạng ax**2 + bx + c = 0</h3>
+<h3>Với a # 0</h3>
+<p>Nhập Giá trị a:<input type="number" id="giatria"></p>
+<p>Nhập Giá trị b:<input type="number" id="giatrib"></p>
+<p>Nhập Giá trị c:<input type="number" id="giatric"></p>
+<button onclick="giaiPhuongTrinh()">Đáp án là:</button>
+<p id="dapan"></p>
+<script>
+    function giaiPhuongTrinh() {
+        let giaTria = document.getElementById("giatria").value;
+        let giaTrib = document.getElementById("giatrib").value;
+        let giaTric = document.getElementById("giatric").value;
+        let denta = (giaTrib ** 2) - (4 * giaTria * giaTric);
+        if (denta < 0) {
+            document.getElementById("dapan").innerText = "phuong trinh vo nghiem"
+        } else if (denta === 0) {
+            document.getElementById("dapan").innerText = "phuong trinh co nghiem kep x1=x2=" + (-giaTrib) / (2 * giaTria);
+        } else if (denta > 0) document.getElementById("dapan").innerText = "phuong trinh co 2 nghiem x1:" + (-giaTrib + denta ** (1 / 2)) / (2 * giaTria)
+            + "             x2:   " + (-giaTrib - denta ** (1 / 2)) / (2 * giaTria);
+    }
+</script>
+</body>
+</html>

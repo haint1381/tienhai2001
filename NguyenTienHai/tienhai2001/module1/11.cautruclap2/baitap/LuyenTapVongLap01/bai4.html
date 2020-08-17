@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let f0=0;
+    let f1=1;
+    let f2;
+    for (let i=1;;i++){
+        f2=f1+f0;
+        if (f2%5===0) {
+            alert(f2);
+            break;
+        }
+        f0=f1;
+        f1=f2;
+    }
+</script>
+</body>
+</html>

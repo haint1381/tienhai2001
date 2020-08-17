@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let tenKhachHang=prompt("họ và tên");
+    let soCMND=prompt("số cmnd");
+    let ngaySinh=prompt("ngày tháng năm sinh");
+    let email=prompt("email");
+    let diaChi=prompt("địa chỉ");
+    let loaiCustomer=prompt("loại customer");
+    let giamGia=prompt("giảm giá");
+    let soLuongDiKem=prompt("số lượng đi kèm");
+    let soNgayThue=parseFloat(prompt("Số ngày thuê"));
+    let loaiDichVu=prompt("loại dịch vụ", "");
+    let loaiPhongThue=prompt("loại phòng thuê");
+    let tonggia=0;
+    if (loaiDichVu==="Villa"){
+        tonggia=soNgayThue*500;
+    } else if (loaiDichVu==="House"){
+        tonggia=soNgayThue*300;
+    }else if(loaiDichVu==="Room"){
+        tonggia=soNgayThue*100;
+    }
+    alert("1.họ và tên:  "+tenKhachHang
+        +"\n2.số cmnd"+soCMND
+        +"\n3.ngày tháng năm sinh"+ngaySinh
+        +"\n4.email"+email
+        +"\n5.địa chỉ"+diaChi
+        +"\n6.loại customer"+loaiCustomer
+        +"\n7.giảm giá"+ giamGia
+        +"\n8.số lượng đi kèm"+ soLuongDiKem
+        +"\n9.số ngày thuê"+soNgayThue
+        +"\n10.loại dịch vụ"+loaiDichVu
+        +"\n11.loại phòng thuê"+loaiPhongThue
+        +"\n12.tổng giá"+ tonggia*(1-giamGia/100)
+    );
+</script>
+</body>
+</html>

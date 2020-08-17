@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let number1 = parseFloat(prompt("nhập đại một số nào đi bạn"));
+        if (isNaN(number1)){
+        alert("vui long nhap so");
+            number1 = parseFloat(prompt("nhập đại một số nào đi bạn"));
+    }
+    let number2 = parseFloat(prompt("thêm số nữa đi bạn"));
+    if (isNaN(number2)){
+        alert("vui long nhap so");
+        number2 = parseFloat(prompt("them so nua ban oi"));
+    }
+    let number3 = parseFloat(prompt("thêm số cuối là ok"));
+    if (isNaN(number3)){
+        alert("vui long nhap so");
+        number3= parseFloat(prompt("thêm số cuối là ok"));
+    }
+    if (number1 > number2 && number1 > number3) {
+        alert("số lớn nhất bạn nhập là---->" + number1)
+    } else if (number2 > number3) {
+        alert("số lớn nhất đay nè--->" + number2)
+    } else alert("số lớn nhất chỉ có thể---->" + number3);
+</script>
+</body>
+</html>

@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script type="text/javascript" src="yeu_cau_6_tack2.js"></script>
+</head>
+<body>
+<script>
+    let listEmployees = [];
+    displayMainMenu();
+
+    function displayMainMenu() {
+        let chosse = parseInt(prompt("1.Add new Employee" + "\n2.Display infomation Employee."
+            + "\n3.Salary of Employee" + "\n4.Exit"));
+        switch (chosse) {
+            case 1: {
+                addNewEmployee();
+                break;
+            }
+            case 2: {
+                displayInfomationEmployee();
+                break;
+            }
+            case 3: {
+                displaySalaryOfEmployee();
+                break;
+            }
+            case 4: {
+                exit();
+            }
+            default : {
+                alert("khong hop le")
+            }
+        }
+    }
+
+    function displaySalaryOfEmployee() {
+        result = '';
+        for (let i = 0; i < listEmployees.length; i++) {
+            result += (i + 1) + "Tên:  " + listEmployees[i].getName() + "\n"
+        }
+        let chosseDisplay = parseInt(prompt(result));
+        alert("Lương của nhân Viên:  " + listEmployees[chosseDisplay].getName() + "là: " + listEmployees[chosseDisplay].getSalary())
+        displayMainMenu();
+    }
+
+
+    function displayInfomationEmployee() {
+        result = '';
+        for (let i = 0; i < listEmployees.length; i++) {
+            result += (i + 1) + "Tên:  " + listEmployees[i].getName() + "\n"
+        }
+        let chosseDisplay = parseInt(prompt(result));
+        alert("Tên:  " + listEmployees[chosseDisplay].getName() + "\n" +
+            "Ngày sinh:  " + listEmployees[chosseDisplay].getBirthday() + "\n" +
+            "Email:  " + listEmployees[chosseDisplay].getEmail() + "\n" +
+            "Phone:  " + listEmployees[chosseDisplay].getPhone() + "\n" +
+            "CMND:  " + listEmployees[chosseDisplay].getCMND() + "\n" +
+            "Vị trí:  " + listEmployees[chosseDisplay].getLocation() + "\n" +
+            "Trình độ:  " + listEmployees[chosseDisplay].getLevel());
+        displayMainMenu();
+    }
+
+    function addNewEmployee() {
+        let employee = new Employee();
+        employee.setName(prompt("Nhập tên"));
+        employee.setBirthday(prompt("Nhập ngày sinh"));
+        employee.setEmail(prompt("Nhập email"));
+        employee.setPhone(prompt("Nhập phone"));
+        employee.setCMND(prompt("Nhập cmnd"));
+        employee.setLevel(prompt("Nhập trình độ"));
+        employee.setLocation(prompt("Nhập vị trí"));
+        listEmployees.push(employee);
+        alert("bạn đã thêm thành công");
+        displayMainMenu()
+    }
+</script>
+</body>
+</html>

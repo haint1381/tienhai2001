@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<input type="number" id="kiemtra"><input type="button" onclick="kiemTraNguyenTo()" value="KIỂM TRA HỘ">
+<P id="nguyento"></P>
+<script>
+    function kiemTraNguyenTo() {
+        number = document.getElementById("kiemtra").value;
+        if (kiemtra()) {
+            document.getElementById("nguyento").innerHTML = "ok đúng";
+        } else document.getElementById("nguyento").innerHTML = "ok sai";
+
+        function kiemtra() {
+
+            for (let i = 2; i < number; i++) {
+                if (number % i !== 0) {
+                    return true
+                }else return false
+            }
+        }
+    }
+</script>
+</body>
+</html>

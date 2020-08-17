@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    /* ở đây em cho cách tính giá điện nnhư sau:
+    100 kWh đầu tính giá 1000đ, từ kWh 101 – 200 giá 2000đ,
+     từ kwh201 trở lên giá 2500đ.(kg thấy đề bài) */
+    let dienNang=parseFloat(prompt("điện năng tiêu thụ là(kwh): "));
+    if (dienNang>200){
+        alert("số tiền điện là " +((dienNang-200)*2500+100*2000+100*1000));
+    } else if (dienNang>100){
+        alert("số tiền là " +((dienNang-100)*2000+1000*100));
+    } else alert("số tiền là " + (dienNang*1000));
+</script>
+</body>
+</html>
