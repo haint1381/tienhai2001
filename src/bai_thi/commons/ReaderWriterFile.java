@@ -4,7 +4,7 @@ package bai_thi.commons;
 import bai_thi.controllers.ProductManagement;
 import bai_thi.models.ExportProducts;
 import bai_thi.models.ImportedProducts;
-import bai_thi.models.Product;
+
 
 import java.io.*;
 
@@ -22,7 +22,7 @@ public class ReaderWriterFile {
             String line;
             while ( (line = bufferedReader.readLine()) != null ) {
                 arrayTemp = line.split(",");
-                if(arrayTemp[8].equals("1")){
+                if(arrayTemp[8].equals("2")){
                     int a =Integer.parseInt(ReaderWriterFile.arrayTemp[0]);
                     String b = ReaderWriterFile.arrayTemp[1];
                     String c =ReaderWriterFile.arrayTemp[2];

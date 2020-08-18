@@ -34,11 +34,11 @@ create table book(
     form_code1 varchar(50),
 	foreign key(book_category) references category(book_category)
 );
-create table order_details(
-	book_category1 varchar(250),
-	form_code1 varchar(50),
-	foreign key(book_category1) references category(book_category),
-	foreign key(form_code1) references borrow_order(form_code)
+create table borrow_details(
+	student_number1 varchar(15),
+	book_code1 varchar(50),
+	foreign key(student_number1) references student(student_number),
+	foreign key(book_code1) references book(book_code)
 );
 insert into borrow_order values 
 	('1a','2020-01-01','1d','1b','2020-02-01'),
