@@ -6,38 +6,58 @@
     <style>
         #header{
             background: #585858;
-            position: fixed;
             width: 100%;
             height: 70px;
         }
-        input{
-            height: 70px;
-            background:#585858;
-            top: 0px;
+        #main{
+            background: #adadad;
+            width: 30%;
+            height:520px;
+            float: left;
+            position: relative;
+        }
+        #main_chill{
+            color: #0300ff;
             position: absolute;
+        }
+        #sidebar {
+            background: #ffffff;
+            width: 70%;
+            height:520px;
+            float: left;
+        }
+        #footer {
+            background: #7b7b7b;
+            color: white;
+            text-align: center;
+            width: 100%;
+            height: 100px;
+            clear: both;
         }
     </style>
 </head>
 <body>
-<!--    <div id="header">-->
-<!--        <table>-->
-<!--            <tr>-->
-<!--                <td><input value="Logo" style="font-size: 30px" type="submit"></td>-->
-<!--                <td><input value="Home" style="font-size: 30px" type="submit"></td>-->
-<!--                <td><input value="About" style="font-size: 30px" type="submit"></td>-->
-<!--                <td><input value="Projects" style="font-size: 30px" type="submit"></td>-->
-<!--                <td><input value="Contact" style="font-size: 30px" type="submit"></td>-->
-<!--            </tr>-->
-<!--        </table>-->
-<!--    </div>-->
-    <table>
-        <tr>
-            <th><input value="Logo" style="font-size: 30px" type="submit"></th>
-            <th><input value="Home" style="font-size: 30px" type="submit"></th>
-            <th><input value="About" style="font-size: 30px" type="submit"></th>
-            <th><input value="Projects" style="font-size: 30px" type="submit"></th>
-            <th><input value="Contact" style="font-size: 30px" type="submit"></th>
-        </tr>
-    </table>
+    <div id="header">
+        <h1 style="color: white">Logo &nbsp;&nbsp; Home&nbsp;&nbsp; Projects &nbsp;&nbsp;Contact</h1>
+    </div>
+    <div id="main">
+        <div id="main_chill">
+            <div style="margin-left: 100px">
+                <h4>link</h4>
+                <h4>link</h4>
+                <h4>link</h4>
+            </div>
+        </div>
+    </div>
+    <div id="sidebar">
+        <h1>Helo abcxyz</h1>
+        <hr>
+        <h2>Test</h2>
+        <h5>abcxyz</h5>
+    </div>
+    <div id="footer" >
+        <h2>Footer Text</h2>
+    </div>
+
 </body>
 </html>
