@@ -178,18 +178,18 @@ values
     (4,'room',150,3,3,300000,4,4,'mới');
 insert into hop_dong
 values
-	(1,1,1,1,'2019/09/20','2019/010/20',1000000,5000000),
+	(1,1,1,1,'2019/10/20','2019/010/20',1000000,5000000),
 	(2,2,2,2,'2018/01/20','2020/01/27',3000000,6000000),
 	(3,3,3,3,'2019/02/20','2018/02/27',2000000,4000000),
 	(4,4,4,4,'2018/08/20','2020/08/21',100000,1000000),
-	(5,5,5,5,'2019/09/20','2018/10/20',2000000,5000000);
+	(5,5,5,5,'2019/12/20','2018/10/20',2000000,5000000);
 insert into dich_vu_di_kem
 values
-	(1,'massage',100000,4,'tốt'),
+	(1,'karaoke',100000,4,'tốt'),
 	(2,'karaoke',250000,9,'tốt'),
 	(3,'thức ăn',200000,7,'tốt'),
-	(4,'nước uống',10000,4,'tốt'),
-	(5,'tham quan',500000,5,'tốt');
+	(4,'karaoke',10000,4,'tốt'),
+	(5,'nước uống',500000,5,'tốt');
 insert into hop_dong_chi_tiet
 values
 	(1,1,1,3),
@@ -277,8 +277,11 @@ from dich_vu
 	on loai_dich_vu.id_loai_dich_vu =dich_vu.id_loai_dich_vu
 	left join hop_dong 
 	on hop_dong.id_dich_vu =dich_vu.id_dich_vu 
-	where (hop_dong.ngay_ky_hop_dong like '2018%') 
-		   and (hop_dong.ngay_ky_hop_dong not like '2019%');
+	where (hop_dong.ngay_ky_hop_dong like '2018%' )  
+		   and hop_dong.ngay_ky_hop_dong not in (
+           select hop_dong.ngay_ky_hop_dong 
+           from hop_dong
+           where hop_dong.ngay_ky_hop_dong like '2019%');
 
 /*8.	Hiển thị thông tin HoTenKhachHang có trong hệ thống, với yêu cầu HoThenKhachHang không trùng nhau.
 Học viên sử dụng theo 3 cách khác nhau để thực hiện yêu cầu trên */
@@ -290,7 +293,11 @@ select khach_hang.ho_ten
 from khach_hang
 group by khach_hang.ho_ten;
 -- cách 3 (chưa nghĩ ra -_-)
-
+select khach_hang.ho_ten
+from khach_hang
+union
+select khach_hang.ho_ten
+from khach_hang;
 /* 9.	Thực hiện thống kê doanh thu theo tháng, nghĩa là tương ứng với mỗi tháng
  trong năm 2019 thì sẽ có bao nhiêu khách hàng thực hiện đặt phòng.*/
  select substr(hop_dong.ngay_ky_hop_dong,6,2) as thang_2019 ,count(hop_dong.id_khach_hang) as so_lan_dat
@@ -308,6 +315,43 @@ group by khach_hang.ho_ten;
  
  /*11.	Hiển thị thông tin các Dịch vụ đi kèm đã được sử dụng bởi những Khách hàng có 
  TenLoaiKhachHang là “Diamond” và có địa chỉ là “Vinh” hoặc “Quảng Ngãi”.*/
- select id_dich_vu_di_kem,ten_dich_vu_di_kem ,gia,don_vi,trang_thai_kha_dung 
- from dich_vu_di_kem 
- left join hop_dong_chi_tiet on hop_dong_chi_tiet.id_dich_vu_di_kem=dich_vu_di_kem.id_dich_vu_di_kem
+select  khach_hang.ho_ten, dich_vu_di_kem.id_dich_vu_di_kem, dich_vu_di_kem.ten_dich_vu_di_kem,
+        dich_vu_di_kem.gia, dich_vu_di_kem.don_vi, dich_vu_di_kem.trang_thai_kha_dung
+from dich_vu_di_kem
+    left join hop_dong_chi_tiet on dich_vu_di_kem.id_dich_vu_di_kem = hop_dong_chi_tiet.id_dich_vu_di_kem
+	left join hop_dong on hop_dong_chi_tiet.id_hop_dong = hop_dong.id_hop_dong
+	left join khach_hang on khach_hang.id_khach_hang = hop_dong.id_khach_hang
+	left join loai_khach on loai_khach.id_loai_khach= khach_hang.id_loai_khach
+	where loai_khach.id_loai_khach = 1
+		and (khach_hang.dia_chi = 'Vinh'
+		or khach_hang.dia_chi = 'Quảng Ngãi') 
+	group by khach_hang.ho_ten;
+    
+/*12.	Hiển thị thông tin IDHopDong, TenNhanVien, TenKhachHang, SoDienThoaiKhachHang, TenDichVu,
+ SoLuongDichVuDikem (được tính dựa trên tổng Hợp đồng chi tiết), TienDatCoc của tất cả các dịch vụ
+ đã từng được khách hàng đặt vào 3 tháng cuối năm 2019 nhưng chưa từng được khách hàng đặt vào 6 tháng đầu năm 2019.*/ 
+
+select hop_dong.id_hop_dong, nhan_vien.ho_ten as nhan_vien, khach_hang.ho_ten as khach_hang, khach_hang.sdt, 
+       dich_vu.ten_dich_vu, hop_dong.ngay_ky_hop_dong, count(hop_dong_chi_tiet.id_dich_vu_di_kem) as SoLuongDichVuDikem
+from hop_dong
+left join nhan_vien on nhan_vien.id_nhan_vien = hop_dong.id_nhan_vien
+left join khach_hang on khach_hang.id_khach_hang = hop_dong.id_khach_hang
+left join dich_vu on dich_vu.id_dich_vu = hop_dong.id_dich_vu
+left join hop_dong_chi_tiet on hop_dong_chi_tiet.id_hop_dong = hop_dong.id_hop_dong
+where (hop_dong.ngay_ky_hop_dong >='2019/10/01' and hop_dong.ngay_ky_hop_dong <='2019/12/31' ) 
+	and (hop_dong.ngay_ky_hop_dong not between '2019/01/01' and '2019/06/31')
+group by hop_dong.id_hop_dong;
+
+/*13.	Hiển thị thông tin các Dịch vụ đi kèm được sử dụng nhiều nhất bởi các Khách hàng 
+đã đặt phòng. (Lưu ý là có thể có nhiều dịch vụ có số lần sử dụng nhiều như nhau). */
+
+select  dich_vu_di_kem.id_dich_vu_di_kem, dich_vu_di_kem.ten_dich_vu_di_kem,
+        dich_vu_di_kem.gia, dich_vu_di_kem.don_vi, dich_vu_di_kem.trang_thai_kha_dung
+from dich_vu_di_kem
+left join hop_dong_chi_tiet on dich_vu_di_kem.id_dich_vu_di_kem = hop_dong_chi_tiet.id_dich_vu_di_kem
+left join hop_dong on hop_dong_chi_tiet.id_hop_dong = hop_dong.id_hop_dong
+left join khach_hang on khach_hang.id_khach_hang = hop_dong.id_khach_hang
+group by dich_vu_di_kem.ten_dich_vu_di_kem
+having count(dich_vu_di_kem.ten_dich_vu_di_kem)
+order by count(dich_vu_di_kem.ten_dich_vu_di_kem) desc
+

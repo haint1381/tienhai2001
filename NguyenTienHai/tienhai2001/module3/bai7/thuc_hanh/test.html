@@ -39,21 +39,19 @@
             text-decoration: none;
             display: block;
         }
-        .header ul li a:hover{
+        .header ul li a:hover {
             background: black;
             color: white;
             text-decoration: none;
-            display: block;
         }
-
         .menu ul{
             list-style-type: none;
             color: #1350a9;
             background-color: white;
             display: block;
         }
-
         .button {
+
             background: white;
         }
 
@@ -70,14 +68,15 @@
             margin-top: 20px;
         }
         .body {
-            background-color: #b6dffc;
+            background-color: deepskyblue;
         }
 
         * {
             box-sizing: border-box;
         }
+
         /*<= 768px*/
-        @media only print and (max-width: 768px) {
+        @media only screen and (max-width: 768px) {
             [class*='col-'] {
                 width: 100%;
             }
@@ -96,7 +95,6 @@
             </ul>
         </div>
     </div>
-
     <div class="row">
         <div class="menu col-2">
             <ul>
@@ -119,9 +117,13 @@
             <h3>Test</h3>
             <p>
         </div>
-        <div class="button col-2">
-            <input type="button" value="ADS">
-            <input type="button" value="ADS">
+        <div class="button col-2" >
+            <div class="button col-12">
+                <input type="button" value="ADS">
+            </div>
+            <div class="button col-12">
+                <input type="button" value="ADS">
+            </div>
         </div>
     </div>
     <div class="row">
