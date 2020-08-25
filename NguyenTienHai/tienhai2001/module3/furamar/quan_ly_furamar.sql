@@ -32,6 +32,7 @@ create table nhan_vien(
 	references trinh_do(id_trinh_do),
 	foreign key(id_bo_phan) 
 	references bo_phan(id_bo_phan)
+    
 );
 create table loai_khach(
 	id_loai_khach int primary key,
@@ -84,7 +85,7 @@ create table hop_dong(
 	tien_dat_coc int,
 	tong_tien int,
 	foreign key(id_nhan_vien) 
-    references nhan_vien(id_nhan_vien),
+    references nhan_vien(id_nhan_vien) ON DELETE CASCADE,
 	foreign key(id_khach_hang) 
     references khach_hang(id_khach_hang),
 	foreign key(id_dich_vu)
@@ -119,84 +120,97 @@ values
 	(2,'Giám sát'),
 	(3,'Lễ Tân'),
 	(4,'Phục vụ'),
-	(5,'Quản lý');
+	(5,'Quản lý'),
+	(6,'Quản lý');
 insert into trinh_do 
 values
 	(1,'Cao đẳng'),
 	(2,'Đại học'),
 	(3,'Cao đẳng'),
 	(4,'Sau đại học'),
-	(5,'Trung cấp');
+	(5,'Trung cấp'),
+	(6,'Trung cấp');
 insert into bo_phan 
 values 
 	(1,'Sale – Marketing'),
 	(2,'Hành Chính'),
 	(3,'Quản lý'),
 	(4,'Phục vụ'),
-	(5,'Quản lý');
+	(5,'Quản lý'),
+	(6,'Quản lý');
 insert into nhan_vien 
 values
     (1,'Nguyễn Tiến Hải',1,1,1,'2001/08/13','123415678',8000000,'0394772917','tienhai@gmail.com','hà tĩnh'),
+    (7,'Nguyễn Tiến Hải1',1,1,1,'2001/08/13','123415678',8000000,'0394772917','tienhai@gmail.com','hà tĩnh'),
     (2,'Lê Nhật',2,2,2,'2000/01/01','123415677',2000000,'0394772917','lenhat@gmail.com','quảng trị'),
     (3,'Trần Thanh Hoàng',3,3,3,'1999/01/01','123415676',7000000,'0394772917','thanhhoang@gmail.com','vô gia cư'),
     (4,'Hữu Quang',4,4,4,'1996/01/01','123451675',5000000,'0394772917','huuquang@gmail.com','đà nẵng'),
-    (5,'Lê Toàn',1,1,1,'1993/01/01','123451674',9000000,'0394772917','letoan@gmail.com','đà nẵng');
+    (5,'Lê Toàn',1,1,1,'1993/01/01','123451674',9000000,'0394772917','letoan@gmail.com','đà nẵng'),
+    (6,'Lê Toàn1',1,1,1,'1993/01/01','123451674',5000000,'0294772917','letoan1@gmail.com','đà nẵng');
 insert into loai_khach
 values
 	(1,'Diamond'),
 	(2,'Gold'),
 	(3,'Platinium'),
 	(4,'Silver'),
-	(5,'Member');
+	(5,'Member'),
+	(6,'Member');
 insert into khach_hang
 values
     (1,1,'Văn Chương','1988/01/01','876543211','0394772917','vanchuong@gmail.com','Quảng Ngãi'),
     (2,1,'Quốc Khánh','1993/01/01','876514312','0394772917','quockhanh@gmail.com','Vinh'),
     (3,3,'Trần Đạt','1992/01/01',879761542,'0394772917','trandat@gmail.com','đà nẵng'),
     (4,4,'Hữu Hiên','1995/01/01',098765432,'0394772917','sontra@gmail.com','Quảng Ngãi'),
-    (5,1,'Hữu Hiên','1994/01/01',123876549,'0394772917','huuhien@gmai.com','Quảng Ngãi');
+    (5,1,'Hữu Hiên','1994/01/01',123876549,'0394772917','huuhien@gmai.com','Quảng Ngãi'),
+    (6,1,'Hữu Hiên2','1994/01/01',123876549,'0394772917','huuhien@gmai.com','Quảng trị');
 insert into kieu_thue
 values
     (1,'thuê theo ngày',500000),
     (2,'thuê theo tuần',100000),
     (3,'thuê theo tháng',900000),
     (4,'thuê theo ngày',300000),
-    (5,'thuê theo tuần',100000);
+    (5,'thuê theo tuần',100000),
+    (6,'thuê theo tuần',100000);
 insert into loai_dich_vu
 values
     (1,'villa'),
     (2,'house'),
     (3,'room'),
     (4,'villa'),
-    (5,'room');
+    (5,'room'),
+    (6,'room');
 insert into dich_vu
 values
     (1,'villa',300,2,5,400000,1,1,'mới'),
     (5,'villa',400,3,5,600000,5,5,'cũ'),
     (2,'house',200,3,6,300000,2,2,'mới'),
     (3,'room',100,1,3,200000,3,3,'cũ'),
-    (4,'room',150,3,3,300000,4,4,'mới');
+    (4,'room',150,3,3,300000,4,4,'mới'),
+    (6,'room',150,3,3,300000,4,4,'mới');
 insert into hop_dong
 values
-	(1,1,1,1,'2019/10/20','2019/010/20',1000000,5000000),
+	(1,3,1,1,'2017/10/20','2019/010/20',1000000,5000000),
 	(2,2,2,2,'2018/01/20','2020/01/27',3000000,6000000),
-	(3,3,3,3,'2019/02/20','2018/02/27',2000000,4000000),
-	(4,4,4,4,'2018/08/20','2020/08/21',100000,1000000),
-	(5,5,5,5,'2019/12/20','2018/10/20',2000000,5000000);
+	(3,5,3,3,'2018/02/20','2018/02/27',2000000,4000000),
+	(4,2,4,4,'2016/08/20','2020/08/21',100000,1000000),
+	(5,4,5,5,'2019/12/20','2018/10/20',2000000,5000000),
+	(6,1,5,5,'2014/10/20','2018/12/20',2000000,5000000);
 insert into dich_vu_di_kem
 values
 	(1,'karaoke',100000,4,'tốt'),
 	(2,'karaoke',250000,9,'tốt'),
 	(3,'thức ăn',200000,7,'tốt'),
 	(4,'karaoke',10000,4,'tốt'),
-	(5,'nước uống',500000,5,'tốt');
+	(5,'nước uống',500000,5,'tốt'),
+	(6,'nước uống',500000,5,'tốt');
 insert into hop_dong_chi_tiet
 values
 	(1,1,1,3),
 	(2,2,2,9),
 	(3,3,3,6),
 	(4,4,4,5),
-	(5,5,5,2);
+	(5,5,5,2),
+	(6,5,5,2);
     
 /*2.	Hiển thị thông tin của tất cả nhân viên có trong hệ thống có 
 tên bắt đầu là một trong các ký tự “H”, “T” hoặc “K” và có tối đa 15 ký tự.*/
@@ -344,14 +358,55 @@ group by hop_dong.id_hop_dong;
 
 /*13.	Hiển thị thông tin các Dịch vụ đi kèm được sử dụng nhiều nhất bởi các Khách hàng 
 đã đặt phòng. (Lưu ý là có thể có nhiều dịch vụ có số lần sử dụng nhiều như nhau). */
-
+create or replace view so_luong as
 select  dich_vu_di_kem.id_dich_vu_di_kem, dich_vu_di_kem.ten_dich_vu_di_kem,
-        dich_vu_di_kem.gia, dich_vu_di_kem.don_vi, dich_vu_di_kem.trang_thai_kha_dung
+        dich_vu_di_kem.gia, dich_vu_di_kem.don_vi, dich_vu_di_kem.trang_thai_kha_dung,count(dich_vu_di_kem.ten_dich_vu_di_kem) as so_luong1
 from dich_vu_di_kem
 left join hop_dong_chi_tiet on dich_vu_di_kem.id_dich_vu_di_kem = hop_dong_chi_tiet.id_dich_vu_di_kem
 left join hop_dong on hop_dong_chi_tiet.id_hop_dong = hop_dong.id_hop_dong
 left join khach_hang on khach_hang.id_khach_hang = hop_dong.id_khach_hang
-group by dich_vu_di_kem.ten_dich_vu_di_kem
-having count(dich_vu_di_kem.ten_dich_vu_di_kem)
-order by count(dich_vu_di_kem.ten_dich_vu_di_kem) desc
+group by dich_vu_di_kem.ten_dich_vu_di_kem;
 
+select *
+from so_luong
+where so_luong.so_luong1 = (select max(so_luong.so_luong1) from so_luong);
+
+/* 14.	Hiển thị thông tin tất cả các Dịch vụ đi kèm chỉ mới được sử dụng một lần duy nhất.
+ Thông tin hiển thị bao gồm IDHopDong, TenLoaiDichVu, TenDichVuDiKem, SoLanSuDung.*/
+ 
+ select hop_dong.id_hop_dong ,loai_dich_vu.ten_loai_dich_vu, dich_vu_di_kem.ten_dich_vu_di_kem,count(hop_dong_chi_tiet.id_dich_vu_di_kem) as so_luong
+ from hop_dong_chi_tiet
+ inner join hop_dong on hop_dong.id_hop_dong=hop_dong_chi_tiet.id_hop_dong
+ inner join dich_vu_di_kem on dich_vu_di_kem.id_dich_vu_di_kem = hop_dong_chi_tiet.id_dich_vu_di_kem
+ inner join dich_vu on hop_dong.id_dich_vu=dich_vu.id_dich_vu
+ inner join loai_dich_vu on loai_dich_vu.id_loai_dich_vu=dich_vu.id_loai_dich_vu
+ group by hop_dong_chi_tiet.id_dich_vu_di_kem
+ having so_luong=1;
+ 
+/*15.	Hiển thi thông tin của tất cả nhân viên bao gồm IDNhanVien, HoTen, TrinhDo, TenBoPhan, 
+SoDienThoai, DiaChi mới chỉ lập được tối đa 3 hợp đồng từ năm 2018 đến 2019.*/
+select nhan_vien.id_nhan_vien,nhan_vien.ho_ten ,trinh_do.trinh_do,bo_phan.ten_bo_phan,nhan_vien.sdt,nhan_vien.dia_chi
+from hop_dong
+inner join nhan_vien on hop_dong.id_nhan_vien=nhan_vien.id_nhan_vien
+inner join trinh_do on trinh_do.id_trinh_do=nhan_vien.id_trinh_do
+inner join bo_phan on bo_phan.id_bo_phan=nhan_vien.id_bo_phan
+where year(hop_dong.ngay_ky_hop_dong) in (2018,2019)
+group by nhan_vien.id_nhan_vien
+having count(hop_dong.id_hop_dong)<4;
+
+/*16.	Xóa những Nhân viên chưa từng lập được hợp đồng nào từ năm 2017 đến năm 2019.*/
+delete from nhan_vien
+where id_nhan_vien = ( select nhan_vien.id_nhan_vien
+	   from nhan_vien
+       left join hop_dong on hop_dong.id_nhan_vien=nhan_vien.id_nhan_vien
+       where  (year(hop_dong.ngay_ky_hop_dong) not in (2017,2018,2019) )
+       and (nhan_vien.id_nhan_vien not in
+       (select nhan_vien.id_nhan_vien
+	   from nhan_vien
+       left join hop_dong on hop_dong.id_nhan_vien=nhan_vien.id_nhan_vien
+       where year(hop_dong.ngay_ky_hop_dong) in (2017,2018,2019))));
+select *
+from nhan_vien;
+
+delete from nhan_vien
+where id_nhan_vien = 1
