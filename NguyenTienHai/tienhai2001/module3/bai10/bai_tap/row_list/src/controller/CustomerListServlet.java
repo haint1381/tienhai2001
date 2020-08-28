@@ -21,10 +21,10 @@ public class CustomerListServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         List<Customer> rowList= new ArrayList<>();
         rowList.add (new Customer("Nguyễn Tiến Hải","13/08/2001","Hà Tĩnh","image/20-30-07-Surface_Home_Hero_20_mosaic_block1-image-2_V4_en-us.jpg"));
-        rowList.add (new Customer("Nguyễn Tiến Hải","13/08/2001","Hà Tĩnh","image/20-30-07-Surface_Home_Hero_20_mosaic_block1-image-2_V4_en-us.jpg"));
-        rowList.add (new Customer("Nguyễn Tiến Hải","13/08/2001","Hà Tĩnh","image/20-30-07-Surface_Home_Hero_20_mosaic_block1-image-2_V4_en-us.jpg"));
-        rowList.add (new Customer("Nguyễn Tiến Hải","13/08/2001","Hà Tĩnh","image/20-30-07-Surface_Home_Hero_20_mosaic_block1-image-2_V4_en-us.jpg"));
-        rowList.add (new Customer("Nguyễn Tiến Hải","13/08/2001","Hà Tĩnh","image/20-30-07-Surface_Home_Hero_20_mosaic_block1-image-2_V4_en-us.jpg"));
+        rowList.add (new Customer("Nguyễn Tiến Hải","13/08/2001","Hà Tĩnh", "image/20-30-07-Surface_Home_Hero_20_mosaic_block1-image-2_V4_en-us.jpg"));
+        rowList.add (new Customer("Nguyễn Tiến Hải","13/08/2001","Hà Tĩnh", "image/20-30-07-Surface_Home_Hero_20_mosaic_block1-image-2_V4_en-us.jpg"));
+        rowList.add (new Customer("Nguyễn Tiến Hải","13/08/2001","Hà Tĩnh", "image/20-30-07-Surface_Home_Hero_20_mosaic_block1-image-2_V4_en-us.jpg"));
+        rowList.add (new Customer("Nguyễn Tiến Hải","13/08/2001","Hà Tĩnh", "image/20-30-07-Surface_Home_Hero_20_mosaic_block1-image-2_V4_en-us.jpg"));
 
         request.setAttribute("ListServlet",rowList);
 

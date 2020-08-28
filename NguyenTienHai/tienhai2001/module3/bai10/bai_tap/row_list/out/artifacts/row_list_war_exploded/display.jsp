@@ -18,12 +18,14 @@
         <th>Tên</th>
         <th>Ngày Sinh</th>
         <th>Địa Chỉ</th>
+        <th>Ảnh</th>
     </tr>
     <c:forEach var="customer" items="${ListServlet}">
         <tr>
             <td><c:out value="${customer.name}"></c:out></td>
             <td><c:out value="${customer.birthday}"></c:out></td>
             <td><c:out value="${customer.address}"></c:out></td>
+            <td class="avatar"><img src='<c:out value="${customer.image}"/>' alt="avatar" width="30" height="30"></td>
         </tr>
     </c:forEach>
 </table>
