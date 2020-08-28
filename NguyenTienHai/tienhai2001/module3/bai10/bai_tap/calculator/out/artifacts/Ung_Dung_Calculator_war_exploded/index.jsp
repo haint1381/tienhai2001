@@ -20,7 +20,7 @@
 </head>
 <body>
 <h1>Simple Calculator</h1>
-<form method="post" action="calculate">
+<form method="post" action="/calculate">
   <fieldset>
     <legend>Calculator</legend>
     <table>
@@ -32,10 +32,10 @@
         <td>Operator: </td>
         <td>
           <select name="operator">
-            <option value="+">Addition</option>
-            <option value="-">Subtraction</option>
-            <option value="*">Multiplication</option>
-            <option value="/">Division</option>
+            <option selected >+</option>
+            <option >-</option>
+            <option >x</option>
+            <option >/</option>
           </select>
         </td>
       </tr>

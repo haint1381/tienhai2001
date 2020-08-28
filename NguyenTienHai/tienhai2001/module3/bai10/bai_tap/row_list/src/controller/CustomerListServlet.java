@@ -26,6 +26,7 @@ public class CustomerListServlet extends HttpServlet {
         rowList.add (new Customer("Nguyễn Tiến Hải","13/08/2001","Hà Tĩnh", "image/20-30-07-Surface_Home_Hero_20_mosaic_block1-image-2_V4_en-us.jpg"));
         rowList.add (new Customer("Nguyễn Tiến Hải","13/08/2001","Hà Tĩnh", "image/20-30-07-Surface_Home_Hero_20_mosaic_block1-image-2_V4_en-us.jpg"));
 
+        String m1="<img src='image/20-30-07-Surface_Home_Hero_20_mosaic_block1-image-2_V4_en-us.jpg'>";
         request.setAttribute("ListServlet",rowList);
 
         request.getRequestDispatcher("display.jsp").forward(request, response);
