@@ -115,7 +115,28 @@ public class ProductServlet extends HttpServlet {
             }
         }
     }
-
+    private void editProduct(HttpServletRequest request, HttpServletResponse response) {
+        int id =Integer.parseInt(request.getParameter("id"));
+        String name = request.getParameter("name");
+        double price = Double.parseDouble(request.getParameter("price"));
+        String brand = request.getParameter("brand");
+        Product product = this.productList1.findByName(id);
+        RequestDispatcher dispatcher;
+        product.setCode(id);
+        product.setName(name);
+        product.setPrice(price);
+        product.setBrand(brand);
+        this.productList1.update(id, product);
+        request.setAttribute("message", "Product information was updated");
+        dispatcher = request.getRequestDispatcher("product/update.jsp");
+        try {
+            dispatcher.forward(request, response);
+        } catch (ServletException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
     private void showViewFormDetails(HttpServletRequest request, HttpServletResponse response) {
         int id = Integer.parseInt(request.getParameter("id"));
         Product product = this.productList1.findByName(id);
@@ -148,8 +169,13 @@ public class ProductServlet extends HttpServlet {
     }
 
     private void showEditForm(HttpServletRequest request, HttpServletResponse response) {
+        int id = Integer.parseInt(request.getParameter("id"));
+        Product product = this.productList1.findByName(id);
+        RequestDispatcher dispatcher;
+        request.setAttribute("product", product);
+        dispatcher = request.getRequestDispatcher("product/update.jsp");
         try {
-            request.getRequestDispatcher("product/update.jsp").forward(request, response);
+            dispatcher.forward(request, response);
         } catch (ServletException e) {
             e.printStackTrace();
         } catch (IOException e) {
@@ -177,30 +203,7 @@ public class ProductServlet extends HttpServlet {
             }
     }
 
-    private void editProduct(HttpServletRequest request, HttpServletResponse response) {
-        int id =Integer.parseInt(request.getParameter("id"));
-        String name = request.getParameter("name");
-        double price = Double.parseDouble(request.getParameter("price"));
-        String brand = request.getParameter("brand");
-        Product product = this.productList1.findByName(id);
 
-        RequestDispatcher dispatcher;
-        product.setCode(id);
-        product.setName(name);
-        product.setPrice(price);
-        product.setBrand(brand);
-        this.productList1.update(id, product);
-        request.setAttribute("product", product);
-        request.setAttribute("message", "Product information was updated");
-        dispatcher = request.getRequestDispatcher("product/update.jsp");
-        try {
-            dispatcher.forward(request, response);
-        } catch (ServletException e) {
-            e.printStackTrace();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
 
     private void createNewProduct(HttpServletRequest request, HttpServletResponse response) {
         int id = Integer.parseInt(request.getParameter("code"));
