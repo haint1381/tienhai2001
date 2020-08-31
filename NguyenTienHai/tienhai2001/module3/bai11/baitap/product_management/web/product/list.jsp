@@ -16,6 +16,9 @@
 <p>
     <a href="/product?action=create">Create new Product</a>
 </p>
+<p>
+    <a href="/product">Back to Product list</a>
+</p>
 <table border="1">
     <tr>
         <form action="/product">

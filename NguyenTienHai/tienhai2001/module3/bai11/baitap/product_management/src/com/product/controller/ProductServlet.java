@@ -85,8 +85,9 @@ public class ProductServlet extends HttpServlet {
         List<Product> productList =new ArrayList<>();
         String name = request.getParameter("name");
         Product product = null;
+        if(name!=""){
         for (int i=0;i<productList1.findAll().size();i++){
-            if((name.toLowerCase()).equals(productList1.findAll().get(i).getName().toLowerCase())){
+            if((name.toLowerCase()).contains(productList1.findAll().get(i).getName().toLowerCase())){
                 product = productList1.findAll().get(i);
                 productList.add(product);
                 break;
@@ -100,6 +101,18 @@ public class ProductServlet extends HttpServlet {
             e.printStackTrace();
         } catch (IOException e) {
             e.printStackTrace();
+        }
+    }else {
+            List<Product> products = productList1.findAll();
+            request.setAttribute("products", products);
+            RequestDispatcher dispatcher =request.getRequestDispatcher("product/list.jsp");
+            try {
+                dispatcher.forward(request, response);
+            } catch (ServletException e) {
+                e.printStackTrace();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
         }
     }
 
