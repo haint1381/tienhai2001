@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 
 @WebServlet(name = "ProductServlet", urlPatterns = "/product")
@@ -81,16 +82,18 @@ public class ProductServlet extends HttpServlet {
     }
 
     private void findByName(HttpServletRequest request, HttpServletResponse response) {
+        List<Product> productList =new ArrayList<>();
         String name = request.getParameter("name");
         Product product = null;
         for (int i=0;i<productList1.findAll().size();i++){
             if((name.toLowerCase()).equals(productList1.findAll().get(i).getName().toLowerCase())){
                 product = productList1.findAll().get(i);
+                productList.add(product);
                 break;
             }
         }
-        request.setAttribute("product", product);
-        RequestDispatcher dispatcher =request.getRequestDispatcher("product/search.jsp");
+        request.setAttribute("products", productList);
+        RequestDispatcher dispatcher =request.getRequestDispatcher("product/list.jsp");
         try {
             dispatcher.forward(request, response);
         } catch (ServletException e) {

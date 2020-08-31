@@ -22,7 +22,7 @@
         <th>Search:</th>
         <td><input type="text"  name="name"></td>
         <td>
-            <input name="action" type="submit" value="search" style="color: white;background-color: #0dbe2f;border: 0px;border-radius: 5px;height: 30px">
+            <input type="submit" value="search" style="color: white;background-color: #0dbe2f;border: 0px;border-radius: 5px;height: 30px">
         </td>
         </form>
     </tr>
