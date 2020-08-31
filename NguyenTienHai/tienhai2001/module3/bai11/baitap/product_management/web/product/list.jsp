@@ -18,11 +18,13 @@
 </p>
 <table border="1">
     <tr>
+        <form action="/product">
         <th>Search:</th>
-        <td><input type="text" value="Product name" name="name"></td>
+        <td><input type="text"  name="name"></td>
         <td>
-            <input onclick="window.location.href='/product?action=search'" type="submit" value="Search" style="color: white;background-color: #0dbe2f;border: 0px;border-radius: 5px;height: 30px">
+            <input name="action" type="submit" value="search" style="color: white;background-color: #0dbe2f;border: 0px;border-radius: 5px;height: 30px">
         </td>
+        </form>
     </tr>
     <tr>
         <td>Id</td>

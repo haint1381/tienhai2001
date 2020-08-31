@@ -81,29 +81,22 @@ public class ProductServlet extends HttpServlet {
     }
 
     private void findByName(HttpServletRequest request, HttpServletResponse response) {
-        String name=request.getParameter("name");
-        boolean check = false;
+        String name = request.getParameter("name");
         Product product = null;
-
         for (int i=0;i<productList1.findAll().size();i++){
-            if(name.equals(productList1.findAll().get(i).getName())){
+            if((name.toLowerCase()).equals(productList1.findAll().get(i).getName().toLowerCase())){
                 product = productList1.findAll().get(i);
-                check=true;
                 break;
             }
         }
-        if(!check){
-            request.setAttribute("product", product);
-            RequestDispatcher dispatcher =request.getRequestDispatcher("product/search.jsp");
-            try {
-                dispatcher.forward(request, response);
-            } catch (ServletException e) {
-                e.printStackTrace();
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-        }else {
-            request.setAttribute("message", "Null ô kê");
+        request.setAttribute("product", product);
+        RequestDispatcher dispatcher =request.getRequestDispatcher("product/search.jsp");
+        try {
+            dispatcher.forward(request, response);
+        } catch (ServletException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
         }
     }
 
