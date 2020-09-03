@@ -138,7 +138,6 @@ public class UserDAO implements IUserDAO {
         List<User> users = new ArrayList<>();
         // Step 1: Establishing a Connection
         try (Connection connection = dbConnection.getConnection();
-
              // Step 2:Create a statement using connection object
              PreparedStatement preparedStatement = connection.prepareStatement(SORT_USERS_SQL);) {
             System.out.println(preparedStatement);
