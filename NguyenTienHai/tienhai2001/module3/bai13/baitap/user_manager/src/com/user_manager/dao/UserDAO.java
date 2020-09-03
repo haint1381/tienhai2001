@@ -162,8 +162,35 @@ public class UserDAO implements IUserDAO {
 
 
     @Override
-    public void addUserTransaction() {
-        
+    public void addUserTransaction(User user, int id,int user_id ,String name) {
+        Connection connection = dbConnection.getConnection();
+        PreparedStatement preparedStatement =null;
+        try{
+            if(connection!=null){
+                connection.setAutoCommit(false);
+                preparedStatement=connection.prepareStatement("insert into users values (?,?,?,?)");
+                preparedStatement.setInt(1,user.getId());
+                preparedStatement.setString(2,user.getName());
+                preparedStatement.setString(3,user.getEmail());
+                preparedStatement.setString(4,user.getCountry());
+                preparedStatement.executeUpdate();
+
+                preparedStatement=connection.prepareStatement("insert into users_1 values (?,?,?)");
+                preparedStatement.setInt(1,id);
+                preparedStatement.setInt(2,user_id);
+                preparedStatement.setString(3,name);
+                preparedStatement.executeUpdate();
+                connection.commit();
+                connection.setAutoCommit(true);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+            try {
+                connection.rollback();
+            }catch (SQLException ex) {
+                ex.printStackTrace();
+            }
+        }
     }
 
     @Override

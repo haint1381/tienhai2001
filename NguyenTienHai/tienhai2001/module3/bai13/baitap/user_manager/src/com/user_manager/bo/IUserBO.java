@@ -20,5 +20,5 @@ public interface IUserBO {
    List<User> getUserByCountry(String country);
     List<User> sortByName();
 
-    void   addUserTransaction();
+    void   addUserTransaction(User user, int id,int user_id ,String name);
 }

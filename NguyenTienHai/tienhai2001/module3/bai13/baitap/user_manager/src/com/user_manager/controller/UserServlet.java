@@ -67,6 +67,9 @@ public class UserServlet extends HttpServlet {
                 case "sort":
                     sortByName(request, response);
                     break;
+                case "permision":
+                    addUserPermision(request, response);
+                    break;
                 default:
                     listUser(request, response);
                     break;
@@ -74,6 +77,12 @@ public class UserServlet extends HttpServlet {
         } catch (SQLException ex) {
             throw new ServletException(ex);
         }
+    }
+
+    private void addUserPermision(HttpServletRequest request, HttpServletResponse response) {
+        User user = new User("kien", "kienhoang@gmail.com", "vn");
+
+        userBO.addUserTransaction(user, 1,3,"hoàng vô gia cư");
     }
 
     private void sortByName(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

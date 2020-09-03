@@ -45,8 +45,8 @@ public class UserBO implements IUserBO {
     }
 
     @Override
-    public void addUserTransaction() {
-        iUserDAO.addUserTransaction();
+    public void addUserTransaction(User user, int id,int user_id ,String name) {
+        iUserDAO.addUserTransaction(user,id,user_id,name);
     }
 
 
