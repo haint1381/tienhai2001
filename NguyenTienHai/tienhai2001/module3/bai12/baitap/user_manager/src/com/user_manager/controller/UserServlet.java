@@ -145,7 +145,6 @@ public class UserServlet extends HttpServlet {
             throws SQLException, IOException, ServletException {
         int id = Integer.parseInt(request.getParameter("id"));
         userBO.deleteUser(id);
-
         List<User> listUser = userBO.selectAllUsers();
         request.setAttribute("listUser", listUser);
         RequestDispatcher dispatcher = request.getRequestDispatcher("user/list.jsp");
