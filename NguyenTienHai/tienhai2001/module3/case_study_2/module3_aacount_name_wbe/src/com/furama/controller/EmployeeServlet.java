@@ -50,11 +50,17 @@ public class EmployeeServlet extends HttpServlet {
         String username=request.getParameter("username");
         int employee_id1 =Integer.parseInt(request.getParameter("employee_id"));
         Employee employee= new Employee(employee_id1,employee_name,employee_birthday,employee_id_card,employee_salary,employee_phone,employee_email,employee_address,position_id,education_degree_id,division_id,username);
-        employeeBO.updateEmployee(employee);
-        List<Employee> employeeList = employeeBO.findAll();
-        request.setAttribute("employeeList", employeeList);
-        RequestDispatcher dispatcher = request.getRequestDispatcher("view/view_employee/home_employee.jsp");
-        dispatcher.forward(request, response);
+
+        if(!employeeBO.checkUserName(username)){
+            request.setAttribute("message","wrong account name!!");
+        }else {
+            employeeBO.updateEmployee(employee);
+            List<Employee> employeeList = employeeBO.findAll();
+            request.setAttribute("employeeList", employeeList);
+        }
+            RequestDispatcher dispatcher = request.getRequestDispatcher("view/view_employee/home_employee.jsp");
+            dispatcher.forward(request, response);
+
     }
 
     private void insertEmployee(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -71,8 +77,15 @@ public class EmployeeServlet extends HttpServlet {
         int division_id=Integer.parseInt(request.getParameter("division_id"));
         String username=request.getParameter("username");
         Employee employee= new Employee(employee_id,employee_name,employee_birthday,employee_id_card,employee_salary,employee_phone,employee_email,employee_address,position_id,education_degree_id,division_id,username);
-        employeeBO.create(employee);
-        request.setAttribute("message","successfully added!!");
+        if(!employeeBO.checkId(employee_id)){
+            request.setAttribute("message","New addition failed due to duplicate ids!!");
+
+        }else if(!employeeBO.checkUserName(username)){
+            request.setAttribute("message","wrong account name!!");
+        } else {
+            employeeBO.create(employee);
+            request.setAttribute("message","successfully added!!");
+        }
         RequestDispatcher dispatcher = request.getRequestDispatcher("view/view_employee/create_employee.jsp");
         dispatcher.forward(request, response);
     }

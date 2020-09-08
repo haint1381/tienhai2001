@@ -2,6 +2,7 @@ package com.furama.controller;
 
 import com.furama.bo.service_bo.IServiceBO;
 import com.furama.bo.service_bo.ServiceBO;
+import com.furama.model.Customer;
 import com.furama.model.Service;
 
 import javax.servlet.RequestDispatcher;
@@ -28,7 +29,34 @@ public class ServiceServlet extends HttpServlet {
             case "create":
                 insertService(request, response);
                 break;
+            case "edit":
+                try {
+                    editService(request, response);
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
+                break;
         }
+    }
+
+    private void editService(HttpServletRequest request, HttpServletResponse response) throws SQLException, ServletException, IOException {
+        int service_id=Integer.parseInt(request.getParameter("service_id"));
+        String service_name=request.getParameter("service_name");
+        int service_area=Integer.parseInt(request.getParameter("service_area"));
+        double service_cost=Double.parseDouble(request.getParameter("service_cost"));
+        int service_max_people=Integer.parseInt(request.getParameter("service_max_people"));
+        int rent_type_id=Integer.parseInt(request.getParameter("rent_type_id"));
+        int service_type_id=Integer.parseInt(request.getParameter("service_type_id"));
+        String standard_room=request.getParameter("standard_room");
+        String description_other_convenience=request.getParameter("description_other_convenience");
+        double pool_area=Double.parseDouble(request.getParameter("pool_area"));
+        int number_of_floors=Integer.parseInt(request.getParameter("number_of_floors"));
+        Service service=new Service(service_id,service_name,service_area,service_cost,service_max_people,rent_type_id,service_type_id,standard_room,description_other_convenience,pool_area,number_of_floors);
+        serviceBO.updateService(service);
+        List<Service> serviceList = serviceBO.findAll();
+        request.setAttribute("serviceList", serviceList);
+        RequestDispatcher dispatcher = request.getRequestDispatcher("view/view_service/service_home.jsp");
+        dispatcher.forward(request, response);
     }
 
     private void insertService(HttpServletRequest request, HttpServletResponse response)  throws ServletException, IOException  {
@@ -62,10 +90,42 @@ public class ServiceServlet extends HttpServlet {
             case "create":
                 showNewForm(request, response);
                 break;
+            case "edit":
+                showEditForm(request, response);
+                break;
+            case "delete":
+                showDeleteService(request, response);
+                break;
             default:
                 listService(request, response);
                 break;
         }
+    }
+
+    private void showDeleteService(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        int id = Integer.parseInt(request.getParameter("id"));
+        try {
+            serviceBO.deleteService(id);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        List<Service> serviceList = serviceBO.findAll();
+        request.setAttribute("serviceList", serviceList);
+        RequestDispatcher dispatcher = request.getRequestDispatcher("view/view_service/service_home.jsp");
+        dispatcher.forward(request, response);
+    }
+
+    private void showEditForm(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        int id = Integer.parseInt(request.getParameter("id"));
+        Service service=null;
+        try {
+            service =serviceBO.findById(id);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        RequestDispatcher dispatcher = request.getRequestDispatcher("view/view_service/edit_service.jsp");
+        request.setAttribute("service", service);
+        dispatcher.forward(request, response);
     }
 
     private void listService(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

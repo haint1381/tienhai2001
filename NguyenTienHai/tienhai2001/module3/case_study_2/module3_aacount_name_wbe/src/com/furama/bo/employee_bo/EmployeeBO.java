@@ -39,4 +39,30 @@ public class EmployeeBO implements IEmployeeBO {
     public List<Employee> selectByName(String name) {
         return employeeDAO.selectByName(name);
     }
+
+    @Override
+    public boolean checkId(int id) {
+        boolean check=true;
+        List<Employee> employeeList =employeeDAO.findAll();
+        for (int i=0;i<employeeList.size();i++){
+            if(id==employeeList.get(i).getEmployee_id()){
+                check=false;
+                break;
+            }
+        }
+        return check;
+    }
+
+    @Override
+    public boolean checkUserName(String name) {
+        boolean check=false;
+        List<Employee> employeeList =employeeDAO.findAll();
+        for (int i=0;i<employeeList.size();i++){
+            if(name.equals(employeeList.get(i).getUsername())){
+                check=true;
+                break;
+            }
+        }
+        return check;
+    }
 }

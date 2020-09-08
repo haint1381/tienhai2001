@@ -1,11 +1,14 @@
 package com.furama.controller;
 
+import com.furama.bo.contract_bo.ContractBO;
+import com.furama.bo.contract_bo.IContractBO;
 import com.furama.bo.customer_bo.CustomerBO;
 import com.furama.bo.customer_bo.ICustomerBO;
 import com.furama.bo.employee_bo.EmployeeBO;
 import com.furama.bo.employee_bo.IEmployeeBO;
 import com.furama.bo.service_bo.IServiceBO;
 import com.furama.bo.service_bo.ServiceBO;
+import com.furama.model.Contract;
 import com.furama.model.Customer;
 import com.furama.model.Employee;
 import com.furama.model.Service;
@@ -24,6 +27,7 @@ public class FuramaServlet extends HttpServlet {
     private ICustomerBO customerBo =new CustomerBO();
     private IServiceBO serviceBO =new ServiceBO();
     private IEmployeeBO employeeBO=new EmployeeBO();
+    private IContractBO contractBO=new ContractBO();
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
     }
 
@@ -45,10 +49,21 @@ public class FuramaServlet extends HttpServlet {
                 webEmployee(request, response);
             }
             break;
+            case "contract":{
+                webContract(request, response);
+            }
+            break;
             default:
                 home(request, response);
                 break;
         }
+    }
+
+    private void webContract(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        List<Contract> contractList = contractBO.findAll();
+        request.setAttribute("contractList", contractList);
+        RequestDispatcher dispatcher = request.getRequestDispatcher("view/view_contract/home_contract.jsp");
+        dispatcher.forward(request, response);
     }
 
     private void webEmployee(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

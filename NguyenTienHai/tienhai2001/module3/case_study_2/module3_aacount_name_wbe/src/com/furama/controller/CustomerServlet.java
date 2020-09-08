@@ -3,6 +3,7 @@ package com.furama.controller;
 import com.furama.bo.customer_bo.ICustomerBO;
 import com.furama.bo.customer_bo.CustomerBO;
 import com.furama.model.Customer;
+import com.furama.model.CustomerUsingService;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -50,6 +51,7 @@ public class CustomerServlet extends HttpServlet {
         customerBo.updateCustomer(newCustomer);
         List<Customer> customerList = customerBo.findAll();
         request.setAttribute("customerList", customerList);
+        request.setAttribute("massage", "successfully update!!");
         RequestDispatcher dispatcher = request.getRequestDispatcher("view/view_customer/list.jsp");
         dispatcher.forward(request, response);
     }
@@ -72,10 +74,20 @@ public class CustomerServlet extends HttpServlet {
             case "search":
                 searchCustomer(request, response);
                 break;
+            case "customersUsingTheService":
+                showCustomersUsingTheService(request, response);
+                break;
             default:
                 customer_view(request, response);
                 break;
         }
+    }
+
+    private void showCustomersUsingTheService(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        List<CustomerUsingService> customerUsingServiceList = customerBo.customersUsingTheService();
+        request.setAttribute("customerUsingServiceList", customerUsingServiceList);
+        RequestDispatcher dispatcher = request.getRequestDispatcher("view/view_customer/customers_using_the_service.jsp");
+        dispatcher.forward(request, response);
     }
 
     private void searchCustomer(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -135,8 +147,12 @@ public class CustomerServlet extends HttpServlet {
         String email = request.getParameter("email");
         String address = request.getParameter("address");
         Customer newCustomer = new Customer(id,type_id,name,birthday,gender,id_card,phone, email, address);
-        customerBo.create(newCustomer);
-        request.setAttribute("message","successfully added!!");
+        if(customerBo.checkId(id) ){
+            customerBo.create(newCustomer);
+            request.setAttribute("message","successfully added!!");
+        }else {
+            request.setAttribute("message","New addition failed due to duplicate ids!!");
+        }
         RequestDispatcher dispatcher = request.getRequestDispatcher("view/view_customer/create.jsp");
         dispatcher.forward(request, response);
     }

@@ -36,7 +36,7 @@
                         <h5 class="card-title text-center">Edit Employee</h5>
                         <form class="form-signin">
                             <div class="form-label-group">
-                                <input type="number" class="form-control" name="employee_id" value="${employee.employee_id}" placeholder="${employee.employee_id}" readonly="true">
+                                <input type="number" class="form-control" name="employee_ id" value="${employee.employee_id}" placeholder="${employee.employee_id}" readonly="true">
                             </div><br>
                             <div class="form-label-group">
                                 <input type="text" class="form-control" name="employee_name" placeholder="${employee.employee_name}" required>
@@ -60,13 +60,13 @@
                                 <input type="text" class="form-control" name="employee_address" placeholder="${employee.employee_address}" required>
                             </div><br>
                             <div class="form-label-group">
-                                <input type="number" class="form-control" name="position_id" placeholder="${employee.position_id}" required>
+                                <input type="number" class="form-control" min="1" max="6" name="position_id" placeholder="${employee.position_id}" required>
                             </div><br>
                             <div class="form-label-group">
-                                <input type="number" class="form-control" name="education_degree_id" placeholder="${employee.education_degree_id}" required>
+                                <input type="number" class="form-control" min="1" max="6" name="education_degree_id" placeholder="${employee.education_degree_id}" required>
                             </div><br>
                             <div class="form-label-group">
-                                <input type="number" class="form-control" name="division_id" placeholder="${employee.division_id}" required>
+                                <input type="number" class="form-control" min="1" max="6" name="division_id" placeholder="${employee.division_id}" required>
                             </div><br>
                             <div class="form-label-group">
                                 <input type="text" class="form-control" name="username" placeholder="${employee.username}" required>

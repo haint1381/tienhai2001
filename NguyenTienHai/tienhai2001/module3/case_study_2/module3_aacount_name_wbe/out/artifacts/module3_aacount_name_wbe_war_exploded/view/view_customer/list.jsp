@@ -26,11 +26,7 @@
         </div>
         <div class="col-md-4">
             <h1>
-                <nav aria-label="Page navigation example">
-                    <ul class="pagination">
-                        <li class="page-item"><a class="page-link" href="/customer"><kbd>List Customer</kbd></a></li>
-                    </ul>
-                </nav>
+                <a role="button" href="/customer" class="btn btn-danger">List Customer</a>
             </h1>
         </div>
         <div class="col-md-3"></div>
@@ -44,7 +40,7 @@
             </form>
         </div>
         <div class="col-md-4">
-
+            <a role="button" href="/customer?action=customersUsingTheService" class="btn btn-danger">Customers Using The Service</a>
         </div>
         <div class="col-md-3">
             <form action="/customer">
@@ -89,43 +85,41 @@
             </td>
             <td>
                 <!-- Button trigger modal -->
-                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+                <button type="button" class="btn btn-primary" data-toggle="modal" onclick="callModal1(this.id)" id="${customer.id}" data-target="#exampleModal">
                     Delete
                 </button>
-
-                <!-- Modal -->
-                <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                    <div class="modal-dialog" role="document">
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
-                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                    <span aria-hidden="true">&times;</span>
-                                </button>
-                            </div>
-                            <div class="modal-body">
-                                Do you really want to delete it or not ?
-                            </div>
-                            <div class="modal-footer">
-                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                                <div style="margin-top: 4%">
-                                    <nav aria-label="Page navigation example">
-                                        <ul class="pagination">
-                                            <li class="page-item "><a class="page-link" href="/customer?action=delete&id=${customer.id}">Save changes</a></li>
-                                        </ul>
-                                    </nav>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
             </td>
         </tr>
         </c:forEach>
     </table>
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    Do you really want to delete it or not ?
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <a href="#" id="modalDelete" role="button" class="btn btn-danger">delete</a>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
 </body>
 <script src="../../bootstrap-4.5.2-dist/jquery-3.5.1.min.js"></script>
 <script src="../../bootstrap-4.5.2-dist/js/bootstrap.min.js"></script>
+<script>
+    function callModal1(id) {
+        document.getElementById("modalDelete").href="/customer?action=delete&id="+id;
+    }
+</script>
 </html>
 

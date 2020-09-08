@@ -3,6 +3,7 @@ package com.furama.bo.customer_bo;
 import com.furama.dao.customer_dao.ICustomerDAO;
 import com.furama.dao.customer_dao.CustomerDAO;
 import com.furama.model.Customer;
+import com.furama.model.CustomerUsingService;
 
 import java.sql.SQLException;
 import java.util.List;
@@ -37,5 +38,23 @@ public class CustomerBO implements ICustomerBO {
     @Override
     public List<Customer> selectByName(String name) {
         return iUserDAO.selectByName(name);
+    }
+
+    @Override
+    public boolean checkId(int id) {
+        boolean check=true;
+        List<Customer> customerList =iUserDAO.findAll();
+        for (int i=0;i<customerList.size();i++){
+            if(id==customerList.get(i).getId()){
+                check=false;
+                break;
+            }
+        }
+        return check;
+    }
+
+    @Override
+    public List<CustomerUsingService> customersUsingTheService() {
+        return iUserDAO.customersUsingTheService();
     }
 }

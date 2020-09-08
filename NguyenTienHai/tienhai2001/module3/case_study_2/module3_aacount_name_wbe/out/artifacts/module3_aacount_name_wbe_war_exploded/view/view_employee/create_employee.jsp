@@ -45,7 +45,7 @@
                         <h5 class="card-title text-center">Add New Employee</h5>
                         <form class="form-signin">
                             <div class="form-label-group">
-                                <input type="number" class="form-control" name="employee_id" placeholder="Employee Id" required autofocus>
+                                <input type="number" class="form-control" name="employee_id" placeholder="Employee Id" required >
                             </div><br>
                             <div class="form-label-group">
                                 <input type="text" class="form-control" name="employee_name" placeholder="Employee Name" required>
@@ -57,7 +57,7 @@
                                 <input type="number" class="form-control" name="employee_id_card" placeholder="Employee Id Card" required>
                             </div><br>
                             <div class="form-label-group">
-                                <input type="number" class="form-control" name="employee_salary" placeholder="Employee Salary" min="1" max="20" required>
+                                <input type="number" class="form-control" name="employee_salary" placeholder="Employee Salary"  required>
                             </div><br>
                             <div class="form-label-group">
                                 <input type="tel" class="form-control" class="form-control" name="employee_phone" placeholder="Employee Phone" required>
@@ -69,13 +69,13 @@
                                 <input type="text" class="form-control" name="employee_address" placeholder="Employee Address" required>
                             </div><br>
                             <div class="form-label-group">
-                                <input type="number" class="form-control" name="position_id" placeholder="Position Id" required>
+                                <input type="number" class="form-control" name="position_id" placeholder="Position Id" required min="1" max="6">
                             </div><br>
                             <div class="form-label-group">
-                                <input type="number" class="form-control" name="education_degree_id" placeholder="Education Degree Id" required>
+                                <input type="number" class="form-control" name="education_degree_id" placeholder="Education Degree Id" required min="1" max="4">
                             </div><br>
                             <div class="form-label-group">
-                                <input type="number" class="form-control" name="division_id" placeholder="Division Id" required>
+                                <input type="number" class="form-control" name="division_id" placeholder="Division Id" required min="1" max="4">
                             </div><br>
                             <div class="form-label-group">
                                 <input type="text" class="form-control" name="username" placeholder="User Name" required>

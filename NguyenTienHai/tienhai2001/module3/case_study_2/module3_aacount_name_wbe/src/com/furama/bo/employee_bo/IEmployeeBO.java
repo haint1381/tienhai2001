@@ -13,4 +13,6 @@ public interface IEmployeeBO  {
     boolean updateEmployee(Employee employee) throws SQLException;
     Employee findById(int id) throws SQLException;
     List<Employee> selectByName(String name);
+    boolean checkId(int id);
+    boolean checkUserName(String name);
 }

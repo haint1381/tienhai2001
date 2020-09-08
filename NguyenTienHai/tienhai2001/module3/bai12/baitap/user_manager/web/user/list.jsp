@@ -26,11 +26,11 @@
         <caption><h2>List of Users</h2></caption>
         <tr>
             <form action="/users">
-                <h3>Search by name</h3><br>
-                <input type="hidden" name="action" value="search">
-                <input type="submit" value="search">
-                <input type="text" name="country">
-            </form>
+    <h3>Search by name</h3><br>
+    <input type="hidden" name="action" value="search">
+    <input type="submit" value="search">
+    <input type="text" name="country">
+    </form>
         </tr>
         <tr>
             <form action="/users">

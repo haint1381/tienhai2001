@@ -12,7 +12,7 @@
     <title>Add Customer</title>
     <style>
         .message {
-            color: green;
+            color: #ff1300;
         }
     </style>
     <link rel="stylesheet" href="../../bootstrap-4.5.2-dist/css/bootstrap.min.css">
@@ -46,9 +46,6 @@
                         <c:if test='${requestScope["message"] != null}'>
                             <span class="message">${requestScope["message"]}</span>
                         </c:if>
-                        <c:if test='${requestScope["message"] = null}'>
-                            <span class="message">new addition was not successful!</span>
-                        </c:if>
                     </p>
                 </div>
                 <div class="row">
@@ -62,7 +59,7 @@
                             <br>
                             <div class="form-label-group">
                                 <input type="number" class="form-control" name="type_id" placeholder="Customer Type Id"
-                                       required>
+                                       required min="1" max="5">
                             </div>
                             <br>
                             <div class="form-label-group">

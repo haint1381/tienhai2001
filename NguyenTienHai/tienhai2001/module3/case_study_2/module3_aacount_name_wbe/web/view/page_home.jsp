@@ -30,7 +30,7 @@
             <a class="nav-link" href="/furama?action=service">Service</a>
         </li>
         <li class="nav-item my-2">
-            <a class="nav-link" href="#">Contract</a>
+            <a class="nav-link" href="/furama?action=contract">Contract</a>
         </li>
     </ul>
     <div class="col-md-6">

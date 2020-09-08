@@ -1,7 +1,9 @@
 package com.furama.dao.customer_dao;
 
 import com.furama.dao.DBConnection;
+import com.furama.model.Contract;
 import com.furama.model.Customer;
+import com.furama.model.CustomerUsingService;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -18,6 +20,13 @@ public class CustomerDAO implements ICustomerDAO {
     private static final String UPDATE_USERS_SQL = "update customer set customer_type_id= ?, customer_name =?,customer_birthday=?,customer_gender=?,customer_id_card=?,customer_phone=?,customer_email=?,customer_address=? where customer_id = ?;";
     private static final String SELECT_USER_BY_ID = "select* from customer where customer_id =?";
     private static final String SELECT_USER_BY_NAME = "select* from customer where customer_name like ?;";
+    private static final String CUSTOMERS_USING_THE_SERVICE ="select customer.customer_id, customer.customer_name,service.service_id,service.service_name,contract.contract_id,attach_service.attach_service_id,attach_service.attach_service_name\n" +
+            "from customer\n" +
+            "inner join contract on\tcontract.contract_id = customer.customer_id\n" +
+            "inner join service on\tservice.service_id = contract.service_id\n" +
+            "inner join contract_detail on\tcontract_detail.contract_id = contract.contract_id\n" +
+            "inner join attach_service on\tattach_service.attach_service_id = contract_detail.attach_service_id;";
+
     @Override
     public List<Customer> findAll() {
         List<Customer> customerList =new ArrayList<>();
@@ -165,6 +174,37 @@ public class CustomerDAO implements ICustomerDAO {
         }
         return customerList;
     }
+
+    @Override
+    public List<CustomerUsingService> customersUsingTheService() {
+        List<CustomerUsingService> customerUsingServiceList =new ArrayList<>();
+        Connection connection = DBConnection.getConnection();
+        PreparedStatement statement = null;
+        ResultSet resultSet = null;
+        if(connection!=null){
+            try {
+                statement=connection.prepareStatement(CUSTOMERS_USING_THE_SERVICE);
+                resultSet=statement.executeQuery();
+                while ( resultSet.next() ){
+                    int customer_id=resultSet.getInt("customer.customer_id");
+                    String customer_name=resultSet.getString("customer.customer_name");
+                    int service_id=resultSet.getInt("service.service_id");
+                    String service_name=resultSet.getString("service.service_name");
+                    int contract_id=resultSet.getInt("contract.contract_id");
+                    int attach_service_id=resultSet.getInt("attach_service.attach_service_id");
+                    String attach_service_name=resultSet.getString("attach_service.attach_service_name");
+                    customerUsingServiceList.add(new CustomerUsingService(customer_id,customer_name,service_id,service_name,contract_id,attach_service_id,attach_service_name));
+                }
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }finally {
+                DBConnection.close();
+            }
+        }
+        return customerUsingServiceList;
+    }
+
+
 
     private void printSQLException(SQLException ex) {
         for (Throwable e : ex) {
