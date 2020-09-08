@@ -36,7 +36,7 @@
                         <h5 class="card-title text-center">Edit Employee</h5>
                         <form class="form-signin">
                             <div class="form-label-group">
-                                <input type="number" class="form-control" name="employee_ id" value="${employee.employee_id}" placeholder="${employee.employee_id}" readonly="true">
+                                <input type="number" class="form-control" name="employee_id" value="${employee.employee_id}" placeholder="${employee.employee_id}" readonly="true">
                             </div><br>
                             <div class="form-label-group">
                                 <input type="text" class="form-control" name="employee_name" placeholder="${employee.employee_name}" required>

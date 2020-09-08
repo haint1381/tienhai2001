@@ -1,7 +1,8 @@
 package com.furama.controller;
 
-import com.furama.bo.customer_bo.ICustomerBO;
-import com.furama.bo.customer_bo.CustomerBO;
+import com.furama.bo.common.Validate;
+import com.furama.bo.interface_bo.ICustomerBO;
+import com.furama.bo.class_bo.CustomerBO;
 import com.furama.model.Customer;
 import com.furama.model.CustomerUsingService;
 
@@ -18,6 +19,7 @@ import java.util.List;
 @WebServlet(name = "CustomerServlet", urlPatterns = "/customer")
 public class CustomerServlet extends HttpServlet {
     private ICustomerBO customerBo =new CustomerBO();
+    private Validate validate=new Validate();
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String action=request.getParameter("action");
         if (action == null) {
@@ -38,13 +40,13 @@ public class CustomerServlet extends HttpServlet {
     }
 
     private void editCustomer(HttpServletRequest request, HttpServletResponse response) throws SQLException, ServletException, IOException {
-        int id=Integer.parseInt(request.getParameter("id"));
-        int type_id=Integer.parseInt(request.getParameter("type_id"));
+        String id=request.getParameter("id");
+        String type_id=request.getParameter("type_id");
         String name = request.getParameter("name");
         String birthday = request.getParameter("birthday");
-        int gender =Integer.parseInt(request.getParameter("gender"));
-        String id_card = request.getParameter("gender");
-        String phone = request.getParameter("gender");
+        String gender =request.getParameter("gender");
+        String id_card = request.getParameter("id_card");
+        String phone = request.getParameter("phone");
         String email = request.getParameter("email");
         String address = request.getParameter("address");
         Customer newCustomer = new Customer(id,type_id,name,birthday,gender,id_card,phone, email, address);
@@ -99,7 +101,7 @@ public class CustomerServlet extends HttpServlet {
     }
 
     private void deleteCustomer(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        int id = Integer.parseInt(request.getParameter("id"));
+        String id = request.getParameter("id");
         try {
             customerBo.deleteCustomer(id);
         } catch (SQLException e) {
@@ -112,7 +114,7 @@ public class CustomerServlet extends HttpServlet {
     }
 
     private void showEditForm(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        int id = Integer.parseInt(request.getParameter("id"));
+        String id = request.getParameter("id");
         Customer customer=null;
         try {
              customer =customerBo.findById(id);
@@ -137,22 +139,24 @@ public class CustomerServlet extends HttpServlet {
     }
 
     private void insertCustomer(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        int id=Integer.parseInt(request.getParameter("id"));
-        int type_id=Integer.parseInt(request.getParameter("type_id"));
+        String id=request.getParameter("id");
+        String type_id=request.getParameter("type_id");
         String name = request.getParameter("name");
         String birthday = request.getParameter("birthday");
-        int gender =Integer.parseInt(request.getParameter("gender"));
-        String id_card = request.getParameter("gender");
-        String phone = request.getParameter("gender");
+        String gender =request.getParameter("gender");
+        String id_card = request.getParameter("id_card");
+        String phone = request.getParameter("phone");
         String email = request.getParameter("email");
         String address = request.getParameter("address");
         Customer newCustomer = new Customer(id,type_id,name,birthday,gender,id_card,phone, email, address);
-        if(customerBo.checkId(id) ){
+
+        if (!id.matches(Validate.REGEX_ID)) {
+            request.setAttribute("message1", "sai ôkể ôkê!!");
+        } else if (customerBo.checkId(id)) {
             customerBo.create(newCustomer);
-            request.setAttribute("message","successfully added!!");
-        }else {
-            request.setAttribute("message","New addition failed due to duplicate ids!!");
+            request.setAttribute("message", "successfully added!!");
         }
+
         RequestDispatcher dispatcher = request.getRequestDispatcher("view/view_customer/create.jsp");
         dispatcher.forward(request, response);
     }

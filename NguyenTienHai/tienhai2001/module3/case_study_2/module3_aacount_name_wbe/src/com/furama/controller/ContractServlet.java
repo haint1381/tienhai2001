@@ -1,9 +1,8 @@
 package com.furama.controller;
 
-import com.furama.bo.contract_bo.ContractBO;
-import com.furama.bo.contract_bo.IContractBO;
+import com.furama.bo.class_bo.ContractBO;
+import com.furama.bo.interface_bo.IContractBO;
 import com.furama.model.Contract;
-import com.furama.model.Service;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -33,14 +32,14 @@ public class ContractServlet extends HttpServlet {
 
     private void insertContract(HttpServletRequest request, HttpServletResponse response)  throws ServletException, IOException  {
 
-        int contract_id=Integer.parseInt(request.getParameter("contract_id"));
+        String contract_id=request.getParameter("contract_id");
         String contract_start_date=request.getParameter("contract_start_date");
         String contract_end_date=request.getParameter("contract_end_date");
-        double contract_deposit=Double.parseDouble(request.getParameter("contract_deposit"));
-        double contract_total_money=Double.parseDouble(request.getParameter("contract_total_money"));
-        int employee_id=Integer.parseInt(request.getParameter("employee_id"));
-        int customer_id=Integer.parseInt(request.getParameter("customer_id"));
-        int service_id=Integer.parseInt(request.getParameter("service_id"));
+        String contract_deposit=request.getParameter("contract_deposit");
+        String contract_total_money=request.getParameter("contract_total_money");
+        String employee_id=request.getParameter("employee_id");
+        String customer_id=request.getParameter("customer_id");
+        String service_id=request.getParameter("service_id");
         Contract contract=new  Contract(contract_id, contract_start_date,contract_end_date,contract_deposit,contract_total_money,employee_id,customer_id,service_id);
         contractBO.create(contract);
         request.setAttribute("message","successfully added!!");

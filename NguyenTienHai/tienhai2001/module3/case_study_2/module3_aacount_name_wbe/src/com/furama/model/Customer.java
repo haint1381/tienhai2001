@@ -1,11 +1,11 @@
 package com.furama.model;
 
 public class Customer {
-    int id;
-    int type_id;
+    String id;
+    String type_id;
     String name;
     String birthday;
-    int gender;
+    String gender;
     String id_card;
     String phone;
     String email;
@@ -14,7 +14,7 @@ public class Customer {
     public Customer() {
     }
 
-    public Customer(int id, int type_id, String name, String birthday, int gender, String id_card, String phone, String email, String address) {
+    public Customer(String id, String type_id, String name, String birthday, String gender, String id_card, String phone, String email, String address) {
         this.id = id;
         this.type_id = type_id;
         this.name = name;
@@ -26,19 +26,19 @@ public class Customer {
         this.address = address;
     }
 
-    public int getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(String id) {
         this.id = id;
     }
 
-    public int getType_id() {
+    public String getType_id() {
         return type_id;
     }
 
-    public void setType_id(int type_id) {
+    public void setType_id(String type_id) {
         this.type_id = type_id;
     }
 
@@ -58,11 +58,11 @@ public class Customer {
         this.birthday = birthday;
     }
 
-    public int getGender() {
+    public String getGender() {
         return gender;
     }
 
-    public void setGender(int gender) {
+    public void setGender(String gender) {
         this.gender = gender;
     }
 

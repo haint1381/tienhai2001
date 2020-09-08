@@ -11,7 +11,7 @@
 <head>
     <title>Title</title>
     <link rel="stylesheet" href="../../bootstrap-4.5.2-dist/css/bootstrap.min.css">
-    <link rel="stylesheet" href="../../bootstrap-4.5.2-dist/js/jquery_data_table.min.js">
+    <link rel="stylesheet" href="../../datatables/css/dataTables.bootstrap4.min.css">
 </head>
 <body>
 <%@ include file="../common/header.jsp"%>
@@ -48,7 +48,7 @@
         <div class="col-md-4">
         </div>
     </div>
-    <table class="table table-striped table-hover table-bordered">
+    <table class="table table-striped table-hover table-bordered" id="tableStudent">
         <thead class="thead">
         <tr class="table-dark">
             <th scope="col">Contract Detail Id</th>
@@ -56,6 +56,8 @@
             <th scope="col">Attach Service Id</th>
             <th scope="col">Quantity</th>
         </tr>
+        </thead>
+        <tbody>
         <c:forEach var="contractDetail" items="${contractDetailList}">
         <tr>
             <td><c:out value="${contractDetail.contract_detail_id}"/></td>
@@ -64,16 +66,32 @@
             <td><c:out value="${contractDetail.quantity}"/></td>
         </tr>
         </c:forEach>
+        </tbody>
     </table>
 </div>
 </body>
 <script src="../../bootstrap-4.5.2-dist/jquery-3.5.1.min.js"></script>
 <script src="../../bootstrap-4.5.2-dist/js/bootstrap.min.js"></script>
-<script src="../../bootstrap-4.5.2-dist/js/data_table_bootstrap4.min.js"></script>
-<script src="../../bootstrap-4.5.2-dist/js/jquery_data_table.min.js"></script>
+<script src="../../datatables/js/jquery.dataTables.min.js"></script>
+<script src="../../datatables/js/dataTables.bootstrap4.min.js"></script>
 <script>
     $(document).ready(function() {
-        $('#example').DataTable();
+        $('#tableStudent').DataTable({
+            "dom":'lrtip',
+            "lengthChange":false,
+            "pageLength":5
+        });
+    } );
+</script>
+<script src="../../datatables/js/jquery.dataTables.min.js"></script>
+<script src="../../datatables/js/dataTables.bootstrap4.min.js"></script>
+<script>
+    $(document).ready(function() {
+        $('#tableStudent').DataTable({
+            "dom":'lrtip',
+            "lengthChange":false,
+            "pageLength":5
+        });
     } );
 </script>
 </html>

@@ -1,11 +1,7 @@
 package com.furama.controller;
 
-import com.furama.bo.contract_bo.ContractBO;
-import com.furama.bo.contract_bo.IContractBO;
-import com.furama.bo.contract_detail_bo.ContractDetailBO;
-import com.furama.bo.contract_detail_bo.IContractDetailBO;
-import com.furama.dao.contract_detail_dao.IContractDetailDAO;
-import com.furama.model.Contract;
+import com.furama.bo.class_bo.ContractDetailBO;
+import com.furama.bo.interface_bo.IContractDetailBO;
 import com.furama.model.ContractDetail;
 
 import javax.servlet.RequestDispatcher;
@@ -35,12 +31,10 @@ public class ContractDetailServlet extends HttpServlet {
     }
 
     private void insertContract(HttpServletRequest request, HttpServletResponse response)  throws ServletException, IOException  {
-
-        int contract_detail_id=Integer.parseInt(request.getParameter("contract_detail_id"));
-        int contract_id=Integer.parseInt(request.getParameter("contract_id"));
-        int attach_service_id=Integer.parseInt(request.getParameter("attach_service_id"));
-        int quantity=Integer.parseInt(request.getParameter("quantity"));
-
+        String contract_detail_id=request.getParameter("contract_detail_id");
+        String contract_id=request.getParameter("contract_id");
+        String attach_service_id=request.getParameter("attach_service_id");
+        String quantity=request.getParameter("quantity");
         ContractDetail contractDetail=new ContractDetail(contract_detail_id,contract_id,attach_service_id,quantity);
         contractDetailBO.create(contractDetail);
         request.setAttribute("message","successfully added!!");

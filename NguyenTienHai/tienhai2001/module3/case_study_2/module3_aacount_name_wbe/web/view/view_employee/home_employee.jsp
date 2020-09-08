@@ -11,6 +11,7 @@
 <head>
     <title>Title</title>
     <link rel="stylesheet" href="../../bootstrap-4.5.2-dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../../datatables/css/dataTables.bootstrap4.min.css">
 </head>
 <body>
 <%@ include file="../common/header.jsp"%>
@@ -54,7 +55,7 @@
             </form>
         </div>
     </div>
-    <table class="table table-striped table-hover table-bordered">
+    <table class="table table-striped table-hover table-bordered" id="tableStudent">
         <thead class="thead">
         <tr class="table-dark">
             <th scope="col">Id</th>
@@ -72,6 +73,8 @@
             <th scope="col">Edit</th>
             <th scope="col">Delete</th>
         </tr>
+        </thead>
+        <tbody>
         <c:forEach var="employee" items="${employeeList}">
         <tr>
             <td><c:out value="${employee.employee_id}"/></td>
@@ -101,6 +104,7 @@
             </td>
         </tr>
         </c:forEach>
+        </tbody>
     </table>
     <!-- Modal -->
     <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -130,5 +134,16 @@
     function callModal(id) {
         document.getElementById("deleteModal").href="/employee?action=delete&id="+id;
     }
+</script>
+<script src="../../datatables/js/jquery.dataTables.min.js"></script>
+<script src="../../datatables/js/dataTables.bootstrap4.min.js"></script>
+<script>
+    $(document).ready(function() {
+        $('#tableStudent').DataTable({
+            "dom":'lrtip',
+            "lengthChange":false,
+            "pageLength":5
+        });
+    } );
 </script>
 </html>

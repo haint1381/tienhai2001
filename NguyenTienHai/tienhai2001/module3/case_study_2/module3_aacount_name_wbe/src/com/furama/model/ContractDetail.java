@@ -1,49 +1,49 @@
 package com.furama.model;
 public class ContractDetail {
-	     int contract_detail_id;
-	     int contract_id;
-	     int attach_service_id;
-	     int quantity;
+    String contract_detail_id;
+    String contract_id;
+    String attach_service_id;
+    String quantity;
 
     public ContractDetail() {
     }
 
-    public ContractDetail(int contract_detail_id, int contract_id, int attach_service_id, int quantity) {
+    public ContractDetail(String contract_detail_id, String contract_id, String attach_service_id, String quantity) {
         this.contract_detail_id = contract_detail_id;
         this.contract_id = contract_id;
         this.attach_service_id = attach_service_id;
         this.quantity = quantity;
     }
 
-    public int getContract_detail_id() {
+    public String getContract_detail_id() {
         return contract_detail_id;
     }
 
-    public void setContract_detail_id(int contract_detail_id) {
+    public void setContract_detail_id(String contract_detail_id) {
         this.contract_detail_id = contract_detail_id;
     }
 
-    public int getContract_id() {
+    public String getContract_id() {
         return contract_id;
     }
 
-    public void setContract_id(int contract_id) {
+    public void setContract_id(String contract_id) {
         this.contract_id = contract_id;
     }
 
-    public int getAttach_service_id() {
+    public String getAttach_service_id() {
         return attach_service_id;
     }
 
-    public void setAttach_service_id(int attach_service_id) {
+    public void setAttach_service_id(String attach_service_id) {
         this.attach_service_id = attach_service_id;
     }
 
-    public int getQuantity() {
+    public String getQuantity() {
         return quantity;
     }
 
-    public void setQuantity(int quantity) {
+    public void setQuantity(String quantity) {
         this.quantity = quantity;
     }
 }

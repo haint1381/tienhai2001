@@ -1,13 +1,13 @@
 package com.furama.controller;
 
-import com.furama.bo.contract_bo.ContractBO;
-import com.furama.bo.contract_bo.IContractBO;
-import com.furama.bo.customer_bo.CustomerBO;
-import com.furama.bo.customer_bo.ICustomerBO;
-import com.furama.bo.employee_bo.EmployeeBO;
-import com.furama.bo.employee_bo.IEmployeeBO;
-import com.furama.bo.service_bo.IServiceBO;
-import com.furama.bo.service_bo.ServiceBO;
+import com.furama.bo.class_bo.ContractBO;
+import com.furama.bo.interface_bo.IContractBO;
+import com.furama.bo.class_bo.CustomerBO;
+import com.furama.bo.interface_bo.ICustomerBO;
+import com.furama.bo.class_bo.EmployeeBO;
+import com.furama.bo.interface_bo.IEmployeeBO;
+import com.furama.bo.interface_bo.IServiceBO;
+import com.furama.bo.class_bo.ServiceBO;
 import com.furama.model.Contract;
 import com.furama.model.Customer;
 import com.furama.model.Employee;

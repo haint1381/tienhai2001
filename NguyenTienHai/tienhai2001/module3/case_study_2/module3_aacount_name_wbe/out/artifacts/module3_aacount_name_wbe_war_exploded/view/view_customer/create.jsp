@@ -42,19 +42,17 @@
             </div>
             <div class="col-md-8">
                 <div class="row">
-                    <p>
-                        <c:if test='${requestScope["message"] != null}'>
-                            <span class="message">${requestScope["message"]}</span>
-                        </c:if>
-                    </p>
+                    <div class="alert alert-success col-md-12" role="alert" >
+                        <p><c:out value="${message}"/></p>
+                    </div>
                 </div>
                 <div class="row">
                     <div class="card-body">
                         <h5 class="card-title text-center">Add New Customer</h5>
                         <form class="form-signin">
                             <div class="form-label-group">
-                                <input type="number" class="form-control" name="id" placeholder="Id Customer" required
-                                       autofocus>
+                                <p><c:out value="${message1}"/></p>
+                                <input type="text" class="form-control" name="id" placeholder="Id Customer" required autofocus>
                             </div>
                             <br>
                             <div class="form-label-group">

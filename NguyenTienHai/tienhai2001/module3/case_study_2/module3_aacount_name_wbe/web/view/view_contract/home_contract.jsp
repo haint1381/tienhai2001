@@ -11,6 +11,8 @@
 <head>
     <title>Title</title>
     <link rel="stylesheet" href="../../bootstrap-4.5.2-dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../../datatables/css/dataTables.bootstrap4.min.css">
+
 </head>
 <body>
 <%@ include file="../common/header.jsp"%>
@@ -48,7 +50,7 @@
         <div class="col-md-4">
         </div>
     </div>
-    <table class="table table-striped table-hover table-bordered">
+    <table class="table table-striped table-hover table-bordered" id="tableStudent">
         <thead class="thead">
         <tr class="table-dark">
             <th scope="col">ID</th>
@@ -60,6 +62,8 @@
             <th scope="col">Customer Id</th>
             <th scope="col">Service Id</th>
         </tr>
+        </thead>
+        <tbody>
         <c:forEach var="contract" items="${contractList}">
         <tr>
             <td><c:out value="${contract.contract_id}"/></td>
@@ -72,9 +76,21 @@
             <td><c:out value="${contract.service_id}"/></td>
         </tr>
         </c:forEach>
+        </tbody>
     </table>
 </div>
 </body>
 <script src="../../bootstrap-4.5.2-dist/jquery-3.5.1.min.js"></script>
 <script src="../../bootstrap-4.5.2-dist/js/bootstrap.min.js"></script>
+<script src="../../datatables/js/jquery.dataTables.min.js"></script>
+<script src="../../datatables/js/dataTables.bootstrap4.min.js"></script>
+<script>
+    $(document).ready(function() {
+        $('#tableStudent').DataTable({
+            "dom":'lrtip',
+            "lengthChange":false,
+            "pageLength":5
+        });
+    } );
+</script>
 </html>

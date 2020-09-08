@@ -1,8 +1,7 @@
 package com.furama.controller;
 
-import com.furama.bo.employee_bo.EmployeeBO;
-import com.furama.bo.employee_bo.IEmployeeBO;
-import com.furama.model.Customer;
+import com.furama.bo.class_bo.EmployeeBO;
+import com.furama.bo.interface_bo.IEmployeeBO;
 import com.furama.model.Employee;
 
 import javax.servlet.RequestDispatcher;
@@ -37,19 +36,19 @@ public class EmployeeServlet extends HttpServlet {
         }
     }
     private void editEmployee(HttpServletRequest request, HttpServletResponse response) throws SQLException, ServletException, IOException {
+        String employee_id =request.getParameter("employee_id");
         String employee_name=request.getParameter("employee_name");
         String employee_birthday=request.getParameter("employee_birthday");
         String employee_id_card=request.getParameter("employee_id_card");
-        double employee_salary=Double.parseDouble(request.getParameter("employee_salary"));
+        String employee_salary=request.getParameter("employee_salary");
         String employee_phone=request.getParameter("employee_phone");
         String employee_email=request.getParameter("employee_email");
         String employee_address=request.getParameter("employee_address");
-        int position_id=Integer.parseInt(request.getParameter("position_id"));
-        int education_degree_id=Integer.parseInt(request.getParameter("education_degree_id"));
-        int division_id=Integer.parseInt(request.getParameter("division_id"));
+        String position_id=request.getParameter("position_id");
+        String education_degree_id=request.getParameter("education_degree_id");
+        String division_id=request.getParameter("division_id");
         String username=request.getParameter("username");
-        int employee_id1 =Integer.parseInt(request.getParameter("employee_id"));
-        Employee employee= new Employee(employee_id1,employee_name,employee_birthday,employee_id_card,employee_salary,employee_phone,employee_email,employee_address,position_id,education_degree_id,division_id,username);
+        Employee employee= new Employee(employee_id,employee_name,employee_birthday,employee_id_card,employee_salary,employee_phone,employee_email,employee_address,position_id,education_degree_id,division_id,username);
 
         if(!employeeBO.checkUserName(username)){
             request.setAttribute("message","wrong account name!!");
@@ -64,17 +63,17 @@ public class EmployeeServlet extends HttpServlet {
     }
 
     private void insertEmployee(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        int employee_id =Integer.parseInt(request.getParameter("employee_id"));
+        String employee_id =request.getParameter("employee_id");
         String employee_name=request.getParameter("employee_name");
         String employee_birthday=request.getParameter("employee_birthday");
         String employee_id_card=request.getParameter("employee_id_card");
-        double employee_salary=Double.parseDouble(request.getParameter("employee_salary"));
+        String employee_salary=request.getParameter("employee_salary");
         String employee_phone=request.getParameter("employee_phone");
         String employee_email=request.getParameter("employee_email");
         String employee_address=request.getParameter("employee_address");
-        int position_id=Integer.parseInt(request.getParameter("position_id"));
-        int education_degree_id=Integer.parseInt(request.getParameter("education_degree_id"));
-        int division_id=Integer.parseInt(request.getParameter("division_id"));
+        String position_id=request.getParameter("position_id");
+        String education_degree_id=request.getParameter("education_degree_id");
+        String division_id=request.getParameter("division_id");
         String username=request.getParameter("username");
         Employee employee= new Employee(employee_id,employee_name,employee_birthday,employee_id_card,employee_salary,employee_phone,employee_email,employee_address,position_id,education_degree_id,division_id,username);
         if(!employeeBO.checkId(employee_id)){
@@ -130,7 +129,7 @@ public class EmployeeServlet extends HttpServlet {
     }
 
     private void deleteEmployee(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        int id = Integer.parseInt(request.getParameter("id"));
+        String id = request.getParameter("id");
         try {
             employeeBO.deleteEmployee(id);
         } catch (SQLException e) {
@@ -143,7 +142,7 @@ public class EmployeeServlet extends HttpServlet {
     }
 
     private void showEditForm(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        int id = Integer.parseInt(request.getParameter("id"));
+        String id = request.getParameter("id");
         Employee employee=null;
         try {
             employee =employeeBO.findById(id);
