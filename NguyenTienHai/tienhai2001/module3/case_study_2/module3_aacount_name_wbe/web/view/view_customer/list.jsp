@@ -69,7 +69,7 @@
         </tr>
         </thead>
         <tbody>
-        <c:forEach var="customer" items="${customerList}">
+        <c:forEach  var="customer" items="${customerList}">
         <tr>
             <td><c:out value="${customer.id}"/></td>
             <td><c:out value="${customer.type_id}"/></td>

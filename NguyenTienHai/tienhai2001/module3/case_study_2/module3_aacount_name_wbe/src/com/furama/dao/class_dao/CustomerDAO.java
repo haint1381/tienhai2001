@@ -15,11 +15,11 @@ import java.util.List;
 public class CustomerDAO implements ICustomerDAO {
     private static final String INSERT_USERS_SQL =
             "INSERT INTO customer (customer_id ,customer_type_id ,customer_name, customer_birthday,customer_gender,customer_id_card ,customer_phone ,customer_email ,customer_address) VALUES  (?,?,?,?,?,?,?,?,?);";
-    private static final String SELECT_ALL_USERS ="select* from customer";
+    private static final String SELECT_ALL_USERS ="select * from customer";
     private static final String DELETE_USERS_SQL = "delete from customer where customer_id = ?;";
     private static final String UPDATE_USERS_SQL = "update customer set customer_type_id= ?, customer_name =?,customer_birthday=?,customer_gender=?,customer_id_card=?,customer_phone=?,customer_email=?,customer_address=? where customer_id = ?;";
-    private static final String SELECT_USER_BY_ID = "select* from customer where customer_id =?";
-    private static final String SELECT_USER_BY_NAME = "select* from customer where customer_name like ?;";
+    private static final String SELECT_USER_BY_ID = "select * from customer where customer_id =?";
+    private static final String SELECT_USER_BY_NAME = "select * from customer where customer_name like ?;";
     private static final String CUSTOMERS_USING_THE_SERVICE ="select customer.customer_id, customer.customer_name,service.service_id,service.service_name,contract.contract_id,attach_service.attach_service_id,attach_service.attach_service_name\n" +
             "from customer\n" +
             "inner join contract on\tcontract.contract_id = customer.customer_id\n" +

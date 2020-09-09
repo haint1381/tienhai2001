@@ -51,30 +51,32 @@ public class CustomerServlet extends HttpServlet {
         String address = request.getParameter("address");
         Customer newCustomer = new Customer(id,type_id,name,birthday,gender,id_card,phone, email, address);
         Customer customer =customerBo.findById(id);
+
+        boolean check=true;
          if(!id_card.matches(Validate.REGEX_ID_CARD)){
              request.setAttribute("message1", "Invalid id_card id!!");
-             request.setAttribute("customer",customer);
-             RequestDispatcher dispatcher = request.getRequestDispatcher("view/view_customer/edit.jsp");
-             dispatcher.forward(request, response);
-         } else if(!phone.matches(Validate.REGEX_PHONE_NUMBER)){
+             check=false;
+         }
+         if(!phone.matches(Validate.REGEX_PHONE_NUMBER)){
              request.setAttribute("message2", "Invalid phone id!!");
-             request.setAttribute("customer",customer);
-             RequestDispatcher dispatcher = request.getRequestDispatcher("view/view_customer/edit.jsp");
-             dispatcher.forward(request, response);
-         }else if(!email.matches(Validate.REGEX_EMAIL)){
+             check=false;
+         }
+         if(!email.matches(Validate.REGEX_EMAIL)){
              request.setAttribute("message3", "Invalid email id!!");
-             request.setAttribute("customer",customer);
-             RequestDispatcher dispatcher = request.getRequestDispatcher("view/view_customer/edit.jsp");
-             dispatcher.forward(request, response);
-         } else {
+             check=false;
+         }
+        if(check){
             customerBo.updateCustomer(newCustomer);
             List<Customer> customerList = customerBo.findAll();
             request.setAttribute("customerList", customerList);
             request.setAttribute("massage", "successfully update!!");
-            RequestDispatcher dispatcher = request.getRequestDispatcher("view/view_customer/list.jsp");
+            RequestDispatcher dispatcher1 = request.getRequestDispatcher("view/view_customer/list.jsp");
+            dispatcher1.forward(request, response);
+        }else {
+            request.setAttribute("customer",customer);
+            RequestDispatcher dispatcher = request.getRequestDispatcher("view/view_customer/edit.jsp");
             dispatcher.forward(request, response);
         }
-
 
     }
 
@@ -169,17 +171,29 @@ public class CustomerServlet extends HttpServlet {
         String email = request.getParameter("email");
         String address = request.getParameter("address");
         Customer newCustomer = new Customer(id,type_id,name,birthday,gender,id_card,phone, email, address);
+        boolean check=true;
         if (!customerBo.checkId(id)) {
             request.setAttribute("message1","New addition failed due to duplicate ids!!");
-        }else if (!id.matches(Validate.REGEX_ID_KH)) {
+            check=false;
+        }
+        if (!id.matches(Validate.REGEX_ID_KH)) {
             request.setAttribute("message1", "Invalid customer id!!");
-        }else if(!id_card.matches(Validate.REGEX_ID_CARD)){
+            check=false;
+        }
+        if(!id_card.matches(Validate.REGEX_ID_CARD)){
             request.setAttribute("message2", "Invalid id_card id!!");
-        }else if(!phone.matches(Validate.REGEX_PHONE_NUMBER)){
+            check=false;
+        }
+        if(!phone.matches(Validate.REGEX_PHONE_NUMBER)){
             request.setAttribute("message3", "Invalid phone id!!");
-        }else if(!id.matches(Validate.REGEX_EMAIL)){
+            check=false;
+        }
+        if(!email.matches(Validate.REGEX_EMAIL)){
             request.setAttribute("message4", "Invalid email id!!");
-        } else {
+            check=false;
+
+        }
+        if(check) {
             customerBo.create(newCustomer);
             request.setAttribute("message", "successfully added!!");
         }
