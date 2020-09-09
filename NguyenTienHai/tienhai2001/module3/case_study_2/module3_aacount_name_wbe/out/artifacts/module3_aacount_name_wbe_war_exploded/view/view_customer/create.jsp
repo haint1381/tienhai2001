@@ -51,7 +51,7 @@
                         <h5 class="card-title text-center">Add New Customer</h5>
                         <form class="form-signin">
                             <div class="form-label-group">
-                                <p><c:out value="${message1}"/></p>
+                                <p style="color: red"><c:out value="${message1}"/></p>
                                 <input type="text" class="form-control" name="id" placeholder="Id Customer" required autofocus>
                             </div>
                             <br>
@@ -71,21 +71,23 @@
                             </div>
                             <br>
                             <div class="form-label-group">
-                                <input type="number" name="gender" placeholder="Gender" class="form-control" min="0"
-                                       max="1">
+                                <input type="number" name="gender" placeholder="Gender" class="form-control" min="0" max="1">
                             </div>
                             <br>
                             <div class="form-label-group">
+                                <p style="color: red"><c:out value="${message2}"/></p>
                                 <input type="number" class="form-control" name="id_card" placeholder="Id Card" required>
                             </div>
                             <br>
                             <div class="form-label-group">
+                                <p style="color: red"><c:out value="${message3}"/></p>
                                 <input type="tel" class="form-control" name="phone" placeholder="Telephone number"
                                        required>
                             </div>
                             <br>
                             <div class="form-label-group">
-                                <input type="email" class="form-control" name="email" placeholder="Email" required>
+                                <p style="color: red"><c:out value="${message4}"/></p>
+                                <input type="text" class="form-control" name="email" placeholder="Email" required>
                             </div>
                             <br>
                             <div class="form-label-group">

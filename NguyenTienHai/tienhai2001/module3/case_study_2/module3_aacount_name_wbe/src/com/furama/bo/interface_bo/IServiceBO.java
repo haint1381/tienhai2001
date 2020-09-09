@@ -11,4 +11,5 @@ public interface IServiceBO {
     boolean deleteService(String id) throws SQLException;
     boolean updateService(Service service) throws SQLException;
     Service findById(String id) throws SQLException;
+    boolean checkId(String id);
 }

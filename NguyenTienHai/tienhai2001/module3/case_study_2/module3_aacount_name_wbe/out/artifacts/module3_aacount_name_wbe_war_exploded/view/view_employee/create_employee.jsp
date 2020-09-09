@@ -31,21 +31,17 @@
             </div>
             <div class="col-md-8">
                 <div class="row">
-                    <p>
-                        <c:if test='${requestScope["message"] != null}'>
-                            <span class="message">${requestScope["message"]}</span>
-                        </c:if>
-                        <c:if test='${requestScope["message"] = null}'>
-                            <span class="message">new addition was not successful!</span>
-                        </c:if>
-                    </p>
+                    <div class="alert alert-success col-md-12" role="alert" >
+                        <p><c:out value="${message}"/></p>
+                    </div>
                 </div>
                 <div class="row">
                     <div class="card-body">
                         <h5 class="card-title text-center">Add New Employee</h5>
                         <form class="form-signin">
                             <div class="form-label-group">
-                                <input type="number" class="form-control" name="employee_id" placeholder="Employee Id" required >
+                                <p style="color: red"><c:out value="${message1}"/></p>
+                                <input type="text" class="form-control" name="employee_id" placeholder="Employee Id" required >
                             </div><br>
                             <div class="form-label-group">
                                 <input type="text" class="form-control" name="employee_name" placeholder="Employee Name" required>
@@ -54,16 +50,20 @@
                                 <input type="date"  class="form-control" name="employee_birthday" placeholder="Employee Birthday" required pattern="(?:19|20)[0-9]{2}-(?:(?:0[1-9]|1[0-2])-(?:0[1-9]|1[0-9]|2[0-9])|(?:(?!02)(?:0[1-9]|1[0-2])-(?:30))|(?:(?:0[13578]|1[02])-31)">
                             </div><br>
                             <div class="form-label-group">
-                                <input type="number" class="form-control" name="employee_id_card" placeholder="Employee Id Card" required>
+                                <p style="color: red"><c:out value="${message2}"/></p>
+                                <input type="text" class="form-control" name="employee_id_card" placeholder="Employee Id Card" required>
                             </div><br>
                             <div class="form-label-group">
-                                <input type="number" class="form-control" name="employee_salary" placeholder="Employee Salary"  required>
+                                <p style="color: red"><c:out value="${message3}"/></p>
+                                <input type="text" class="form-control" name="employee_salary" placeholder="Employee Salary"  required>
                             </div><br>
                             <div class="form-label-group">
+                                <p style="color: red"><c:out value="${message4}"/></p>
                                 <input type="tel" class="form-control" class="form-control" name="employee_phone" placeholder="Employee Phone" required>
                             </div><br>
                             <div class="form-label-group">
-                                <input type="email" class="form-control" name="employee_email" placeholder="Employee Email" required>
+                                <p style="color: red"><c:out value="${message5}"/></p>
+                                <input type="text" class="form-control" name="employee_email" placeholder="Employee Email" required>
                             </div><br>
                             <div class="form-label-group">
                                 <input type="text" class="form-control" name="employee_address" placeholder="Employee Address" required>
@@ -78,6 +78,7 @@
                                 <input type="number" class="form-control" name="division_id" placeholder="Division Id" required min="1" max="4">
                             </div><br>
                             <div class="form-label-group">
+                                <p style="color: red"><c:out value="${message6}"/></p>
                                 <input type="text" class="form-control" name="username" placeholder="User Name" required>
                             </div><br>
                             <button class="btn btn-lg btn-primary btn-block text-uppercase" type="submit">Add Employee</button><br>

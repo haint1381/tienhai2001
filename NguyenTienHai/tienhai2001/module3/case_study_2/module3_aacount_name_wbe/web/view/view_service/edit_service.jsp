@@ -47,13 +47,16 @@
                                 <input type="text" class="form-control" name="service_name" placeholder="${service.service_name}" required>
                             </div><br>
                             <div class="form-label-group">
-                                <input type="number" class="form-control" name="service_area" placeholder="${service.service_area}" required>
+                                <p style="color: red"><c:out value="${message1}"/></p>
+                                <input type="text" class="form-control" name="service_area" placeholder="${service.service_area}" required>
                             </div><br>
                             <div class="form-label-group">
-                                <input class="form-control" type="number" name="service_cost" placeholder="${service.service_cost}" required>
+                                <p style="color: red"><c:out value="${message2}"/></p>
+                                <input class="form-control" type="text" name="service_cost" placeholder="${service.service_cost}" required>
                             </div><br>
                             <div class="form-label-group">
-                                <input type="number" name="service_max_people" placeholder="${service.service_max_people}" class="form-control" >
+                                <p style="color: red"><c:out value="${message3}"/></p>
+                                <input type="text" name="service_max_people" placeholder="${service.service_max_people}" class="form-control" >
                             </div><br>
                             <div class="form-label-group">
                                 <input type="number" class="form-control" name="rent_type_id" placeholder="${service.rent_type_id}" required>
@@ -68,10 +71,12 @@
                                 <input type="text" class="form-control" name="description_other_convenience" placeholder="${service.description_other_convenience}" required>
                             </div><br>
                             <div class="form-label-group">
-                                <input type="number" class="form-control" name="pool_area" placeholder="${service.pool_area}" required>
+                                <p style="color: red"><c:out value="${message4}"/></p>
+                                <input type="text" class="form-control" name="pool_area" placeholder="${service.pool_area}" required>
                             </div><br>
                             <div class="form-label-group">
-                                <input type="number" class="form-control" name="number_of_floors" placeholder="${service.number_of_floors}" required>
+                                <p style="color: red"><c:out value="${message5}"/></p>
+                                <input type="text" class="form-control" name="number_of_floors" placeholder="${service.number_of_floors}" required>
                             </div><br>
 
                             <!-- Button trigger modal -->

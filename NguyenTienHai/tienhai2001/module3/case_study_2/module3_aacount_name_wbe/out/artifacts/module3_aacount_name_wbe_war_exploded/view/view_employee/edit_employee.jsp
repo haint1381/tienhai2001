@@ -45,16 +45,20 @@
                                 <input type="text" class="form-control" name="employee_birthday" placeholder="${employee.employee_birthday}" required>
                             </div><br>
                             <div class="form-label-group">
+                                <p style="color: red"><c:out value="${message1}"/></p>
                                 <input class="form-control" type="text" name="employee_id_card" placeholder="${employee.employee_id_card}" required>
                             </div><br>
                             <div class="form-label-group">
-                                <input type="number" name="employee_salary" placeholder="${employee.employee_salary}" class="form-control">
+                                <p style="color: red"><c:out value="${message2}"/></p>
+                                <input type="text" name="employee_salary" placeholder="${employee.employee_salary}" class="form-control">
                             </div><br>
                             <div class="form-label-group">
+                                <p style="color: red"><c:out value="${message3}"/></p>
                                 <input type="tel" class="form-control" name="employee_phone" placeholder="${employee.employee_phone}" required>
                             </div><br>
                             <div class="form-label-group">
-                                <input type="email" class="form-control" name="employee_email" placeholder="${employee.employee_email}" required>
+                                <p style="color: red"><c:out value="${message4}"/></p>
+                                <input type="text" class="form-control" name="employee_email" placeholder="${employee.employee_email}" required>
                             </div><br>
                             <div class="form-label-group">
                                 <input type="text" class="form-control" name="employee_address" placeholder="${employee.employee_address}" required>
@@ -69,6 +73,7 @@
                                 <input type="number" class="form-control" min="1" max="6" name="division_id" placeholder="${employee.division_id}" required>
                             </div><br>
                             <div class="form-label-group">
+                                <p style="color: red"><c:out value="${message5}"/></p>
                                 <input type="text" class="form-control" name="username" placeholder="${employee.username}" required>
                             </div><br>
                             <!-- Button trigger modal -->

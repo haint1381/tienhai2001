@@ -41,10 +41,10 @@
                         <h5 class="card-title text-center">Edit Customer</h5>
                         <form class="form-signin">
                             <div class="form-label-group">
-                                <input type="number" class="form-control" name="id" placeholder="${customer.id}" required autofocus readonly="true">
+                                <input type="text" class="form-control" name="id" placeholder="${customer.id}" required autofocus readonly="true">
                             </div><br>
                             <div class="form-label-group">
-                                <input type="number" class="form-control" name="type_id" placeholder="${customer.type_id}" required>
+                                <input type="number" class="form-control" name="type_id" placeholder="${customer.type_id}" min="1" max="5" required>
                             </div><br>
                             <div class="form-label-group">
                                 <input type="text" class="form-control" name="name" placeholder="${customer.name}" required>
@@ -53,16 +53,19 @@
                                 <input class="form-control" name="birthday" placeholder="${customer.birthday}" required pattern="(?:19|20)[0-9]{2}-(?:(?:0[1-9]|1[0-2])-(?:0[1-9]|1[0-9]|2[0-9])|(?:(?!02)(?:0[1-9]|1[0-2])-(?:30))|(?:(?:0[13578]|1[02])-31))">
                             </div><br>
                             <div class="form-label-group">
-                                <input type="number" name="gender" placeholder="${customer.gender}" class="form-control" min="1" max="2">
+                                <input type="number" name="gender" placeholder="${customer.gender}" class="form-control" min="0" max="1">
                             </div><br>
                             <div class="form-label-group">
-                                <input type="number" class="form-control" name="id_card" placeholder="${customer.id_card}" required>
+                                <p style="color: red"><c:out value="${message1}"/></p>
+                                <input type="text" class="form-control" name="id_card" placeholder="${customer.id_card}" required>
                             </div><br>
                             <div class="form-label-group">
+                                <p style="color: red"><c:out value="${message2}"/></p>
                                 <input type="tel" class="form-control" name="phone" placeholder="${customer.phone}" required>
                             </div><br>
                             <div class="form-label-group">
-                                <input type="email" class="form-control" name="email" placeholder="${customer.email}" required>
+                                <p style="color: red"><c:out value="${message3}"/></p>
+                                <input type="text" class="form-control" name="email" placeholder="${customer.email}" required>
                             </div><br>
                             <div class="form-label-group">
                                 <input type="text" class="form-control" name="address" placeholder="${customer.address}" required>

@@ -1,6 +1,7 @@
 package com.furama.controller;
 
 import com.furama.bo.class_bo.EmployeeBO;
+import com.furama.bo.common.Validate;
 import com.furama.bo.interface_bo.IEmployeeBO;
 import com.furama.model.Employee;
 
@@ -49,16 +50,40 @@ public class EmployeeServlet extends HttpServlet {
         String division_id=request.getParameter("division_id");
         String username=request.getParameter("username");
         Employee employee= new Employee(employee_id,employee_name,employee_birthday,employee_id_card,employee_salary,employee_phone,employee_email,employee_address,position_id,education_degree_id,division_id,username);
-
-        if(!employeeBO.checkUserName(username)){
-            request.setAttribute("message","wrong account name!!");
-        }else {
+        Employee employee1=employeeBO.findById(employee_id);
+        if(!employee_id_card.matches(Validate.REGEX_ID_CARD)){
+            request.setAttribute("message1", "Invalid id_card id!!");
+            request.setAttribute("employee",employee1);
+            RequestDispatcher dispatcher = request.getRequestDispatcher("view/view_employee/edit_employee.jsp");
+            dispatcher.forward(request, response);
+        } else if(!employee_salary.matches(Validate.REGEX_DOUBLE)){
+            request.setAttribute("message2", "Invalid employee_salary id!!");
+            request.setAttribute("employee",employee1);
+            RequestDispatcher dispatcher = request.getRequestDispatcher("view/view_employee/edit_employee.jsp");
+            dispatcher.forward(request, response);
+        }else if(!employee_phone.matches(Validate.REGEX_PHONE_NUMBER)){
+            request.setAttribute("message3", "Invalid phone id!!");
+            request.setAttribute("employee",employee1);
+            RequestDispatcher dispatcher = request.getRequestDispatcher("view/view_employee/edit_employee.jsp");
+            dispatcher.forward(request, response);
+        }else if(!employee_email.matches(Validate.REGEX_EMAIL)){
+            request.setAttribute("message4", "Invalid email id!!");
+            request.setAttribute("employee",employee1);
+            RequestDispatcher dispatcher = request.getRequestDispatcher("view/view_employee/edit_employee.jsp");
+            dispatcher.forward(request, response);
+        }else if(!employeeBO.checkUserName(username)){
+            request.setAttribute("message5","wrong account name!!");
+            request.setAttribute("employee",employee1);
+            RequestDispatcher dispatcher = request.getRequestDispatcher("view/view_employee/edit_employee.jsp");
+            dispatcher.forward(request, response);
+        } else {
             employeeBO.updateEmployee(employee);
             List<Employee> employeeList = employeeBO.findAll();
             request.setAttribute("employeeList", employeeList);
-        }
             RequestDispatcher dispatcher = request.getRequestDispatcher("view/view_employee/home_employee.jsp");
             dispatcher.forward(request, response);
+        }
+
 
     }
 
@@ -77,11 +102,18 @@ public class EmployeeServlet extends HttpServlet {
         String username=request.getParameter("username");
         Employee employee= new Employee(employee_id,employee_name,employee_birthday,employee_id_card,employee_salary,employee_phone,employee_email,employee_address,position_id,education_degree_id,division_id,username);
         if(!employeeBO.checkId(employee_id)){
-            request.setAttribute("message","New addition failed due to duplicate ids!!");
-
+            request.setAttribute("message1","New addition failed due to duplicate ids!!");
+        } else if(!employee_id_card.matches(Validate.REGEX_ID_CARD)){
+            request.setAttribute("message2", "Invalid id_card id!!");
+        } else if(!employee_salary.matches(Validate.REGEX_DOUBLE)){
+            request.setAttribute("message3", "Invalid employee_salary id!!");
+        }else if(!employee_phone.matches(Validate.REGEX_PHONE_NUMBER)){
+            request.setAttribute("message4", "Invalid phone id!!");
+        }else if(!employee_email.matches(Validate.REGEX_EMAIL)){
+            request.setAttribute("message5", "Invalid email id!!");
         }else if(!employeeBO.checkUserName(username)){
-            request.setAttribute("message","wrong account name!!");
-        } else {
+            request.setAttribute("message6","wrong account name!!");
+        }else {
             employeeBO.create(employee);
             request.setAttribute("message","successfully added!!");
         }
