@@ -8,4 +8,6 @@ public class Validate {
     public static final String REGEX_ID_CARD = "^\\d{9}$";
     public static final String REGEX_INTEGER= "^[-]*\\d+$";
     public static final String REGEX_DOUBLE= "^[-]*\\d+([.]\\d+)?$";
+    public static final String REGEX_20= "^[2-9]\\d(\\.?(\\d*))|([1-9][0-9]\\d+(\\.?(\\d*)))$";
+    public static final String REGEX_ID= "^(\\d{3}-\\d{2}-\\d{2})|([A-Z]{3}-[A-Z]{2}-[A-Z]{2})$";
 }

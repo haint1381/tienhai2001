@@ -35,7 +35,7 @@
     </div>
     <br>
     <div class="row">
-        <div class="col-md-4">
+        <div class="col-md-2">
             <form action="/customer" method="get">
                 <input type="hidden" name="action" value="create">
                 <input type="submit" value="Add Customer" style="background-color: chartreuse">
