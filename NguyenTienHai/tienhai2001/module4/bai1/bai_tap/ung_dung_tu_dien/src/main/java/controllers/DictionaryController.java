@@ -9,10 +9,12 @@ import javax.servlet.http.HttpServletRequest;
 
 @Controller
 public class DictionaryController {
+
     @GetMapping(value = {"","/dictionary"})
     public String homePage(){
         return "hello";
     }
+
     @PostMapping(value = "/dictionary")
     public ModelAndView translate(HttpServletRequest request){
         String name=request.getParameter("english");
