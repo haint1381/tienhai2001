@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let regexDate = /^\d{2}[./-]\d{4}$/;
+    let date;
+    do {
+        date = prompt("Nhập Tháng Năm Có Dạng MM/YYYY");
+        if (!regexDate.test(date)) {
+            alert("nhập chưa đúng định dạng")
+        }
+    } while (!regexDate.test(date));
+    alert(date + " có số ngày là: " + ngayTrongNam(date));
+    let year = parseInt(date.substring(3, 7));
+    let month = parseInt(date.substring(0, 2));
+    namNhuan(year);
+    ngayTrongThang(month)
+    function namNhuan(year) {
+        let isLeapYear = false;
+        if (year % 4 == 0) {
+            if (year % 100 == 0) {
+                if (year % 400 == 0) {
+                    isLeapYear = true;
+                }
+            } else {
+                isLeapYear = true;
+            }
+        }
+        if (isLeapYear) {
+            return year + " is a leap year";
+        } else {
+            return year + " is NOT a leap year";
+        }
+    }
+    function ngayTrongThang(month) {
+        switch (month) {
+            case 1:
+            case 3:
+            case 5:
+            case 7:
+            case 8:
+            case 10:
+            case 12:
+                return 31;
+                break;
+            case 4:
+            case 6:
+            case 9:
+            case 11:
+                return 30;
+                break;
+            case 2:
+                return 28
+        }
+    }
+    function ngayTrongNam(date) {
+        let year = parseInt(date.substring(3, 7));
+        let month = parseInt(date.substring(0, 2));
+          let  day = ngayTrongThang(month);
+        if (namNhuan(year) && month === 2) {
+            return day +1 ;
+        } else{
+            return day
+    }}
+</script>
+</body>
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let number;
+    let tong=0;
+    do {
+        number = parseInt(prompt("nhập vào 1 số nguyên dương "));
+        if(isNaN(number)){
+            alert("bạn cần nhập số")
+        }else if(number<=0){
+            alert("bạn cần nhập số nguyên dương")
+        }
+    }while (number<=0 || isNaN(number));
+    for (let i=1;i<number;i++){
+        if (number% i===0){
+            tong +=i
+        }
+    }
+    if (number===tong){
+        alert(number+"  là số hoàn hảo")
+    }else alert(number+"  không phải số hoàn hảo")
+</script>
+</body>
+</html>

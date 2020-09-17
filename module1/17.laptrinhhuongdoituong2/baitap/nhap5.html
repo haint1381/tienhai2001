@@ -1,0 +1,142 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<input style="margin-left: 50px; color: #ff0f00;background-color: chartreuse" type="button" value="thêm thí sinh"
+       onclick="themThiSinh()">
+<p id="display"></p>
+<input type="button" value="tìm kiếm" onclick="search()">
+<input type="button" value="hiển thị tất cả" onclick="hienThi(listStudent)">
+<script>
+    let listStudent = [];
+    hienThi(listStudent);
+
+    function hienThi(listStudent) {
+        let tableString = '<table border="1">\n' +
+            '<tr>\n' +
+            '<th>Số thứ tự</th>\n' +
+            '<th> Tên thí sinh</th>\n' +
+            '<th> Ngày tháng năm sinh</th>\n' +
+            '<th> Mã</th>\n' +
+            '<th> Điểm toán</th>\n' +
+            '<th> Điểm văn</th>\n' +
+            '<th> Điểm anh</th>\n' +
+            '<th> Tổng điểm</th>\n' +
+            '</tr>';
+        for (let i = 0; i < listStudent.length; i++) {
+            tableString += ' <tr>\n' +
+                '<td>' + (i + 1) + '</td>\n' +
+                '<td>' + listStudent[i].getCode() + '</td>\n' +
+                '<td>' + listStudent[i].getName() + '</td>\n' +
+                '<td>' + listStudent[i].getBirthday() + '</td>\n' +
+                '<td>' + listStudent[i].getMaths() + '</td>\n' +
+                '<td>' + listStudent[i].getLiterature() + '</td>\n' +
+                '<td>' + listStudent[i].getEnglish() + '</td>\n' +
+                '<td>' + listStudent[i].sum() + '</td>\n' +
+                '</tr>';
+        }
+        document.getElementById("display").innerHTML = tableString;
+    }
+
+    function themThiSinh() {
+        let Code = prompt("nhập mã");
+        let Name = prompt("nhập tên");
+        let Birthday = prompt("nhập ngày sinh");
+        let Maths = parseFloat(prompt("nhập điểm toán"));
+        let Literature = parseFloat(prompt("nhập điểm văn"));
+        let English = parseInt(prompt("nhập điểm anh"));
+        let thiSinh = new Candidate(Code, Name, Birthday, Maths, Literature, English);
+        listStudent.push(thiSinh);
+        hienThi(listStudent)
+    }
+    function search() {
+        let test= new kiemTraThiSinh(listStudent);
+        listStudent=test.getDiemTong();
+        hienThi(listStudent);
+    }
+    class Candidate {
+        constructor(Code, Name, Birthday, Maths, Literature, English) {
+            this.Code = Code;
+            this.Name = Name;
+            this.Birthday = Birthday;
+            this.Maths = Maths;
+            this.Literature = Literature;
+            this.English = English
+        }
+
+        getCode() {
+            return this.Code;
+        }
+
+        setCode(Code) {
+            this.Code = Code;
+        }
+
+        getName() {
+            return this.Name;
+        }
+
+        setName(Name) {
+            this.Name = Name;
+        }
+
+        getBirthday() {
+            return this.Birthday;
+        }
+
+        setBirthday(Birthday) {
+            this.Birthday = Birthday;
+        }
+
+        getMaths() {
+            return this.Maths
+        }
+
+        setMaths(Maths) {
+            this.Maths = Maths;
+        }
+
+        getLiterature() {
+            return this.Literature
+        }
+
+        setLiterature(Literature) {
+            this.Literature = Literature
+        }
+
+        getEnglish() {
+            return this.English;
+        }
+
+        setEnglish(English) {
+            this.English = English;
+        }
+
+        sum() {
+            return this.getEnglish() + this.getMaths() + this.getLiterature()
+        }
+    }
+    class kiemTraThiSinh{
+        constructor(listStudent) {
+            this.listStudent1 = listStudent;
+        }
+        getDiemTong(){
+            let list = [];
+            let num=0;
+            for (let i = 0; i < this.listStudent1.length; i++){
+                 num = (this.listStudent1[i].getMaths() + this.listStudent1[i].getEnglish() + this.listStudent1[i].getLiterature());
+                if (num > 15){
+                    list.push(this.listStudent1[i]);
+                }
+            }
+            return list;
+
+        }
+    }
+</script>
+</body>
+</html>

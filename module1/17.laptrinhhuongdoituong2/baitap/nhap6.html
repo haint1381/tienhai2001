@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<style>
+    .haiht {
+        border: solid;
+        border-width: 3px;
+        background-color: #bdffab;
+    }
+</style>
+<body>
+<div class="haiht" style="margin-left: 200px;width: 700px;height: 500px">
+    <input type="button" style="color: chartreuse;background-color: red" value="thêm sinh viên"
+           onclick="themSinhVien()">
+    <p id="hienthi"></p>
+    <input type="button" style="background-color: #d61b06" value="Xóa theo mã" onclick="xoaSinhVien()">
+    <input type="button" style="background-color: #0017d6" value="Xóa bất kỳ" onclick="xoaSinhVien1()">
+    <input type="button" style="background-color: #2ed600" value="Tìm kiếm" onclick="timSinhVien()">
+    <input type="button" style="background-color: #d6d210" value="Xếp lại" onclick="sapXepDanhSachSinhVien()">
+</div>
+<script>
+    let listCongNhan = [];
+    hienThi(listCongNhan);
+
+    function hienThi(danhSachSinhVien) {
+        let tableString = '<table border="1">\n' +
+            '<tr>\n' +
+            '<th>Số thứ tự</th>\n' +
+            '<th> Mã MSSV</th>\n' +
+            '<th> Họ Tên</th>\n' +
+            '<th> Ngày Sinh</th>\n' +
+            '<th> Giới Tính</th>\n' +
+            '<th> Tên Lớp</th>\n' +
+            '<th> Khóa</th>\n' +
+            '</tr>';
+        for (let i = 0; i < danhSachSinhVien.length; i++) {
+            tableString += ' <tr>\n' +
+                '<td>' + (i + 1) + '</td>\n' +
+                '<td>' + danhSachSinhVien[i].getMaMSSV() + '</td>\n' +
+                '<td>' + danhSachSinhVien[i].getTen() + '</td>\n' +
+                '<td>' + danhSachSinhVien[i].getNgaySinh() + '</td>\n' +
+                '<td>' + danhSachSinhVien[i].getGioiTinh() + '</td>\n' +
+                '<td>' + danhSachSinhVien[i].getTenLop() + '</td>\n' +
+                '<td>' + danhSachSinhVien[i].getKhoa() + '</td>\n' +
+                '</tr>';
+        }
+        document.getElementById("hienthi").innerHTML = tableString;
+    }
+
+    function sapXepDanhSachSinhVien() {
+        let listMaSV = [];
+
+        let danhSachSVMoi = [];
+        for (let i = 0; i < listCongNhan.length; i++) {
+            listMaSV.push(listCongNhan[i].getMaMSSV())
+        }
+        listMaSV.sort(function (a, b) {
+            return a - b
+        });
+        for (let j = 0; j < listMaSV.length; j++) {
+            for (let i = 0; i < listCongNhan.length; i++) {
+                if (listMaSV[j] === listCongNhan[i].getMaMSSV()) {
+                    danhSachSVMoi.push(listCongNhan[i]);
+                    continue;
+
+                }
+            }
+        }
+        hienThi(danhSachSVMoi);
+    }
+
+
+    function timSinhVien() {
+        let tam = [];
+        let maSv = prompt("nhập mã sinh viên cần tìm");
+        for (let i = 0; i < listCongNhan.length; i++) {
+            if (maSv === listCongNhan[i].getMaMSSV()) {
+                tam.push(listCongNhan[i]);
+                hienThi(tam);
+                check = true;
+                break;
+            } else {
+                let tenSV = prompt("nhập tên sinh viên cần tìm");
+                if (tenSV === listCongNhan[i].getTen()) {
+                    tam.push(listCongNhan[i]);
+                    hienThi(tam);
+
+                }
+            }
+        }
+    }
+
+    function xoaSinhVien1() {
+        listCongNhan.splice(Math.random() * listCongNhan.length, 1);
+        hienThi(listCongNhan)
+    }
+
+
+    function xoaSinhVien() {
+        let maSv = prompt("nhập mã sinh viên cần xóa:");
+        for (let i = 0; i < listCongNhan.length; i++) {
+            if (maSv === listCongNhan[i].getMaMSSV()) {
+                listCongNhan.splice(i, 1);
+                break;
+            }
+        }
+        hienThi(listCongNhan)
+    }
+
+    function themSinhVien() {
+        let maMSSV = prompt("nhập mã sinh viên:");
+        let ten = prompt("nhập họ tên sinh viên:");
+        let ngaySinh = prompt("nhập ngày sinh sinh viên:");
+        let gioiTinh = prompt("nhập giới tính sinh viên:");
+        let tenLop = prompt("nhập tên lớp của sinh viên:");
+        let khoa = prompt("nhập khóa học sinh viên:");
+        let quanLySinhVien = new QuanLySinhVien(maMSSV, ten, ngaySinh, gioiTinh, tenLop, khoa);
+        listCongNhan.push(quanLySinhVien);
+        hienThi(listCongNhan)
+    }
+
+    class QuanLySinhVien {
+        constructor(MaMSSV, Ten, NgaySinh, GioiTinh, TenLop, Khoa) {
+            this.MaMSSV = MaMSSV;
+            this.Ten = Ten;
+            this.NgaySinh = NgaySinh;
+            this.GioiTinh = GioiTinh;
+            this.TenLop = TenLop;
+            this.Khoa = Khoa;
+        }
+
+        getMaMSSV() {
+            return this.MaMSSV;
+        }
+
+        setMaMSSV(MaMSSV) {
+            this.MaMSSV = MaMSSV;
+        }
+
+        getTen() {
+            return this.Ten;
+        }
+
+        setTen(Ten) {
+            this.Ten = Ten;
+        }
+
+        getNgaySinh() {
+            return this.NgaySinh;
+        }
+
+        setNgaySinh(NgaySinh) {
+            this.NgaySinh = NgaySinh;
+        }
+
+        getGioiTinh() {
+            return this.GioiTinh
+        }
+
+        setGioiTinh(GioiTinh) {
+            this.GioiTinh = GioiTinh;
+        }
+
+        getTenLop() {
+            return this.TenLop
+        }
+
+        setTenLop(TenLop) {
+            this.TenLop = TenLop
+        }
+
+        getKhoa() {
+            return this.Khoa;
+        }
+
+        setKhoa(Khoa) {
+            this.Khoa = Khoa;
+        }
+
+    }
+
+
+</script>
+</body>
+</html>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let mang = [1,4,3,8,0,3,8];
+    let min = minArray(arr1);
+    alert(min);
+    function minArray() {
+        if (mang.length==0){
+            return 'RỖNG'
+        }
+        let min = mang[0];
+        for (let i = 0; i < mang.length; i++) {
+            if (mang[i] < min) {
+                min = mang[i];
+            }
+        }
+        return min;
+    }
+</script>
+</body>
+</html>

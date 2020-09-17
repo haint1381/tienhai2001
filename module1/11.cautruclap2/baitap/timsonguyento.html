@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let number=prompt("các số nguyên tố");
+    let count=0;
+   let n=2;
+   let ketQua="";
+   while (count<=number){
+       if (kiemTra1(n)){
+           count++;
+           ketQua += n+","
+       }
+       n++;
+   }
+   alert(ketQua);
+   function kiemTra1(number) {
+       let check=true;
+     for (let i=2;i<number;i++){
+         if (number%i===0){
+             check=false;
+             break;
+         }
+     }
+     if (check) {
+           return true;
+       } else{
+           return false;
+       }
+   }
+</script>
+</body>
+</html>

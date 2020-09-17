@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let chuoi = prompt("nhập đại một từ nào đó:");
+    let mangchuoi = chuoi.split("", chuoi.length);
+
+    function kiemTraDoiXung() {
+        for (let i = 0, j = mangchuoi.length-1; i < mangchuoi.length / 2 , j > (mangchuoi.length-1)/2; i++, j--) {
+            if (mangchuoi[i] === mangchuoi[j]) {
+                check = true
+            } else check = false
+        }
+        if (check) {
+            return true
+        }
+        return false
+    }
+
+    alert(kiemTraDoiXung())
+</script>
+</body>
+</html>
