@@ -1,0 +1,306 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="0c308b40-5609-4450-9911-9fc99db8ae9d" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/../../../bai1/bai_tap/chuyen_doi_tien_te/.idea/chuyen_doi_tien_te.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../bai1/bai_tap/chuyen_doi_tien_te/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../may_tinh_ca_nhan/may_tinh_ca_nhan.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../may_tinh_ca_nhan/src/main/java/controllers/ComputerController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../may_tinh_ca_nhan/src/main/java/service/ComputerService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../may_tinh_ca_nhan/src/main/webapp/WEB-INF/applicationContext.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../may_tinh_ca_nhan/src/main/webapp/WEB-INF/dispatcher-servlet.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../may_tinh_ca_nhan/src/main/webapp/WEB-INF/views/display.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../may_tinh_ca_nhan/src/main/webapp/WEB-INF/web.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../thuc_hanh/spring-timezone/.idea/encodings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../module22/bai_hoc/abstract_class_interface/baitap/trien_khai_interface_colorable/Circle.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../module22/bai_hoc/abstract_class_interface/baitap/trien_khai_interface_colorable/Colorable.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../module22/bai_hoc/abstract_class_interface/baitap/trien_khai_interface_colorable/Shape.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../module22/bai_hoc/abstract_class_interface/baitap/trien_khai_interface_colorable/Square.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../module22/bai_hoc/abstract_class_interface/baitap/trien_khai_interface_colorable/Test.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../module22/bai_hoc/abstract_class_interface/baitap/trien_khai_interface_resizeable/Circle.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../module22/bai_hoc/abstract_class_interface/baitap/trien_khai_interface_resizeable/Rectangle.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../module22/bai_hoc/abstract_class_interface/baitap/trien_khai_interface_resizeable/Resizeable.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../module22/bai_hoc/abstract_class_interface/baitap/trien_khai_interface_resizeable/ResizeableTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../module22/bai_hoc/abstract_class_interface/baitap/trien_khai_interface_resizeable/Shape.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../module22/bai_hoc/abstract_class_interface/baitap/trien_khai_interface_resizeable/Square.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../module22/bai_hoc/abstract_class_interface/thu_hanh/lop_animal_va_interface_edible/AbstractAndInterfaceTests.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../module22/bai_hoc/abstract_class_interface/thu_hanh/lop_animal_va_interface_edible/Animal.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../module22/bai_hoc/abstract_class_interface/thu_hanh/lop_animal_va_interface_edible/Chicken.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../module22/bai_hoc/abstract_class_interface/thu_hanh/lop_animal_va_interface_edible/Edible.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../module22/bai_hoc/abstract_class_interface/thu_hanh/lop_animal_va_interface_edible/Tiger.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../module22/bai_hoc/abstract_class_interface/thu_hanh/lop_fruit_apple_va_orange/Apple.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../module22/bai_hoc/abstract_class_interface/thu_hanh/lop_fruit_apple_va_orange/Fruit.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../module22/bai_hoc/abstract_class_interface/thu_hanh/lop_fruit_apple_va_orange/FruitTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../module22/bai_hoc/abstract_class_interface/thu_hanh/lop_fruit_apple_va_orange/Orange.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../module22/bai_hoc/abstract_class_interface/thu_hanh/trien_khai_interface_comparable/ComparableCircle.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../module22/bai_hoc/abstract_class_interface/thu_hanh/trien_khai_interface_comparable/ComparableCircleTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../module22/bai_hoc/abstract_class_interface/thu_hanh/trien_khai_interface_comparator/CircleComparator.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../module22/bai_hoc/abstract_class_interface/thu_hanh/trien_khai_interface_comparator/CircleComparatorTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../module22/bai_hoc/access_modifier/baitap/TestCircle.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../module22/bai_hoc/access_modifier/thuchanh/StaticProperty.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../module22/bai_hoc/access_modifier/thuchanh/TestStaticMethod.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../module22/bai_hoc/case_study_james/Comons.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../module22/bai_hoc/case_study_james/Controller.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../module22/bai_hoc/case_study_james/Dictionary.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../module22/bai_hoc/case_study_james/dictionary.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../module22/bai_hoc/clean_code_refactoring/baitap/TennisGame.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../module22/bai_hoc/clean_code_refactoring/baitap/TennisGameTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../module22/bai_hoc/clean_code_refactoring/thuc_hanh/refactoring_tach_phuong_thuc/Cylinder.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../module22/bai_hoc/clean_code_refactoring/thuc_hanh/refactoring_tach_phuong_thuc/CylinderTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../module22/bai_hoc/clean_code_refactoring/thuc_hanh/refactoring_tach_phuong_thuc/doi_ten_bien_va_tach_hang/Calculator.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../module22/bai_hoc/clean_code_refactoring/thuc_hanh/refactoring_tach_phuong_thuc/doi_ten_bien_va_tach_hang/CalculatorTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../module22/bai_hoc/clean_code_refactoring/thuc_hanh/refactoring_tach_phuong_thuc/refactoring_tach_bien/FizzBuzz.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../module22/bai_hoc/clean_code_refactoring/thuc_hanh/refactoring_tach_phuong_thuc/refactoring_tach_bien/FizzBuzzTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../module22/bai_hoc/dsa_danh_sach/bai_tap/trien_khai_cac_phuong_thuc_arayList/MyList.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../module22/bai_hoc/dsa_danh_sach/bai_tap/trien_khai_cac_phuong_thuc_arayList/MyListTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../module22/bai_hoc/dsa_danh_sach/bai_tap/trien_khai_cac_phuong_thuc_linkedList/MyLinkedList.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../module22/bai_hoc/dsa_danh_sach/bai_tap/trien_khai_cac_phuong_thuc_linkedList/MyLinkedListTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../module22/bai_hoc/dsa_danh_sach/thuc_hanh/trien_khai_lop_linked_list_don_gian/MyLinkedList.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../module22/bai_hoc/dsa_danh_sach/thuc_hanh/trien_khai_lop_linked_list_don_gian/TestMyLinkedList.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../module22/bai_hoc/dsa_danh_sach/thuc_hanh/trien_khai_lop_list_don_gian/MyList.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../module22/bai_hoc/dsa_danh_sach/thuc_hanh/trien_khai_lop_list_don_gian/MyListTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../module22/bai_hoc/dsa_tack_queue/bai_tap/dao_nguoc_phan_tu/ArrayInteger.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../module22/bai_hoc/dsa_tack_queue/bai_tap/dao_nguoc_phan_tu/ArrayString.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../module22/bai_hoc/dsa_tack_queue/bai_tap/dem_so_lan_xuat_hien/MyString.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../module22/bai_hoc/dsa_tack_queue/bai_tap/kiem_tra_chuoi_palindrome/Palindrome.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../module22/bai_hoc/dsa_tack_queue/bai_tap/kiem_tra_dau_ngoac/bracket.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../module22/bai_hoc/dsa_tack_queue/bai_tap/thap_phan_sang_he_nhi_phan/BinarySystem.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../module22/bai_hoc/dsa_tack_queue/bai_tap/to_chuc_du_lieu_hop_ly/Employee.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../module22/bai_hoc/dsa_tack_queue/bai_tap/to_chuc_du_lieu_hop_ly/EmployeeTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../module22/bai_hoc/dsa_tack_queue/bai_tap/to_chuc_du_lieu_hop_ly/SortAge.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../module22/bai_hoc/dsa_tack_queue/bai_tap/trien_khai_queue/Solution.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../module22/bai_hoc/dsa_tack_queue/thuc_hanh/trien_khai_queue/LinkedListQueueClient.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../module22/bai_hoc/dsa_tack_queue/thuc_hanh/trien_khai_queue/MyLinkedListQueue.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../module22/bai_hoc/dsa_tack_queue/thuc_hanh/trien_khai_queue/Node.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../module22/bai_hoc/dsa_tack_queue/thuc_hanh/trien_khai_queue_su_dung_mang/MyQueue.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../module22/bai_hoc/dsa_tack_queue/thuc_hanh/trien_khai_queue_su_dung_mang/QueueClient.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../module22/bai_hoc/dsa_tack_queue/thuc_hanh/trien_khai_stack_su_dung_mang/MyStack.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../module22/bai_hoc/dsa_tack_queue/thuc_hanh/trien_khai_stack_su_dung_mang/StackClient.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../module22/bai_hoc/dsa_tack_queue/thuc_hanh/trien_khia_stack/GenericStackClient.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../module22/bai_hoc/dsa_tack_queue/thuc_hanh/trien_khia_stack/MyGenericStack.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../module22/bai_hoc/introduction_to_java/bai_tap/Loi_Chao.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../module22/bai_hoc/introduction_to_java/bai_tap/TestBaiTap.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../module22/bai_hoc/introduction_to_java/bai_tap/UngDungChuyenTien.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../module22/bai_hoc/introduction_to_java/bai_tap/UngDungDocSoThanhChu.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../module22/bai_hoc/introduction_to_java/thuc_hanh/Can_Nang_Cua_Co_The.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../module22/bai_hoc/introduction_to_java/thuc_hanh/FirstDegreeEquation.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../module22/bai_hoc/introduction_to_java/thuc_hanh/MenuUngDung.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../module22/bai_hoc/introduction_to_java/thuc_hanh/Nam_Nhuan.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../module22/bai_hoc/introduction_to_java/thuc_hanh/RectangleProgram.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../module22/bai_hoc/introduction_to_java/thuc_hanh/SoNgayTrongThang.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../module22/bai_hoc/introduction_to_java/thuc_hanh/SoUocChungLonNhat.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../module22/bai_hoc/introduction_to_java/thuc_hanh/Student.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../module22/bai_hoc/introduction_to_java/thuc_hanh/SystemTime.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../module22/bai_hoc/io_binary_file_srialization/bai_tap/copy_file_nhi_phan/CopyFile.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../module22/bai_hoc/io_binary_file_srialization/bai_tap/copy_file_nhi_phan/Student.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../module22/bai_hoc/io_binary_file_srialization/bai_tap/quan_li_san_pham/Product.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../module22/bai_hoc/io_binary_file_srialization/bai_tap/quan_li_san_pham/ProductManagement.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../module22/bai_hoc/io_binary_file_srialization/bai_tap/quan_li_san_pham/file_product" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../module22/bai_hoc/io_text_file/CharacterFile.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../module22/bai_hoc/io_text_file/bai_tap/CopyFileText.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../module22/bai_hoc/io_text_file/bai_tap/doc_file/csv/FileCSV.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../module22/bai_hoc/io_text_file/bai_tap/doc_file/csv/fileCSV.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../module22/bai_hoc/io_text_file/bai_tap/doc_file/csv/hello.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../module22/bai_hoc/io_text_file/bai_tap/doc_file/csv/holle.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../module22/bai_hoc/io_text_file/thuc_hanh/Num.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../module22/bai_hoc/io_text_file/thuc_hanh/numbers.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../module22/bai_hoc/java_collection_framework/bai_tap/cai_dat_tim_kiem_va_xoa_va_duyet_level/BST.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../module22/bai_hoc/java_collection_framework/bai_tap/cai_dat_tim_kiem_va_xoa_va_duyet_level/BSTTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../module22/bai_hoc/java_collection_framework/bai_tap/cai_dat_tim_kiem_va_xoa_va_duyet_level/TreeNode.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../module22/bai_hoc/java_collection_framework/bai_tap/duyet_theo_thu_tu_postorder/AbstractTree.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../module22/bai_hoc/java_collection_framework/bai_tap/duyet_theo_thu_tu_postorder/BST.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../module22/bai_hoc/java_collection_framework/bai_tap/duyet_theo_thu_tu_postorder/TestBST.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../module22/bai_hoc/java_collection_framework/bai_tap/duyet_theo_thu_tu_postorder/Tree.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../module22/bai_hoc/java_collection_framework/bai_tap/duyet_theo_thu_tu_postorder/TreeNode.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../module22/bai_hoc/java_collection_framework/bai_tap/duyet_theo_thu_tu_preorder/AbstractTree.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../module22/bai_hoc/java_collection_framework/bai_tap/duyet_theo_thu_tu_preorder/BST.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../module22/bai_hoc/java_collection_framework/bai_tap/duyet_theo_thu_tu_preorder/TestBTS.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../module22/bai_hoc/java_collection_framework/bai_tap/duyet_theo_thu_tu_preorder/Tree.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../module22/bai_hoc/java_collection_framework/bai_tap/duyet_theo_thu_tu_preorder/TreeNode.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../module22/bai_hoc/java_collection_framework/bai_tap/luyen_tap_su_dung_arraylist/ProductManager.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../module22/bai_hoc/java_collection_framework/bai_tap/luyen_tap_su_dung_arraylist/SortPriceIncrease.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../module22/bai_hoc/java_collection_framework/bai_tap/luyen_tap_su_dung_arraylist/SortProductReduction.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../module22/bai_hoc/java_collection_framework/bai_tap/luyen_tap_su_dung_arraylist/TelephoneProduct.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../module22/bai_hoc/java_collection_framework/bai_tap/luyen_tap_su_dung_linkedlist/ProductManager.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../module22/bai_hoc/java_collection_framework/bai_tap/luyen_tap_su_dung_linkedlist/SortPriceIncrease.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../module22/bai_hoc/java_collection_framework/bai_tap/luyen_tap_su_dung_linkedlist/SortProductReduction.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../module22/bai_hoc/java_collection_framework/bai_tap/luyen_tap_su_dung_linkedlist/TelephoneProduct.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../module22/bai_hoc/java_collection_framework/thuc_hanh/TestMap.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../module22/bai_hoc/java_collection_framework/thuc_hanh/cai_dat_cay_tim_kiem_nhi_phan/AbstractTree.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../module22/bai_hoc/java_collection_framework/thuc_hanh/cai_dat_cay_tim_kiem_nhi_phan/BST.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../module22/bai_hoc/java_collection_framework/thuc_hanh/cai_dat_cay_tim_kiem_nhi_phan/TestBST.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../module22/bai_hoc/java_collection_framework/thuc_hanh/cai_dat_cay_tim_kiem_nhi_phan/Tree.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../module22/bai_hoc/java_collection_framework/thuc_hanh/cai_dat_cay_tim_kiem_nhi_phan/TreeNode.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../module22/bai_hoc/java_collection_framework/thuc_hanh/comparable_va_comparator/AgeComparator.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../module22/bai_hoc/java_collection_framework/thuc_hanh/comparable_va_comparator/Student.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../module22/bai_hoc/java_collection_framework/thuc_hanh/hashmap_va_hashset/Main.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../module22/bai_hoc/java_collection_framework/thuc_hanh/hashmap_va_hashset/Student.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../module22/bai_hoc/java_collection_framework/thuc_hanh/su_dung_hashmap_linked_hash_ap_tree_map/ListStudent.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../module22/bai_hoc/ke_thua/bai_tap/circle_va_cylinder/Circle.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../module22/bai_hoc/ke_thua/bai_tap/circle_va_cylinder/CircleTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../module22/bai_hoc/ke_thua/bai_tap/circle_va_cylinder/Cylinder.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../module22/bai_hoc/ke_thua/bai_tap/circle_va_cylinder/CylinderTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../module22/bai_hoc/ke_thua/bai_tap/lop_point2d_va_lop_point3d/Point2D.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../module22/bai_hoc/ke_thua/bai_tap/lop_point2d_va_lop_point3d/Point2DTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../module22/bai_hoc/ke_thua/bai_tap/lop_point2d_va_lop_point3d/Point3D.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../module22/bai_hoc/ke_thua/bai_tap/lop_point2d_va_lop_point3d/Point3DTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../module22/bai_hoc/ke_thua/bai_tap/lop_point_va_moveable_point_assignment/MovablePointTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../module22/bai_hoc/ke_thua/bai_tap/lop_point_va_moveable_point_assignment/MoveablePoint.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../module22/bai_hoc/ke_thua/bai_tap/lop_point_va_moveable_point_assignment/Point.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../module22/bai_hoc/ke_thua/bai_tap/lop_point_va_moveable_point_assignment/PointTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../module22/bai_hoc/ke_thua/bai_tap/thiet_ke_va_trien_khai_lop_triangle/Shape.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../module22/bai_hoc/ke_thua/bai_tap/thiet_ke_va_trien_khai_lop_triangle/ShapeTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../module22/bai_hoc/ke_thua/bai_tap/thiet_ke_va_trien_khai_lop_triangle/Triangle.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../module22/bai_hoc/ke_thua/bai_tap/thiet_ke_va_trien_khai_lop_triangle/TriangleTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../module22/bai_hoc/ke_thua/thuc_hanh/doi_tuong_hinh_hoc/Circle.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../module22/bai_hoc/ke_thua/thuc_hanh/doi_tuong_hinh_hoc/CircleTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../module22/bai_hoc/ke_thua/thuc_hanh/doi_tuong_hinh_hoc/Rectangle.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../module22/bai_hoc/ke_thua/thuc_hanh/doi_tuong_hinh_hoc/RectangleTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../module22/bai_hoc/ke_thua/thuc_hanh/doi_tuong_hinh_hoc/Shape.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../module22/bai_hoc/ke_thua/thuc_hanh/doi_tuong_hinh_hoc/ShapeTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../module22/bai_hoc/ke_thua/thuc_hanh/doi_tuong_hinh_hoc/Square.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../module22/bai_hoc/ke_thua/thuc_hanh/doi_tuong_hinh_hoc/SquareTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../module22/bai_hoc/loop_java/baitap/InCacloaiHinh.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../module22/bai_hoc/loop_java/baitap/SoNguyenTo.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../module22/bai_hoc/loop_java/baitap/SoNuyenToNhoHonMotTram.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../module22/bai_hoc/loop_java/thuchanh/MenuUngDung.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../module22/bai_hoc/loop_java/thuchanh/SoNguyenTo.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../module22/bai_hoc/loop_java/thuchanh/SoUocChungLonNhat.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../module22/bai_hoc/loop_java/thuchanh/TienLaiChoVay.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../module22/bai_hoc/lop_va_doi_tuong_trong_java/baitap/Fan.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../module22/bai_hoc/lop_va_doi_tuong_trong_java/baitap/QuadraticEquation.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../module22/bai_hoc/lop_va_doi_tuong_trong_java/baitap/StopWatch.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../module22/bai_hoc/lop_va_doi_tuong_trong_java/thuchanh/Rectangle.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../module22/bai_hoc/mang_va_phuong_thuc_java/baitap/DuongCheoMaTranVuong.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../module22/bai_hoc/mang_va_phuong_thuc_java/baitap/GiaTriNhoNhatSuDungPhuongThuc.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../module22/bai_hoc/mang_va_phuong_thuc_java/baitap/GiaTriNhoNhatTrongMang.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../module22/bai_hoc/mang_va_phuong_thuc_java/baitap/GopMang.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../module22/bai_hoc/mang_va_phuong_thuc_java/baitap/KyTuTrongChuoi.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../module22/bai_hoc/mang_va_phuong_thuc_java/baitap/PhanTuLonNhatTrongMangHaiChieu.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../module22/bai_hoc/mang_va_phuong_thuc_java/baitap/ThemPhanTuVaoMang.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../module22/bai_hoc/mang_va_phuong_thuc_java/baitap/TongCacSoO1CotXacDinh.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../module22/bai_hoc/mang_va_phuong_thuc_java/baitap/XoaPhanTuTrongMang.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../module22/bai_hoc/mang_va_phuong_thuc_java/thuchanh/BanDoTroChoi.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../module22/bai_hoc/mang_va_phuong_thuc_java/thuchanh/ChuyenDoiNhietDo.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../module22/bai_hoc/mang_va_phuong_thuc_java/thuchanh/GiaTriLonNhaTrongMang.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../module22/bai_hoc/mang_va_phuong_thuc_java/thuchanh/GiaTriTrongMang.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../module22/bai_hoc/mang_va_phuong_thuc_java/thuchanh/PhanTuTrongMang.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../module22/bai_hoc/mang_va_phuong_thuc_java/thuchanh/SinhVienThiDo.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../module22/bai_hoc/ooad_solid/thuc_hanh/hello.drawio" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../module22/bai_hoc/string_regex/Test.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../module22/bai_hoc/string_regex/bai_tap/crawl_tin_tuc/CrawlNews.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../module22/bai_hoc/string_regex/bai_tap/validate_so_dien_thoai/TelephoneNumber.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../module22/bai_hoc/string_regex/bai_tap/validate_so_dien_thoai/TelephoneTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../module22/bai_hoc/string_regex/bai_tap/validate_ten_lop_hoc/NameClass.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../module22/bai_hoc/string_regex/bai_tap/validate_ten_lop_hoc/ValidateClass.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../module22/bai_hoc/string_regex/thuc_hanh/crawl_danh_sach_bai_hat/CrawlSongExample.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../module22/bai_hoc/string_regex/thuc_hanh/validate_account/AccountExample.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../module22/bai_hoc/string_regex/thuc_hanh/validate_account/AccountExampleTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../module22/bai_hoc/string_regex/thuc_hanh/validate_email/EmailExample.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../module22/bai_hoc/string_regex/thuc_hanh/validate_email/EmailExampleTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../module22/bai_hoc/thuat_toan_sap_xep/bai_tap/minh_hoa_thuat_toan_sap_xep_chen/InsertionSort.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../module22/bai_hoc/thuat_toan_sap_xep/bai_tap/thuat_toan_sap_xep_chen/InsertionSort.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../module22/bai_hoc/thuat_toan_sap_xep/thuc_hanh/minh_hoa_thuat_toan_sap_xep_noi_bot/BubbleSortByStep.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../module22/bai_hoc/thuat_toan_sap_xep/thuc_hanh/thuat_toan_sap_chon/SelectionSort.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../module22/bai_hoc/thuat_toan_sap_xep/thuc_hanh/thuat_toan_sap_xep_noi_bot/BubbleSort.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../module22/bai_hoc/thuat_toan_tim_kiem/bai_tap/cai_dat_thuat_toan_tim_kiem/BinarySearch.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../module22/bai_hoc/thuat_toan_tim_kiem/bai_tap/tim_chuoi_co_do_dai_lon_nhat/StringLength.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../module22/bai_hoc/thuat_toan_tim_kiem/bai_tap/tim_chuoi_tang_dan/StringLenght.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../module22/bai_hoc/thuat_toan_tim_kiem/thuc_hanh/thuat_toan_tim_kiem_nhi_phan/BinarySearch.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../module22/bai_hoc/thuat_toan_tim_kiem/thuc_hanh/tinh_do_phuc_tap_cua_thuat_toan/AlgorithmComplexityTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../module22/bai_hoc/xu_li_ngoai_le_va_de_debug/bai_tap/su_dung_lop_Illegal_triangle_exception/IllegalRightTriangleException.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../module22/bai_hoc/xu_li_ngoai_le_va_de_debug/bai_tap/su_dung_lop_Illegal_triangle_exception/Triangle.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../module22/bai_hoc/xu_li_ngoai_le_va_de_debug/thuc_hanh/debug_ung_dung_java/LinearEquationResolver.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../module22/bai_hoc/xu_li_ngoai_le_va_de_debug/thuc_hanh/su_dung_lop_array_index_out_of_bounds_exception/ArrayExample.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../module22/bai_hoc/xu_li_ngoai_le_va_de_debug/thuc_hanh/su_dung_lop_number_format_exception/CalculationExample.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../module22/bai_thi/commons/ReaderWriterFile.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../module22/bai_thi/controllers/ProductManagement.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../module22/bai_thi/data/product.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../module22/bai_thi/models/ExportProducts.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../module22/bai_thi/models/ImportedProducts.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../module22/bai_thi/models/Product.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../bai1/bai_tap/chuyen_doi_tien_te/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../../bai1/bai_tap/chuyen_doi_tien_te/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../bai1/bai_tap/chuyen_doi_tien_te/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../../bai1/bai_tap/chuyen_doi_tien_te/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../thuc_hanh/cms/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../thuc_hanh/cms/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../thuc_hanh/spring-timezone/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../thuc_hanh/spring-timezone/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../thuc_hanh/spring-timezone/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../thuc_hanh/spring-timezone/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../thuc_hanh/spring-timezone/target/classes/controllers/TimeController.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../thuc_hanh/spring-timezone/target/classes/controllers/TimeController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../thuc_hanh/spring-timezone/target/spring-timezone.war" beforeDir="false" afterPath="$PROJECT_DIR$/../../thuc_hanh/spring-timezone/target/spring-timezone.war" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../thuc_hanh/spring-timezone/target/spring-timezone/WEB-INF/classes/controllers/TimeController.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../thuc_hanh/spring-timezone/target/spring-timezone/WEB-INF/classes/controllers/TimeController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../thuc_hanh/spring-timezone/target/spring-timezone/WEB-INF/views/display.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/../../thuc_hanh/spring-timezone/target/spring-timezone/WEB-INF/views/display.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../vhgh.txt" beforeDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="DatabaseView">
+    <option name="SHOW_INTERMEDIATE" value="true" />
+    <option name="GROUP_DATA_SOURCES" value="true" />
+    <option name="GROUP_SCHEMA" value="true" />
+    <option name="GROUP_CONTENTS" value="false" />
+    <option name="SORT_POSITIONED" value="false" />
+    <option name="SHOW_EMPTY_GROUPS" value="false" />
+    <option name="AUTO_SCROLL_FROM_SOURCE" value="false" />
+    <option name="HIDDEN_KINDS">
+      <set />
+    </option>
+    <expand />
+    <select />
+  </component>
+  <component name="ExternalProjectsData">
+    <projectState path="$PROJECT_DIR$">
+      <ProjectState />
+    </projectState>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../../../.." />
+  </component>
+  <component name="IgnoredFileRootStore">
+    <option name="generatedRoots">
+      <set>
+        <option value="D:\Codegym\tienhai2001\module4\bai2\bai_tap\ung_dung_hien_thi_gia_vi_voi_sandwich\.idea" />
+      </set>
+    </option>
+  </component>
+  <component name="ProjectId" id="1hlVbJCGwwFqtDbVldANrVZ9iVG" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showExcludedFiles" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="ASKED_SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="0c308b40-5609-4450-9911-9fc99db8ae9d" name="Default Changelist" comment="" />
+      <created>1600585735111</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1600585735111</updated>
+      <workItem from="1600585738553" duration="35000" />
+      <workItem from="1600585814435" duration="143000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="39" y="0" key="new project wizard" timestamp="1600585953859">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="39" y="0" key="new project wizard/0.0.1536.824@0.0.1536.824" timestamp="1600585953859" />
+  </component>
+</project>
