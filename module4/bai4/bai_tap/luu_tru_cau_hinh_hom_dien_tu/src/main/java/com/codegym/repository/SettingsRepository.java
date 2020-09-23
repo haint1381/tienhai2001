@@ -1,5 +1,6 @@
 package com.codegym.repository;
 
+import com.codegym.model.Settings;
 import org.springframework.stereotype.Repository;
 
 import java.util.ArrayList;
@@ -7,6 +8,7 @@ import java.util.List;
 
 @Repository
 public class SettingsRepository implements ISettingsRepository{
+    private  Settings settings = new Settings("1","1","1","1");
 
     @Override
     public List<String> getLanguage() {
@@ -29,5 +31,16 @@ public class SettingsRepository implements ISettingsRepository{
         pageSizeList.add("100");
         return pageSizeList;
     }
+
+    @Override
+    public void update(Settings settings) {
+        this.settings=settings;
+    }
+
+    @Override
+    public Settings getSetting() {
+        return this.settings;
+    }
+
 
 }

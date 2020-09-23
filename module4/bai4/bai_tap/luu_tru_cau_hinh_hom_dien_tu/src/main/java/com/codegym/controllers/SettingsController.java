@@ -21,18 +21,21 @@ public class SettingsController {
     ISettingsService iSettingsService;
     @GetMapping
     public ModelAndView showForm(@ModelAttribute("settings")Settings settings){
-        return new ModelAndView("home","settings",new Settings("1","1","1","1"));
+        return new ModelAndView("home","settings",iSettingsService.getSetting());
     }
+
     @GetMapping("/updateForm")
     public String updateForm(@ModelAttribute("settings")Settings settings,Model model){
         List<String> listLanguage = iSettingsService.getLanguage();
         List<String> listPageSize = iSettingsService.getPageSize();
         model.addAttribute("listLanguage",listLanguage);
         model.addAttribute("listPageSize",listPageSize);
+        model.addAttribute("settings",iSettingsService.getSetting());
         return "update";
     }
-    @PostMapping("/updateSetting")
-    public ModelAndView updateSetting(@ModelAttribute("settings")Settings settings){
-        return new ModelAndView("home","settings",settings);
+    @PostMapping("/update")
+    public ModelAndView update(@ModelAttribute("settings")Settings settings){
+        iSettingsService.update(settings);
+        return new ModelAndView("home");
     }
 }

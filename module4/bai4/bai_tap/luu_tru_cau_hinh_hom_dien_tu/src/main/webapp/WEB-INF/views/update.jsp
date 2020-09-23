@@ -13,11 +13,11 @@
 </head>
 <body>
 <h3>Settings</h3>
-<form:form method="post" action="/updateSetting" modelAttribute="settings">
+<form:form method="post" action="/update" modelAttribute="settings">
     <table>
         <tr>
             <td>languages:</td>
-            <td><form:select path="languages" items="${listLanguage}"/></td>
+            <td><form:select path="languages"  items="${listLanguage}"/></td>
         </tr>
         <tr>
             <td>Page Size:</td>
@@ -34,7 +34,7 @@
         <tr>
             <td><input type="submit" value="update"/></td>
             <td>
-                <a href="${pageContext.request.contextPath}/setting/updateForm" style="text-decoration: none">Cancel</a>
+                <a href="/" style="text-decoration: none">Cancel</a>
             </td>
         </tr>
     </table>
