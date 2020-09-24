@@ -1,0 +1,50 @@
+<script>
+    let query = 'https://api.nasa.gov/planetary/apod?api_key=9bbbi0nTXrqFg0tgf3n8rrHUJ5sGDToh6rKL7igv';
+    let request = new XMLHttpRequest();
+    request.open('GET', query);
+    request.onload = function () {
+        if (request.status === 200) {
+            let response = JSON.parse(request.responseText);
+            document.getElementById('img-of-the-day').setAttribute('src', response.url);
+        }
+    };
+    request.send();
+</script>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<link rel="stylesheet" href="../css/bootstrap.min.css">
+<body>
+<div style="text-align: center">
+    <img id="img-of-the-day" width="200px" height="200px">
+    <form action="/create-comment" method="post" th:object="${comment}">
+        <select th:field="*{mark}">
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+        </select>
+        <br>
+        <br>
+        Author:<br> <label>
+        <input type="text" th:field="*{author}">
+    </label>
+        <br>
+        <br>
+        Feedback:<br> <label>
+        <textarea th:field="*{feedback}"></textarea>
+    </label>
+        <br>
+        <br>
+        <button type="submit">Comment</button>
+    </form>
+    <table th:if="${comments}">
+        <tr th:each="comment : ${comments}">
+            <td th:value="${comment.feedback}" th:text="${comment.feedback}"></td>
+            <td>&nbsp;&nbsp;</td>
+            <td th:value="${comment.totalLike}" th:text="${comment.totalLike}"></td>
+            <td> <a th:href="@{/update-like/{id}/update(id=${comment.getId()})}" class="btn-group" role="button" >like</a></td>
+        </tr>
+    </table>
+</div>
+</body>
+</html>
