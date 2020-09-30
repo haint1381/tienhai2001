@@ -1,0 +1,212 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="b03289de-a58c-45ab-b277-3ca06bf7c17e" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/../../../bai6/baitap/blog/src/main/java/vn/codegym/config/AppConfiguration.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../bai6/baitap/blog/src/main/java/vn/codegym/config/AppInitializer.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../bai6/baitap/blog/src/main/java/vn/codegym/controllers/BlogController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../bai6/baitap/blog/src/main/java/vn/codegym/model/Blog.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../bai6/baitap/blog/src/main/java/vn/codegym/repository/BlogRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../bai6/baitap/blog/src/main/java/vn/codegym/repository/BlogRepositoryImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../bai6/baitap/blog/src/main/java/vn/codegym/service/BlogService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../bai6/baitap/blog/src/main/java/vn/codegym/service/BlogServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../bai6/baitap/blog/src/main/webapp/WEB-INF/views/create.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../bai6/baitap/blog/src/main/webapp/WEB-INF/views/delete.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../bai6/baitap/blog/src/main/webapp/WEB-INF/views/edit.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../bai6/baitap/blog/src/main/webapp/WEB-INF/views/list.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../bai6/baitap/blog/src/main/webapp/WEB-INF/views/view.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../bai6/thuchanh/customer-manager/src/main/java/com/codegym/ApplicationConfig.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../bai6/thuchanh/customer-manager/src/main/java/com/codegym/ApplicationInitializer.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../bai6/thuchanh/customer-manager/src/main/java/com/codegym/controller/CustomerController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../bai6/thuchanh/customer-manager/src/main/java/com/codegym/model/Customer.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../bai6/thuchanh/customer-manager/src/main/java/com/codegym/repository/CustomerRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../bai6/thuchanh/customer-manager/src/main/java/com/codegym/repository/Repository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../bai6/thuchanh/customer-manager/src/main/java/com/codegym/repository/impl/CustomerRepositoryImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../bai6/thuchanh/customer-manager/src/main/java/com/codegym/service/CustomerService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../bai6/thuchanh/customer-manager/src/main/java/com/codegym/service/impl/CustomerServiecImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../bai6/thuchanh/customer-manager/src/main/webapp/WEB-INF/views/customer/create.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../bai6/thuchanh/customer-manager/src/main/webapp/WEB-INF/views/customer/delete.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../bai6/thuchanh/customer-manager/src/main/webapp/WEB-INF/views/customer/edit.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../bai6/thuchanh/customer-manager/src/main/webapp/WEB-INF/views/customer/list.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../blog/src/main/java/vn/codegym/blog/controllers/BlogController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../blog/src/main/java/vn/codegym/blog/controllers/CategoryController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../blog/src/main/java/vn/codegym/blog/model/Blog.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../blog/src/main/java/vn/codegym/blog/model/Category.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../blog/src/main/java/vn/codegym/blog/repository/BlogRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../blog/src/main/java/vn/codegym/blog/repository/CategoryRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../blog/src/main/java/vn/codegym/blog/service/BlogService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../blog/src/main/java/vn/codegym/blog/service/CategoryService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../blog/src/main/java/vn/codegym/blog/service/Impl/BlogServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../blog/src/main/java/vn/codegym/blog/service/Impl/CategoryServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../blog/src/main/resources/templates/category/category-create.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../blog/src/main/resources/templates/category/category-delete.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../blog/src/main/resources/templates/category/category-edit.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../blog/src/main/resources/templates/category/category-list.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../blog/src/main/resources/templates/views/create.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../blog/src/main/resources/templates/views/delete.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../blog/src/main/resources/templates/views/edit.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../blog/src/main/resources/templates/views/list.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../blog/src/main/resources/templates/views/view.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../image/src/main/java/vn/codegym/image/controllers/ImageController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../image/src/main/java/vn/codegym/image/model/Comment.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../image/src/main/java/vn/codegym/image/repository/CommentRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../image/src/main/java/vn/codegym/image/service/CommentService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../image/src/main/java/vn/codegym/image/service/CommentServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../image/src/main/resources/templates/views/display.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../bai8/thuchanh/validate/src/main/java/com/codegym/controllers/UserController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../bai8/thuchanh/validate/src/main/java/com/codegym/model/User.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../bai8/thuchanh/validate/src/main/resources/templates/views/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../bai8/thuchanh/validate/src/main/resources/templates/views/result.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../bai5/bai_tap/buc_anh_cua_ngay/.gradle/5.2.1/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/../../../bai5/bai_tap/buc_anh_cua_ngay/.gradle/5.2.1/executionHistory/executionHistory.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../bai5/bai_tap/buc_anh_cua_ngay/.gradle/5.2.1/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/../../../bai5/bai_tap/buc_anh_cua_ngay/.gradle/5.2.1/executionHistory/executionHistory.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../bai5/bai_tap/buc_anh_cua_ngay/.gradle/5.2.1/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/../../../bai5/bai_tap/buc_anh_cua_ngay/.gradle/5.2.1/fileHashes/fileHashes.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../bai5/bai_tap/buc_anh_cua_ngay/.gradle/5.2.1/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/../../../bai5/bai_tap/buc_anh_cua_ngay/.gradle/5.2.1/fileHashes/fileHashes.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../bai5/bai_tap/buc_anh_cua_ngay/.gradle/5.2.1/javaCompile/classAnalysis.bin" beforeDir="false" afterPath="$PROJECT_DIR$/../../../bai5/bai_tap/buc_anh_cua_ngay/.gradle/5.2.1/javaCompile/classAnalysis.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../bai5/bai_tap/buc_anh_cua_ngay/.gradle/5.2.1/javaCompile/javaCompile.lock" beforeDir="false" afterPath="$PROJECT_DIR$/../../../bai5/bai_tap/buc_anh_cua_ngay/.gradle/5.2.1/javaCompile/javaCompile.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../bai5/bai_tap/buc_anh_cua_ngay/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/../../../bai5/bai_tap/buc_anh_cua_ngay/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../bai5/bai_tap/buc_anh_cua_ngay/.idea/modules/buc_anh_cua_ngay.main.iml" beforeDir="false" afterPath="$PROJECT_DIR$/../../../bai5/bai_tap/buc_anh_cua_ngay/.idea/modules/buc_anh_cua_ngay.main.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../bai5/bai_tap/buc_anh_cua_ngay/build/classes/java/main/com/codegym/repository/ConnectionUtil.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../../bai5/bai_tap/buc_anh_cua_ngay/build/classes/java/main/com/codegym/repository/ConnectionUtil.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../bai5/bai_tap/buc_anh_cua_ngay/build/libs/buc_anh_cua_ngay-1.0-SNAPSHOT.war" beforeDir="false" afterPath="$PROJECT_DIR$/../../../bai5/bai_tap/buc_anh_cua_ngay/build/libs/buc_anh_cua_ngay-1.0-SNAPSHOT.war" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../bai5/bai_tap/buc_anh_cua_ngay/src/main/webapp/WEB-INF/views/comment-image.html" beforeDir="false" afterPath="$PROJECT_DIR$/../../../bai5/bai_tap/buc_anh_cua_ngay/src/main/webapp/WEB-INF/views/comment-image.html" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="DatabaseView">
+    <option name="SHOW_INTERMEDIATE" value="true" />
+    <option name="GROUP_DATA_SOURCES" value="true" />
+    <option name="GROUP_SCHEMA" value="true" />
+    <option name="GROUP_CONTENTS" value="false" />
+    <option name="SORT_POSITIONED" value="false" />
+    <option name="SHOW_EMPTY_GROUPS" value="false" />
+    <option name="AUTO_SCROLL_FROM_SOURCE" value="false" />
+    <option name="HIDDEN_KINDS">
+      <set />
+    </option>
+    <expand />
+    <select />
+  </component>
+  <component name="ExternalProjectsData">
+    <projectState path="$PROJECT_DIR$">
+      <ProjectState />
+    </projectState>
+  </component>
+  <component name="ExternalProjectsManager">
+    <system id="GRADLE">
+      <state>
+        <projects_view>
+          <tree_state>
+            <expand />
+            <select />
+          </tree_state>
+        </projects_view>
+      </state>
+    </system>
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="FxmlFile" />
+        <option value="HTML File" />
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../../../.." />
+  </component>
+  <component name="ProjectId" id="1iAGv6IJBnxxIIkwigKlhHMWeuP" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showExcludedFiles" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="DefaultHtmlFileTemplate" value="HTML File" />
+    <property name="RequestMappingsPanelOrder0" value="0" />
+    <property name="RequestMappingsPanelOrder1" value="1" />
+    <property name="RequestMappingsPanelWidth0" value="75" />
+    <property name="RequestMappingsPanelWidth1" value="75" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
+  </component>
+  <component name="RunManager" selected="Spring Boot.ValidateInforUserApplication">
+    <configuration name="ValidateInforUserApplication (1)" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <module name="validate-infor-user.main" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.codegym.ValidateInforUserApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ValidateInforUserApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <module name="validate-infor-user.main" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="vn.codegym.validateinforuser.ValidateInforUserApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="b03289de-a58c-45ab-b277-3ca06bf7c17e" name="Default Changelist" comment="" />
+      <created>1601343210483</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1601343210483</updated>
+      <workItem from="1601343219508" duration="1412000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="499" y="109" key="FileChooserDialogImpl" timestamp="1601344207341">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="499" y="109" key="FileChooserDialogImpl/0.0.1536.824@0.0.1536.824" timestamp="1601344207341" />
+    <state width="1481" height="10" key="GridCell.Tab.0.bottom" timestamp="1601344637256">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1481" height="10" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1601344637256" />
+    <state width="1481" height="10" key="GridCell.Tab.0.center" timestamp="1601344637255">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1481" height="10" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1601344637255" />
+    <state width="1481" height="10" key="GridCell.Tab.0.left" timestamp="1601344637255">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1481" height="10" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1601344637255" />
+    <state width="1481" height="10" key="GridCell.Tab.0.right" timestamp="1601344637256">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1481" height="10" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1601344637256" />
+    <state width="1481" height="10" key="GridCell.Tab.1.bottom" timestamp="1601344637256">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1481" height="10" key="GridCell.Tab.1.bottom/0.0.1536.824@0.0.1536.824" timestamp="1601344637256" />
+    <state width="1481" height="10" key="GridCell.Tab.1.center" timestamp="1601344637256">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1481" height="10" key="GridCell.Tab.1.center/0.0.1536.824@0.0.1536.824" timestamp="1601344637256" />
+    <state width="1481" height="10" key="GridCell.Tab.1.left" timestamp="1601344637256">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1481" height="10" key="GridCell.Tab.1.left/0.0.1536.824@0.0.1536.824" timestamp="1601344637256" />
+    <state width="1481" height="10" key="GridCell.Tab.1.right" timestamp="1601344637256">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1481" height="10" key="GridCell.Tab.1.right/0.0.1536.824@0.0.1536.824" timestamp="1601344637256" />
+    <state x="39" y="86" width="1458" height="698" key="new project wizard" timestamp="1601344320572">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="39" y="86" width="1458" height="698" key="new project wizard/0.0.1536.824@0.0.1536.824" timestamp="1601344320572" />
+  </component>
+</project>
