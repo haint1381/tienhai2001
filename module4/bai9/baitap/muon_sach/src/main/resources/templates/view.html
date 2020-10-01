@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h1>mã:</h1>
+<h1 th:text="${code}"></h1>
+<div>
+    <div>
+        <label>Name</label>
+        <h1 th:text="${book.getNameBook()}"></h1>
+    </div>
+    <div>
+        <label>amount</label>
+        <h1 th:text="${book.getAmount()}"></h1>
+    </div>
+    <div>
+        <label>bookTitle</label>
+        <h1 th:text="${book.getBookTitle()}"></h1>
+    </div>
+    <a th:href="@{/bookLoan/{id}(id=${book.id})}">Book Loan</a>
+</div>
+</body>
+</html>

@@ -10,6 +10,7 @@ import vn.codegym.image.service.DuplicateCommentException;
 public class CommentExceptionHandle {
     @ExceptionHandler(DuplicateCommentException.class)
     public ModelAndView showErrorPage(){
-        return  new ModelAndView("views/error");
+        ModelAndView modelAndView=new ModelAndView("views/error");
+        return  modelAndView;
     }
 }

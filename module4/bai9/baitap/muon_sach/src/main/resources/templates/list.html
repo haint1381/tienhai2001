@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Danh sách book</title>
+</head>
+<style>
+    table,td,tr,th{
+        border: 1px solid black;
+    }
+</style>
+<body>
+<div>
+<a th:href="@{/create}">add new book</a>
+<table >
+    <thead >
+    <tr>
+        <th>Name book</th>
+        <th>Amount</th>
+        <th>Book Loan</th>
+    </tr>
+    </thead>
+    <tr th:each="book : ${books}">
+        <td  th:text="${book.getNameBook()}"></td>
+        <td th:text="${book.amount}"></td>
+        <td ><a th:href="@{/view/{id}(id=${book.id})}">Book Loan</a></td>
+    </tr>
+</table>
+</div>
+</body>
+</html>

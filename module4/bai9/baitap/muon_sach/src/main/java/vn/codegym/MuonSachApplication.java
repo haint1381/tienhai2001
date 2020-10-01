@@ -4,10 +4,10 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class BookLoanApplication {
+public class MuonSachApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(BookLoanApplication.class, args);
+        SpringApplication.run(MuonSachApplication.class, args);
     }
 
 }
