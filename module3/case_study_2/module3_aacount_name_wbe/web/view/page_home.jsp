@@ -14,7 +14,7 @@
     <link rel="stylesheet" href="../bootstrap-4.5.2-dist/css/bootstrap.min.css">
 </head>
 <body>
-<%@ include file="common/header.jsp"%>
+<%@ include file="common/header.html"%>
 <nav class="navbar navbar-light" style="background-color: #046056">
     <ul class="nav ">
         <li class="nav-item my-2">

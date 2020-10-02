@@ -15,7 +15,7 @@
 
 </head>
 <body>
-<%@ include file="../common/header.jsp"%>
+<%@ include file="../common/header.html"%>
 <div CLASS="container-fluid"  style="background-color: #9fcdff">
     <div class="row">
         <div class="col-md-5">

@@ -1,50 +1,58 @@
 package vn.codegym.model;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Table
 public class Book {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private int id;
-    private int amount=0;
-    private String nameBook;
-    private String bookTitle;
+    @GeneratedValue(strategy =  GenerationType.AUTO)
+    private int bookId;
+    private String bookName;
+    private String bookCategory;
+    private int bookTotal;
 
-    public String getNameBook() {
-        return nameBook;
+    @OneToMany(mappedBy = "book", cascade = CascadeType.ALL)
+    private List<RandomCode> codeList;
+
+    public int getBookId() {
+        return bookId;
     }
 
-    public void setNameBook(String nameBook) {
-        this.nameBook = nameBook;
+    public void setBookId(int bookId) {
+        this.bookId = bookId;
     }
 
-    public Book() {
+    public String getBookName() {
+        return bookName;
     }
 
-    public int getId() {
-        return id;
+    public void setBookName(String bookName) {
+        this.bookName = bookName;
     }
 
-    public void setId(int id) {
-        this.id = id;
+    public String getBookCategory() {
+        return bookCategory;
     }
 
-    public int getAmount() {
-        return amount;
+    public void setBookCategory(String bookCategory) {
+        this.bookCategory = bookCategory;
     }
 
-    public void setAmount(int amount) {
-        this.amount = amount;
+    public int getBookTotal() {
+        return bookTotal;
     }
 
-    public String getBookTitle() {
-        return bookTitle;
+    public void setBookTotal(int bookTotal) {
+        this.bookTotal = bookTotal;
     }
 
-    public void setBookTitle(String bookTitle) {
-        this.bookTitle = bookTitle;
+    public List<RandomCode> getCodeList() {
+        return codeList;
+    }
+
+    public void setCodeList(List<RandomCode> codeList) {
+        this.codeList = codeList;
     }
 }
-

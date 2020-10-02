@@ -1,21 +1,19 @@
 package vn.codegym.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.Page;
-import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
+import vn.codegym.exception.BookException;
 import vn.codegym.model.Book;
 import vn.codegym.repository.BookRepository;
 
 @Service
 public class BookServiceImpl implements BookService {
-
     @Autowired
-    BookRepository bookRepository;
+    private BookRepository bookRepository;
 
     @Override
-    public Page<Book> getAllBook(Pageable pageable) {
-        return bookRepository.findAll(pageable);
+    public Iterable<Book> findAll() {
+        return bookRepository.findAll();
     }
 
     @Override
@@ -24,8 +22,12 @@ public class BookServiceImpl implements BookService {
     }
 
     @Override
-    public void save(Book bookLoan) {
-        bookRepository.save(bookLoan);
+    public void save(Book book) {
+        bookRepository.save(book);
     }
 
+    @Override
+    public void delete(int id) {
+        bookRepository.deleteById(id);
+    }
 }
