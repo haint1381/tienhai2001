@@ -24,7 +24,6 @@
                 <input type="hidden" name="action" value="create">
                 <input type="submit" value="Add" style="border: 1px solid #00ff13 ; border-radius: 5px">
             </form>
-
         </div>
         <div class="col-md-7">
             <p style="color: #06ff00"><c:out value="${massage}"/></p>

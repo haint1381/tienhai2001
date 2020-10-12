@@ -10,7 +10,7 @@ import vn.codegym.service.ProductService;
 
 
 @Controller
-@RequestMapping("")
+@RequestMapping("/product")
 public class ProductController {
 
     @Autowired
@@ -35,6 +35,6 @@ public class ProductController {
     public String createProduct(@ModelAttribute FlowerProducts product, RedirectAttributes redirectAttributes){
         productService.save(product);
         redirectAttributes.addFlashAttribute("success","Create new product name: " + product.getName());
-        return "redirect:/";
+        return "redirect:/product";
     }
 }

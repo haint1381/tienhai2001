@@ -13,7 +13,7 @@
     <link rel="stylesheet" href="../../bootstrap-4.5.2-dist/css/bootstrap.min.css">
 </head>
 <body>
-<%@ include file="../common/header.jsp"%>
+<%@ include file="../common/header.html"%>
 <form method="post">
     <div class="container-fluid">
         <div class="row" style="background-color:#8aafff ">

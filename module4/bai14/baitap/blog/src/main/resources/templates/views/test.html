@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>San pham</title>
+
+</head>
+<body>
+<div class="wapper">
+    <div class="loading"></div>
+    <div class="allproduct">
+    </div>
+</div>
+</body>
+<script type="text/javascript" src="public/js/jquery.1.7.2.min.js"></script>
+<script type="text/javascript">
+    $(document).ready(function () {
+        function load() {
+            phantrang(1);
+        }
+        function phantrang(page) {
+            $('.loading').html("<img src='public/images/loading.gif'/>").fadeIn('fast');
+            $.ajax({
+                type: "get",
+                url: "phantrang.php",
+                data: {page: page},
+                success: function (data) {
+                    $('.loading').fadeOut('fast');
+                    $(".allproduct").html(data);
+                    //alert(data);
+                }
+            });
+        }
+        load();
+        $("ul.phantrang li").live("click", function () {
+            var page = $(this).attr('page');
+            phantrang(page);
+            //    alert(page);
+        });
+    });
+</script>
+</html>
