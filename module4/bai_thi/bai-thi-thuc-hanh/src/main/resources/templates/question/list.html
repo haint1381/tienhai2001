@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <head>
+        <meta charset="UTF-8">
+        <title>Title</title>
+        <link rel="stylesheet" href="/static/bootstrap-4.5.2-dist/css/bootstrap.min.css"
+              th:href="@{/static/bootstrap-4.5.2-dist/css/bootstrap.min.css}">
+<style>
+    th,table,td{
+        border: 2px solid black;
+    }
+</style>
+    </head>
+    <link rel="stylesheet" href="/static/bootstrap-4.5.2-dist/css-hai/modal.css"
+          th:href="@{/static/bootstrap-4.5.2-dist/css-hai/modal.css}">
+<body>
+
+
+
+
+
+
+
+
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <head>
+        <meta charset="UTF-8">
+        <title>Title</title>
+        <link rel="stylesheet" href="/bootstrap-4.5.2-dist/css/bootstrap.min.css"
+              th:href="@{/bootstrap-4.5.2-dist/css/bootstrap.min.css}">
+
+    </head>
+    <link rel="stylesheet" href="/bootstrap-4.5.2-dist/css-hai/modal.css"
+          th:href="@{/bootstrap-4.5.2-dist/css-hai/modal.css}">
+<body>
+<div th:replace="~{/common/layout::body}"></div>
+<form th:action="@{/question/create}" method="get">
+<div class="row">
+
+    <div class="col-md-4 text-center" style="padding-top: 2px;padding-bottom: 2px">
+
+        <button data-toggle="modal" data-target="#elegantModalForm" type="submit"
+                style="border: 1px solid #00ff13 ; border-radius: 5px;height: 38px"><h6><i
+                class="far fa-address-card"></i>&nbsp;tạo câu hỏi</h6></button>
+    </div>
+
+    <div class="col-md-1"></div>
+    <div class="col-md-7"><h2><i class="fas fa-align-left"></i>Danh sách câu hỏi</h2></div>
+</div>
+</form>
+<div style="padding-left: 5%;padding-right: 5%">
+        <table class="table table-striped">
+            <thead>
+            <tr>
+                <th scope="col">STT</th>
+                <th scope="col">Tiêu Đề</th>
+                <th scope="col">Loại Câu Hỏi</th>
+                <th scope="col">Ngày Đăng</th>
+                <th scope="col">Người Hỏi</th>
+                <th scope="col">Người Đáp</th>
+                <th scope="col">Tình Trạng</th>
+                <th scope="col">Tính Năng</th>
+            </tr>
+            </thead>
+            <tbody th:if="${questionList}" id="myTable">
+            <tr th:each="question : ${questionList}">
+                <th th:text="${question.id}" scope="row"></th>
+                <td th:text="${question.title}"></td>
+                <td th:text="${question.questionType.nameQuestionType}"></td>
+                <td th:text="${question.dateCreate}"></td>
+                <td th:text="${question.userCreate}"></td>
+                <td th:text="${question.userFeedback}"></td>
+                <td th:text="${question.status}"></td>
+
+                <td>
+                      <span class="detail" th:data-title="${question.title}"
+                            th:data-id="${question.id}"
+                            th:data-question_type="${question.questionType.nameQuestionType}"
+                            th:data-date_create="${question.dateCreate}"
+                            th:data-user_create="${question.userCreate}"
+                            th:data-user_feedback="${question.userFeedback}"
+                            th:data-status="${question.status}">
+                  <a href="" class="btn btn-default btn-rounded mb-4 " data-toggle="modal" data-target="#modalLoginForm" id="detail" onclick="callModalDetail(this.id)" th:id="${product.productId}">
+                        <i class="fas fa-info-circle" style="color: #1e7e34"></i></a>
+                    </span>&nbsp;&nbsp;&nbsp;
+                    <button type="button" style="border-radius: 5px;border: 1px solid red" data-toggle="modal"
+                            onclick="callModal1(this.id)" th:id="${question.id}" data-target="#exampleModal">
+                        <i class="fas fa-user-times" style="color: red"></i>
+                    </button>
+                </td>
+
+            </tr>
+            </tbody>
+        </table>
+</div>
+
+
+<!--MODAL DELETE-->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Delete Customer</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <label>Do you really want to delete it or not ? (<p id="customerName"></p>)</label>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <a href="#" id="modalDelete" role="button" class="btn btn-danger">delete</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--MODAL DETAIL NHA-->
+<div class="modal fade" id="modalLoginForm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+     aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header text-center">
+                <h4 class="modal-title w-100 font-weight-bold">Detail</h4>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body mx-3">
+                <div class="form-label-group">
+                    <div class="row">
+                        <div class="col-md-2" style="text-align: center;padding-top: 5px">Id:</div>
+                        <div class="col-md-10"><input type="text" class="form-control" id="idquestion"
+                                                      readonly></div>
+                    </div>
+                </div>
+                <br>
+                <div class="form-label-group">
+                    <div class="row">
+                        <div class="col-md-2" style="text-align: center;padding-top: 5px">title:</div>
+                        <div class="col-md-10"><input type="text" class="form-control" id="title"
+                                                      readonly></div>
+                    </div>
+                </div>
+                <br>
+                <div class="form-label-group">
+                    <div class="row">
+                        <div class="col-md-2" style="text-align: center;padding-top: 5px">question_type:</div>
+                        <div class="col-md-10"><input class="form-control" id="question_type" readonly>
+                        </div>
+                    </div>
+                </div>
+                <br>
+                <div class="form-label-group">
+                    <div class="row">
+                        <div class="col-md-2" style="text-align: center;padding-top: 5px">date_create:</div>
+                        <div class="col-md-10"><input type="text" class="form-control" id="date_create"
+                                                      readonly
+                        ></div>
+                    </div>
+                </div>
+                <br>
+                <div class="form-label-group">
+                    <div class="row">
+                        <div class="col-md-2" style="text-align: center;padding-top: 5px">user_create:</div>
+                        <div class="col-md-10"><input type="text" class="form-control" id="user_create"
+                                                      readonly
+                        ></div>
+                    </div>
+                </div>
+                <br>
+                <div class="form-label-group">
+                    <div class="row">
+                        <div class="col-md-2" style="text-align: center;padding-top: 5px">user_feedback:</div>
+                        <div class="col-md-10"><input type="text" class="form-control" id="user_feedback" readonly>
+                        </div>
+                    </div>
+                    <br>
+                    <div class="form-label-group">
+                        <div class="row">
+                            <div class="col-md-2" style="text-align: center;padding-top: 5px">status:</div>
+                            <div class="col-md-10"><input type="text" class="form-control" id="status" readonly>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="text-center">
+                        <a href="#" class="form-control" id="detailProduct"> <i class="fas fa-sign-out-alt"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+
+<script src="/bootstrap-4.5.2-dist/jquery-3.5.1.min.js" th:src="@{/bootstrap-4.5.2-dist/jquery-3.5.1.min.js}"></script>
+<script src="/bootstrap-4.5.2-dist/js/bootstrap.min.js"
+        th:src="@{/bootstrap-4.5.2-dist/css/bootstrap.min.css}"></script>
+<script src="/bootstrap-4.5.2-dist/js/bootstrap.bundle.min.js"
+        th:src="@{/bootstrap-4.5.2-dist/js/bootstrap.bundle.min.js}"></script>
+<script src="/bootstrap-4.5.2-dist/fontawesome/js/all.js"
+        th:src="@{/bootstrap-4.5.2-dist/fontawesome/js/all.js}"></script>
+<script>
+    function callModal1(id) {
+        document.getElementById("modalDelete").href = "/question/delete/" + id;
+        document.getElementById("productName1").innerHTML = id;
+    }
+</script>
+<script>
+    $(".detail").click(function () {
+        $("#modalLoginForm input[id='title']").val($(this).data("title"));
+        $("#modalLoginForm input[id='idquestion']").val($(this).data("id"));
+        $("#modalLoginForm input[id='question_type']").val($(this).data("question_type"));
+        $("#modalLoginForm input[id='date_create']").val($(this).data("date_create"));
+        $("#modalLoginForm input[id='user_create']").val($(this).data("user_create"));
+        $("#modalLoginForm input[id='user_feedback']").val($(this).data("user_feedback"));
+        $("#modalLoginForm input[id='status']").val($(this).data("status"));
+    })
+</script>
+</html>
+

@@ -8,6 +8,8 @@ import vn.codegym.model.Customer;
 import vn.codegym.repository.CustomerRepository;
 import vn.codegym.service.CustomerService;
 
+import java.util.List;
+
 @Service
 public class CustomerServiceImpl implements CustomerService {
     @Autowired
@@ -16,6 +18,11 @@ public class CustomerServiceImpl implements CustomerService {
     @Override
     public Page<Customer> getAll(Pageable pageable) {
         return customerRepository.findAll(pageable);
+    }
+
+    @Override
+    public Iterable<Customer> findAll() {
+        return customerRepository.findAll();
     }
 
     @Override
@@ -32,4 +39,19 @@ public class CustomerServiceImpl implements CustomerService {
     public void delete(String id) {
         customerRepository.deleteById(id);
     }
+
+    @Override
+    public boolean checkId(String id) {
+        boolean check = false;
+        for (int i=0;i<customerRepository.findAll().size();i++){
+            if(id.equals(customerRepository.findAll().get(i).getCustomerId())){
+                check=false;
+                break;
+            }
+            check=true;
+        }
+
+        return check;
+    }
+
 }

@@ -1,21 +1,58 @@
 package vn.codegym.model;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.ManyToMany;
-import javax.persistence.Table;
+import javax.persistence.*;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 @Entity
 @Table
 public class UserEmployee {
     @Id
-   private String username;
-    private String	password;
+    @GeneratedValue (strategy = GenerationType.AUTO)
+    private String id;
+
+    private String userName;
+    private String password;
+    private boolean isEnabled;
 
     @ManyToMany(mappedBy = "userEmployees")
     private Set<Role> roles = new HashSet<>();
+
+    @OneToMany(mappedBy = "username", cascade = CascadeType.ALL)
+    private List<Employee> employees;
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
+
+    public String getUserName() {
+        return userName;
+    }
+
+    public void setUserName(String userName) {
+        this.userName = userName;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    public boolean isEnabled() {
+        return isEnabled;
+    }
+
+    public void setEnabled(boolean enabled) {
+        isEnabled = enabled;
+    }
 
     public Set<Role> getRoles() {
         return roles;
@@ -25,19 +62,11 @@ public class UserEmployee {
         this.roles = roles;
     }
 
-    public String getUsername() {
-        return username;
+    public List<Employee> getEmployees() {
+        return employees;
     }
 
-    public void setUsername(String username) {
-        this.username = username;
-    }
-
-    public String getPassword() {
-        return password;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
+    public void setEmployees(List<Employee> employees) {
+        this.employees = employees;
     }
 }

@@ -2,12 +2,14 @@ package vn.codegym.model;
 
 
 import javax.persistence.*;
+import javax.validation.constraints.Pattern;
 
 @Entity
 @Table
 public class ContractDetail {
     @Id
     String contractDetailId;
+    @Pattern(regexp =  "^[-]*\\d+$",message = "The quantity  is not in the correct format")
     String quantity;
 
     public ContractDetail() {

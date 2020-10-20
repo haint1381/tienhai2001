@@ -42,6 +42,8 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers("/**/edit","/**/delete").hasRole("ADMIN")
 //                .anyRequest().authenticated()
                 .and()
+                .authorizeRequests()
+                .and()
                 .logout()
                 .permitAll();
 

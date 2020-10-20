@@ -19,6 +19,10 @@ public class MainController {
     public String loginUser() {
         return "account/login";
     }
+    @GetMapping("/error")
+    public String error403() {
+        return "common/error";
+    }
     @GetMapping("/addNew")
     public String UserNew(Model model) {
         model.addAttribute("account",new Account());

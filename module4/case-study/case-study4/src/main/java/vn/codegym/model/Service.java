@@ -2,20 +2,29 @@ package vn.codegym.model;
 
 
 import javax.persistence.*;
+import javax.validation.constraints.Pattern;
 import java.util.List;
 
 @Entity
 @Table
 public class Service {
     @Id
+    @Pattern(regexp = "^DV-\\d{4}$",message = "The Service code is not in the correct format")
     private String serviceId;
     private String serviceName;
+    @Pattern(regexp =  "^[-]*\\d+([.]\\d+)?$",message = "The Service Area  is not in the correct format")
     private String serviceArea;
+
+    @Pattern(regexp =  "^[-]*\\d+([.]\\d+)?$",message = "The Service Cost  is not in the correct format")
     private String serviceCost;
+    @Pattern(regexp =  "^[-]*\\d+$",message = "The Service Max People  is not in the correct format")
     private String serviceMaxPeople;
     private String standardRoom;
     private String descriptionOtherConvenience;
+
+    @Pattern(regexp =  "^[-]*\\d+([.]\\d+)?$",message = "The Pool Area  is not in the correct format")
     private String poolArea;
+    @Pattern(regexp =  "^[-]*\\d+$",message = "The Number Of Floors  is not in the correct format")
     private String numberOfFloors;
 
     @ManyToOne

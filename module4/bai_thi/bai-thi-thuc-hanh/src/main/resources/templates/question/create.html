@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Create</title>
+    <link rel="stylesheet" type="text/css" href="../static/bootstrap-4.5.2-dist/css/bootstrap.min.css"
+          th:href="@{/bootstrap-4.5.2-dist/css/bootstrap.min.css}">
+</head>
+<body>
+<h3>Add question</h3>
+<form  th:object="${question}" th:action="@{/question/saveQuestion}" method="post" >
+    <div class="form-group form-inline">
+        <input class="form-group col-8" type="hidden" th:field="*{id}"/>
+    </div>
+    <div class="form-group form-inline">
+        <label class="col-2 form-group">questionType</label>
+
+        <select class="col-8 form-group" th:field="*{questionType}">
+            <option th:each="questionTypeelEment: ${questionTypeList}" th:text="${questionTypeelEment.nameQuestionType}" th:value="${questionTypeelEment.idQuestionType}"></option>
+        </select>
+    </div>
+    <div class="form-group form-inline">
+        <label class="form-group col-2">Title
+
+        </label>
+        <input class="form-group col-8" type="text" th:field="*{title}"/>
+    </div>
+    <div class="form-group form-inline">
+        <label class="col-2 form-group">Content
+           </label>
+        <textarea class="col-8 form-group" type="text" th:field="*{content}"></textarea>
+    </div>
+<!--    <div class="form-group form-inline">-->
+<!--        <label class="col-2 form-group">answer</label>-->
+<!--        <textarea class="col-8 form-group" type="text" th:field="*{answer}"></textarea>-->
+<!--    </div>-->
+<!--    <div class="form-group form-inline">-->
+<!--        <label class="col-2 form-group">dateCreate</label>-->
+<!--        <textarea class="col-8 form-group" type="text" th:field="*{dateCreate}"></textarea>-->
+<!--    </div>-->
+    <div class="form-group form-inline">
+        <label class="col-2 form-group">userCreate</label>
+        <textarea class="col-8 form-group" type="text" th:field="*{userCreate}"></textarea>
+    </div>
+    <input type="submit" value="Save" class="btn btn-outline-dark">
+<!--    <div class="form-group form-inline">-->
+<!--        <div class="col-2 form-group"></div>-->
+<!--        <div class="col-8 form-group">-->
+<!--            -->
+<!--            <a href="/question" role="button" class="btn btn-outline-dark">Back</a>-->
+<!--        </div>-->
+<!--    </div>-->
+</form>
+</body>
+</html>

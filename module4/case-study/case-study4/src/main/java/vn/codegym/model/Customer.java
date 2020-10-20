@@ -1,19 +1,32 @@
 package vn.codegym.model;
 
+import org.springframework.validation.Errors;
+import org.springframework.validation.Validator;
+
 import javax.persistence.*;
+import javax.validation.constraints.Pattern;
 import java.util.List;
 
 @Entity
 @Table
 public class Customer {
     @Id
+    @Pattern(regexp = "^KH-\\d{4}$",message = "The customer code is not in the correct format")
     private String customerId;
+
     private String customerName;
     private String customerBirthday;
     private String customerGender;
+
+    @Pattern(regexp = "^\\d{9}$",message = "The id Card  is not in the correct format")
     private String customerIdCard;
+
+
+    @Pattern(regexp =  "^(090|091|\\(84\\)\\+90|\\(84\\)\\+91)\\d{7}$",message = "The phone  is not in the correct format")
     private String customerPhone;
+    @Pattern(regexp =  "^(\\w{3,}@\\w+\\.\\w+)$",message = "The email  is not in the correct format")
     private String customerEmail;
+
     private String customerAddress;
 
     @ManyToOne
@@ -105,5 +118,6 @@ public class Customer {
     public void setCustomerType(CustomerType customerType) {
         this.customerType = customerType;
     }
+
 }
 

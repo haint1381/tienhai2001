@@ -1,6 +1,7 @@
 package vn.codegym.model;
 
 import javax.persistence.*;
+import javax.validation.constraints.Pattern;
 import java.util.List;
 
 @Entity
@@ -10,9 +11,13 @@ public class Employee {
     private String employeeId;
     private  String employeeName;
     private String employeeBirthday;
+    @Pattern(regexp = "^\\d{9}$",message = "The id Card  is not in the correct format")
     private String employeeIdCard;
+    @Pattern(regexp =  "^[-]*\\d+([.]\\d+)?$",message = "The Employee Salary  is not in the correct format")
     private  String employeeSalary;
+    @Pattern(regexp =  "^(090|091|\\(84\\)\\+90|\\(84\\)\\+91)\\d{7}$",message = "The phone  is not in the correct format")
     private String employeePhone;
+    @Pattern(regexp =  "^(\\w{3,}@\\w+\\.\\w+)$",message = "The email  is not in the correct format")
     private String employeeEmail;
     private String employeeAddress;
 
@@ -30,7 +35,18 @@ public class Employee {
     @ManyToOne()
     @JoinColumn(name = "divisionId")
     private  Division division;
-    private String username;
+
+    @ManyToOne()
+    @JoinColumn(name = "username")
+    private UserEmployee username;
+
+    public UserEmployee getUsername() {
+        return username;
+    }
+
+    public void setUsername(UserEmployee username) {
+        this.username = username;
+    }
 
     public Employee() {
     }
@@ -131,11 +147,5 @@ public class Employee {
         this.division = division;
     }
 
-    public String getUsername() {
-        return username;
-    }
 
-    public void setUsername(String username) {
-        this.username = username;
-    }
 }

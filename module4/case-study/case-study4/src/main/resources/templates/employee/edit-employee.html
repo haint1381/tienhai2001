@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <head>
+        <meta charset="UTF-8">
+        <title>Title</title>
+        <link rel="stylesheet" href="/bootstrap-4.5.2-dist/css/bootstrap.min.css"
+              th:href="@{/bootstrap-4.5.2-dist/css/bootstrap.min.css}">
+
+    </head>
+    <link rel="stylesheet" href="/bootstrap-4.5.2-dist/css-hai/modal.css"
+          th:href="@{/bootstrap-4.5.2-dist/css-hai/modal.css}">
+<body>
+<div th:replace="~{/common/layout::body}"></div>
+<div class="row">
+    <div class="col-md-3"></div>
+    <div class="col-md-6" style="border: 5px solid cornflowerblue">
+        <div class="card-body">
+            <h5 class="card-title text-center">Edit Employee</h5>
+            <form class="form-signin" th:object="${employee}" method="post" th:action="@{/employee/editConfirm}">
+                <div class="form-label-group">
+                    <div class="row">
+                        <div class="col-md-2" style="text-align: center;padding-top: 5px">Id:</div>
+                        <div class="col-md-10"><input type="text" class="form-control"
+                                                      placeholder="" th:name="employeeId"
+                                                      th:value="${employee.getEmployeeId()}" required autofocus
+                                                      readonly></div>
+                    </div>
+                </div>
+                <br>
+                    <div class="form-label-group">
+                        <div class="row">
+                            <div class="col-md-2" style="text-align: center;padding-top: 5px">Name:</div>
+                            <div class="col-md-10"><input type="text" class="form-control"
+                                                          placeholder="" th:name="employeeName"
+                                                          th:value="${employee.getEmployeeName()}" required autofocus>
+                            </div>
+                        </div>
+                    </div>
+                    <br>
+                    <div class="form-label-group">
+                        <div class="row">
+                            <div class="col-md-2" style="text-align: center;padding-top: 5px">Birthday:</div>
+                            <div class="col-md-10"><input type="text" class="form-control"
+                                                          placeholder="" th:name="employeeBirthday"
+                                                          th:value="${employee.getEmployeeBirthday()}" required
+                                                          autofocus></div>
+                        </div>
+                    </div>
+                    <br>
+                    <div class="form-label-group">
+                        <div class="row">
+                            <div class="col-md-2" style="text-align: center;padding-top: 5px">Gender:</div>
+                            <div class="col-md-10"><input type="text" class="form-control"
+                                                          placeholder="" th:name="employeeIdCard"
+                                                          th:value="${employee.getEmployeeIdCard()}" required autofocus>
+                            </div>
+                        </div>
+                    </div>
+                    <br>
+                    <div class="form-label-group">
+                        <div class="row">
+                            <div class="col-md-2" style="text-align: center;padding-top: 5px">Card:</div>
+                            <div class="col-md-10"><input type="text" class="form-control"
+                                                          placeholder="" th:name="employeeSalary"
+                                                          th:value="${employee.getEmployeeSalary()}" required autofocus>
+                            </div>
+                        </div>
+                    </div>
+                    <br>
+                    <div class="form-label-group">
+                        <div class="row">
+                            <div class="col-md-2" style="text-align: center;padding-top: 5px">Phone:</div>
+                            <div class="col-md-10"><input type="text" class="form-control"
+                                                          placeholder="" th:name="employeePhone"
+                                                          th:value="${employee.getEmployeePhone()}" required autofocus>
+                            </div>
+                        </div>
+                    </div>
+                    <br>
+                    <div class="form-label-group">
+                        <div class="row">
+                            <div class="col-md-2" style="text-align: center;padding-top: 5px">Email:</div>
+                            <div class="col-md-10"><input type="text" class="form-control"
+                                                          placeholder="" th:name="employeeEmail"
+                                                          th:value="${employee.getEmployeeEmail()}" required autofocus>
+                            </div>
+                        </div>
+                    </div>
+                    <br>
+                    <div class="form-label-group">
+                        <div class="row">
+                            <div class="col-md-2" style="text-align: center;padding-top: 5px">Address:</div>
+                            <div class="col-md-10"><input type="text" class="form-control"
+                                                          placeholder="" th:name="employeeAddress"
+                                                          th:value="${employee.getEmployeeAddress()}" required
+                                                          autofocus></div>
+                        </div>
+                    </div>
+                    <br>
+                    <div class="form-label-group">
+                        <div class="row">
+                            <div class="col-md-2" style="text-align: center;padding-top: 5px">Position:</div>
+                            <div class="col-md-10">
+                                <select class="form-control" th:field="*{position}">
+                                    <option th:each="positionElement: ${positions}"
+                                            th:text="${positionElement.positionName}"
+                                            th:value="${positionElement.positionId}"></option>
+                                </select>
+                            </div>
+                        </div>
+                        <br>
+                        <div class="form-label-group">
+                            <div class="row">
+                                <div class="col-md-2" style="text-align: center;padding-top: 5px">Education Degree:
+                                </div>
+                                <div class="col-md-10">
+                                    <select class="form-control" th:field="*{educationDegree}">
+                                        <option th:each="educationDegreeElement: ${educationDegrees}"
+                                                th:text="${educationDegreeElement.educationDegreeName}"
+                                                th:value="${educationDegreeElement.educationDegreeId}"></option>
+                                    </select>
+                                </div>
+                            </div>
+                            <br>
+                            <div class="form-label-group">
+                                <div class="row">
+                                    <div class="col-md-2" style="text-align: center;padding-top: 5px">Division:</div>
+                                    <div class="col-md-10">
+                                        <select class="form-control" th:field="*{division}">
+                                            <option th:each="divisionElement: ${divisions}"
+                                                    th:text="${divisionElement.divisionName}"
+                                                    th:value="${divisionElement.divisionId}"></option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                            <br>
+                            <div class="form-label-group">
+                                <div class="row">
+                                    <div class="col-md-2" style="text-align: center;padding-top: 5px">User Name:</div>
+                                    <div class="col-md-10">
+                                        <select id="rentType" class="form-control" th:field="*{username}">
+                                            <option th:each="usernameElement: ${userEmployees}"
+                                                    th:text="${usernameElement.username}"
+                                                    th:value="${usernameElement.username}"></option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                            <br>
+
+
+                            <!-- Button trigger modal -->
+                            <div class="text-center mb-3">
+                                <button type="button" style="background: #9fcdff"
+                                        class="btn blue-gradient btn-block btn-rounded z-depth-1a" data-toggle="modal"
+                                        data-target="#exampleModal"> Edit Employee
+                                </button>
+                            </div>
+                            <!-- Modal -->
+                            <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog"
+                                 aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                <div class="modal-dialog" role="document">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                <span aria-hidden="true">&times;</span>
+                                            </button>
+                                        </div>
+                                        <div class="modal-body">
+                                            confirm change ?
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close
+                                            </button>
+                                            <button type="submit" class="btn btn-primary" value="edit">Save changes
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <br>
+                            <div class="col-md-12">
+                                <nav aria-label="Page navigation example">
+                                    <ul class="pagination">
+                                        <li class="page-item" style="text-align: center"><a class="page-link"
+                                                                                            href="/customer">Back</a>
+                                        </li>
+                                    </ul>
+                                </nav>
+                            </div>
+                        </div>
+                    </div>
+            </form>
+        </div>
+    </div>
+</div>
+<div class="col-md-3"></div>
+</body>
+<script src="/bootstrap-4.5.2-dist/jquery-3.5.1.min.js" th:src="@{/bootstrap-4.5.2-dist/jquery-3.5.1.min.js}"></script>
+<script src="/bootstrap-4.5.2-dist/js/bootstrap.min.js"
+        th:src="@{/bootstrap-4.5.2-dist/css/bootstrap.min.css}"></script>
+<script src="/bootstrap-4.5.2-dist/js/bootstrap.bundle.min.js"
+        th:src="@{/bootstrap-4.5.2-dist/js/bootstrap.bundle.min.js}"></script>
+<script src="/bootstrap-4.5.2-dist/fontawesome/js/all.js" th:src="@{/bootstrap-4.5.2-dist/fontawesome/js/all.js}"></script>
+</html>

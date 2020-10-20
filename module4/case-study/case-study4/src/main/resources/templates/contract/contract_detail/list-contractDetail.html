@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <head>
+        <meta charset="UTF-8">
+        <title>Title</title>
+        <link rel="stylesheet" href="/bootstrap-4.5.2-dist/css/bootstrap.min.css"
+              th:href="@{/bootstrap-4.5.2-dist/css/bootstrap.min.css}">
+
+    </head>
+    <link rel="stylesheet" href="/bootstrap-4.5.2-dist/css-hai/modal.css" th:href="@{/bootstrap-4.5.2-dist/css-hai/modal.css}">
+<body>
+<div th:replace="~{/common/layout::body}"></div>
+<div class="row">
+    <div class="col-md-4 text-center" style="padding-top: 2px;padding-bottom: 2px">
+
+        <button data-toggle="modal" data-target="#elegantModalForm" type="submit"
+                style="border: 1px solid #00ff13 ; border-radius: 5px;height: 38px"><h6><i
+                class="far fa-address-card"></i>&nbsp;Add new Contract Detail</h6></button>
+    </div>
+    <div class="col-md-1"></div>
+    <div class="col-md-6"><h2><i class="fas fa-align-left"></i>List Contract Detail</h2></div>
+    <div class="col-md-1" style="padding-top: 2px;padding-bottom: 2px">
+
+    </div>
+</div>
+<div style="padding-left: 5%;padding-right: 5%">
+    <form>
+        <table class="table table-striped" >
+            <thead>
+            <tr>
+                <th scope="col">Id</th>
+                <th scope="col">Quantity</th>
+                <th scope="col">AttachService</th>
+                <th scope="col">Contract</th>
+                <th scope="col">Delete</th>
+            </tr>
+            </thead>
+            <tbody th:if="${contractDetailList}" id="myTable">
+            <tr th:each="contractDetail : ${contractDetailList}">
+                <th th:text="${contractDetail.contractDetailId}" scope="row" ></th>
+                <td th:text="${contractDetail.quantity}"></td>
+                <td th:text="${contractDetail.attachService.attachServiceName}"></td>
+                <td th:text="${contractDetail.contract.contractId}"></td>
+                <td>
+                    <button type="button" style="border-radius: 5px;border: 1px solid red" data-toggle="modal" onclick="callModal1(this.id)" th:id="${contractDetail.contractDetailId}" data-target="#exampleModal">
+                        <i class="fas fa-user-times" style="color: red"></i>
+                    </button>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </form>
+</div>
+
+<!--modal delete-->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Delete Contract Detail</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <label>Do you really want to delete it or not ? (<p id="ContractDetailId"></p>)</label>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <a href="#" id="modalDelete" role="button" class="btn btn-danger">delete</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--modal add new-->
+
+    <div class="modal fade" id="elegantModalForm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+         aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <!--Content-->
+            <div class="modal-content form-elegant" >
+                <!--Header-->
+                <div class="modal-header text-center">
+                    <h3 class="modal-title w-100 dark-grey-text font-weight-bold my-3" id="myModalLabel"><strong>Add New
+                        Contract Detail</strong></h3>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <!--Body-->
+                <form th:object="${contractDetail}" th:action="@{/contractDetail/addNew}" method="post">
+                <div th:if="${contractDetail_id}">
+                    <input type="hidden" class="validate" th:value="true">
+                </div>
+                <input type="hidden" class="validate" th:value="${#fields.hasErrors()}">
+                <div class="modal-body mx-4">
+                    <!--Body-->
+                    <div class="form-label-group">
+                        <div class="row">
+                            <div class="col-md-2"></div>
+                            <div class="col-md-10">
+                                <span style="color: red" th:if="${contractDetail_id}" th:text="${contractDetail_id}"></span>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-2" style="text-align: center;padding-top: 5px">Id:</div>
+                            <div class="col-md-10"><input type="text" class="form-control"
+                                                          placeholder="" th:field="*{contractDetailId}" ></div>
+                        </div>
+                    </div>
+                    <br>
+                    <div class="form-label-group">
+                        <div class="row">
+                            <div class="col-md-2"></div>
+                            <div class="col-md-10"><span style="color: red" th:field="*{#fields.hasErrors('quantity')}"
+                                                         th:errors="*{quantity}"></span>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-2" style="text-align: center;padding-top: 5px">Quantity:</div>
+                            <div class="col-md-10"><input type="text" class="form-control"
+                                                          placeholder="" th:field="*{quantity}" ></div>
+                        </div>
+                    </div>
+                    <br>
+                    <div class="form-label-group">
+                        <div class="row">
+                            <div class="col-md-2" style="text-align: center;padding-top: 5px">AttachService:</div>
+                            <div class="col-md-10">
+                                <select class="form-control" th:field="*{attachService}">
+                                    <option th:each="attachServiceElement: ${attachServices}" th:text="${attachServiceElement.attachServiceName}" th:value="${attachServiceElement.attachServiceId}"></option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <br>
+                    <div class="form-label-group">
+                        <div class="row">
+                            <div class="col-md-2" style="text-align: center;padding-top: 5px">Contract:</div>
+                            <div class="col-md-10">
+                                <select class="form-control" th:field="*{contract}">
+                                    <option th:each="contractElement: ${contracts}" th:text="${contractElement.contractId}" th:value="${contractElement.contractId}"></option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <br>
+                    <div class="text-center mb-3">
+                        <button type="submit" style="background: #9fcdff"
+                                class="btn blue-gradient btn-block btn-rounded z-depth-1a">Add Contract Detail
+                        </button>
+                    </div>
+                </div>
+                <!--Footer-->
+                <div class="modal-footer mx-5 pt-3 mb-1">
+                    <p class="font-small grey-text d-flex justify-content-end">Support? <a href="#"
+                                                                                           class="blue-text ml-1">
+                        @NguyenTienHai</a></p>
+                </div>
+                </form>
+            </div>
+            <!--/.Content-->
+        </div>
+    </div>
+
+<!--<div>-->
+<!--    <a th:href="@{'/contract'(page=${contractDetailList.number - 1})}" th:if="${contractDetailList.hasPrevious()}">Previous</a>-->
+<!--    <span th:text="${contractDetailList.number + 1}"></span>/<span th:text="${contractDetailList.totalPages}"></span>-->
+<!--    <a th:href="@{'/contract'(page=${contractDetailList.number + 1})}" th:if="${contractDetailList.hasNext()()()}">Next</a>-->
+<!--</div>-->
+</body>
+<script src="/bootstrap-4.5.2-dist/jquery-3.5.1.min.js" th:src="@{/bootstrap-4.5.2-dist/jquery-3.5.1.min.js}"></script>
+<script src="/bootstrap-4.5.2-dist/js/bootstrap.min.js"
+        th:src="@{/bootstrap-4.5.2-dist/css/bootstrap.min.css}"></script>
+<script src="/bootstrap-4.5.2-dist/js/bootstrap.bundle.min.js"
+        th:src="@{/bootstrap-4.5.2-dist/js/bootstrap.bundle.min.js}"></script>
+<script src="/bootstrap-4.5.2-dist/fontawesome/js/all.js" th:src="@{/bootstrap-4.5.2-dist/fontawesome/js/all.js}"></script>
+<!--delete nha-->
+<script>
+    function callModal1(id) {
+        document.getElementById("modalDelete").href="/contractDetail/deleteConfirm/"+id;
+        document.getElementById("ContractDetailId").innerHTML=id;
+    }
+</script>
+<script src="//ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script type="text/javascript">
+    window.setTimeout(function () {
+        $(".alert").fadeTo(500, 0).slideUp(500, function () {
+            $(this).remove();
+        });
+    }, 2000);
+
+    $(document).ready(function () {
+        $('#inputSearch').on('keyup', function () {
+            let value = $(this).val().toLowerCase();
+            $('#myTable tr').filter(function () {
+                $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+            });
+        });
+    });
+</script>
+<script>
+    if ($(".validate").val() =='true') {
+        $("#elegantModalForm").modal("show");
+    }
+</script>
+</html>

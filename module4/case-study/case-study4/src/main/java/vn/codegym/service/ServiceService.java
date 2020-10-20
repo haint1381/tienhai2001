@@ -8,8 +8,8 @@ public interface ServiceService {
     Page<Service> getAll(Pageable pageable);
 
     Service findById(String id);
-
+    boolean checkId(String id);
     void save(Service service);
-
+    Iterable<Service> findAll();
     void delete(String id);
 }

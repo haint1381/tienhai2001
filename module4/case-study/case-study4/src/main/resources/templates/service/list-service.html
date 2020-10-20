@@ -25,6 +25,7 @@
     </div>
 </div>
 <div style="padding-left: 5%;padding-right: 5%">
+    <form>
     <table class="table table-striped" >
         <thead>
         <tr>
@@ -32,18 +33,14 @@
             <th scope="col">Name</th>
             <th scope="col">Area</th>
             <th scope="col">Cost</th>
-            <th scope="col">Max PeoPle</th>
-            <th scope="col">Rent Type </th>
-            <th scope="col">service Type </th>
-            <th scope="col">Standard Room</th>
-            <th scope="col">Description</th>
-            <th scope="col">Pool Area</th>
-            <th scope="col">Number Of Floors</th>
-            <th scope="col">Edit</th>
+            <th scope="col">MaxPeople</th>
+            <th scope="col">Rent-Type</th>
+            <th scope="col">Service-Type</th>
             <th scope="col">Delete</th>
+            <th scope="col">detail</th>
             <th>
                 <form action="#" method="get">
-                    <button type="submit" style="border: 1px solid red ; border-radius: 5px;height: 25px;color: red" ><i class="fas fa-trash-alt"></i></button>
+                    <button type="submit" formaction="/customer/deleteAll" style="border: 1px solid red ; border-radius: 5px;height: 25px;color: red" ><i class="fas fa-trash-alt"></i></button>
                 </form>
             </th>
         </tr>
@@ -57,21 +54,18 @@
             <td th:text="${service.getServiceMaxPeople()}"></td>
             <td th:text="${service.getRentType().getRentTypeName()}"></td>
             <td th:text="${service.getServiceType().getServiceTypeName()}"></td>
-            <td th:text="${service.getStandardRoom()}"></td>
-            <td th:text="${service.getDescriptionOtherConvenience()}"></td>
-            <td th:text="${service.getPoolArea()}"></td>
-            <td th:text="${service.getNumberOfFloors()}"></td>
-            <td><a th:href="@{/service/edit/{id}(id=${service.getServiceId()})}" ><i class="fas fa-user-edit" style="color: #e0a800"></i></a></td>
-
             <td><button type="button" style="border-radius: 5px;border: 1px solid red" data-toggle="modal" onclick="callModal1(this.id)" th:id="${service.getServiceId()}" data-target="#exampleModal">
                 <i class="fas fa-user-times" style="color: red"></i>
             </button>
             </td>
-
-            <td><input type="checkbox"></td>
+            <td>
+                <a th:href="@{/service/detail/{id}(id=${service.getServiceId()})}" style="border-radius: 5px;border: 1px solid blueviolet" th:width="30px" th:height="30px" role="button"><i class="fas fa-user-edit" style="color: blueviolet"></i></i></a>
+            </td>
+            <td><input type="checkbox" th:name="select" th:value="${service.getServiceId()}"></td>
         </tr>
         </tbody>
     </table>
+    </form>
 </div>
 
 <!--modal delete-->
@@ -115,44 +109,84 @@
                 <!--Body-->
                 <div class="modal-body mx-4">
                     <!--Body-->
-
+                    <div th:if="${service_id}">
+                        <input type="hidden" class="validate" th:value="true">
+                    </div>
+                    <input type="hidden" class="validate" th:value="${#fields.hasErrors()}">
                     <div class="form-label-group">
                         <div class="row">
+                        <div class="col-md-2" style="text-align: center;padding-top: 5px">Type Service:</div>
+                            <div class="col-md-10">
+                        <select id="typeService" class="form-control" th:field="*{serviceType}"
+                            onchange="displayHiddenItem()">
+                        <option th:each="type : ${serviceTypeList}" th:value="${type.serviceTypeId}"
+                                th:text="${type.serviceTypeName}"></option>
+                         </select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-label-group">
+                        <div class="row">
+                            <div class="col-md-2"></div>
+                            <div class="col-md-10"><span style="color: red" th:field="*{#fields.hasErrors('serviceId')}"
+                                                         th:errors="*{serviceId}"></span>
+                                <span style="color: red" th:if="${service_id}" th:text="${service_id}"></span>
+                            </div>
+                        </div>
+                        <div class="row">
                             <div class="col-md-2" style="text-align: center;padding-top: 5px">Id:</div>
-                            <div class="col-md-10"><input type="text" class="form-control"
-                                                          placeholder="" th:field="*{serviceId}" required autofocus></div>
+                            <div class="col-md-10"><input type="text" class="form-control" id="id"
+                                                          placeholder="" th:field="*{serviceId}"  ></div>
                         </div>
                     </div>
                     <br>
                     <div class="form-label-group">
                         <div class="row">
                             <div class="col-md-2" style="text-align: center;padding-top: 5px">Name:</div>
-                            <div class="col-md-10"><input type="text" class="form-control"
-                                                          placeholder="" th:field="*{serviceName}" required autofocus></div>
+                            <div class="col-md-10"><input type="text" class="form-control" id="name"
+                                                          placeholder="" th:field="*{serviceName}"  ></div>
                         </div>
                     </div>
                     <br>
                     <div class="form-label-group">
+                        <div class="row">
+                            <div class="col-md-2"></div>
+                            <div class="col-md-10"><span style="color: red" th:field="*{#fields.hasErrors('serviceArea')}"
+                                                         th:errors="*{serviceArea}"></span>
+                            </div>
+                        </div>
                         <div class="row">
                             <div class="col-md-2" style="text-align: center;padding-top: 5px">Area:</div>
-                            <div class="col-md-10"><input type="text" class="form-control"
-                                                          placeholder="" th:field="*{serviceArea}" required autofocus></div>
+                            <div class="col-md-10"><input type="text" class="form-control" id="area"
+                                                          placeholder="" th:field="*{serviceArea}"  ></div>
                         </div>
                     </div>
                     <br>
                     <div class="form-label-group">
+                        <div class="row">
+                            <div class="col-md-2"></div>
+                            <div class="col-md-10"><span style="color: red" th:field="*{#fields.hasErrors('serviceCost')}"
+                                                         th:errors="*{serviceCost}"></span>
+                            </div>
+                        </div>
                         <div class="row">
                             <div class="col-md-2" style="text-align: center;padding-top: 5px">Cost:</div>
-                            <div class="col-md-10"><input type="text" class="form-control"
-                                                          placeholder="" th:field="*{serviceCost}" required autofocus></div>
+                            <div class="col-md-10"><input type="text" class="form-control" id="cost"
+                                                          placeholder="" th:field="*{serviceCost}"  ></div>
                         </div>
                     </div>
                     <br>
                     <div class="form-label-group">
                         <div class="row">
+                            <div class="col-md-2"></div>
+                            <div class="col-md-10"><span style="color: red" th:field="*{#fields.hasErrors('serviceMaxPeople')}"
+                                                         th:errors="*{serviceMaxPeople}"></span>
+                            </div>
+                        </div>
+                        <div class="row">
                             <div class="col-md-2" style="text-align: center;padding-top: 5px">Max PeoPle:</div>
-                            <div class="col-md-10"><input type="text" class="form-control"
-                                                          placeholder="" th:field="*{serviceMaxPeople}" required autofocus></div>
+                            <div class="col-md-10"><input type="text" class="form-control" id="maxPeople"
+                                                          placeholder="" th:field="*{serviceMaxPeople}"  ></div>
                         </div>
                     </div>
                     <br>
@@ -160,41 +194,53 @@
                         <div class="row">
                             <div class="col-md-2" style="text-align: center;padding-top: 5px">Rent Type:</div>
                             <div class="col-md-10">
-                                <select class="form-control" th:field="*{rentType}">
+                                <select id="rentType" class="form-control" th:field="*{rentType}">
                                     <option th:each="serviceRentType: ${rentTypeList}" th:text="${serviceRentType.rentTypeName}" th:value="${serviceRentType.rentTypeId}"></option>
                                 </select>
                             </div>
                         </div>
-                        <br>
-                        <div class="form-label-group">
+                    </div>
+                    <br>
+                        <div class="form-label-group" id="hiden1">
                             <div class="row">
                                 <div class="col-md-2" style="text-align: center;padding-top: 5px">Standard Room:</div>
-                                <div class="col-md-10"><input type="text" class="form-control"
-                                                              placeholder="" th:field="*{standardRoom}" required autofocus></div>
+                                <div class="col-md-10"><input type="text" class="form-control" id="standardRoom"
+                                                              placeholder="" th:field="*{standardRoom}"  ></div>
                             </div>
                         </div>
                         <br>
-                        <div class="form-label-group">
+                        <div class="form-label-group" id="hiden2">
                             <div class="row">
                                 <div class="col-md-2" style="text-align: center;padding-top: 5px">Description:</div>
-                                <div class="col-md-10"><input type="text" class="form-control"
-                                                              placeholder="" th:field="*{descriptionOtherConvenience}" required autofocus></div>
+                                <div class="col-md-10"><input type="text" class="form-control" id="description"
+                                                              placeholder="" th:field="*{descriptionOtherConvenience}"  ></div>
                             </div>
                         </div>
                         <br>
-                        <div class="form-label-group">
+                        <div class="form-label-group" id="hiden3">
                             <div class="row">
-                                <div class="col-md-2" style="text-align: center;padding-top: 5px">Pool Area:</div>
-                                <div class="col-md-10"><input type="text" class="form-control"
-                                                              placeholder="" th:field="*{poolArea}" required autofocus></div>
+                                <div class="col-md-2"></div>
+                                <div class="col-md-10"><span style="color: red" th:field="*{#fields.hasErrors('poolArea')}"
+                                                             th:errors="*{poolArea}"></span>
+                                </div>
+                            </div>
+                            <div class="row" >
+                                <div class="col-md-2" style="text-align: center;padding-top: 5px">Pool-Area:</div>
+                                <div class="col-md-10"><input type="text" class="form-control" id="areaPool123" placeholder="" th:field="*{poolArea}"  ></div>
                             </div>
                         </div>
                         <br>
-                        <div class="form-label-group">
+                        <div class="form-label-group" id="hiden4">
+                            <div class="row">
+                                <div class="col-md-2"></div>
+                                <div class="col-md-10"><span style="color: red" th:field="*{#fields.hasErrors('numberOfFloors')}"
+                                                             th:errors="*{numberOfFloors}"></span>
+                                </div>
+                            </div>
                             <div class="row">
                                 <div class="col-md-2" style="text-align: center;padding-top: 5px">Number Of Floors:</div>
-                                <div class="col-md-10"><input type="text" class="form-control"
-                                                              placeholder="" th:field="*{numberOfFloors}" required autofocus></div>
+                                <div class="col-md-10"><input type="text" class="form-control" id="numberFloor"
+                                                              placeholder="" th:field="*{numberOfFloors}"  ></div>
                             </div>
                         </div>
                         <br>
@@ -216,18 +262,52 @@
         </div>
     </div>
 </form>
+<div>
+    <a th:href="@{'/employee'(page=${serviceList.number - 1})}" th:if="${serviceList.hasPrevious()}">Previous</a>
+    <span th:text="${serviceList.number + 1}"></span>/<span th:text="${serviceList.totalPages}"></span>
+    <a th:href="@{'/employee'(page=${serviceList.number + 1})}" th:if="${serviceList.hasNext()}">Next</a>
+</div>
 </body>
+<script src="/bootstrap-4.5.2-dist/jquery-3.5.1.min.js" th:src="@{/bootstrap-4.5.2-dist/jquery-3.5.1.min.js}"></script>
+<script src="/bootstrap-4.5.2-dist/js/bootstrap.min.js"
+        th:src="@{/bootstrap-4.5.2-dist/css/bootstrap.min.css}"></script>
+<script src="/bootstrap-4.5.2-dist/js/bootstrap.bundle.min.js"
+        th:src="@{/bootstrap-4.5.2-dist/js/bootstrap.bundle.min.js}"></script>
+<script src="/bootstrap-4.5.2-dist/fontawesome/js/all.js" th:src="@{/bootstrap-4.5.2-dist/fontawesome/js/all.js}"></script>
 <!--delete nha-->
 <script>
     function callModal1(id) {
         document.getElementById("modalDelete").href="/service/deleteConfirm/"+id;
     }
 </script>
-
-<script src="/bootstrap-4.5.2-dist/fontawesome/js/all.js" th:src="@{/bootstrap-4.5.2-dist/fontawesome/js/all.js}"></script>
-<script src="/bootstrap-4.5.2-dist/js/bootstrap.bundle.min.js"
-        th:src="@{/bootstrap-4.5.2-dist/js/bootstrap.bundle.min.js}"></script>
-<script src="/bootstrap-4.5.2-dist/jquery-3.5.1.min.js" th:href="@{/bootstrap-4.5.2-dist/jquery-3.5.1.min.js}"></script>
-<script src="/bootstrap-4.5.2-dist/js/bootstrap.min.js"
-        th:href="@{/bootstrap-4.5.2-dist/css/bootstrap.min.css}"></script>
+<script>
+    function displayHiddenItem() {
+        let typeService = document.getElementById("typeService").value;
+        let standard = document.getElementById("hiden1");
+        let description = document.getElementById("hiden2");
+        let areaPool = document.getElementById("hiden3");
+        let numberFloor = document.getElementById("hiden4");
+        if (typeService === '1') {
+            standard.style.display = "block";
+            description.style.display = "block";
+            numberFloor.style.display = "block";
+            areaPool.style.display = "block";
+        } else if (typeService === '2') {
+            standard.style.display = "block";
+            description.style.display = "block";
+            numberFloor.style.display = "block";
+            areaPool.style.display = "none";
+        } else if (typeService === '3') {
+            standard.style.display = "none";
+            description.style.display = "none";
+            areaPool.style.display = "none";
+            numberFloor.style.display = "none";
+        }
+    }
+</script>
+<script>
+    if ($(".validate").val() =='true') {
+        $("#elegantModalForm").modal("show");
+    }
+</script>
 </html>

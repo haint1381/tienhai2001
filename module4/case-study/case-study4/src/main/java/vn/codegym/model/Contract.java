@@ -1,6 +1,7 @@
 package vn.codegym.model;
 
 import javax.persistence.*;
+import javax.validation.constraints.Pattern;
 import java.util.List;
 
 @Entity
@@ -10,7 +11,9 @@ public class Contract {
     private String contractId;
     private String contractStartDate;
     private String contractEndDate;
+    @Pattern(regexp =  "^[-]*\\d+([.]\\d+)?$",message = "The Contract Deposit  is not in the correct format")
     private String contractDeposit;
+    @Pattern(regexp =  "^[-]*\\d+([.]\\d+)?$",message = "The Contract Total Money  is not in the correct format")
     private String contractTotalMoney;
 
     @ManyToOne

@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
+
 <head>
     <head>
         <meta charset="UTF-8">
@@ -21,10 +22,11 @@
     <div class="col-md-1"></div>
     <div class="col-md-6"><h2><i class="fas fa-align-left"></i>List Customer</h2></div>
     <div class="col-md-1" style="padding-top: 2px;padding-bottom: 2px">
-`````````````
+
     </div>
 </div>
 <div style="padding-left: 5%;padding-right: 5%">
+    <form>
 <table class="table table-striped" >
     <thead>
     <tr>
@@ -40,13 +42,11 @@
         <th scope="col">Edit</th>
         <th scope="col">Delete</th>
         <th>
-            <form action="#" method="get">
-             <button type="submit" style="border: 1px solid red ; border-radius: 5px;height: 25px;color: red" ><i class="fas fa-trash-alt"></i></button>
-            </form>
+             <button type="submit" formaction="/customer/deleteAll" style="border: 1px solid red ; border-radius: 5px;height: 25px;color: red" ><i class="fas fa-trash-alt"></i></button>
         </th>
     </tr>
     </thead>
-    <tbody th:if="${customerList}">
+    <tbody th:if="${customerList}" id="myTable">
     <tr th:each="customer : ${customerList}">
         <th th:text="${customer.getCustomerId()}" scope="row" ></th>
         <td th:text="${customer.getCustomerType().getCustomerTypeName()}"></td>
@@ -57,18 +57,19 @@
         <td th:text="${customer.getCustomerPhone()}"></td>
         <td th:text="${customer.getCustomerEmail()}"></td>
         <td th:text="${customer.getCustomerAddress()}"></td>
-        <td><a th:href="@{/customer/edit/{id}(id=${customer.getCustomerId()})}" ><i class="fas fa-user-edit" style="color: #e0a800"></i></a></td>
-
-
-       <td><button type="button" style="border-radius: 5px;border: 1px solid red" data-toggle="modal" onclick="callModal1(this.id)" th:id="${customer.getCustomerId()}" data-target="#exampleModal">
+        <td>
+            <a th:href="@{customer/edit/{id}(id=${customer.getCustomerId()})}" role="button" style="border-radius: 5px;border: 1px solid yellow;height: 35px;width: 40px"><i class="fas fa-user-edit" style="color: #e0a800"></i></a>
+        </td>
+       <td>
+           <button type="button" style="border-radius: 5px;border: 1px solid red" data-toggle="modal" onclick="callModal1(this.id)" th:id="${customer.getCustomerId()}" data-target="#exampleModal">
             <i class="fas fa-user-times" style="color: red"></i>
         </button>
        </td>
-
-        <td><input type="checkbox"></td>
+        <td><input type="checkbox" th:name="select" th:value="${customer.getCustomerId()}"></td>
     </tr>
     </tbody>
 </table>
+   </form>
 </div>
 
 <!--modal delete-->
@@ -82,7 +83,7 @@
                 </button>
             </div>
             <div class="modal-body">
-              Do you really want to delete it or not ?
+             <label>Do you really want to delete it or not ? (<p id="customerName"></p>)</label>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
@@ -91,16 +92,13 @@
         </div>
     </div>
 </div>
-
-
-
 <!--modal add new-->
-<form th:object="${customer}" th:action="@{/customer/addNew}" method="post">
+
     <div class="modal fade" id="elegantModalForm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
          aria-hidden="true">
         <div class="modal-dialog" role="document">
             <!--Content-->
-            <div class="modal-content form-elegant">
+            <div class="modal-content form-elegant" >
                 <!--Header-->
                 <div class="modal-header text-center">
                     <h3 class="modal-title w-100 dark-grey-text font-weight-bold my-3" id="myModalLabel"><strong>Add New
@@ -112,12 +110,24 @@
                 <!--Body-->
                 <div class="modal-body mx-4">
                     <!--Body-->
+                    <form th:object="${customer1}" th:action="@{/customer/addNewCus}" method="post">
 
+                        <div th:if="${customer_id}">
+                            <input type="hidden" class="validate" th:value="true">
+                        </div>
+                        <input type="hidden" class="validate" th:value="${#fields.hasErrors()}">
                     <div class="form-label-group">
+                        <div class="row">
+                            <div class="col-md-2"></div>
+                            <div class="col-md-10"><span style="color: red" th:field="*{#fields.hasErrors('customerId')}"
+                                                         th:errors="*{customerId}"></span>
+                            <span style="color: red" th:if="${customer_id}" th:text="${customer_id}"></span>
+                            </div>
+                        </div>
                         <div class="row">
                             <div class="col-md-2" style="text-align: center;padding-top: 5px">Id:</div>
                             <div class="col-md-10"><input type="text" class="form-control"
-                                                          placeholder="" th:field="*{customerId}" required autofocus></div>
+                                                          placeholder="" th:field="*{customerId}"></div>
                         </div>
                     </div>
                     <br>
@@ -135,15 +145,15 @@
                         <div class="row">
                             <div class="col-md-2" style="text-align: center;padding-top: 5px">Name:</div>
                             <div class="col-md-10"><input type="text" class="form-control"
-                                                          placeholder="" th:field="*{customerName}" required autofocus></div>
+                                                          placeholder="" th:field="*{customerName}"  ></div>
                         </div>
                     </div>
                     <br>
                     <div class="form-label-group">
                         <div class="row">
                             <div class="col-md-2" style="text-align: center;padding-top: 5px">Birthday:</div>
-                            <div class="col-md-10"><input type="text" class="form-control"
-                                                          placeholder="" th:field="*{customerBirthday}" required autofocus></div>
+                            <div class="col-md-10"><input type="date"  id="birthday" class="form-control"
+                                                          placeholder="" th:field="*{customerBirthday}"  ></div>
                         </div>
                     </div>
                     <br>
@@ -151,31 +161,49 @@
                         <div class="row">
                             <div class="col-md-2" style="text-align: center;padding-top: 5px">Gender:</div>
                             <div class="col-md-10"><input type="text" class="form-control"
-                                                          placeholder="" th:field="*{customerGender}" required autofocus></div>
+                                                          placeholder="" th:field="*{customerGender}"  ></div>
                         </div>
                     </div>
                     <br>
                     <div class="form-label-group">
+                        <div class="row">
+                            <div class="col-md-2"></div>
+                            <div class="col-md-10"><span style="color: red" th:field="*{#fields.hasErrors('customerIdCard')}"
+                                                         th:errors="*{customerIdCard}"></span>
+                            </div>
+                        </div>
                         <div class="row">
                             <div class="col-md-2" style="text-align: center;padding-top: 5px">Card:</div>
                             <div class="col-md-10"><input type="text" class="form-control"
-                                                          placeholder="" th:field="*{customerIdCard}" required autofocus></div>
+                                                          placeholder="" th:field="*{customerIdCard}"  ></div>
                         </div>
                     </div>
                     <br>
                     <div class="form-label-group">
+                        <div class="row">
+                            <div class="col-md-2"></div>
+                            <div class="col-md-10"><span style="color: red" th:field="*{#fields.hasErrors('customerPhone')}"
+                                                         th:errors="*{customerPhone}"></span>
+                            </div>
+                        </div>
                         <div class="row">
                             <div class="col-md-2" style="text-align: center;padding-top: 5px">Phone:</div>
                             <div class="col-md-10"><input type="text" class="form-control"
-                                                          placeholder="" th:field="*{customerPhone}" required autofocus></div>
+                                                          placeholder="" th:field="*{customerPhone}"  ></div>
                         </div>
                     </div>
                     <br>
                     <div class="form-label-group">
                         <div class="row">
+                            <div class="col-md-2"></div>
+                            <div class="col-md-10"><span style="color: red" th:field="*{#fields.hasErrors('customerEmail')}"
+                                                         th:errors="*{customerEmail}"></span>
+                            </div>
+                        </div>
+                        <div class="row">
                             <div class="col-md-2" style="text-align: center;padding-top: 5px">Email:</div>
                             <div class="col-md-10"><input type="text" class="form-control"
-                                                          placeholder="" th:field="*{customerEmail}" required autofocus></div>
+                                                          placeholder="" th:field="*{customerEmail}"  ></div>
                         </div>
                     </div>
                     <br>
@@ -183,13 +211,13 @@
                         <div class="row">
                             <div class="col-md-2" style="text-align: center;padding-top: 5px">Address:</div>
                             <div class="col-md-10"><input type="text" class="form-control"
-                                                          placeholder="" th:field="*{customerAddress}" required autofocus></div>
+                                                          placeholder="" th:field="*{customerAddress}"  ></div>
                         </div>
                     </div>
                     <br>
                     <div class="text-center mb-3">
                         <button type="submit" style="background: #9fcdff"
-                                class="btn blue-gradient btn-block btn-rounded z-depth-1a">Add Customer
+                                class="btn blue-gradient btn-block btn-rounded z-depth-1a" id="customer">Add Customer
                         </button>
                     </div>
                 </div>
@@ -199,26 +227,58 @@
                                                                                            class="blue-text ml-1">
                         @NguyenTienHai</a></p>
                 </div>
+                    </form>
             </div>
+
             <!--/.Content-->
         </div>
     </div>
     </div>
-</form>
+
+<div>
+    <a th:href="@{'/customer'(page=${customerList.number - 1})}" th:if="${customerList.hasPrevious()}">Previous</a>
+    <span th:text="${customerList.number + 1}"></span>/<span th:text="${customerList.totalPages}"></span>
+    <a th:href="@{'/customer'(page=${customerList.number + 1})}" th:if="${customerList.hasNext()}">Next</a>
+</div>
 </body>
 <!--delete nha-->
+<script src="/bootstrap-4.5.2-dist/jquery-3.5.1.min.js" th:src="@{/bootstrap-4.5.2-dist/jquery-3.5.1.min.js}"></script>
+<script src="/bootstrap-4.5.2-dist/js/bootstrap.min.js"
+        th:src="@{/bootstrap-4.5.2-dist/css/bootstrap.min.css}"></script>
+<script src="/bootstrap-4.5.2-dist/js/bootstrap.bundle.min.js"
+        th:src="@{/bootstrap-4.5.2-dist/js/bootstrap.bundle.min.js}"></script>
+<script src="/bootstrap-4.5.2-dist/fontawesome/js/all.js" th:src="@{/bootstrap-4.5.2-dist/fontawesome/js/all.js}"></script>
 <script>
     function callModal1(id) {
         document.getElementById("modalDelete").href="/customer/deleteConfirm/"+id;
-
+        document.getElementById("customerName").innerHTML=id;
     }
 </script>
 
-<script src="/bootstrap-4.5.2-dist/fontawesome/js/all.js" th:src="@{/bootstrap-4.5.2-dist/fontawesome/js/all.js}"></script>
-<script src="https://kit.fontawesome.com/a076d05399.js"></script>
-<script src="/bootstrap-4.5.2-dist/js/bootstrap.bundle.min.js"
-        th:src="@{/bootstrap-4.5.2-dist/js/bootstrap.bundle.min.js}"></script>
-<script src="/bootstrap-4.5.2-dist/jquery-3.5.1.min.js" th:href="@{/bootstrap-4.5.2-dist/jquery-3.5.1.min.js}"></script>
-<script src="/bootstrap-4.5.2-dist/js/bootstrap.min.js"
-        th:href="@{/bootstrap-4.5.2-dist/css/bootstrap.min.css}"></script>
+<script type="text/javascript">
+    window.setTimeout(function () {
+        $(".alert").fadeTo(500, 0).slideUp(500, function () {
+            $(this).remove();
+        });
+    }, 2000);
+
+    $(document).ready(function () {
+        $('#inputSearch').on('keyup', function () {
+            let value = $(this).val().toLowerCase();
+            $('#myTable tr').filter(function () {
+                $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+            });
+        });
+    });
+</script>
+<script>
+    if ($(".validate").val() =='true') {
+        $("#elegantModalForm").modal("show");
+    }
+</script>
+<script>
+    $(document).ready(function () {
+        $("#birthday").datepicker({dateFormat: "dd/mm/yy"});
+    });
+</script>
 </html>
