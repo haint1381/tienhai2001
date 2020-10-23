@@ -85,7 +85,7 @@
                             th:data-user_create="${question.userCreate}"
                             th:data-user_feedback="${question.userFeedback}"
                             th:data-status="${question.status}">
-                  <a href="" class="btn btn-default btn-rounded mb-4 " data-toggle="modal" data-target="#modalLoginForm" id="detail" onclick="callModalDetail(this.id)" th:id="${product.productId}">
+                  <a href="" class="btn btn-default btn-rounded mb-4 " data-toggle="modal" data-target="#modalLoginForm" id="detail">
                         <i class="fas fa-info-circle" style="color: #1e7e34"></i></a>
                     </span>&nbsp;&nbsp;&nbsp;
                     <button type="button" style="border-radius: 5px;border: 1px solid red" data-toggle="modal"
@@ -211,6 +211,8 @@
         document.getElementById("modalDelete").href = "/question/delete/" + id;
         document.getElementById("productName1").innerHTML = id;
     }
+
+
 </script>
 <script>
     $(".detail").click(function () {
