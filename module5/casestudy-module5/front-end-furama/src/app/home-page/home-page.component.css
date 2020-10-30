@@ -1,0 +1,8 @@
+#home-page{
+  background-image:url('https://i.pinimg.com/originals/26/83/c3/2683c38bd391dae5c20f5488bec5ad16.jpg');
+}
+/* Make the image fully responsive */
+.carousel-inner img {
+  width:450px;
+  height: 450px;
+}

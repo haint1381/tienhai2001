@@ -1,0 +1,124 @@
+<app-common></app-common>
+<div class="create-all container-fluid" >
+<div class="form-label-group">
+  <div class="row">
+    <div class="col-md-2" style="text-align: center;padding-top: 5px">Type Service:</div>
+    <div class="col-md-10">
+      <select id="typeService" class="form-control"
+              onchange="displayHiddenItem()">
+        <option></option>
+      </select>
+    </div>
+  </div>
+</div>
+<div class="form-label-group">
+  <div class="row">
+    <div class="col-md-2" style="text-align: center;padding-top: 5px">Id:</div>
+    <div class="col-md-10"><input type="text" class="form-control" id="id"></div>
+  </div>
+</div>
+<br>
+<div class="form-label-group">
+  <div class="row">
+    <div class="col-md-2" style="text-align: center;padding-top: 5px">Name:</div>
+    <div class="col-md-10"><input type="text" class="form-control" id="name"></div>
+  </div>
+</div>
+<br>
+<div class="form-label-group">
+  <div class="row">
+    <div class="col-md-2" style="text-align: center;padding-top: 5px">Area:</div>
+    <div class="col-md-10"><input type="text" class="form-control" id="area"></div>
+  </div>
+</div>
+<br>
+<div class="form-label-group">
+  <div class="row">
+    <div class="col-md-2" style="text-align: center;padding-top: 5px">Cost:</div>
+    <div class="col-md-10"><input type="text" class="form-control" id="cost"></div>
+  </div>
+</div>
+<br>
+<div class="form-label-group">
+  <div class="row">
+    <div class="col-md-2" style="text-align: center;padding-top: 5px">Max PeoPle:</div>
+    <div class="col-md-10"><input type="text" class="form-control" id="maxPeople"></div>
+  </div>
+</div>
+<br>
+<div class="form-label-group">
+  <div class="row">
+    <div class="col-md-2" style="text-align: center;padding-top: 5px">Rent Type:</div>
+    <div class="col-md-10">
+      <select id="rentType" class="form-control">
+        <option></option>
+      </select>
+    </div>
+  </div>
+</div>
+<br>
+<div class="form-label-group" id="hiden1">
+  <div class="row">
+    <div class="col-md-2" style="text-align: center;padding-top: 5px">Standard Room:</div>
+    <div class="col-md-10"><input type="text" class="form-control" id="standardRoom"></div>
+  </div>
+</div>
+<br>
+<div class="form-label-group" id="hiden2">
+  <div class="row">
+    <div class="col-md-2" style="text-align: center;padding-top: 5px">Description:</div>
+    <div class="col-md-10"><input type="text" class="form-control" id="description"></div>
+  </div>
+</div>
+<br>
+<div class="form-label-group" id="hiden3">
+  <div class="row">
+    <div class="col-md-2" style="text-align: center;padding-top: 5px">Pool-Area:</div>
+    <div class="col-md-10"><input type="text" class="form-control" id="areaPool123"></div>
+  </div>
+</div>
+<br>
+<div class="form-label-group" id="hiden4">
+  <div class="row">
+    <div class="col-md-2" style="text-align: center;padding-top: 5px">Number Of Floors:</div>
+    <div class="col-md-10"><input type="text" class="form-control" id="numberFloor"></div>
+  </div>
+</div>
+<br>
+<div class="text-center mb-3">
+  <button type="submit" style="background: #9fcdff"
+          class="btn blue-gradient btn-block btn-rounded z-depth-1a">Add Service
+  </button>
+</div>
+<!--Footer-->
+<div class="modal-footer mx-5 pt-3 mb-1">
+  <p class="font-small grey-text d-flex justify-content-end">Support? <a href="#"
+                                                                         class="blue-text ml-1">
+    @NguyenTienHai</a></p>
+</div>
+</div>
+<script>
+  function displayHiddenItem() {
+    let typeService = document.getElementById("typeService").value;
+    let standard = document.getElementById("hiden1");
+    let description = document.getElementById("hiden2");
+    let areaPool = document.getElementById("hiden3");
+    let numberFloor = document.getElementById("hiden4");
+    if (typeService === '1') {
+      standard.style.display = "block";
+      description.style.display = "block";
+      numberFloor.style.display = "block";
+      areaPool.style.display = "block";
+    } else if (typeService === '2') {
+      standard.style.display = "block";
+      description.style.display = "block";
+      numberFloor.style.display = "block";
+      areaPool.style.display = "none";
+    } else if (typeService === '3') {
+      standard.style.display = "none";
+      description.style.display = "none";
+      areaPool.style.display = "none";
+      numberFloor.style.display = "none";
+    }
+  }
+</script>

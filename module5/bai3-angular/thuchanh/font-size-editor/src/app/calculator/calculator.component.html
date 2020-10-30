@@ -1,0 +1,39 @@
+<div class="row">
+  <div class="col-md-2"></div>
+  <div class="col-md-4"><h1 style="color: #1e7e34">Calculator</h1></div>
+  <div class="col-md-6"></div>
+</div>
+<div class="row">
+  <div class="col-md-2"></div>
+  <div class="col-md-4">
+    <table class="table table-striped">
+      <thead>
+      <tr>
+        <th>Number1</th>
+        <th>
+          <select [value]="operator"
+                  (change)="onSelectChange($event.target.value)">>
+            <option>+</option>
+            <option>-</option>
+            <option>x</option>
+            <option>/</option>
+          </select>
+        </th>
+        <th>Number2</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr>
+        <td scope="row"><input type="number" class="form-input"
+                               [(ngModel)]="first"></td>
+        <td></td>
+        <td><input type="number" class="form-input"
+                   [(ngModel)]="second"></td>
+      </tr>
+      </tbody>
+    </table>
+    <button  class="btn badge-primary" (click)="calculate()">Output</button>
+    <textarea >{{output}}</textarea>
+  </div>
+  <div class="col-md-6"></div>
+</div>
